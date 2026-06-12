@@ -62,6 +62,14 @@ def test_back_matter_quotes_rejected(result):
     assert accepted_22_8 == []  # section 22 pages not in fixture
 
 
+def test_page_split_paragraph_merged(result):
+    """4.4A breaks across pages 69/70; its continuation arrives as a plain
+    text-block at the top of page 70 and must be merged back in."""
+    p44a = next(r for r in result.records if r.reference == "4.4A")
+    assert p44a.text.endswith("notes to the financial statements.")
+    assert "4.4A" in result.page_split_merges
+
+
 def test_reconciliation_identity(result):
     accounted = (
         len(result.records) + len(result.merged_continuations) + len(result.excluded)

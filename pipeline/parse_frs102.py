@@ -19,6 +19,14 @@ against the real files (Phase 0 structural report):
   (Appendix C to Section 1A), 34A.6, 23A.12.
 - A paragraph split across a page break can yield two blocks with the same id
   under the same live section; these are merged with a continuation log entry.
+- More commonly, a page-split paragraph continues as a PLAIN text-block at the
+  top of the next page (no paragraph-id). Detection: the paragraph is the last
+  non-furniture block on its page, its text ends without terminal punctuation,
+  and the next page's first non-furniture block is a text-block starting with
+  a lowercase letter, digit or '('. Verified against the real files: 12 such
+  splits in the 2022 edition, 14 in 2024 (e.g. 4.4A, 21.16, 23.41).
+  Known limitation: a split paragraph followed by a footnote at the foot of the
+  same page would not be detected (no such case found in either edition).
 """
 
 from __future__ import annotations
@@ -58,6 +66,7 @@ class ParseResult:
     records: list[ParagraphRecord]
     excluded: list[Excluded]  # numbered-paragraph blocks only
     merged_continuations: list[str]
+    page_split_merges: list[str] = field(default_factory=list)
     heading_anomalies: list[Excluded] = field(default_factory=list)
     numbered_block_count: int = 0
     section_titles: dict[str, str] = field(default_factory=dict)
@@ -94,6 +103,28 @@ def _is_page_footer(pid: str, body_text: str) -> bool:
     return bool(re.fullmatch(r"FRS 102( \([A-Za-z]+ \d{4}\))?", rest))
 
 
+def _is_furniture(block: ET.Element) -> bool:
+    """Headers/footers carrying no paragraph content."""
+    btype = block.get("type", "")
+    text = block.text or ""
+    if btype == "numbered-paragraph":
+        pid = block.get("paragraph-id", "")
+        return "." not in pid and _is_page_footer(pid, text.removeprefix(pid))
+    if btype == "text-block":
+        t = normalize_text(text)
+        return (not t or t.isdigit()
+                or bool(re.match(r"^(Financial Reporting Council|FRS 102 \()", t)))
+    return False
+
+
+_ENDS_CLOSED_RE = re.compile(r"[.;:]['\")\]]?$")
+_CONTINUATION_START_RE = re.compile(r"^[a-z(0-9]")
+
+
+def _ends_open(text: str) -> bool:
+    return not _ENDS_CLOSED_RE.search(text)
+
+
 def parse_file(path: str | Path) -> ParseResult:
     root = ET.parse(path).getroot()
     edition_raw = root.get("edition", "")
@@ -113,11 +144,33 @@ def parse_file(path: str | Path) -> ParseResult:
     if body is None:
         raise ValueError("no <body> element")
 
+    carry: ParagraphRecord | None = None  # open paragraph from the previous page
+
     for page in body:
         page_no = int(page.get("number", "0"))
-        for block in page:
+        blocks = list(page)
+        nonfurn_idx = [i for i, b in enumerate(blocks) if not _is_furniture(b)]
+        first_nf = nonfurn_idx[0] if nonfurn_idx else -1
+        last_nf = nonfurn_idx[-1] if nonfurn_idx else -1
+        page_tail: ParagraphRecord | None = None
+
+        for i, block in enumerate(blocks):
             btype = block.get("type", "")
             text = block.text or ""
+
+            if i == first_nf and carry is not None:
+                merged = False
+                if btype == "text-block":
+                    cont = normalize_text(text)
+                    if cont and _CONTINUATION_START_RE.match(cont):
+                        carry.text = carry.text + " " + cont
+                        result.page_split_merges.append(carry.reference)
+                        if i == last_nf and _ends_open(cont):
+                            page_tail = carry  # chain may continue on next page
+                        merged = True
+                carry = None
+                if merged:
+                    continue
 
             if btype == "section-heading":
                 sec = block.get("section", "")
@@ -173,6 +226,8 @@ def parse_file(path: str | Path) -> ParseResult:
                 if pid in by_ref:
                     by_ref[pid].text += " " + body_text
                     result.merged_continuations.append(pid)
+                    if i == last_nf and _ends_open(body_text):
+                        page_tail = by_ref[pid]
                     continue
 
                 section_label = f"Section {current_section}"
@@ -195,6 +250,10 @@ def parse_file(path: str | Path) -> ParseResult:
                 )
                 by_ref[pid] = record
                 result.records.append(record)
+                if i == last_nf and _ends_open(body_text):
+                    page_tail = record
+
+        carry = page_tail
 
     return result
 
@@ -205,8 +264,10 @@ def reconciliation_report(result: ParseResult, source_name: str) -> str:
         "",
         f"Numbered-paragraph blocks in source: {result.numbered_block_count}",
         f"Accepted paragraph records:          {len(result.records)}",
-        f"Merged page-split continuations:     {len(result.merged_continuations)}"
+        f"Merged same-id continuations:        {len(result.merged_continuations)}"
         + (f"  ({', '.join(result.merged_continuations)})" if result.merged_continuations else ""),
+        f"Merged page-split text-blocks:       {len(result.page_split_merges)}"
+        + (f"  ({', '.join(result.page_split_merges)})" if result.page_split_merges else ""),
         f"Excluded blocks:                     {len(result.excluded)}",
         "",
         "Accounting identity: accepted + merged + excluded "
