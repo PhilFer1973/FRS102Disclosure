@@ -1,4 +1,4 @@
-"""Section-batched checklist drafting. Pilot scope: FRS 102 Section 4 only.
+﻿"""Section-batched checklist drafting. Pilot scope: FRS 102 Section 4 only.
 
 Two passes over a section's paragraphs (both editions, using the edition diff):
 1. Classification (Haiku): para_type per paragraph. 'disclosure' covers both
@@ -255,7 +255,7 @@ def run_section(section: str, out_md: Path, out_jsonl: Path,
 
 def _render_markdown(section, classifications, drafted, proposed_facts, client) -> str:
     lines = [
-        f"# Section {section} — draft checklist rows (PILOT)",
+        f"# Section {section} — draft checklist rows (DRAFT)",
         "",
         "Status of every row below: **draft**. Nothing is active until Phil reviews.",
         "All trigger fact keys are **NEW** proposals (fact registry is empty).",
