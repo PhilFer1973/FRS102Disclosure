@@ -28,7 +28,8 @@ CLASSIFY_SCHEMA = {
     "properties": {
         "para_type": {
             "type": "string",
-            "enum": ["disclosure", "recognition_measurement", "scope_transition", "other"],
+            "enum": ["disclosure", "presentation", "recognition_measurement",
+                     "scope_transition", "other"],
         },
         "rationale": {"type": "string"},
     },
@@ -40,10 +41,11 @@ CLASSIFY_SYSTEM = """\
 You classify paragraphs of FRS 102 (UK GAAP) for a disclosure-checklist pipeline.
 
 Assign exactly one para_type:
-- disclosure: requires information to be disclosed, presented, or shown in the
-  financial statements or notes. INCLUDES presentation/format requirements
-  (e.g. "shall present line items in this order", "shall distinguish X from Y
-  on the face of the statement").
+- disclosure: requires information to be given in the notes or within the
+  financial statements (amounts, narrative, analyses).
+- presentation: governs the format, structure, ordering or face-of-statement
+  placement of items (e.g. "shall present line items in this order", "shall
+  distinguish X from Y on the face of the statement").
 - recognition_measurement: governs whether/when items are recognised or how
   they are measured.
 - scope_transition: scope of the section, effective date, or transitional
@@ -51,8 +53,8 @@ Assign exactly one para_type:
 - other: definitions, cross-references without their own requirement, guidance
   that imposes no requirement.
 
-If a paragraph contains both recognition/measurement AND disclosure content,
-choose disclosure. Keep rationale to one sentence.
+If a paragraph mixes categories, prefer disclosure over presentation, and
+either of those over recognition_measurement. Keep rationale to one sentence.
 """
 
 ROW_SCHEMA = {
@@ -112,18 +114,37 @@ requirements). Fields:
   presents_separate_income_statement). Invent the minimal set needed.
 - direction: 'missing' = flag when required but absent; 'untriggered' = flag
   when present but the trigger is false; 'both' where each applies.
-- severity: 'statutory' ONLY where the requirement is materiality-blind company
-  law (rare for FRS 102 text itself); 'standard-material' for normal FRS 102
-  requirements; 'standard-immaterial-candidate' for items routinely immaterial.
+- severity: 'statutory' where the requirement is materiality-blind company law
+  OR restates / is directly underpinned by a Companies Act or Regulations
+  requirement (e.g. balance sheet formats — reviewer decision, Section 4 pilot);
+  'standard-material' for normal FRS 102 requirements; 'standard-immaterial-
+  candidate' for items routinely immaterial.
 - review_notes: one sentence flagging anything the human reviewer should check
   (judgement made, ambiguity, interaction with company law).
 
-The fact registry is currently EMPTY: every fact key you use is a new proposal.
+FACT KEY REUSE: a list of already-proposed fact keys may follow. If a condition
+you need is semantically identical to an existing key, you MUST reuse that key
+verbatim rather than inventing a new spelling. Only propose a new key when no
+existing key covers the condition.
 """
 
 
 def _families(reference: str) -> str:
     return reference.partition(".")[0]
+
+
+def _known_fact_keys(exclude_jsonl: Path) -> set[str]:
+    """Fact keys already proposed by previous section batches (build/section_*
+    row files), so the drafter reuses them instead of inventing new spellings."""
+    keys: set[str] = set()
+    for path in Path("build").glob("section_*_rows.jsonl"):
+        if path.resolve() == exclude_jsonl.resolve():
+            continue
+        with path.open(encoding="utf-8") as fh:
+            for line in fh:
+                if line.strip():
+                    keys.update(json.loads(line).get("trigger_facts", []))
+    return keys
 
 
 def _ref_sort_key(reference: str) -> list[tuple[int, str]]:
@@ -170,17 +191,23 @@ def run_section(section: str, out_md: Path, out_jsonl: Path) -> None:
                 CLASSIFY_SCHEMA, max_tokens=300)
             classifications[(ref, edition)] = result
 
-    # --- Pass 2: drafting (Sonnet) for disclosure paragraphs ------------------
+    # --- Pass 2: drafting (Sonnet) for disclosure/presentation paragraphs ----
     drafted: list[dict] = []
     proposed_facts: dict[str, list[str]] = defaultdict(list)
+    known_keys = _known_fact_keys(exclude_jsonl=out_jsonl)
     for (ref, edition), cls in classifications.items():
-        if cls["para_type"] != "disclosure":
+        if cls["para_type"] not in ("disclosure", "presentation"):
             continue
         text = (recs_2022 if edition != "PR2024" else recs_2024)[ref].text
         diff_note = f"Edition diff status for {ref}: {diff[ref]['status']}."
+        keys_in_play = sorted(known_keys | set(proposed_facts))
+        keys_note = ("Already-proposed fact keys (reuse where semantically "
+                     "identical):\n" + "\n".join(f"- {k}" for k in keys_in_play)
+                     if keys_in_play else "No fact keys proposed yet.")
         result = client.complete_json(
             "draft", DRAFT_SYSTEM,
             f"{diff_note}\nThis row set applies to edition: {edition}.\n\n"
+            f"{keys_note}\n\n"
             f"Paragraph {ref} of FRS 102 (Section {section}):\n\n{text}",
             ROW_SCHEMA, max_tokens=2000)
         for row in result["rows"]:
