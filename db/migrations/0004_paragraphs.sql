@@ -9,7 +9,8 @@ create table paragraphs (
     reference  text not null,
     edition    text not null check (edition in ('pre-PR2024', 'PR2024', 'both')),
     para_type  text check (para_type in
-                   ('disclosure', 'recognition_measurement', 'scope_transition', 'other')),
+                   ('disclosure', 'presentation', 'recognition_measurement',
+                    'scope_transition', 'other')),
     text       text not null,
     hierarchy  text[] not null default '{}',
     embedding  vector(1024),
