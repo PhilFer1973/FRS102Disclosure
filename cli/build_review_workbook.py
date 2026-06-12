@@ -59,6 +59,10 @@ INSTRUCTIONS = [
     ("Sheet 'Fact keys' — the proposed fact registry. For each key set", False),
     ("KEEP / RENAME / MERGE / DROP; for RENAME or MERGE fill the next column.", False),
     ("", False),
+    ("Sheet 'Dropped rows' (if present) — rows the auto-amend pass proposes to", False),
+    ("remove because the cited paragraph imposes no such requirement. Confirm", False),
+    ("each with CONFIRM DROP or REINSTATE; nothing is deleted without you.", False),
+    ("", False),
     ("Nothing becomes active from this workbook — verdicts are ingested back", False),
     ("into the draft rows, and activation only happens after your sign-off.", False),
 ]
@@ -77,16 +81,16 @@ def _ref_sort_key(reference: str) -> list[tuple[int, str]]:
     return key
 
 
-def load_data() -> tuple[list[dict], dict[str, dict]]:
+def load_data(rows_dir: str = "build") -> tuple[list[dict], dict[str, dict]]:
     rows = []
-    for path in sorted(Path("build").glob("section_*_rows.jsonl")):
+    for path in sorted(Path(rows_dir).glob("section_*_rows.jsonl")):
         section = path.stem.removeprefix("section_").removesuffix("_rows")
         with path.open(encoding="utf-8") as fh:
             for n, line in enumerate(fh):
                 if line.strip():
                     row = json.loads(line)
-                    row["_section"] = section
-                    row["_row_id"] = f"{section}-{n:03d}"
+                    row.setdefault("_section", section)
+                    row.setdefault("_row_id", f"{section}-{n:03d}")
                     rows.append(row)
     challenges: dict[str, dict] = {}
     ch_path = Path("build/challenge_results.jsonl")
@@ -132,9 +136,22 @@ def _style_header(ws, headers: list[str], widths: list[int]) -> None:
     ws.row_dimensions[1].height = 28
 
 
+def _base_id(row_id: str) -> str:
+    return re.sub(r"-s\d+$", "", row_id)
+
+
 def main() -> None:
-    rows, challenges = load_data()
-    rows.sort(key=lambda r: (risk_rank(r, challenges.get(r["_row_id"])),
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--rows-dir", default="build",
+                    help="build for v1 rows, build/rows_v2 for amended rows")
+    ap.add_argument("--out", default="review/checklist_review.xlsx")
+    args = ap.parse_args()
+    v2 = "rows_v2" in args.rows_dir
+
+    rows, challenges = load_data(args.rows_dir)
+    rows.sort(key=lambda r: (risk_rank(r, challenges.get(_base_id(r["_row_id"]))),
                              _section_sort_key(r["_section"]),
                              _ref_sort_key(r["reference"])))
 
@@ -150,15 +167,22 @@ def main() -> None:
 
     # --- Checklist rows -------------------------------------------------------
     ws = wb.create_sheet("Checklist rows")
-    _style_header(ws, ROW_HEADERS, ROW_WIDTHS)
+    headers = list(ROW_HEADERS)
+    if v2:
+        headers[5] = "Changes made (auto-amend)"
+    _style_header(ws, headers, ROW_WIDTHS)
     body_font = Font(name=FONT, size=10)
     wrap = Alignment(vertical="top", wrap_text=True)
     for r, row in enumerate(rows, start=2):
-        ch = challenges.get(row["_row_id"], {})
-        issues = "; ".join(
-            f"[{i['aspect']}/{i.get('materiality', '?')}] {i['problem']} "
-            f"-> {i['suggestion']}"
-            for i in ch.get("issues", []))
+        ch = challenges.get(_base_id(row["_row_id"]), {})
+        if v2:
+            issues = row.get("change_summary", "") if row.get("amended") \
+                else "(unchanged — challenge found nothing material)"
+        else:
+            issues = "; ".join(
+                f"[{i['aspect']}/{i.get('materiality', '?')}] {i['problem']} "
+                f"-> {i['suggestion']}"
+                for i in ch.get("issues", []))
         values = [row["_row_id"], row["_section"], row["reference"], row["edition"],
                   ch.get("grade", ch.get("verdict", "n/a")), issues,
                   row["requirement_text"],
@@ -187,13 +211,22 @@ def main() -> None:
     for row in rows:
         for key in row["trigger_facts"]:
             usage[key].append(row)
+    merge_target: dict[str, str] = {}
+    proposals_path = Path("build/key_merge_proposals.json")
+    if proposals_path.exists():
+        proposals = json.loads(proposals_path.read_text(encoding="utf-8"))
+        for group in proposals["groups"]:
+            for member in group["members"]:
+                if member != group["canonical"]:
+                    merge_target[member] = group["canonical"]
     ws = wb.create_sheet("Fact keys")
     _style_header(ws, KEY_HEADERS, KEY_WIDTHS)
     ordered = sorted(usage.items(), key=lambda kv: (-len(kv[1]), kv[0]))
     for r, (key, used_by) in enumerate(ordered, start=2):
         sections = sorted({u["_section"] for u in used_by}, key=_section_sort_key)
         refs = sorted({u["reference"] for u in used_by}, key=_ref_sort_key)
-        values = [key, len(used_by), ", ".join(sections), ", ".join(refs), "", "", ""]
+        values = [key, len(used_by), ", ".join(sections), ", ".join(refs), "",
+                  merge_target.get(key, ""), ""]
         for c, value in enumerate(values, start=1):
             cell = ws.cell(row=r, column=c, value=value)
             cell.font = body_font
@@ -206,11 +239,38 @@ def main() -> None:
     ws.auto_filter.ref = f"A1:G{n_keys}"
     ws.freeze_panes = "B2"
 
-    out = Path("review/checklist_review.xlsx")
+    # --- Dropped rows (v2 only) -----------------------------------------------
+    dropped_path = Path(args.rows_dir) / "dropped.jsonl"
+    n_dropped = 0
+    if dropped_path.exists():
+        ws = wb.create_sheet("Dropped rows")
+        headers = ["Row ID", "Section", "Reference", "Edition",
+                   "Original requirement text", "Drop reason",
+                   "YOUR VERDICT", "YOUR COMMENTS"]
+        _style_header(ws, headers, [10, 9, 11, 12, 60, 55, 16, 35])
+        with dropped_path.open(encoding="utf-8") as fh:
+            dropped_rows = [json.loads(line) for line in fh if line.strip()]
+        for r, d in enumerate(dropped_rows, start=2):
+            values = [d["_row_id"], d["_section"], d["reference"], d["edition"],
+                      d["requirement_text"], d["drop_reason"], "", ""]
+            for c, value in enumerate(values, start=1):
+                cell = ws.cell(row=r, column=c, value=value)
+                cell.font = body_font
+                cell.alignment = wrap
+        n_dropped = len(dropped_rows)
+        drop_dv = DataValidation(type="list", formula1='"CONFIRM DROP,REINSTATE"',
+                                 allow_blank=True, showDropDown=False)
+        ws.add_data_validation(drop_dv)
+        drop_dv.add(f"G2:G{n_dropped + 1}")
+        ws.auto_filter.ref = f"A1:H{n_dropped + 1}"
+        ws.freeze_panes = "B2"
+
+    out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     wb.save(out)
-    disputed = sum(1 for c in challenges.values() if c.get("verdict") == "disputed")
-    print(f"{out}: {len(rows)} rows ({disputed} disputed), {len(ordered)} fact keys")
+    amended = sum(1 for r in rows if r.get("amended"))
+    print(f"{out}: {len(rows)} rows ({amended} amended, {n_dropped} dropped for "
+          f"confirmation), {len(ordered)} fact keys")
 
 
 if __name__ == "__main__":
