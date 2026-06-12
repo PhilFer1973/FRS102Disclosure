@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from dataclasses import dataclass, field
 
 import anthropic
@@ -62,11 +63,55 @@ class LLMClient:
         text = "".join(b.text for b in response.content if b.type == "text")
         return json.loads(text)
 
-    def _record(self, role: str, model: str, response: anthropic.types.Message) -> None:
+    def complete_json_batch(self, role: str, system: str, items: list[tuple[str, str]],
+                            schema: dict, max_tokens: int = 300,
+                            poll_seconds: int = 20) -> dict[str, dict]:
+        """Bulk structured-output calls via the Message Batches API (50% price).
+        items: (custom_id, user_text) pairs; custom_id must be [A-Za-z0-9_-]{1,64}.
+        Returns custom_id -> parsed JSON ({'_error': type} for failed requests)."""
+        model = MODELS[role]
+        requests = [
+            {
+                "custom_id": cid,
+                "params": {
+                    "model": model,
+                    "max_tokens": max_tokens,
+                    "system": system,
+                    "messages": [{"role": "user", "content": user}],
+                    "output_config": {"format": {"type": "json_schema", "schema": schema}},
+                },
+            }
+            for cid, user in items
+        ]
+        batch = self._client.messages.batches.create(requests=requests)
+        print(f"batch {batch.id}: {len(items)} requests submitted", flush=True)
+        while True:
+            batch = self._client.messages.batches.retrieve(batch.id)
+            if batch.processing_status == "ended":
+                break
+            counts = batch.request_counts
+            print(f"  ...processing ({counts.processing} pending, "
+                  f"{counts.succeeded} ok, {counts.errored} err)", flush=True)
+            time.sleep(poll_seconds)
+        out: dict[str, dict] = {}
+        for res in self._client.messages.batches.results(batch.id):
+            if res.result.type == "succeeded":
+                msg = res.result.message
+                self._record(role, model, msg, batch_discount=True)
+                text = "".join(b.text for b in msg.content if b.type == "text")
+                out[res.custom_id] = json.loads(text)
+            else:
+                out[res.custom_id] = {"_error": res.result.type}
+        return out
+
+    def _record(self, role: str, model: str, response: anthropic.types.Message,
+                batch_discount: bool = False) -> None:
         in_tok = response.usage.input_tokens
         out_tok = response.usage.output_tokens
         price_in, price_out = PRICES_USD_PER_MTOK[model]
         cost = (in_tok * price_in + out_tok * price_out) / 1_000_000
+        if batch_discount:
+            cost *= 0.5
         self.calls.append(CallRecord(role, model, in_tok, out_tok, cost))
 
     def usage_summary(self) -> str:

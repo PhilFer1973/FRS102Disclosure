@@ -156,7 +156,26 @@ def _ref_sort_key(reference: str) -> list[tuple[int, str]]:
     return key
 
 
-def run_section(section: str, out_md: Path, out_jsonl: Path) -> None:
+def _load_para_types() -> dict[tuple[str, str], dict]:
+    """(edition, reference) -> classification, from the bulk batch pass if run."""
+    path = Path("build/para_types.jsonl")
+    if not path.exists():
+        return {}
+    out: dict[tuple[str, str], dict] = {}
+    with path.open(encoding="utf-8") as fh:
+        for line in fh:
+            if line.strip():
+                row = json.loads(line)
+                if row.get("para_type"):
+                    out[(row["edition"], row["reference"])] = {
+                        "para_type": row["para_type"],
+                        "rationale": row.get("rationale", ""),
+                    }
+    return out
+
+
+def run_section(section: str, out_md: Path, out_jsonl: Path,
+                client: LLMClient | None = None) -> LLMClient:
     recs_2022 = {r.reference: r for r in read_jsonl("build/frs102_2022.jsonl")
                  if _families(r.reference) == section}
     recs_2024 = {r.reference: r for r in read_jsonl("build/frs102_2024.jsonl")
@@ -166,11 +185,12 @@ def run_section(section: str, out_md: Path, out_jsonl: Path) -> None:
              Path("build/edition_diff.jsonl").open(encoding="utf-8"))
             if row["family"] == section}
 
-    client = LLMClient()
+    client = client or LLMClient()
+    para_types = _load_para_types()
 
-    # --- Pass 1: classification (Haiku) -------------------------------------
-    # Classify each distinct (reference, text) once: unchanged paragraphs get a
-    # single call; amended ones get one call per edition.
+    # --- Pass 1: classification ----------------------------------------------
+    # Prefer the bulk batch pass (build/para_types.jsonl); fall back to inline
+    # Haiku calls for anything not covered.
     classifications: dict[tuple[str, str], dict] = {}  # (ref, edition) -> result
     for ref in sorted(diff, key=_ref_sort_key):
         status = diff[ref]["status"]
@@ -185,11 +205,14 @@ def run_section(section: str, out_md: Path, out_jsonl: Path) -> None:
         else:  # new
             variants = [("PR2024", recs_2024[ref].text)]
         for edition, text in variants:
-            result = client.complete_json(
-                "classify", CLASSIFY_SYSTEM,
-                f"Paragraph {ref} of FRS 102:\n\n{text}",
-                CLASSIFY_SCHEMA, max_tokens=300)
-            classifications[(ref, edition)] = result
+            lookup = ("pre-PR2024", ref) if edition == "both" else (edition, ref)
+            cached = para_types.get(lookup)
+            if cached is None:
+                cached = client.complete_json(
+                    "classify", CLASSIFY_SYSTEM,
+                    f"Paragraph {ref} of FRS 102:\n\n{text}",
+                    CLASSIFY_SCHEMA, max_tokens=300)
+            classifications[(ref, edition)] = cached
 
     # --- Pass 2: drafting (Sonnet) for disclosure/presentation paragraphs ----
     drafted: list[dict] = []
@@ -227,6 +250,7 @@ def run_section(section: str, out_md: Path, out_jsonl: Path) -> None:
     out_md.parent.mkdir(parents=True, exist_ok=True)
     out_md.write_text(md, encoding="utf-8")
     print(md)
+    return client
 
 
 def _render_markdown(section, classifications, drafted, proposed_facts, client) -> str:
