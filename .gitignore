@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Tier 3 eval corpus may contain real client data — never commit contents
+corpus/tier3/*
+!corpus/tier3/.gitkeep
+
+# Generated pipeline artifacts (reproducible from corpus)
+build/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/

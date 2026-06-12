@@ -1,0 +1,832 @@
+<?xml version='1.0' encoding='utf-8'?>
+<frs102-factsheet factsheet-number="11" title="Lease accounting for lessees" publication-date="2024-11" source-format="PDF" conversion-status="machine-extracted-first-pass">
+  <metadata>
+    <publisher>Financial Reporting Council</publisher>
+    <source-file>FRS102 Factsheet Lease accounting for lessees.pdf</source-file>
+    <page-count>23</page-count>
+    <related-standard>FRS 102 Section 20</related-standard>
+    <notice>This XML is a machine-extracted derivative of the supplied FRC factsheet. It is not an official FRC XML publication and should be checked against the source PDF.</notice>
+  </metadata>
+  <body>
+    <page number="1" width="595.32" height="841.92">
+      <block index="2" x0="28.38" y0="223.71" x1="343.16" y1="263.69" type="text-block">FRS 102 Factsheet 11</block>
+      <block index="3" x0="150.92" y0="304.10" x1="439.42" y1="332.48" type="text-block">Lease accounting for lessees</block>
+      <block index="4" x0="465.58" y0="772.03" x1="553.91" y1="787.50" type="text-block">November 2024</block>
+    </page>
+    <page number="2" width="595.32" height="841.92">
+      <block index="2" x0="41.58" y0="65.89" x1="517.32" y1="129.38" type="table-or-financial-data-block">This factsheet has been prepared by FRC staff to aid preparers in applying the lessee
+requirements of Section 20 Leases of FRS 102. It should not be relied upon as a definitive
+statement on the application of the standard nor is it a substitute for reading the detailed
+requirements of FRS 102.</block>
+      <block index="19" x0="34.02" y0="492.05" x1="563.63" y1="555.40" type="text-block">The FRC does not accept any liability to any party for any loss, damage or costs howsoever arising,
+whether directly or indirectly, whether in contract, tort or otherwise from any action or decision
+taken (or not taken) as a result of any person relying on or otherwise using this document or arising
+from any omission from it.</block>
+      <block index="20" x0="34.02" y0="561.95" x1="537.55" y1="593.38" type="text-block">This document contains copyright material of the IFRS® Foundation (Foundation) in respect of
+which all rights are reserved.</block>
+      <block index="21" x0="34.02" y0="599.87" x1="501.53" y1="647.28" type="text-block">No rights are granted to third parties other than as permitted by the Terms of Use
+(www.frc.org.uk/FRStermsofuse) without the prior written permission of the FRC and the
+Foundation.</block>
+      <block index="22" x0="34.02" y0="653.77" x1="554.69" y1="701.16" type="text-block">Material issued in respect of the application of Financial Reporting Standards in the UK and the
+Republic of Ireland has not been prepared or endorsed by the International Accounting Standards
+Board.</block>
+      <block index="23" x0="34.02" y0="707.65" x1="289.93" y1="723.12" type="text-block">© The Financial Reporting Council Limited 2024</block>
+      <block index="24" x0="34.02" y0="729.61" x1="435.03" y1="777.00" type="table-or-financial-data-block">The Financial Reporting Council Limited is a company limited by guarantee.
+Registered in England number 2486368. Registered Office:
+8th Floor, 125 London Wall, London EC2Y 5AS</block>
+      <block index="26" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+1</block>
+    </page>
+    <page number="3" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="131.80" y1="90.42" type="text-block">Contents</block>
+      <block index="3" x0="538.26" y0="97.31" x1="564.13" y1="110.22" type="text-block">Page</block>
+      <block index="4" x0="34.02" y0="128.13" x1="563.29" y1="143.60" type="table-or-financial-data-block">1.
+Introduction
+3</block>
+      <block index="5" x0="34.02" y0="158.61" x1="563.29" y1="174.08" type="table-or-financial-data-block">2.
+Recognition exemptions
+5</block>
+      <block index="6" x0="34.02" y0="189.09" x1="563.29" y1="204.56" type="table-or-financial-data-block">3.
+Identifying a lease
+7</block>
+      <block index="7" x0="34.02" y0="219.51" x1="563.29" y1="234.98" type="table-or-financial-data-block">4.
+Lease term
+11</block>
+      <block index="8" x0="34.02" y0="249.99" x1="563.29" y1="265.46" type="table-or-financial-data-block">5.
+Measurement
+13</block>
+      <block index="12" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+2</block>
+    </page>
+    <page number="4" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="206.26" y1="90.42" type="section-heading" section-number="1" title="Introduction">1. Introduction</block>
+      <block index="3" x0="34.02" y0="115.35" x1="549.08" y1="146.78" type="text-block">Section 20 Leases was completely rewritten as part of the Periodic Review 2024, with the changes
+effective from 1 January 2026.</block>
+      <block index="4" x0="34.02" y0="159.27" x1="553.38" y1="222.62" type="text-block">The changes, based on the principles of IFRS 16 Leases, remove the distinction between operating
+leases and finance leases for lessees, with the result that more leases will now require the
+recognition of a right-of-use asset and a lease liability on the balance sheet. This method of
+accounting is very similar to previous finance lease accounting.</block>
+      <block index="5" x0="34.02" y0="235.11" x1="551.65" y1="282.50" type="text-block">The operating lease and finance lease distinction remains in place for lessors. Whilst the lessor
+requirements have been rewritten, in many cases the accounting under the new requirements will
+not differ significantly from that under the previous requirements1.</block>
+      <block index="6" x0="34.02" y0="294.99" x1="503.60" y1="326.42" type="text-block">This factsheet has been prepared to provide an overview of key aspects of the new lease
+accounting requirements from the perspective of lessees.</block>
+      <block index="7" x0="34.02" y0="338.91" x1="541.54" y1="386.32" type="table-or-financial-data-block">The recognition, measurement and presentation requirements of the revised Section 20 are
+applicable to all entities applying FRS 102, including those that are in scope of Section 1A Small
+Entities.</block>
+      <block index="8" x0="34.02" y0="398.79" x1="98.92" y1="419.44" type="subheading" title="Scoping">Scoping</block>
+      <block index="9" x0="34.02" y0="430.07" x1="541.20" y1="477.46" type="text-block">Section 20 applies to arrangements that meet the definition of a lease – ‘A contract, or part of a
+contract, that conveys the right to use an asset (the underlying asset) for a period of time in
+exchange for consideration’.</block>
+      <block index="10" x0="34.02" y0="490.01" x1="526.58" y1="521.44" type="text-block">There are some situations where a contract that is, or contains, a lease will not be in scope of
+Section 20, as set out in paragraph 20.1.</block>
+      <block index="11" x0="34.02" y0="533.93" x1="564.07" y1="613.24" type="text-block">There may also be contracts which do not have the legal form of a lease, but which do in substance
+meet the definition of a lease, and would therefore be in scope of Section 20. For example, a
+contract could in substance convey the right to control the use of an identified asset, even if the
+contract doesn’t have the legal form of a lease and the asset is not explicitly specified. Preparers will
+wish to satisfy themselves that they have identified all relevant contracts.</block>
+      <block index="14" x0="34.02" y0="754.69" x1="559.69" y1="790.23" type="table-or-financial-data-block">1 One change for intermediate lessors to be aware of is in respect of classifying a sublease as a finance or an operating lease, as set
+out in paragraph 20.92. All else being equal, classifying a sublease by reference to the right-of-use asset arising from the head lease,
+rather than by reference to the underlying asset, is more likely to result in classification as a finance lease.</block>
+      <block index="16" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+3</block>
+    </page>
+    <page number="5" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.03" x1="246.00" y1="82.68" type="subheading" title="Presentation and disclosure">Presentation and disclosure</block>
+      <block index="3" x0="34.02" y0="93.37" x1="560.21" y1="190.76" type="table-or-financial-data-block">This factsheet does not provide guidance on the presentation or disclosure requirements of
+Section 20. Presentation requirements are set out in paragraphs 20.74 and 20.75 (for lessees)
+and 20.113 (for lessors); entities will also need to consider the relevant requirements of company
+law. Disclosure requirements are set out in paragraphs 20.76 to 20.85 (for lessees) and 20.114 to
+20.121 (for lessors); other general disclosure requirements of FRS 102 may also be relevant in some
+circumstances.</block>
+      <block index="5" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+4</block>
+    </page>
+    <page number="6" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="328.20" y1="90.42" type="section-heading" section-number="2" title="Recognition exemptions">2. Recognition exemptions</block>
+      <block index="3" x0="39.66" y0="115.83" x1="565.44" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="4" x0="493.24" y0="157.77" x1="518.55" y1="173.24" type="frs102-reference" reference="20.5">20.5</block>
+      <block index="5" x0="39.66" y0="157.77" x1="485.33" y1="253.04" type="table-or-financial-data-block">Generally, the revised Section 20 requires a lessee to recognise all leases
+on-balance sheet. However, one of the key elements of the revised Section 20 is the
+existence of recognition exemptions for short-term leases and leases for which the
+underlying asset is of low value. These are only exemptions from the requirement
+to recognise a lease on the balance sheet – other requirements of Section 20, such
+as the disclosure requirements, still apply.</block>
+      <block index="6" x0="493.24" y0="265.53" x1="518.55" y1="281.00" type="frs102-reference" reference="20.6">20.6</block>
+      <block index="7" x0="39.66" y0="265.53" x1="481.70" y1="328.88" type="text-block">These exemptions permit lessees to leave eligible leases off the balance sheet and
+recognise them in a similar manner to operating leases in the previous version of
+Section 20 (i.e. recognise the expense on a straight-line basis or another systematic
+basis that is more representative of the pattern of the lessee’s benefit).</block>
+      <block index="9" x0="39.66" y0="346.17" x1="470.67" y1="377.62" type="text-block">Application of these recognition exemptions is voluntary – if a lessee wishes to, it
+may recognise all its leases on-balance sheet.</block>
+      <block index="10" x0="39.66" y0="382.89" x1="496.53" y1="403.54" type="subheading" title="Short-term leases">Short-term leases</block>
+      <block index="11" x0="493.24" y0="414.17" x1="541.01" y1="429.64" type="frs102-reference" reference="Glossary">Glossary</block>
+      <block index="12" x0="39.66" y0="414.17" x1="461.21" y1="461.56" type="text-block">A short-term lease is one that, at the commencement date, has a lease term (as
+defined) of 12 months or less, and does not contain a purchase option. This
+recognition exemption must be applied by class of underlying asset.</block>
+      <block index="13" x0="493.24" y0="474.11" x1="525.03" y1="489.58" type="frs102-reference" reference="20.38">20.38</block>
+      <block index="14" x0="39.66" y0="474.11" x1="484.38" y1="521.50" type="text-block">The assessment of the lease term is discussed in section 4 of this factsheet. It
+includes whether the lessee is reasonably certain to exercise an extension option, or
+reasonably certain not to exercise a termination option.</block>
+      <block index="15" x0="39.66" y0="533.97" x1="496.53" y1="554.62" type="subheading" title="Leases for which the underlying asset is of low value">Leases for which the underlying asset is of low value</block>
+      <block index="16" x0="493.24" y0="565.25" x1="518.55" y1="580.72" type="frs102-reference" reference="20.9">20.9</block>
+      <block index="17" x0="39.66" y0="565.25" x1="484.48" y1="628.62" type="text-block">The value of an underlying asset is considered in absolute terms, independent of an
+entity’s materiality or the value of the lease payments. There is no limit to the
+number of individual assets that can be considered as low-value for the purpose of
+this recognition exemption.</block>
+      <block index="18" x0="493.24" y0="641.11" x1="525.03" y1="656.58" type="frs102-reference" reference="20.11">20.11</block>
+      <block index="19" x0="39.66" y0="641.11" x1="483.39" y1="736.38" type="text-block">Section 20 does not specify a particular value threshold. Instead, it provides a list of
+examples of asset types that are not of low value, including real estate and motor
+vehicles. It is not exhaustive, and preparers need to consider whether a leased asset
+is of similar value to those on this list. The purpose is to ensure that leases of
+significant assets are recognised on a lessee’s balance sheet, whilst allowing leases
+of other, lower-value, assets to be left off-balance sheet.</block>
+      <block index="22" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+5</block>
+    </page>
+    <page number="7" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.59" x1="518.55" y1="78.06" type="text-block">This recognition exemption can be taken on a lease-by-lease basis. However:
+20.7</block>
+      <block index="3" x0="493.24" y0="90.55" x1="525.03" y1="106.02" type="frs102-reference" reference="20.12">20.12</block>
+      <block index="4" x0="39.66" y0="93.55" x1="471.42" y1="109.50" type="text-block">• A lease cannot qualify as a lease of a low-value asset if the lessee subleases, or</block>
+      <block index="5" x0="53.88" y0="109.53" x1="252.79" y1="125.00" type="text-block">expects to sublease, the leased asset.</block>
+      <block index="6" x0="493.24" y0="128.49" x1="525.03" y1="143.96" type="frs102-reference" reference="20.10">20.10</block>
+      <block index="7" x0="39.66" y0="131.49" x1="474.24" y1="147.44" type="text-block">• The recognition exemption can only be taken if the lessee can benefit from use</block>
+      <block index="8" x0="53.88" y0="147.45" x1="476.83" y1="194.84" type="text-block">of the underlying asset on its own or together with other resources that are
+readily available to the lessee, and the underlying asset is not highly dependent
+on, or highly interrelated with, other assets.</block>
+      <block index="9" x0="53.88" y0="198.33" x1="461.21" y1="229.76" type="text-block">This means that it is not possible to keep a lease off-balance sheet simply by
+breaking the leased asset down into low-value components.</block>
+      <block index="10" x0="493.24" y0="242.25" x1="539.82" y1="273.68" type="frs102-reference" reference="B20.8 to B20.11">B20.8 to
+B20.11</block>
+      <block index="11" x0="39.66" y0="242.25" x1="480.51" y1="353.48" type="table-or-financial-data-block">The low-value recognition exemption is intended to be more permissive than the
+equivalent exemption in IFRS 16 (i.e. the threshold for ‘low-value’ is higher than in
+IFRS 16, which does not state a threshold in the standard itself but indicates a
+figure in the Basis for Conclusions). This is a key element of making the Section 20
+changes proportionate for FRS 102 preparers. The Basis for Conclusions to FRS 102
+also notes that low-value assets can include ‘tablet and personal computers, small
+items of office furniture and telephones’; this is also not an exhaustive list.</block>
+      <block index="14" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+6</block>
+    </page>
+    <page number="8" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="265.72" y1="90.42" type="section-heading" section-number="3" title="Identifying a lease">3. Identifying a lease</block>
+      <block index="3" x0="39.66" y0="115.83" x1="565.44" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="4" x0="493.24" y0="157.77" x1="525.03" y1="173.24" type="frs102-reference" reference="20.15">20.15</block>
+      <block index="5" x0="39.66" y0="157.77" x1="471.24" y1="189.20" type="text-block">A contract is, or contains, a lease if the contract conveys the right to control the
+use of an identified asset for a period of time in exchange for consideration.</block>
+      <block index="6" x0="493.24" y0="201.69" x1="559.43" y1="217.16" type="frs102-reference" reference="20.15, 20.18">20.15, 20.18</block>
+      <block index="7" x0="39.66" y0="201.53" x1="433.61" y1="233.12" type="text-block">This assessment is made at the inception date of the contract2, and is only
+re-assessed if the terms and conditions of the contract are changed.</block>
+      <block index="8" x0="39.66" y0="245.59" x1="496.53" y1="266.24" type="subheading" title="Identified asset">Identified asset</block>
+      <block index="9" x0="39.66" y0="281.67" x1="541.01" y1="313.10" type="text-block">For a lease to exist, there must be an identified asset (the underlying asset).
+20.15;
+Glossary</block>
+      <block index="10" x0="39.66" y0="323.19" x1="496.53" y1="338.66" type="subheading" title="Specification of an asset">Specification of an asset</block>
+      <block index="11" x0="39.66" y0="348.75" x1="303.79" y1="364.22" type="text-block">An asset may be specified explicitly in a contract:</block>
+      <block index="12" x0="493.24" y0="348.75" x1="525.03" y1="364.22" type="frs102-reference" reference="20.19">20.19</block>
+      <block index="13" x0="57.66" y0="369.53" x1="482.77" y1="400.96" type="text-block">-
+for example, the contract may specify a building by its address or a car by its
+registration number.</block>
+      <block index="14" x0="39.66" y0="406.25" x1="470.32" y1="437.68" type="text-block">However, an asset may also be specified implicitly at the time it is made available
+for use by the customer:</block>
+      <block index="15" x0="57.66" y0="442.97" x1="467.53" y1="474.40" type="text-block">-
+for example, the specific item of railway rolling stock which is delivered to
+the customer on the commencement date of the contract.</block>
+      <block index="16" x0="39.66" y0="484.49" x1="496.53" y1="499.96" type="subheading" title="Substitution rights">Substitution rights</block>
+      <block index="17" x0="493.24" y0="510.11" x1="525.03" y1="525.58" type="frs102-reference" reference="20.20">20.20</block>
+      <block index="18" x0="39.66" y0="510.11" x1="480.30" y1="557.50" type="text-block">However, even if an asset is specified, there is no identified asset if the supplier has
+a substantive right to substitute the asset throughout the period of use. If there is
+no identified asset, there is no lease.</block>
+      <block index="19" x0="39.66" y0="567.59" x1="350.01" y1="583.06" type="text-block">A supplier’s right to substitute the asset is substantive if it:</block>
+      <block index="21" x0="57.66" y0="588.35" x1="448.00" y1="603.82" type="text-block">a) has the practical ability to substitute alternative assets throughout the</block>
+      <block index="22" x0="75.66" y0="604.31" x1="174.85" y1="619.78" type="text-block">period of use; and</block>
+      <block index="23" x0="57.66" y0="625.09" x1="305.05" y1="640.56" type="text-block">b) would benefit economically from doing so.</block>
+      <block index="24" x0="493.24" y0="650.65" x1="525.03" y1="666.12" type="frs102-reference" reference="20.21">20.21</block>
+      <block index="25" x0="39.66" y0="650.65" x1="481.73" y1="698.04" type="text-block">Substitution rights are evaluated based on facts and circumstances at the inception
+date. If the customer cannot readily determine whether the supplier has a
+substantive substitution right, the customer shall presume that it does not.</block>
+      <block index="27" x0="34.02" y0="766.69" x1="544.80" y1="790.23" type="text-block">2 The inception date is the earlier of the date of the lease agreement, and the date of commitment by the parties to the principal
+terms and conditions of the lease. This is not the same as the commencement date.</block>
+      <block index="29" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+7</block>
+    </page>
+    <page number="9" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="67.39" x1="496.53" y1="82.86" type="subheading" title="Portions of an asset">Portions of an asset</block>
+      <block index="3" x0="493.24" y0="92.95" x1="525.03" y1="108.42" type="frs102-reference" reference="20.22">20.22</block>
+      <block index="4" x0="39.66" y0="92.95" x1="483.42" y1="172.28" type="text-block">A portion of an underlying asset can be an identified asset if it is physically distinct:
+for example, a floor of a building. However, a portion of an underlying asset that is
+not physically distinct (e.g. a percentage of the capacity of a fibre optic cable) is not
+an identified asset unless the portion is substantially all of the overall capacity of
+the underlying asset.</block>
+      <block index="5" x0="39.66" y0="177.55" x1="496.53" y1="198.20" type="subheading" title="Right to control the use">Right to control the use</block>
+      <block index="6" x0="39.66" y0="208.83" x1="467.91" y1="224.30" type="text-block">For a lease to exist, the customer must, throughout the period of use, have both:</block>
+      <block index="7" x0="493.24" y0="208.83" x1="525.03" y1="224.30" type="frs102-reference" reference="20.16">20.16</block>
+      <block index="8" x0="39.66" y0="236.79" x1="335.79" y1="252.74" type="text-block">• the right to direct the use of the identified asset; and</block>
+      <block index="9" x0="39.66" y0="255.75" x1="436.06" y1="271.70" type="text-block">• the right to obtain substantially all the economic benefits from that use.</block>
+      <block index="10" x0="39.66" y0="283.71" x1="496.53" y1="303.98" type="subheading" title="Right to direct the use">Right to direct the use</block>
+      <block index="11" x0="39.66" y0="311.67" x1="470.61" y1="327.14" type="text-block">For the customer to have the right to direct the use of the identified asset, either:</block>
+      <block index="12" x0="493.24" y0="311.67" x1="525.03" y1="327.14" type="frs102-reference" reference="20.25">20.25</block>
+      <block index="13" x0="39.66" y0="339.63" x1="485.59" y1="355.58" type="text-block">• the customer must have the right to direct how and for what purpose the asset is</block>
+      <block index="14" x0="53.88" y0="355.59" x1="448.57" y1="387.04" type="text-block">used, throughout the period of use, in a manner that affects the economic
+benefits derived from its use; or</block>
+      <block index="15" x0="39.66" y0="390.53" x1="485.44" y1="406.48" type="text-block">• the relevant decisions about how and for what purpose the asset is used must be</block>
+      <block index="16" x0="53.88" y0="406.49" x1="201.43" y1="421.96" type="text-block">predetermined, and either:</block>
+      <block index="17" x0="75.66" y0="425.45" x1="447.98" y1="441.40" type="text-block">• the customer has the right to operate the asset (or direct others to</block>
+      <block index="18" x0="93.54" y0="441.41" x1="484.44" y1="488.80" type="text-block">operate the asset in a manner that it determines) throughout the period
+of use, without the supplier having the right to change those instructions;
+or</block>
+      <block index="19" x0="75.66" y0="492.29" x1="462.00" y1="508.24" type="text-block">• the customer designed the asset (or specific aspects of the asset) in a</block>
+      <block index="20" x0="93.54" y0="508.25" x1="440.66" y1="539.68" type="text-block">way that predetermines how and for what purpose it will be used
+throughout the period of use.</block>
+      <block index="21" x0="39.66" y0="547.97" x1="496.53" y1="563.44" type="subheading" title="Right to obtain economic benefits from use">Right to obtain economic benefits from use</block>
+      <block index="22" x0="493.24" y0="568.73" x1="525.03" y1="584.20" type="frs102-reference" reference="20.23">20.23</block>
+      <block index="23" x0="39.66" y0="568.73" x1="449.63" y1="600.16" type="text-block">A customer can obtain economic benefits from the use of an asset directly or
+indirectly many ways, such as by using, holding or subleasing the asset.</block>
+      <block index="24" x0="39.66" y0="612.67" x1="463.48" y1="644.10" type="text-block">The economic benefits from use of an asset include, but are not limited to, its
+primary output and its by-products (or potential cash flows derived from them).</block>
+      <block index="25" x0="493.24" y0="656.59" x1="525.03" y1="672.06" type="frs102-reference" reference="20.24">20.24</block>
+      <block index="26" x0="39.66" y0="656.59" x1="471.23" y1="688.02" type="text-block">An entity considers the economic benefits that result from use of the asset within
+the defined scope of a customer’s right to use the asset.</block>
+      <block index="27" x0="39.66" y0="700.51" x1="478.54" y1="731.94" type="text-block">Economic benefits resulting from use of the asset outside the defined scope of the
+customer’s right to use the asset do not necessitate that there is no lease.</block>
+      <block index="29" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+8</block>
+    </page>
+    <page number="10" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.57" x1="496.53" y1="83.22" type="subheading" title="Separating components of a contract">Separating components of a contract</block>
+      <block index="3" x0="493.24" y0="98.65" x1="525.03" y1="114.12" type="frs102-reference" reference="20.27">20.27</block>
+      <block index="4" x0="39.66" y0="98.65" x1="457.18" y1="146.06" type="text-block">A contract may contain multiple components, of which some may relate to the
+lease of an asset and others may relate to non-lease elements such as services
+(e.g. maintenance of the leased asset).</block>
+      <block index="5" x0="493.24" y0="156.15" x1="525.03" y1="171.62" type="frs102-reference" reference="20.31">20.31</block>
+      <block index="6" x0="39.66" y0="156.15" x1="483.44" y1="203.54" type="text-block">The consideration in the contract is allocated to each lease component on the basis
+of the relative stand-alone price of each lease component and the aggregate
+stand-alone price of the non-lease components.</block>
+      <block index="7" x0="39.66" y0="213.63" x1="496.53" y1="229.10" type="subheading" title="Separating lease components from other lease components">Separating lease components from other lease components</block>
+      <block index="8" x0="493.24" y0="239.19" x1="525.03" y1="254.66" type="frs102-reference" reference="20.29">20.29</block>
+      <block index="9" x0="39.66" y0="239.19" x1="474.68" y1="318.50" type="text-block">In identifying separate lease components, the right to use an underlying asset is a
+separate lease component if the lessee can benefit from the use of the underlying
+asset on its own or together with other readily available resources, and the
+underlying asset is neither highly dependent on nor highly interrelated with other
+underlying assets in the contract.</block>
+      <block index="10" x0="39.66" y0="323.79" x1="447.37" y1="355.22" type="text-block">Otherwise, the right to use multiple underlying assets may represent a single
+combined lease component.</block>
+      <block index="11" x0="39.66" y0="365.33" x1="496.53" y1="380.80" type="subheading" title="Separating lease components from non-lease components">Separating lease components from non-lease components</block>
+      <block index="12" x0="493.24" y0="390.89" x1="528.29" y1="406.36" type="frs102-reference" reference="20.28">20.28</block>
+      <block index="13" x0="39.66" y0="390.89" x1="465.74" y1="422.32" type="text-block">Lease and non-lease components are accounted for separately unless the lessee
+applies the practical expedient in paragraph 20.33.</block>
+      <block index="14" x0="493.24" y0="432.41" x1="525.03" y1="447.88" type="frs102-reference" reference="20.33">20.33</block>
+      <block index="15" x0="39.66" y0="432.41" x1="478.39" y1="495.76" type="text-block">The practical expedient allows a lessee to elect, by class of underlying asset, not to
+separate lease components from non-lease components, and instead account for
+each lease component and any associated non-lease components as a single lease
+component.</block>
+      <block index="16" x0="39.66" y0="505.85" x1="496.53" y1="521.32" type="subheading" title="Non-exchange components">Non-exchange components</block>
+      <block index="17" x0="493.24" y0="531.41" x1="525.03" y1="546.88" type="frs102-reference" reference="20.35">20.35</block>
+      <block index="18" x0="39.66" y0="531.41" x1="455.21" y1="578.80" type="text-block">The standard provides guidance when a lease provides a lessee with incoming
+resources arising from a government grant or, for a public benefit entity, a
+non-exchange transaction.</block>
+      <block index="19" x0="39.66" y0="584.09" x1="496.53" y1="604.36" type="worked-example" example-number="1">Example 1</block>
+      <block index="21" x0="39.66" y0="610.09" x1="477.71" y1="705.36" type="table-or-financial-data-block">An entity enters into a contract to lease two identical lorries, with accompanying
+maintenance services and insurance coverage, for total consideration of CU32,000.
+The standalone price of leasing a lorry is CU14,000; the standalone selling price of
+the maintenance services (per lorry) is CU4,000 and of insurance (per lorry) is
+CU2,000. The lessee determines that the lease components meet the separability
+criteria in paragraph 20.29.</block>
+      <block index="22" x0="39.66" y0="717.85" x1="485.48" y1="765.24" type="text-block">The following table sets out the proportion of the total standalone price that relates
+to each component, which is applied to the total contract consideration of
+CU32,000 to determine the consideration for each component.</block>
+      <block index="24" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+9</block>
+    </page>
+    <page number="11" width="595.32" height="841.92">
+      <block index="2" x0="45.06" y0="62.59" x1="242.42" y1="78.06" type="text-block">Standalone</block>
+      <block index="3" x0="211.22" y0="78.55" x1="242.43" y1="94.02" type="text-block">price</block>
+      <block index="4" x0="260.60" y0="62.59" x1="357.17" y1="94.02" type="text-block">% of total
+standalone price</block>
+      <block index="5" x0="367.96" y0="62.59" x1="480.35" y1="94.02" type="text-block">Amount allocated
+to each component</block>
+      <block index="6" x0="45.06" y0="106.53" x1="480.33" y1="122.00" type="text-block">CU
+
+CU</block>
+      <block index="7" x0="45.06" y0="134.49" x1="480.33" y1="149.96" type="table-or-financial-data-block">Lorry 1
+14,000
+35%
+11,200</block>
+      <block index="8" x0="45.06" y0="162.45" x1="480.33" y1="177.92" type="table-or-financial-data-block">Lorry 2
+14,000
+35%
+11,200</block>
+      <block index="9" x0="45.06" y0="190.41" x1="480.33" y1="205.88" type="table-or-financial-data-block">Non-lease
+12,000
+30%
+9,600</block>
+      <block index="10" x0="136.58" y0="218.85" x1="480.35" y1="240.32" type="table-or-financial-data-block">40,000
+
+32,000</block>
+      <block index="11" x0="39.66" y0="247.29" x1="466.84" y1="294.68" type="table-or-financial-data-block">If the lessee chose instead to apply the practical expedient in paragraph 20.33, it
+would instead identify two lease components each with CU16,000 consideration
+allocated.</block>
+      <block index="12" x0="39.66" y0="307.15" x1="496.53" y1="327.80" type="subheading" title="Intra-group arrangements">Intra-group arrangements</block>
+      <block index="14" x0="39.66" y0="343.29" x1="476.92" y1="438.58" type="text-block">In intra-group situations it may be unclear whether or not a lease within the scope
+of Section 20 exists. It is important to remember that the definition of a lease
+requires a contract to exist: an agreement that creates enforceable rights and
+obligations. Arrangements between group companies may or may not create
+enforceable rights and obligations. This depends on the substance of those
+arrangements, rather than their form.</block>
+      <block index="15" x0="39.66" y0="443.87" x1="485.44" y1="539.14" type="text-block">This may have implications, for example, when multiple group companies occupy
+different parts of a headquarters building for which one group company is the head
+lessee. If an arrangement between the group companies does not create
+enforceable rights and obligations between the head lessee and the other group
+companies occupying the building, those occupiers may not be party to a lease and
+hence may not be required to recognise a lease liability or right-of-use asset.</block>
+      <block index="16" x0="39.66" y0="544.41" x1="496.53" y1="565.06" type="subheading" title="Other considerations">Other considerations</block>
+      <block index="17" x0="493.24" y0="575.69" x1="525.03" y1="591.16" type="frs102-reference" reference="20.13">20.13</block>
+      <block index="18" x0="39.66" y0="575.69" x1="466.53" y1="607.12" type="text-block">A practical expedient allows an entity to apply Section 20 to a portfolio of leases
+with similar characteristics, rather than separately to each individual lease.</block>
+      <block index="19" x0="493.24" y0="619.63" x1="525.03" y1="635.10" type="frs102-reference" reference="20.14">20.14</block>
+      <block index="20" x0="39.66" y0="619.63" x1="464.72" y1="651.06" type="text-block">In certain circumstances, an entity is required to combine two or more contracts
+and accounts for them as a single contract.</block>
+      <block index="24" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+10</block>
+    </page>
+    <page number="12" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="188.14" y1="90.42" type="section-heading" section-number="4" title="Lease term">4. Lease term</block>
+      <block index="3" x0="39.66" y0="115.83" x1="565.45" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="4" x0="39.66" y0="157.77" x1="251.77" y1="173.24" type="text-block">The term of a lease is the aggregate of:</block>
+      <block index="5" x0="493.24" y0="157.77" x1="525.03" y1="173.24" type="frs102-reference" reference="20.38">20.38</block>
+      <block index="6" x0="39.66" y0="185.73" x1="266.29" y1="201.68" type="text-block">• the non-cancellable period of the lease;</block>
+      <block index="7" x0="39.66" y0="204.69" x1="472.04" y1="220.64" type="text-block">• periods covered by an extension option that the lessee is reasonably certain to</block>
+      <block index="8" x0="53.88" y0="220.65" x1="128.41" y1="236.12" type="text-block">exercise; and</block>
+      <block index="9" x0="39.66" y0="239.61" x1="482.70" y1="255.56" type="text-block">• periods covered by a termination option that the lessee is reasonably certain not</block>
+      <block index="10" x0="53.88" y0="255.57" x1="349.23" y1="271.04" type="text-block">to exercise (or that can only be exercised by the lessor).</block>
+      <block index="11" x0="493.24" y0="274.53" x1="525.03" y1="290.00" type="frs102-reference" reference="20.40">20.40</block>
+      <block index="12" x0="39.66" y0="274.53" x1="473.44" y1="321.92" type="text-block">(As a result, when a lessee is able to choose between a shorter or a longer period,
+the lease term is the shorter period unless the lessee is reasonably certain to
+choose the longer period.)</block>
+      <block index="13" x0="493.24" y0="334.41" x1="525.03" y1="349.88" type="frs102-reference" reference="20.37">20.37</block>
+      <block index="14" x0="39.66" y0="334.25" x1="456.78" y1="365.84" type="text-block">The lease term begins at the commencement date3 and therefore includes any
+rent-free period.</block>
+      <block index="15" x0="39.66" y0="378.35" x1="496.53" y1="393.82" type="subheading" title="Assessing the non-cancellable period">Assessing the non-cancellable period</block>
+      <block index="16" x0="493.24" y0="406.31" x1="525.03" y1="421.78" type="frs102-reference" reference="20.39">20.39</block>
+      <block index="17" x0="39.66" y0="406.31" x1="457.68" y1="437.74" type="text-block">In assessing the length of the non-cancellable period, an entity determines the
+period for which the contract is enforceable.</block>
+      <block index="18" x0="39.66" y0="450.23" x1="481.80" y1="497.62" type="text-block">A lease is no longer enforceable when the lessee and the lessor each have the right
+to terminate the lease without permission from the other party, with no more than
+an insignificant penalty.</block>
+      <block index="19" x0="39.66" y0="510.11" x1="496.53" y1="525.58" type="subheading" title="Assessing reasonable certainty">Assessing reasonable certainty</block>
+      <block index="20" x0="493.24" y0="538.07" x1="525.03" y1="553.54" type="frs102-reference" reference="20.40">20.40</block>
+      <block index="21" x0="39.66" y0="538.07" x1="478.30" y1="585.46" type="text-block">Both the lessee and the lessor assess, at the commencement date, whether the
+lessee is reasonably certain to exercise extension options or reasonably certain not
+to exercise termination options.</block>
+      <block index="22" x0="493.24" y0="597.95" x1="559.43" y1="613.42" type="frs102-reference" reference="20.41, 20.42">20.41, 20.42</block>
+      <block index="23" x0="39.66" y0="597.95" x1="467.38" y1="661.32" type="text-block">The standard sets out a non-exhaustive list of factors to consider in this
+assessment. These include the importance of the underlying asset to the lessee’s
+operations, and the significance of any leasehold improvements. It may also be
+helpful to consider an entity’s past practice in respect of similar assets.</block>
+      <block index="24" x0="39.66" y0="673.81" x1="496.53" y1="689.28" type="subheading" title="Reassessing reasonable certainty">Reassessing reasonable certainty</block>
+      <block index="25" x0="493.24" y0="701.77" x1="525.03" y1="717.24" type="frs102-reference" reference="20.43">20.43</block>
+      <block index="26" x0="39.66" y0="701.77" x1="482.98" y1="733.20" type="text-block">Having made the assessment at the commencement date, a lessee only reassesses
+whether it is reasonably certain to exercise its options in certain situations involving</block>
+      <block index="28" x0="34.02" y0="766.69" x1="557.36" y1="790.23" type="text-block">3 The commencement date is the date on which the lessor makes the underlying asset available for use by the lessee. This is not the
+same as the inception date.</block>
+      <block index="30" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+11</block>
+    </page>
+    <page number="13" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.59" x1="485.46" y1="94.02" type="text-block">a significant event or a significant change of circumstances that is within the control
+of the lessee.</block>
+      <block index="3" x0="39.66" y0="106.53" x1="496.53" y1="126.80" type="subheading" title="Revising the lease term">Revising the lease term</block>
+      <block index="4" x0="493.24" y0="134.49" x1="525.03" y1="149.96" type="frs102-reference" reference="20.44">20.44</block>
+      <block index="5" x0="39.66" y0="134.49" x1="480.69" y1="181.88" type="text-block">An entity shall revise the lease term if there is a change in the non-cancellable
+period of a lease.  Such a change could arise if, for example, the lessee exercises an
+option not previously included in the determination of the lease term.</block>
+      <block index="6" x0="39.66" y0="194.37" x1="496.53" y1="214.64" type="worked-example" example-number="2">Example 2</block>
+      <block index="8" x0="39.66" y0="220.29" x1="482.67" y1="315.56" type="table-or-financial-data-block">An entity enters into a contract to lease office space at a market rent. The initial
+term is for 10 years and there is an option for the lessee to extend this for a further
+5 years on similar terms. The entity expects to spend a significant amount on fitting
+out the office space to meet its requirements, which is consistent with its approach
+to previous leased offices. The entity’s business is growing and profitable and it has
+historically elected to extend other office leases.</block>
+      <block index="9" x0="39.66" y0="328.05" x1="484.94" y1="375.46" type="text-block">The lessee concludes that the lease term is 15 years since remaining in the office
+space confers an economic benefit (not having to fit out another office instead) and
+it has past practice of extending leases in similar situations.</block>
+      <block index="10" x0="39.66" y0="387.93" x1="496.53" y1="408.58" type="subheading" title="Rolling leases">Rolling leases</block>
+      <block index="12" x0="39.66" y0="419.27" x1="483.95" y1="482.62" type="text-block">Entities may enter into so-called ‘rolling leases’ where there is no specified term or
+end date and the lease is terminated when either the lessee or the lessor decides to
+terminate it. An entity may also be party to a lease which automatically becomes a
+rolling lease following an initial agreed contractual period.</block>
+      <block index="13" x0="39.66" y0="495.11" x1="483.68" y1="558.46" type="text-block">In these situations, an entity needs to consider carefully for what period the lease is
+enforceable, and what the non-cancellable period of the lease is (e.g. whether there
+is a notice period that forms a non-cancellable element; or whether any economic
+penalty from subsequent cancellation is more than insignificant).</block>
+      <block index="15" x0="39.66" y0="570.95" x1="483.86" y1="602.38" type="text-block">As set out in Section 2 of this factsheet, if there is a lease term of 12 months or less,
+the lease may be eligible for the recognition exemption for short-term leases.</block>
+      <block index="16" x0="39.66" y0="614.87" x1="496.53" y1="635.52" type="subheading" title="Landlord and Tenant Act 1954">Landlord and Tenant Act 1954</block>
+      <block index="18" x0="39.66" y0="646.15" x1="484.06" y1="693.54" type="text-block">The Landlord and Tenant Act 1954 (LTA) grants a statutory right to a new tenancy in
+some circumstances once the current lease expires; entities will need to consider
+any implications of this.</block>
+      <block index="19" x0="39.66" y0="706.03" x1="483.91" y1="769.38" type="text-block">In particular, an entity needs to consider carefully whether or not occupation of a
+property in relation to a lease that has expired and not (yet) been renewed
+constitutes a lease (e.g. whether an enforceable contract exists), for what period the
+lease is enforceable, and what the non-cancellable period of the lease is.</block>
+      <block index="21" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+12</block>
+    </page>
+    <page number="14" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="218.50" y1="90.42" type="section-heading" section-number="5" title="Measurement">5. Measurement</block>
+      <block index="3" x0="39.66" y0="120.63" x1="560.94" y1="152.06" type="text-block">Key FRS 102
+references</block>
+      <block index="5" x0="39.66" y0="157.35" x1="469.65" y1="188.78" type="text-block">To measure its lease balances, a lessee must first calculate the lease liability, then
+calculate the right-of-use asset.</block>
+      <block index="6" x0="39.66" y0="201.25" x1="496.53" y1="221.90" type="subheading" title="Measurement of the lease liability">Measurement of the lease liability</block>
+      <block index="7" x0="39.66" y0="232.59" x1="316.89" y1="248.06" type="text-block">Calculating the lease liability requires knowledge of:</block>
+      <block index="9" x0="39.66" y0="260.55" x1="340.71" y1="276.50" type="text-block">• Unpaid lease payments at the date of calculation; and</block>
+      <block index="10" x0="39.66" y0="279.51" x1="387.63" y1="295.46" type="text-block">• A suitable interest rate with which to discount these cashflows.</block>
+      <block index="11" x0="39.66" y0="298.50" x1="496.53" y1="318.74" type="subheading" title="Lease payments">Lease payments</block>
+      <block index="12" x0="39.66" y0="327.09" x1="433.71" y1="342.56" type="text-block">The lease payments to be included in the measurement of the liability are:</block>
+      <block index="13" x0="493.24" y0="327.09" x1="525.03" y1="342.56" type="frs102-reference" reference="20.51">20.51</block>
+      <block index="14" x0="39.66" y0="355.05" x1="483.78" y1="371.00" type="text-block">• fixed payments (including in-substance fixed payments), less any lease incentives</block>
+      <block index="15" x0="53.88" y0="371.03" x1="113.05" y1="386.50" type="text-block">receivable;</block>
+      <block index="16" x0="39.66" y0="389.99" x1="485.17" y1="405.94" type="text-block">• variable lease payments that depend on an index or rate, initially measured using</block>
+      <block index="17" x0="53.88" y0="405.95" x1="311.11" y1="421.42" type="text-block">the index or rate as at the commencement date;</block>
+      <block index="18" x0="39.66" y0="424.91" x1="476.79" y1="440.86" type="text-block">• amounts expected to be payable by the lessee under residual value guarantees;</block>
+      <block index="19" x0="39.66" y0="443.87" x1="452.62" y1="459.82" type="text-block">• the exercise price of a purchase option if the lessee is reasonably certain to</block>
+      <block index="20" x0="53.88" y0="459.83" x1="187.57" y1="475.30" type="text-block">exercise that option; and</block>
+      <block index="21" x0="39.66" y0="478.79" x1="459.71" y1="494.74" type="text-block">• payments of penalties for terminating the lease, if the lease term reflects the</block>
+      <block index="22" x0="53.88" y0="494.75" x1="259.75" y1="510.22" type="text-block">lessee exercising a termination option.</block>
+      <block index="23" x0="39.66" y0="513.71" x1="496.53" y1="531.76" type="subheading" title="In-substance fixed lease payments">In-substance fixed lease payments</block>
+      <block index="24" x0="493.24" y0="542.33" x1="525.03" y1="557.80" type="frs102-reference" reference="20.52">20.52</block>
+      <block index="25" x0="39.66" y0="542.33" x1="484.50" y1="621.64" type="text-block">These are payments that may, in form, contain variability, but are in substance
+unavoidable. For example, a payment that is contingent on the occurrence of an
+event that has no genuine possibility of not occurring, is in substance a fixed
+payment. Payments which initially contain variability can become in-substance fixed
+payments when the variability is resolved.</block>
+      <block index="26" x0="39.66" y0="634.15" x1="496.53" y1="652.20" type="subheading" title="Variable lease payments that depend on an index or a rate">Variable lease payments that depend on an index or a rate</block>
+      <block index="27" x0="493.24" y0="662.77" x1="525.03" y1="678.24" type="frs102-reference" reference="20.53">20.53</block>
+      <block index="28" x0="39.66" y0="662.77" x1="464.36" y1="694.20" type="text-block">Examples of such payments include those linked to a consumer price index, to a
+benchmark interest rate or to reflect changes in market rents.</block>
+      <block index="30" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+13</block>
+    </page>
+    <page number="15" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.59" x1="107.49" y1="78.06" type="worked-example" example-number="3a">Example 3a</block>
+      <block index="4" x0="39.66" y0="88.51" x1="485.19" y1="167.84" type="table-or-financial-data-block">A lessee enters into a five-year property lease on 01/01/X1, with annual lease
+payments of CU10,000 (paid in advance), a six-month rent-free period, and a cash
+lease incentive of CU3,000 received at the start of the lease (as opposed to
+receivable in the future). The lease also includes an additional turnover rent,
+payable in arrears, of 5% of the sales made by the lessee using the leased property.</block>
+      <block index="6" x0="39.66" y0="180.33" x1="460.57" y1="211.76" type="text-block">The lease payments to be reflected in the calculation of the lease liability are as
+follows:</block>
+      <block index="7" x0="166.34" y0="224.25" x1="357.71" y1="239.72" type="text-block">Date
+Lease payment</block>
+      <block index="8" x0="166.34" y0="252.21" x1="356.01" y1="267.68" type="text-block">CU</block>
+      <block index="9" x0="166.34" y0="280.17" x1="356.01" y1="295.64" type="text-block">01/07/X1
+5,000</block>
+      <block index="10" x0="166.34" y0="308.13" x1="356.01" y1="323.60" type="text-block">01/01/X2
+10,000</block>
+      <block index="11" x0="166.34" y0="336.09" x1="356.01" y1="351.56" type="text-block">01/01/X3
+10,000</block>
+      <block index="12" x0="166.34" y0="364.07" x1="356.01" y1="379.54" type="text-block">01/01/X4
+10,000</block>
+      <block index="13" x0="166.34" y0="392.03" x1="356.01" y1="407.50" type="text-block">01/01/X5
+10,000</block>
+      <block index="14" x0="39.66" y0="425.99" x1="477.72" y1="457.42" type="text-block">The turnover rent is a variable lease payment that does not depend on an index or
+rate, and is therefore not included in the measurement of the lease liability.</block>
+      <block index="15" x0="493.24" y0="469.91" x1="539.33" y1="485.38" type="text-block">20.47(b)</block>
+      <block index="16" x0="39.66" y0="469.91" x1="476.88" y1="533.32" type="text-block">The cash lease incentive of CU3,000 is not included in the calculation of the lease
+liability, but is deducted from the cost of the right-of-use asset. The benefit of the
+lease incentive is therefore recognised as reduced depreciation of the right-of-use
+asset.</block>
+      <block index="17" x0="39.66" y0="545.81" x1="496.53" y1="566.08" type="worked-example" example-number="3b">Example 3b</block>
+      <block index="19" x0="39.66" y0="571.73" x1="472.55" y1="635.10" type="text-block">A lessee enters into a three-year lease for a lorry, with monthly lease payments of
+CU1,000 structured as a CU10 fixed payment and a CU990 variable payment that
+becomes due if the lorry is proven to be capable of being driven at any point
+during the lease term.</block>
+      <block index="20" x0="39.66" y0="647.59" x1="484.44" y1="694.98" type="text-block">Whilst, in form, this payment is variable, it is judged that it has no genuine
+possibility of not occurring, and so constitutes an in-substance fixed lease payment,
+and is included in the measurement of the lease liability.</block>
+      <block index="22" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+14</block>
+    </page>
+    <page number="16" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.59" x1="496.53" y1="82.86" type="worked-example" example-number="3c">Example 3c</block>
+      <block index="4" x0="39.66" y0="88.51" x1="463.82" y1="151.88" type="text-block">A lease contract states that the lease payment, which is set initially at a market
+level, will increase every third year to align to market increases in rent. This is an
+example of a variable lease payment that depends on an index or rate
+(paragraph 20.53).</block>
+      <block index="5" x0="39.66" y0="164.37" x1="481.73" y1="243.68" type="table-or-financial-data-block">The initial measurement of the lease liability does not include any amount in
+respect of the future market rent adjustment. The lease liability is measured initially
+using the index or rate at the commencement date (paragraph 20.51(b)), and so
+reflects the initial market-based lease payment, but does not reflect, or contain any
+assumptions about, changes to the index or rate after that date (paragraph 20.54).</block>
+      <block index="6" x0="39.66" y0="256.17" x1="460.39" y1="319.52" type="table-or-financial-data-block">Subsequently, the lease liability is remeasured, in line with paragraph 20.68(b),
+when there is a change in the cash flows resulting from a change in an index or
+rate. A corresponding adjustment is made to the right-of-use asset, in line with
+paragraph 20.56(b).</block>
+      <block index="7" x0="39.66" y0="332.01" x1="496.53" y1="352.28" type="worked-example" example-number="3d">Example 3d</block>
+      <block index="9" x0="39.66" y0="358.01" x1="480.82" y1="421.36" type="table-or-financial-data-block">A lessee signs a ten year lease with annual payments of CU10,000 and a break
+clause at five years, accompanied by a CU5,000 penalty if exercised. It assesses that
+it is reasonably certain not to exercise the break clause; therefore the lease term is
+ten years and the total lease payments are CU100,000.</block>
+      <block index="10" x0="39.66" y0="433.88" x1="496.53" y1="454.12" type="subheading" title="Discount rate">Discount rate</block>
+      <block index="12" x0="39.66" y0="462.47" x1="479.26" y1="509.86" type="text-block">Having determined the lease payments to include in the measurement of the lease
+liability, the lessee applies a discount rate to measure the lease liability at present
+value.</block>
+      <block index="13" x0="39.66" y0="520.37" x1="483.36" y1="599.68" type="table-or-financial-data-block">In general, the discount rate for a given lease is determined at the commencement
+date of the lease, and is not re-assessed other than for certain reassessments of the
+lease liability (see paragraphs 20.66 and 20.69) and certain lease modifications (see
+paragraph 20.71(c)). Such situations are discussed in the Subsequent measurement
+of the lease liability section of this factsheet.</block>
+      <block index="15" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+15</block>
+    </page>
+    <page number="17" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.62" x1="496.53" y1="82.86" type="subheading" title="Interest rate implicit in the lease">Interest rate implicit in the lease</block>
+      <block index="3" x0="39.66" y0="91.21" x1="455.53" y1="122.66" type="text-block">FRS 102 requires the lessee to discount the lease payments at the interest rate
+implicit in the lease. This is the rate that results in:</block>
+      <block index="4" x0="493.24" y0="91.21" x1="541.01" y1="122.66" type="text-block">20.49,
+Glossary</block>
+      <block index="5" x0="39.66" y0="135.15" x1="150.85" y1="150.62" type="text-block">the present value of:</block>
+      <block index="6" x0="39.66" y0="163.11" x1="188.23" y1="179.06" type="text-block">• the lease payments; and</block>
+      <block index="7" x0="39.66" y0="182.07" x1="230.89" y1="198.02" type="text-block">• the unguaranteed residual value</block>
+      <block index="8" x0="39.66" y0="201.03" x1="154.39" y1="216.50" type="text-block">equalling the sum of:</block>
+      <block index="9" x0="39.66" y0="228.99" x1="279.07" y1="244.94" type="text-block">• the fair value of the underlying asset; and</block>
+      <block index="10" x0="39.66" y0="247.95" x1="242.11" y1="263.90" type="text-block">• any initial direct costs of the lessor.</block>
+      <block index="11" x0="39.66" y0="266.75" x1="407.19" y1="282.38" type="text-block">The lessee is required to use this rate if it can be readily determined.4</block>
+      <block index="12" x0="39.66" y0="294.87" x1="474.05" y1="326.30" type="text-block">However, the standard acknowledges that in some cases the implicit rate may not
+be readily determinable.</block>
+      <block index="13" x0="39.66" y0="338.82" x1="496.53" y1="359.06" type="subheading" title="Incremental and obtainable borrowing rates">Incremental and obtainable borrowing rates</block>
+      <block index="14" x0="493.24" y0="367.43" x1="541.01" y1="398.86" type="text-block">20.49,
+Glossary</block>
+      <block index="15" x0="39.66" y0="367.43" x1="481.04" y1="414.82" type="text-block">If the interest rate implicit in the lease cannot be readily determined, the lessee has
+a choice, on a lease-by-lease basis, of using either the lessee’s incremental
+borrowing rate or the lessee’s obtainable borrowing rate.</block>
+      <block index="16" x0="39.66" y0="427.31" x1="483.53" y1="490.66" type="text-block">The lessee’s incremental borrowing rate for any given lease is the rate of interest
+that the lessee would have to pay in order to borrow over a similar term, and with a
+similar security, the funds necessary to obtain an asset of similar value to the right-
+of-use asset in a similar economic environment.</block>
+      <block index="17" x0="39.66" y0="503.15" x1="481.02" y1="566.50" type="text-block">The lessee’s obtainable borrowing rate for any given lease is the rate of interest
+that the lessee would have to pay to borrow, over a similar term, an amount similar
+to the total undiscounted value of lease payments to be included in the
+measurement of the lease liability.</block>
+      <block index="18" x0="493.24" y0="578.99" x1="525.03" y1="594.46" type="frs102-reference" reference="20.13">20.13</block>
+      <block index="19" x0="39.66" y0="578.99" x1="475.22" y1="642.36" type="text-block">Lessees will need to consider, for each lease, what an appropriate interest rate is.
+They may also be able to apply the portfolio approach, which allows Section 20 to
+be applied to a portfolio of leases with similar characteristics (e.g. a similar lease
+term for a similar class of underlying asset in a similar economic environment).</block>
+      <block index="22" x0="34.02" y0="766.69" x1="561.78" y1="790.23" type="text-block">4 Except on initial application of the revised Section 20 following the Periodic Review 2024 amendments – refer to Factsheet 9 – Initial
+Application of the Periodic Review 2024 amendments .</block>
+      <block index="24" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+16</block>
+    </page>
+    <page number="18" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.59" x1="496.53" y1="82.86" type="worked-example" example-number="4">Example 4</block>
+      <block index="4" x0="39.66" y0="88.51" x1="449.47" y1="119.94" type="text-block">A lessee enters into a five-year property lease on 01/01/X1, with annual lease
+payments of CU10,000 (paid in arrears).</block>
+      <block index="6" x0="39.66" y0="132.45" x1="482.91" y1="195.80" type="table-or-financial-data-block">The lessee concludes that it cannot readily determine the interest rate implicit in
+the lease. It chooses to determine its obtainable borrowing rate instead, and –
+taking into account a quote from its bank to borrow CU50,000 over a similar term –
+concludes that this is 7%.</block>
+      <block index="7" x0="39.66" y0="208.29" x1="413.55" y1="223.76" type="text-block">The table below sets out the undiscounted and discounted cash flows.</block>
+      <block index="8" x0="45.06" y0="236.25" x1="457.91" y1="251.72" type="text-block">Date
+Lease payment Discount factor
+Discounted amount</block>
+      <block index="9" x0="45.06" y0="264.21" x1="446.07" y1="279.68" type="text-block">CU
+
+CU</block>
+      <block index="10" x0="45.06" y0="292.17" x1="446.07" y1="307.64" type="table-or-financial-data-block">31/12/X1
+10,000
+1.070
+9,346</block>
+      <block index="11" x0="45.06" y0="320.13" x1="446.07" y1="335.60" type="table-or-financial-data-block">31/12/X2
+10,000
+1.145
+8,734</block>
+      <block index="12" x0="45.06" y0="348.09" x1="446.07" y1="363.56" type="table-or-financial-data-block">31/12/X3
+10,000
+1.225
+8,163</block>
+      <block index="13" x0="45.06" y0="376.07" x1="446.07" y1="391.54" type="table-or-financial-data-block">31/12/X4
+10,000
+1.311
+7,629</block>
+      <block index="14" x0="45.06" y0="404.03" x1="446.07" y1="419.50" type="table-or-financial-data-block">31/12/X5
+10,000
+1.403
+7,130</block>
+      <block index="15" x0="45.06" y0="432.53" x1="446.09" y1="454.00" type="table-or-financial-data-block">50,000
+
+41,002</block>
+      <block index="17" x0="39.66" y0="466.97" x1="479.98" y1="498.40" type="text-block">The lessee therefore recognises a lease liability of CU41,002 at the commencement
+date.</block>
+      <block index="18" x0="39.66" y0="510.92" x1="496.53" y1="531.16" type="subheading" title="Public benefit entities: Deposit rate">Public benefit entities: Deposit rate</block>
+      <block index="19" x0="493.24" y0="539.51" x1="544.67" y1="554.98" type="frs102-reference" reference="PBE20.50">PBE20.50</block>
+      <block index="20" x0="39.66" y0="539.51" x1="481.82" y1="602.86" type="text-block">A public benefit entity that is unable readily to determine either the interest rate
+implicit in the lease, or the lessee’s incremental or obtainable borrowing rate for a
+lease, shall use the rate of interest otherwise obtainable by the public benefit entity
+on deposits held with financial institutions.</block>
+      <block index="21" x0="39.66" y0="615.37" x1="496.53" y1="633.42" type="subheading" title="Subsequent measurement of the lease liability">Subsequent measurement of the lease liability</block>
+      <block index="22" x0="493.24" y0="643.99" x1="559.43" y1="659.46" type="frs102-reference" reference="20.62, 20.63">20.62, 20.63</block>
+      <block index="23" x0="39.66" y0="643.99" x1="485.04" y1="723.30" type="text-block">After the commencement date, the lease liability is measured by increasing the
+carrying amount for the interest expense on the lease liability, reducing the carrying
+amount for the amount of lease payments made, and remeasuring the carrying
+amount for the effects of any reassessment, lease modifications, and revised
+in-substance fixed lease payments.</block>
+      <block index="25" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+17</block>
+    </page>
+    <page number="19" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.59" x1="100.99" y1="78.06" type="worked-example" example-number="5">Example 5</block>
+      <block index="4" x0="39.66" y0="88.51" x1="476.40" y1="135.92" type="table-or-financial-data-block">Based on the fact pattern in example 4, a table can be constructed showing how
+the lease liability unwinds over the lease term. The interest expense is equal to the
+interest rate (7%) multiplied by the opening balance for the period.</block>
+      <block index="5" x0="39.66" y0="148.41" x1="444.27" y1="163.88" type="text-block">The table below sets out how the lease liability unwinds over the lease term.</block>
+      <block index="6" x0="45.06" y0="176.37" x1="180.26" y1="191.84" type="text-block">Date
+Opening</block>
+      <block index="7" x0="133.70" y0="184.35" x1="480.35" y1="207.80" type="text-block">balance
+Lease payment Interest expense Closing balance</block>
+      <block index="8" x0="45.06" y0="220.29" x1="480.33" y1="235.76" type="text-block">CU
+CU
+CU
+CU</block>
+      <block index="9" x0="45.06" y0="248.25" x1="480.33" y1="263.72" type="table-or-financial-data-block">31/12/X1
+41,002
+(10,000)
+2,870
+33,872</block>
+      <block index="10" x0="45.06" y0="276.21" x1="480.33" y1="291.68" type="table-or-financial-data-block">31/12/X2
+33,872
+(10,000)
+2,371
+26,243</block>
+      <block index="11" x0="45.06" y0="304.17" x1="480.33" y1="319.64" type="table-or-financial-data-block">31/12/X3
+26,243
+(10,000)
+1,837
+18,080</block>
+      <block index="12" x0="45.06" y0="332.13" x1="480.33" y1="347.60" type="table-or-financial-data-block">31/12/X4
+18,080
+(10,000)
+1,266
+9,346</block>
+      <block index="13" x0="45.06" y0="360.11" x1="480.33" y1="375.58" type="table-or-financial-data-block">31/12/X5
+9,346
+(10,000)
+654
+0</block>
+      <block index="14" x0="45.06" y0="388.61" x1="455.37" y1="410.08" type="text-block">(50,000)
+8,998</block>
+      <block index="16" x0="39.66" y0="423.05" x1="481.53" y1="470.44" type="table-or-financial-data-block">In respect of the right-of-use asset, the initial balance would also be CU41,002
+(assuming no other adjustments to be made in line with paragraph 20.47), which
+would typically be depreciated on a straight line basis over the five year lease term.</block>
+      <block index="17" x0="39.66" y0="482.93" x1="473.93" y1="514.36" type="text-block">The total expense recognised in profit or loss is therefore interest of CU8,998 plus
+depreciation of CU41,002, which equals the total cash flows of CU50,000.</block>
+      <block index="18" x0="39.66" y0="526.88" x1="275.14" y1="544.90" type="subheading" title="Using spreadsheets for calculations">Using spreadsheets for calculations</block>
+      <block index="20" x0="39.66" y0="555.47" x1="482.70" y1="666.72" type="text-block">Discounting can be done in spreadsheets using a line-by-line approach for each
+period or one of the inbuilt formulae. There are generally three such formulae – PV,
+NPV and XNPV. It should be noted that PV assumes that the periodic cashflows are
+identical and at the end of a period, NPV allows differing cashflows but only allows
+them to be at the end of a period, and XNPV allows full flexibility over cashflow
+amounts and timing. Care will be needed to ensure that appropriate formulae are
+applied to appropriate inputs.</block>
+      <block index="23" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+18</block>
+    </page>
+    <page number="20" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.62" x1="496.53" y1="82.86" type="subheading" title="Changes to lease accounting">Changes to lease accounting</block>
+      <block index="3" x0="493.24" y0="91.21" x1="525.03" y1="106.68" type="frs102-reference" reference="20.64">20.64</block>
+      <block index="4" x0="39.66" y0="91.21" x1="481.60" y1="138.62" type="text-block">Variable lease payments that were not included in the measurement of the lease
+liability (e.g. turnover-based rentals) are recognised in profit or loss in the period in
+which the event or condition that triggers those payments occurs.</block>
+      <block index="6" x0="39.66" y0="151.11" x1="462.82" y1="182.54" type="text-block">Otherwise, changes to the lease term, lease payments and other conditions of a
+lease fall into two categories:</block>
+      <block index="8" x0="39.66" y0="200.43" x1="454.53" y1="216.38" type="text-block">• Changes within the existing terms and conditions of a lease – referred to as</block>
+      <block index="9" x0="493.24" y0="197.43" x1="539.42" y1="228.86" type="frs102-reference" reference="20.65 to 20.69">20.65 to
+20.69</block>
+      <block index="10" x0="53.88" y0="216.39" x1="262.27" y1="231.86" type="text-block">reassessment of the lease liability; and</block>
+      <block index="11" x0="39.66" y0="235.35" x1="430.56" y1="251.30" type="text-block">• Changes to the terms and conditions of the lease – referred to as lease</block>
+      <block index="12" x0="53.88" y0="251.31" x1="134.59" y1="266.78" type="text-block">modifications.</block>
+      <block index="13" x0="493.24" y0="235.35" x1="539.42" y1="266.78" type="frs102-reference" reference="20.70 to 20.73">20.70 to
+20.73</block>
+      <block index="14" x0="39.66" y0="279.30" x1="496.53" y1="299.54" type="subheading" title="Reassessment of the lease liability">Reassessment of the lease liability</block>
+      <block index="16" x0="39.66" y0="307.89" x1="457.40" y1="339.32" type="text-block">Changes within the existing terms and conditions of a lease are approached as
+follows:</block>
+      <block index="17" x0="493.24" y0="351.81" x1="525.03" y1="367.28" type="frs102-reference" reference="20.66">20.66</block>
+      <block index="18" x0="39.66" y0="354.81" x1="466.57" y1="370.76" type="text-block">• A change in the lease term, or in the assessment of an option to purchase the</block>
+      <block index="19" x0="53.88" y0="370.79" x1="470.62" y1="402.22" type="text-block">underlying asset, results in remeasurement of the lease liability using a revised
+discount rate.</block>
+      <block index="20" x0="493.24" y0="405.71" x1="525.03" y1="421.18" type="frs102-reference" reference="20.68">20.68</block>
+      <block index="21" x0="39.66" y0="408.71" x1="436.08" y1="424.66" type="text-block">• A change in the amounts expected to be payable under a residual value</block>
+      <block index="22" x0="53.88" y0="424.67" x1="475.89" y1="519.94" type="text-block">guarantee, or a change in future lease payments resulting from a change in an
+index or a rate used to determine those payments (for example a change to
+reflect changes in market rentals following a market rent review), results in
+remeasurement of the lease liability using an unchanged discount rate (unless
+the change in lease payments results from a change in floating interest rates, in
+which case a revised discount rate is used).</block>
+      <block index="24" x0="39.66" y0="523.43" x1="481.93" y1="554.86" type="text-block">A revised discount rate is used when there is a change in the underlying economics
+of the lease.</block>
+      <block index="25" x0="39.66" y0="567.35" x1="496.53" y1="587.62" type="subheading" title="Remeasurement">Remeasurement</block>
+      <block index="26" x0="493.24" y0="593.33" x1="562.00" y1="624.78" type="frs102-reference" reference="20.65, 20.66, 20.68">20.65, 20.66,
+20.68</block>
+      <block index="27" x0="39.66" y0="593.33" x1="480.41" y1="672.66" type="text-block">The process for remeasuring a lease liability is the same as that set out in
+Example 4, and any remeasurement of the lease liability results in an equivalent
+adjustment to the right-of-use asset, with the condition that the right-of-use asset
+cannot have a value less than zero (any excess in this case is recognised in profit or
+loss).</block>
+      <block index="28" x0="493.24" y0="685.15" x1="539.33" y1="700.62" type="text-block">20.68(b)</block>
+      <block index="29" x0="39.66" y0="685.15" x1="485.02" y1="748.50" type="text-block">For a change in future lease payments resulting from a change in an index or a rate
+used to determine those payments, remeasurement of the lease liability is triggered
+only when there is a change in the cash flows (i.e. when the adjustment to the lease
+payments takes effect).</block>
+      <block index="31" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+19</block>
+    </page>
+    <page number="21" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.62" x1="496.53" y1="82.86" type="subheading" title="Lease modifications">Lease modifications</block>
+      <block index="3" x0="39.66" y0="91.21" x1="496.53" y1="111.48" type="text-block">Lease modifications are approached as follows:</block>
+      <block index="4" x0="493.24" y0="119.19" x1="525.03" y1="134.66" type="frs102-reference" reference="20.70">20.70</block>
+      <block index="5" x0="39.66" y0="122.19" x1="452.82" y1="138.14" type="text-block">• An increase in the scope of a lease (by adding the right to use one or more</block>
+      <block index="6" x0="53.88" y0="138.15" x1="416.59" y1="169.58" type="text-block">underlying assets), accompanied by a commensurate increase in the
+consideration for the lease, is treated as a separate lease.</block>
+      <block index="7" x0="493.24" y0="173.07" x1="559.43" y1="188.54" type="frs102-reference" reference="20.71, 20.72">20.71, 20.72</block>
+      <block index="8" x0="39.66" y0="176.07" x1="464.23" y1="192.02" type="text-block">• The lessee may use an unchanged discount rate instead of a revised discount</block>
+      <block index="9" x0="53.88" y0="192.03" x1="258.07" y1="207.50" type="text-block">rate to remeasure the lease liability if:</block>
+      <block index="10" x0="60.90" y0="210.99" x1="480.62" y1="242.42" type="text-block">‐
+the additional consideration is insignificant to the total consideration of the
+original lease;</block>
+      <block index="11" x0="60.90" y0="245.91" x1="477.27" y1="277.34" type="text-block">‐
+the scope of the lease is decreased by removing the right to use one or
+more underlying assets with a commensurate decrease in consideration; or</block>
+      <block index="12" x0="60.90" y0="280.83" x1="475.29" y1="328.22" type="text-block">‐
+the consideration payable is decreased for the remaining term of the lease
+but the scope of the lease is not decreased by removing the right to use
+one or more underlying assets.</block>
+      <block index="13" x0="493.24" y0="331.71" x1="525.03" y1="347.18" type="frs102-reference" reference="20.71">20.71</block>
+      <block index="14" x0="39.66" y0="334.71" x1="460.44" y1="350.66" type="text-block">• For a lease modification not captured by the above criteria, the lessee uses a</block>
+      <block index="15" x0="53.88" y0="350.67" x1="334.11" y1="366.14" type="text-block">revised discount rate to remeasure the lease liability.</block>
+      <block index="16" x0="39.66" y0="369.65" x1="496.53" y1="385.12" type="subheading" title="Remeasurement approach">Remeasurement approach</block>
+      <block index="17" x0="493.24" y0="397.61" x1="525.03" y1="413.08" type="frs102-reference" reference="20.71">20.71</block>
+      <block index="18" x0="39.66" y0="397.61" x1="485.51" y1="460.96" type="table-or-financial-data-block">For lease modifications that are not accounted for as separate leases, at the
+effective date of the lease modification the lessee shall allocate the consideration in
+the modified contract (applying paragraphs 20.31 to 20.35) and determine the lease
+term of the modified lease (applying paragraphs 20.38 to 20.42).</block>
+      <block index="19" x0="39.66" y0="473.45" x1="496.53" y1="488.92" type="subheading" title="Recognition of remeasurements">Recognition of remeasurements</block>
+      <block index="20" x0="493.24" y0="501.41" x1="538.37" y1="516.88" type="text-block">20.73(a)</block>
+      <block index="21" x0="39.66" y0="501.41" x1="481.01" y1="580.72" type="text-block">For lease modifications that decrease the scope of the lease, the lessee shall
+recognise a proportionate reduction in the carrying amount of the right-of-use
+asset to reflect the partial or full termination of the lease, account for any incoming
+resources from a government grant or non-exchange transaction in the modified
+lease, and recognise any resulting gain or loss in profit or loss.</block>
+      <block index="22" x0="493.24" y0="593.21" x1="539.33" y1="608.68" type="text-block">20.73(b)</block>
+      <block index="23" x0="39.66" y0="593.21" x1="481.35" y1="640.62" type="text-block">For all other lease modifications, the lessee shall make a corresponding adjustment
+to the right-of-use asset, net of any adjustment for incoming resources from a
+government grant or non-exchange transaction in the modified lease.</block>
+      <block index="26" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+20</block>
+    </page>
+    <page number="22" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="62.57" x1="496.53" y1="83.22" type="subheading" title="Measurement of the right-of-use asset">Measurement of the right-of-use asset</block>
+      <block index="3" x0="39.66" y0="93.85" x1="525.03" y1="109.32" type="text-block">At the commencement date, a lessee shall measure the right-of-use asset at cost.
+20.46</block>
+      <block index="4" x0="493.24" y0="121.83" x1="525.03" y1="137.30" type="frs102-reference" reference="20.47">20.47</block>
+      <block index="5" x0="39.66" y0="121.83" x1="479.45" y1="233.06" type="table-or-financial-data-block">The cost of the right-of-use asset is comprised of the initial measurement of the
+lease liability as discussed above, adjusted for lease payments made prior to
+commencement less any lease incentives received, and including initial direct costs
+of the lessee, estimates of dismantling and removing the underlying asset
+recognised in accordance with Section 21 Provisions and Contingencies, and any
+amounts recognised in accordance with Section 24 Government Grants or
+Section 34 Specialised Activities in respect of non-exchange transactions.</block>
+      <block index="6" x0="39.66" y0="245.55" x1="475.09" y1="276.98" type="text-block">Subsequently, a right-of-use asset is generally measured applying the cost model,
+except that:</block>
+      <block index="7" x0="493.24" y0="245.55" x1="562.00" y1="276.98" type="frs102-reference" reference="20.55, 20.60, 20.61">20.55, 20.60,
+20.61</block>
+      <block index="8" x0="39.66" y0="289.47" x1="476.46" y1="305.42" type="text-block">• the fair value model in Section 16 Investment Property is applied to right-of-use</block>
+      <block index="9" x0="53.88" y0="305.43" x1="450.35" y1="336.86" type="text-block">assets that meet the definition of investment property, unless applying the
+exemption for investment property rented to another group entity; and</block>
+      <block index="10" x0="39.66" y0="340.35" x1="454.31" y1="356.30" type="text-block">• if the lessee applies the revaluation model in Section 17 Property, Plant and</block>
+      <block index="11" x0="53.88" y0="356.33" x1="442.82" y1="387.76" type="text-block">Equipment to one or more classes of assets, it may also elect to apply the
+revaluation model to right-of-use assets relating to the same classes.</block>
+      <block index="12" x0="493.24" y0="391.25" x1="525.03" y1="406.72" type="frs102-reference" reference="20.56">20.56</block>
+      <block index="13" x0="39.66" y0="391.25" x1="465.71" y1="438.64" type="text-block">Under the cost model, the right-of-use asset is measured at cost less any
+accumulated depreciation and accumulated impairment losses, and adjusted for
+any remeasurement of the lease liability in accordance with paragraph 20.62(c).</block>
+      <block index="17" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 11 | Lease accounting for lessees
+21</block>
+    </page>
+    <page number="23" width="595.32" height="841.92">
+      <block index="3" x0="465.46" y0="598.55" x1="573.97" y1="677.88" type="table-or-financial-data-block">Financial
+Reporting Council
+8th Floor
+125 London Wall
+London EC2Y 5AS</block>
+      <block index="4" x0="465.46" y0="684.85" x1="578.15" y1="700.32" type="text-block">+44 (0)20 7492 2300</block>
+      <block index="5" x0="465.46" y0="712.87" x1="547.13" y1="728.34" type="text-block">www.frc.org.uk</block>
+      <block index="6" x0="465.46" y0="768.97" x1="535.43" y1="784.44" type="text-block">Follow us on</block>
+      <block index="7" x0="465.46" y0="800.89" x1="561.78" y1="816.36" type="text-block">or      @FRCnews</block>
+    </page>
+  </body>
+</frs102-factsheet>

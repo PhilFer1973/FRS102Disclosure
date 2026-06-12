@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='utf-8'?>
+<accounting-standard id="FRS-102" jurisdiction="UK-and-Republic-of-Ireland" edition="January-2022" source-format="PDF" conversion-status="machine-extracted-first-pass"><body><page number="5" width="595.28" height="841.89">
+      <block index="1" x0="63.78" y0="65.92" x1="124.17" y1="79.86" type="text-block">Contents</block>
+      <block index="2" x0="492.66" y0="98.28" x1="518.11" y1="109.24" type="text-block">Page</block>
+      <block index="3" x0="63.78" y0="122.77" x1="518.04" y1="133.73" type="text-block">Overview
+5</block>
+      <block index="4" x0="63.78" y0="159.28" x1="518.04" y1="182.20" type="text-block">FRS 102 The Financial Reporting Standard applicable in the UK and Republic
+of Ireland
+7</block>
+      <block index="5" x0="63.78" y0="189.84" x1="518.04" y1="200.80" type="numbered-paragraph" paragraph-id="1">1
+Scope
+8</block>
+      <block index="6" x0="63.78" y0="208.38" x1="518.08" y1="219.34" type="numbered-paragraph" paragraph-id="1A">1A
+Small Entities
+16</block>
+      <block index="7" x0="87.65" y0="226.91" x1="518.08" y1="237.88" type="appendix-heading" appendix="A">Appendix A Guidance on adapting the balance sheet formats
+20</block>
+      <block index="8" x0="87.65" y0="245.51" x1="518.08" y1="256.47" type="appendix-heading" appendix="B">Appendix B Guidance on adapting the proﬁt and loss account formats
+22</block>
+      <block index="9" x0="87.65" y0="264.04" x1="518.08" y1="275.01" type="appendix-heading" appendix="C">Appendix C Disclosure requirements for small entities in the UK
+23</block>
+      <block index="10" x0="87.65" y0="282.64" x1="518.08" y1="293.60" type="appendix-heading" appendix="D">Appendix D Disclosure requirements for small entities in the Republic of Ireland
+32</block>
+      <block index="11" x0="87.65" y0="301.18" x1="518.08" y1="312.14" type="appendix-heading" appendix="E">Appendix E Additional disclosures encouraged for small entities
+47</block>
+      <block index="12" x0="63.78" y0="319.78" x1="518.09" y1="330.74" type="numbered-paragraph" paragraph-id="2">2
+Concepts and Pervasive Principles
+48</block>
+      <block index="13" x0="87.65" y0="338.31" x1="518.08" y1="349.28" type="appendix-heading" appendix="Fair">Appendix Fair value measurement
+57</block>
+      <block index="14" x0="63.78" y0="356.86" x1="518.09" y1="367.81" type="numbered-paragraph" paragraph-id="3">3
+Financial Statement Presentation
+59</block>
+      <block index="15" x0="63.78" y0="375.45" x1="518.09" y1="386.41" type="numbered-paragraph" paragraph-id="4">4
+Statement of Financial Position
+64</block>
+      <block index="16" x0="63.78" y0="393.99" x1="518.09" y1="404.95" type="numbered-paragraph" paragraph-id="5">5
+Statement of Comprehensive Income and Income Statement
+68</block>
+      <block index="17" x0="87.65" y0="412.58" x1="518.08" y1="423.54" type="appendix-heading" appendix="Example">Appendix Example showing presentation of discontinued operations
+72</block>
+      <block index="18" x0="63.78" y0="431.12" x1="518.09" y1="442.08" type="numbered-paragraph" paragraph-id="6">6
+Statement of Changes in Equity and Statement of Income and Retained Earnings
+73</block>
+      <block index="19" x0="63.78" y0="449.66" x1="518.09" y1="460.62" type="numbered-paragraph" paragraph-id="7">7
+Statement of Cash Flows
+75</block>
+      <block index="20" x0="63.78" y0="468.26" x1="518.09" y1="479.21" type="numbered-paragraph" paragraph-id="8">8
+Notes to the Financial Statements
+81</block>
+      <block index="21" x0="63.78" y0="486.79" x1="518.09" y1="497.75" type="numbered-paragraph" paragraph-id="9">9
+Consolidated and Separate Financial Statements
+83</block>
+      <block index="22" x0="63.78" y0="505.39" x1="518.09" y1="516.35" type="numbered-paragraph" paragraph-id="10">10
+Accounting Policies, Estimates and Errors
+94</block>
+      <block index="23" x0="63.78" y0="523.93" x1="518.09" y1="534.89" type="numbered-paragraph" paragraph-id="11">11
+Basic Financial Instruments
+99</block>
+      <block index="24" x0="63.78" y0="542.52" x1="518.07" y1="553.48" type="numbered-paragraph" paragraph-id="12">12
+Other Financial Instruments Issues
+119</block>
+      <block index="25" x0="87.65" y0="561.06" x1="518.07" y1="572.02" type="appendix-heading" appendix="Examples">Appendix Examples of hedge accounting
+131</block>
+      <block index="26" x0="63.78" y0="579.60" x1="518.07" y1="590.56" type="numbered-paragraph" paragraph-id="13">13
+Inventories
+142</block>
+      <block index="27" x0="63.78" y0="598.19" x1="518.07" y1="609.15" type="numbered-paragraph" paragraph-id="14">14
+Investments in Associates
+146</block>
+      <block index="28" x0="63.78" y0="616.73" x1="518.07" y1="627.69" type="numbered-paragraph" paragraph-id="15">15
+Investments in Joint Ventures
+150</block>
+      <block index="29" x0="63.78" y0="635.33" x1="518.07" y1="646.29" type="numbered-paragraph" paragraph-id="16">16
+Investment Property
+154</block>
+      <block index="30" x0="63.78" y0="653.87" x1="518.07" y1="664.83" type="numbered-paragraph" paragraph-id="17">17
+Property, Plant and Equipment
+157</block>
+      <block index="31" x0="63.78" y0="672.46" x1="518.07" y1="683.42" type="numbered-paragraph" paragraph-id="18">18
+Intangible Assets other than Goodwill
+163</block>
+      <block index="32" x0="63.78" y0="691.00" x1="518.07" y1="701.96" type="numbered-paragraph" paragraph-id="19">19
+Business Combinations and Goodwill
+171</block>
+      <block index="33" x0="63.78" y0="709.54" x1="518.07" y1="720.50" type="numbered-paragraph" paragraph-id="20">20
+Leases
+178</block>
+      <block index="34" x0="63.78" y0="728.13" x1="518.07" y1="739.09" type="numbered-paragraph" paragraph-id="21">21
+Provisions and Contingencies
+186</block>
+      <block index="35" x0="87.65" y0="746.67" x1="518.07" y1="757.63" type="appendix-heading" appendix="Examples">Appendix Examples of recognising and measuring provisions
+191</block>
+      <block index="36" x0="380.07" y0="779.37" x1="518.06" y1="789.33" type="text-block">Financial Reporting Council
+1</block>
+    </page>
+    <page number="12" width="595.28" height="841.89">
+      <block index="1" x0="76.71" y0="65.92" x1="139.45" y1="94.84" type="section-heading" section="1">Section 1
+Scope</block>
+      <block index="2" x0="76.71" y0="116.78" x1="325.48" y1="128.74" type="text-block">Scope of this Financial Reporting Standard</block>
+      <block index="3" x0="76.71" y0="145.95" x1="531.05" y1="180.84" type="numbered-paragraph" paragraph-id="1.1">1.1
+This FRS applies to ﬁnancial statements that are intended to give a true and fair view
+of a reporting entity’s ﬁnancial position and proﬁt or loss (or income and
+expenditure) for a period.</block>
+      <block index="4" x0="76.71" y0="193.75" x1="531.07" y1="288.39" type="numbered-paragraph" paragraph-id="1.2">1.2
+The requirements of this FRS are applicable to public beneﬁt entities and other
+entities, not just to companies. However, those paragraph numbers preﬁxed with ‘PBE’
+shall only be applied by public beneﬁt entities, and shall not be applied directly, or by
+analogy, by entities that are not public beneﬁt entities, other than, when speciﬁcally
+directed, entities within a public beneﬁt entity group. A public beneﬁt entity shall
+apply all paragraphs preﬁxed with ‘PBE’ to the extent that they are relevant and, for
+those public beneﬁt entities within the scope of a Statement of Recommended
+Practice (SORP), their use is permitted by the applicable SORP.</block>
+      <block index="5" x0="76.71" y0="301.35" x1="531.05" y1="360.16" type="numbered-paragraph" paragraph-id="1.2A">1.2A
+An entity applying this FRS must ensure it complies with any relevant legal
+requirements applicable to it. This FRS does not necessarily contain all legal
+disclosure requirements. In relation to small companies (see Section 1A Small
+Entities) most legal disclosure requirements are included, but, for example, those
+only relevant when the ﬁnancial statements have been audited are not included.</block>
+      <block index="6" x0="76.71" y0="379.27" x1="328.35" y1="391.22" type="text-block">Basis of preparation of ﬁnancial statements</block>
+      <block index="7" x0="76.71" y0="408.44" x1="531.05" y1="479.22" type="numbered-paragraph" paragraph-id="1.3">1.3
+As stated in FRS 100, an entity that is required by the Act (or other legislation or
+regulation) to prepare consolidated ﬁnancial statements in accordance with
+adopted IFRS must do so. The individual ﬁnancial statements of such an entity,
+or the individual ﬁnancial statements or consolidated ﬁnancial statements of any other
+entity within the scope of FRS 100, must be prepared in accordance with the following
+requirements:</block>
+      <block index="8" x0="114.58" y0="486.17" x1="531.05" y1="521.06" type="text-block">(a)
+If the ﬁnancial statements are the individual ﬁnancial statements of an entity that
+is eligible to apply FRS 1052, they may be prepared in accordance with that
+standard.</block>
+      <block index="9" x0="114.58" y0="528.01" x1="531.04" y1="574.86" type="text-block">(b)
+If the ﬁnancial statements are those of an entity that is not eligible to apply
+FRS 105, or of an entity that is eligible to apply FRS 105 but chooses not to do
+so, they must3 be prepared in accordance with this FRS, adopted IFRS or
+FRS 101.4</block>
+      <block index="10" x0="76.71" y0="587.76" x1="531.04" y1="622.65" type="numbered-paragraph" paragraph-id="1.4">1.4
+An entity whose ordinary shares or potential ordinary shares are publicly traded,
+or that ﬁles, or is in the process of ﬁling, its ﬁnancial statements with a securities
+commission or other regulatory organisation for the purpose of issuing ordinary shares</block>
+      <block index="11" x0="76.71" y0="647.67" x1="531.12" y1="756.96" type="numbered-paragraph" paragraph-id="2">2
+The eligibility criteria for applying FRS 105 are set out in legislation and FRS 105. In establishing whether the eligibility criteria
+have been met turnover and balance sheet total shall be measured in accordance with FRS 105; the measurement of turnover
+and balance sheet total in accordance with FRS 101 or FRS 102 need not be considered.
+3
+Under company law in the Republic of Ireland, certain entities are permitted to prepare ‘Companies Act ﬁnancial statements’
+under a ﬁnancial reporting framework based on accounting standards other than those issued by the FRC. Please refer to
+Appendix IV for further details.
+4
+Individual ﬁnancial statements that are prepared by a company in accordance with FRS 101 or FRS 102 are Companies Act
+individual accounts (in the UK, in accordance with section 395(1)(a) of the Act, and in Ireland, in accordance with
+sections 290(3)(a) and 290(4)(a) of the Companies Act 2014), whereas those prepared in accordance with adopted IFRS are
+IAS individual accounts (in the UK, in accordance with section 395(1)(b) of the Act, and in Ireland, in accordance with
+sections 290(3)(b) and 290(4)(b) of the Companies Act 2014).</block>
+      <block index="12" x0="76.71" y0="779.37" x1="202.65" y1="789.33" type="numbered-paragraph" paragraph-id="8">8
+FRS 102 (January 2022)</block>
+    </page>
+    <page number="68" width="595.28" height="841.89">
+      <block index="1" x0="76.71" y0="65.92" x1="286.87" y1="94.84" type="section-heading" section="4">Section 4
+Statement of Financial Position</block>
+      <block index="2" x0="76.71" y0="115.53" x1="199.03" y1="127.49" type="text-block">Scope of this section</block>
+      <block index="3" x0="76.71" y0="144.71" x1="531.05" y1="263.27" type="numbered-paragraph" paragraph-id="4.1">4.1
+An entity shall present its ﬁnancial position at the end of the reporting period. This
+section sets out the information that shall be presented in a statement of ﬁnancial
+position and how to present it. The statement of ﬁnancial position (which is referred to
+as the balance sheet in the Act) presents an entity’s assets, liabilities and equity at
+the end of the reporting period. This section applies to all entities, whether or not they
+report under the Act. Entities that do not report under the Act shall comply with the
+requirements of this section, and with the Regulations (or, where applicable, the LLP
+Regulations) where referred to in this section, except to the extent that these
+requirements are not permitted by any statutory framework under which such entities
+report.</block>
+      <block index="4" x0="76.71" y0="276.17" x1="531.03" y1="299.10" type="numbered-paragraph" paragraph-id="4.1A">4.1A
+A small entity applying Section 1A Small Entities is not required to comply with this
+section.</block>
+      <block index="5" x0="76.71" y0="317.02" x1="452.41" y1="328.98" type="text-block">Information to be presented in the statement of ﬁnancial position</block>
+      <block index="6" x0="76.71" y0="346.20" x1="531.03" y1="369.12" type="numbered-paragraph" paragraph-id="4.2">4.2
+An entity shall present a statement of ﬁnancial position in accordance with one of the
+following requirements for a balance sheet:</block>
+      <block index="7" x0="114.58" y0="376.07" x1="480.68" y1="387.04" type="text-block">(a)
+Part 1 General Rules and Formats of Schedule 1 to the Regulations.</block>
+      <block index="8" x0="114.58" y0="393.99" x1="480.68" y1="404.95" type="text-block">(b)
+Part 1 General Rules and Formats of Schedule 2 to the Regulations.</block>
+      <block index="9" x0="114.58" y0="411.96" x1="480.68" y1="422.92" type="text-block">(c)
+Part 1 General Rules and Formats of Schedule 3 to the Regulations.</block>
+      <block index="10" x0="114.58" y0="429.87" x1="503.69" y1="440.84" type="text-block">(d)
+Part 1 General Rules and Formats of Schedule 1 to the LLP Regulations.</block>
+      <block index="11" x0="114.58" y0="453.80" x1="531.04" y1="488.68" type="text-block">The consolidated statement of ﬁnancial position of a group shall be presented in
+accordance with the requirements for a consolidated balance sheet in Schedule 6 to
+the Regulations or Schedule 3 to the LLP Regulations.</block>
+      <block index="12" x0="76.70" y0="501.59" x1="531.05" y1="548.44" type="numbered-paragraph" paragraph-id="4.2A">4.2A
+An entity choosing to apply paragraph 1A(1) of Schedule 1 to the Regulations and
+adapt one of the balance sheet formats shall, as a minimum, include in its statement of
+ﬁnancial position line items that present the following, distinguishing between those
+items that are current and those that are non-current:</block>
+      <block index="13" x0="114.58" y0="555.39" x1="306.73" y1="566.35" type="text-block">(a)
+property, plant and equipment;</block>
+      <block index="14" x0="114.58" y0="573.36" x1="467.28" y1="584.32" type="text-block">(b)
+investment property carried at fair value through proﬁt or loss;</block>
+      <block index="15" x0="114.58" y0="591.27" x1="236.60" y1="602.24" type="text-block">(c)
+intangible assets;</block>
+      <block index="16" x0="114.58" y0="609.19" x1="486.88" y1="620.15" type="text-block">(d)
+ﬁnancial assets (excluding amounts shown under (e), (f), (j) and (k));</block>
+      <block index="17" x0="114.58" y0="627.16" x1="276.96" y1="638.12" type="text-block">(e)
+investments in associates;</block>
+      <block index="18" x0="114.58" y0="645.07" x1="352.25" y1="656.04" type="text-block">(f)
+investments in jointly controlled entities;</block>
+      <block index="19" x0="114.58" y0="662.99" x1="530.99" y1="685.92" type="text-block">(g)
+biological
+assets
+carried
+at
+cost
+less
+accumulated
+depreciation
+and
+impairment;</block>
+      <block index="20" x0="114.58" y0="692.87" x1="430.84" y1="703.83" type="text-block">(h)
+biological assets carried at fair value through proﬁt or loss;</block>
+      <block index="21" x0="114.58" y0="710.84" x1="205.59" y1="721.80" type="text-block">(i)
+inventories;</block>
+      <block index="22" x0="114.58" y0="728.76" x1="281.11" y1="739.72" type="text-block">(j)
+trade and other receivables;</block>
+      <block index="23" x0="114.58" y0="746.67" x1="286.20" y1="757.63" type="text-block">(k)
+cash and cash equivalents;</block>
+      <block index="24" x0="76.71" y0="779.37" x1="208.15" y1="789.33" type="numbered-paragraph" paragraph-id="64">64
+FRS 102 (January 2022)</block>
+    </page>
+    <page number="69" width="595.28" height="841.89">
+      <block index="1" x0="101.59" y0="65.23" x1="256.66" y1="76.19" type="text-block">(l)
+trade and other payables;</block>
+      <block index="2" x0="101.59" y0="83.20" x1="189.71" y1="94.16" type="text-block">(m)
+provisions;</block>
+      <block index="3" x0="101.59" y0="101.11" x1="453.57" y1="112.08" type="text-block">(n)
+ﬁnancial liabilities (excluding amounts shown under (l) and (m));</block>
+      <block index="4" x0="101.59" y0="119.02" x1="309.39" y1="129.99" type="text-block">(o)
+liabilities and assets for current tax;</block>
+      <block index="5" x0="101.59" y0="137.00" x1="504.25" y1="147.96" type="text-block">(p)
+deferred tax liabilities and deferred tax assets (classiﬁed as non-current);</block>
+      <block index="6" x0="101.59" y0="154.91" x1="518.08" y1="177.84" type="text-block">(q)
+non-controlling interest, presented within equity separately from the equity
+attributable to the owners of the parent; and</block>
+      <block index="7" x0="101.59" y0="184.79" x1="357.44" y1="195.75" type="text-block">(r)
+equity attributable to the owners of the parent.</block>
+      <block index="8" x0="63.78" y0="208.72" x1="518.08" y1="243.60" type="numbered-paragraph" paragraph-id="4.2B">4.2B
+An entity choosing to apply paragraph 1A(1) of Schedule 1 to the Regulations shall
+also disclose, either in the statement of ﬁnancial position or in the notes, the following
+sub-classiﬁcations of the line items presented:</block>
+      <block index="9" x0="101.59" y0="250.56" x1="484.00" y1="261.52" type="text-block">(a)
+property, plant and equipment in classiﬁcations appropriate to the entity;</block>
+      <block index="10" x0="101.59" y0="268.46" x1="489.21" y1="279.43" type="text-block">(b)
+intangible assets and goodwill in classiﬁcations appropriate to the entity;</block>
+      <block index="11" x0="101.59" y0="286.44" x1="380.93" y1="297.40" type="text-block">(c)
+investments, showing separately shares and loans;</block>
+      <block index="12" x0="101.59" y0="304.35" x1="518.11" y1="339.24" type="text-block">(d)
+trade and other receivables showing separately amounts due from related
+parties, amounts due from other parties, prepayments and receivables arising
+from accrued income not yet billed;</block>
+      <block index="13" x0="101.59" y0="346.20" x1="402.13" y1="357.15" type="text-block">(e)
+inventories, showing separately amounts of inventories:</block>
+      <block index="14" x0="131.19" y0="364.10" x1="396.53" y1="375.07" type="text-block">(i)
+held for sale in the ordinary course of business;</block>
+      <block index="15" x0="131.19" y0="382.08" x1="386.77" y1="393.04" type="text-block">(ii)
+in the process of production for such sale; and</block>
+      <block index="16" x0="131.19" y0="400.00" x1="518.10" y1="422.92" type="text-block">(iii)
+in the form of materials or supplies to be consumed in the production
+process or in the rendering of services.</block>
+      <block index="17" x0="101.59" y0="429.87" x1="518.05" y1="452.79" type="text-block">(f)
+trade and other payables, showing separately amounts payable to trade
+suppliers, payable to related parties, deferred income and accruals; and</block>
+      <block index="18" x0="101.59" y0="459.75" x1="518.12" y1="482.67" type="text-block">(g)
+classes of equity, such as share capital, share premium, retained earnings,
+revaluation reserve, fair value reserve and other reserves.</block>
+      <block index="19" x0="63.78" y0="495.64" x1="518.07" y1="554.39" type="numbered-paragraph" paragraph-id="4.2C">4.2C
+The descriptions used in paragraphs 4.2A and 4.2B, and the ordering of items or
+aggregation of similar items, may be amended according to the nature of the entity and
+its transactions, to provide information that is relevant to an understanding of the
+entity’s ﬁnancial position, providing the information given is at least equivalent to that
+required by the balance sheet format had it not been adapted.</block>
+      <block index="20" x0="63.78" y0="567.35" x1="518.08" y1="614.20" type="numbered-paragraph" paragraph-id="4.2D">4.2D
+In order to comply with the requirement to distinguish between those items that are
+current and those that are non-current an entity shall present current and non-current
+assets, and current and non-current liabilities, as separate classiﬁcations in its
+statement of ﬁnancial position.</block>
+      <block index="21" x0="63.78" y0="627.16" x1="518.10" y1="661.99" type="numbered-paragraph" paragraph-id="4.3">4.3
+An entity shall present additional line items, headings and subtotals in the statement of
+ﬁnancial position when such presentation is relevant to an understanding of the entity’s
+ﬁnancial position.</block>
+      <block index="22" x0="101.59" y0="674.95" x1="299.60" y1="685.91" type="text-block">Debtors due after more than one year</block>
+      <block index="23" x0="63.78" y0="698.88" x1="145.29" y1="709.84" type="numbered-paragraph" paragraph-id="4.4">4.4
+[Deleted]</block>
+      <block index="24" x0="63.78" y0="722.80" x1="518.06" y1="757.63" type="numbered-paragraph" paragraph-id="4.4A">4.4A
+Unless an entity chooses to apply paragraph 1A(1) of Schedule 1 to the Regulations, in
+instances where the amount of debtors due after more than one year is so material in
+the context of the total net current assets that in the absence of disclosure of the</block>
+      <block index="25" x0="374.57" y0="779.37" x1="518.06" y1="789.33" type="text-block">Financial Reporting Council
+65</block>
+    </page>
+    <page number="348" width="595.28" height="841.89">
+      <block index="1" x0="120.53" y0="65.23" x1="531.05" y1="88.15" type="text-block">referenced below may have been amended by legislation subsequent to the issuing of
+this FRS, and reference should be made to such amended text where applicable.</block>
+      <block index="2" x0="76.71" y0="104.31" x1="170.37" y1="116.27" type="text-block">Section 1 Scope</block>
+      <block index="3" x0="152.62" y0="131.76" x1="327.51" y1="141.72" type="text-block">UK references
+RoI references</block>
+      <block index="4" x0="257.84" y0="153.70" x1="522.12" y1="163.66" type="text-block">Companies Act 2014
+Other legislative reference</block>
+      <block index="5" x0="83.17" y0="153.70" x1="246.73" y1="186.56" type="text-block">Paragraph
+Act and the
+Regulations (unless
+otherwise stated)</block>
+      <block index="6" x0="83.17" y0="198.55" x1="310.85" y1="208.51" type="numbered-paragraph" paragraph-id="1.10">1.10
+Section 399
+Section 293</block>
+      <block index="7" x0="83.17" y0="220.43" x1="347.36" y1="230.39" type="numbered-paragraph" paragraph-id="1.10">1.10
+Section 400 to 402
+Sections 299 to 301</block>
+      <block index="8" x0="76.71" y0="254.26" x1="324.48" y1="266.22" type="text-block">Section 3 Financial Statement Presentation</block>
+      <block index="9" x0="152.62" y0="281.71" x1="327.51" y1="291.67" type="text-block">UK references
+RoI references</block>
+      <block index="10" x0="257.84" y0="303.65" x1="522.12" y1="313.61" type="text-block">Companies Act 2014
+Other legislative reference</block>
+      <block index="11" x0="83.17" y0="303.65" x1="246.73" y1="336.52" type="text-block">Paragraph
+Act and the
+Regulations (unless
+otherwise stated)</block>
+      <block index="12" x0="257.84" y0="348.44" x1="375.61" y1="369.86" type="text-block">Paragraph 46 in Part IV of
+Schedule 3</block>
+      <block index="13" x0="83.17" y0="348.44" x1="231.55" y1="381.37" type="numbered-paragraph" paragraph-id="3.14A">3.14A
+Paragraph 51 of
+Schedule 1 to the
+Regulations</block>
+      <block index="14" x0="76.71" y0="405.18" x1="474.90" y1="431.08" type="text-block">Section 4 Statement of Financial Position and Section 5 Statement of
+Comprehensive Income and Income Statement</block>
+      <block index="15" x0="152.62" y0="446.57" x1="327.51" y1="456.54" type="text-block">UK references
+RoI references</block>
+      <block index="16" x0="257.84" y0="468.51" x1="522.12" y1="478.48" type="text-block">Companies Act 2014
+Other legislative reference</block>
+      <block index="17" x0="83.17" y0="468.51" x1="246.73" y1="501.38" type="text-block">Paragraph
+Act and the
+Regulations (unless
+otherwise stated)</block>
+      <block index="18" x0="257.84" y0="513.36" x1="372.30" y1="534.78" type="text-block">Part II General Rules and
+Formats of Schedule 3</block>
+      <block index="19" x0="83.17" y0="513.36" x1="246.69" y1="557.68" type="text-block">4.2, 5.5 and
+5.7
+Part 1 General Rules
+and Formats of
+Schedule 1 to the
+Regulations</block>
+      <block index="20" x0="83.17" y0="569.65" x1="246.69" y1="613.98" type="text-block">4.2, 5.5 and
+5.7
+Part 1 General Rules
+and Formats of
+Schedule 2 to the
+Regulations</block>
+      <block index="21" x0="396.00" y0="569.65" x1="510.46" y1="613.98" type="text-block">Part II General Rules and
+Formats of Schedule 1 to
+the Credit Institutions
+Regulations 2015</block>
+      <block index="22" x0="83.17" y0="625.89" x1="246.69" y1="670.27" type="text-block">4.2, 5.5 and
+5.7
+Part 1 General Rules
+and Formats of
+Schedule 3 to the
+Regulations</block>
+      <block index="23" x0="396.00" y0="625.89" x1="518.67" y1="681.73" type="text-block">Part II General Rules and
+Formats of Schedule 1 to
+the Insurance Undertakings
+Regulations 2015 (as
+amended)</block>
+      <block index="24" x0="83.17" y0="693.65" x1="384.85" y1="726.57" type="text-block">4.2, 5.5 and
+5.7
+Schedule 6 to the
+Regulations
+Schedule 4
+Refer also to paragraph A4.2
+of this appendix.</block>
+      <block index="25" x0="76.71" y0="779.37" x1="213.71" y1="789.33" type="numbered-paragraph" paragraph-id="344">344
+FRS 102 (January 2022)</block>
+    </page>
+    <page number="350" width="595.28" height="841.89">
+      <block index="1" x0="76.71" y0="66.49" x1="262.33" y1="78.45" type="text-block">Section 22 Liabilities and Equity</block>
+      <block index="2" x0="152.62" y0="93.89" x1="327.51" y1="103.85" type="text-block">UK references
+RoI references</block>
+      <block index="3" x0="257.84" y0="115.83" x1="522.12" y1="125.79" type="text-block">Companies Act 2014
+Other legislative reference</block>
+      <block index="4" x0="83.17" y0="115.83" x1="246.73" y1="148.69" type="text-block">Paragraph
+Act and the
+Regulations (unless
+otherwise stated)</block>
+      <block index="5" x0="83.17" y0="160.68" x1="384.85" y1="216.45" type="numbered-paragraph" paragraph-id="22.8">22.8
+Sections 611 to 615
+Sections 72 to 75
+Reference to ‘merger relief’
+encompasses a reference to
+both section 72 and
+section 75.</block>
+      <block index="6" x0="76.71" y0="240.31" x1="193.68" y1="252.27" type="appendix-heading" appendix="I">Appendix I Glossary</block>
+      <block index="7" x0="151.60" y0="267.76" x1="325.53" y1="277.73" type="text-block">UK references
+RoI references</block>
+      <block index="8" x0="255.85" y0="289.70" x1="518.15" y1="299.67" type="text-block">Companies Act 2014
+Other legislative reference</block>
+      <block index="9" x0="83.17" y0="289.70" x1="245.71" y1="322.57" type="text-block">Paragraph
+Act and the
+Regulations (unless
+otherwise stated)</block>
+      <block index="10" x0="255.85" y0="334.50" x1="380.69" y1="355.91" type="text-block">Paragraph 2(2) in Section A
+of Part II of Schedule 3</block>
+      <block index="11" x0="83.17" y0="334.50" x1="237.22" y1="367.36" type="text-block">‘current
+assets’
+Paragraph 1A(1) of
+Schedule 1 to the
+Regulations</block>
+      <block index="12" x0="255.85" y0="379.34" x1="380.69" y1="400.76" type="text-block">Paragraph 2(2) in Section A
+of Part II of Schedule 3</block>
+      <block index="13" x0="83.17" y0="379.34" x1="237.22" y1="412.21" type="text-block">‘current
+liabilities’
+Paragraph 1A(1) of
+Schedule 1 to the
+Regulations</block>
+      <block index="14" x0="83.17" y0="424.18" x1="136.80" y1="468.50" type="text-block">‘ﬁnancial
+institution’
+and
+Footnote 61</block>
+      <block index="15" x0="151.60" y0="424.18" x1="239.55" y1="479.95" type="text-block">Part 4A permission;
+Section 55A of the
+Financial Services
+and Markets Act
+2000</block>
+      <block index="16" x0="392.03" y0="424.18" x1="523.49" y1="525.82" type="text-block">There is no corresponding
+legislation in Ireland to the
+Financial Services and
+Markets Act 2000. Banks in
+Ireland are licensed under
+Section 9 of the Central Bank
+Act, 1971.
+Refer also to paragraph A4.10
+of this appendix.</block>
+      <block index="17" x0="83.17" y0="537.74" x1="245.56" y1="570.61" type="text-block">‘ﬁnancial
+institution’
+Section 119(1) of the
+Building Societies
+Act 1986</block>
+      <block index="18" x0="392.03" y0="537.74" x1="523.47" y1="582.06" type="text-block">Section 2(1) of the Building
+Societies Act, 1989
+Refer also to paragraph A4.10
+of this appendix.</block>
+      <block index="19" x0="392.03" y0="594.04" x1="523.47" y1="638.35" type="text-block">Credit Union Acts 1997 to
+2012
+Refer also to paragraph A4.10
+of this appendix.</block>
+      <block index="20" x0="83.17" y0="594.04" x1="236.14" y1="649.81" type="text-block">‘ﬁnancial
+institution’
+Co-operative and
+Community Beneﬁt
+Societies Act 2014
+and Credit Unions
+Act 1979</block>
+      <block index="21" x0="392.03" y0="661.78" x1="523.47" y1="706.10" type="text-block">Friendly Societies Acts 1896
+to 2014
+Refer also to paragraph A4.10
+of this appendix.</block>
+      <block index="22" x0="83.17" y0="661.78" x1="245.73" y1="717.55" type="text-block">‘ﬁnancial
+institution’
+Friendly Societies
+Act 1992;
+Section 7(1)(a) of the
+Friendly Societies
+Act 1974</block>
+      <block index="23" x0="76.71" y0="779.36" x1="213.71" y1="789.33" type="numbered-paragraph" paragraph-id="346">346
+FRS 102 (January 2022)</block>
+    </page>
+    </body></accounting-standard>

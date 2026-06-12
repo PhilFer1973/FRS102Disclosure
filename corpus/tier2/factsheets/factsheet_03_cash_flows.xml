@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='utf-8'?>
+<frs102-factsheet factsheet-number="3" title="Statement of Cash Flows" publication-date="2024-11" source-format="PDF" conversion-status="machine-extracted-first-pass">
+  <metadata>
+    <publisher>Financial Reporting Council</publisher>
+    <source-file>FRS102 FactSheet Cashflow Statement.pdf</source-file>
+    <page-count>11</page-count>
+    <related-standard>FRS 102 Section 7</related-standard>
+    <notice>This XML is a machine-extracted derivative of the supplied FRC factsheet. It is not an official FRC XML publication and should be checked against the source PDF.</notice>
+  </metadata>
+  <body>
+    <page number="1" width="595.32" height="841.92">
+      <block index="2" x0="28.38" y0="223.71" x1="325.34" y1="263.69" type="text-block">FRS 102 Factsheet 3</block>
+      <block index="3" x0="186.80" y0="301.28" x1="438.52" y1="329.66" type="text-block">Statement of Cash Flows</block>
+      <block index="4" x0="465.58" y0="772.03" x1="553.91" y1="787.50" type="text-block">November 2024</block>
+    </page>
+    <page number="2" width="595.32" height="841.92">
+      <block index="2" x0="41.58" y0="65.89" x1="556.46" y1="113.34" type="table-or-financial-data-block">This factsheet has been prepared by FRC staff to aid preparers in applying Section 7 Statement of
+Cash Flows of FRS 102. It should not be relied upon as a definitive statement on the application
+of the standard nor is it a substitute for reading the detailed requirements of FRS 102.</block>
+      <block index="20" x0="34.02" y0="503.51" x1="563.63" y1="566.92" type="text-block">The FRC does not accept any liability to any party for any loss, damage or costs howsoever arising,
+whether directly or indirectly, whether in contract, tort or otherwise from any action or decision
+taken (or not taken) as a result of any person relying on or otherwise using this document or arising
+from any omission from it.</block>
+      <block index="21" x0="34.02" y0="573.41" x1="537.55" y1="604.84" type="text-block">This document contains copyright material of the IFRS® Foundation (Foundation) in respect of
+which all rights are reserved.</block>
+      <block index="22" x0="34.02" y0="611.35" x1="501.53" y1="658.74" type="text-block">No rights are granted to third parties other than as permitted by the Terms of Use
+(www.frc.org.uk/FRStermsofuse) without the prior written permission of the FRC and the
+Foundation.</block>
+      <block index="23" x0="34.02" y0="665.23" x1="554.69" y1="712.62" type="text-block">Material issued in respect of the application of Financial Reporting Standards in the UK and the
+Republic of Ireland has not been prepared or endorsed by the International Accounting Standards
+Board.</block>
+      <block index="24" x0="34.02" y0="719.11" x1="289.93" y1="734.58" type="text-block">© The Financial Reporting Council Limited 2024</block>
+      <block index="25" x0="34.02" y0="741.07" x1="435.03" y1="788.46" type="table-or-financial-data-block">The Financial Reporting Council Limited is a company limited by guarantee.
+Registered in England number 2486368. Registered Office:
+8th Floor, 125 London Wall, London EC2Y 5AS</block>
+      <block index="27" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+1</block>
+    </page>
+    <page number="3" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="131.80" y1="90.42" type="text-block">Contents</block>
+      <block index="3" x0="538.26" y0="97.31" x1="564.13" y1="110.22" type="text-block">Page</block>
+      <block index="4" x0="34.02" y0="128.13" x1="563.29" y1="143.60" type="table-or-financial-data-block">1.
+Introduction
+3</block>
+      <block index="5" x0="34.02" y0="158.61" x1="563.29" y1="174.08" type="table-or-financial-data-block">2.
+Background and scoping
+4</block>
+      <block index="6" x0="34.02" y0="189.09" x1="563.29" y1="204.56" type="table-or-financial-data-block">3.
+Presentation and disclosure
+6</block>
+      <block index="7" x0="34.02" y0="219.51" x1="563.29" y1="234.98" type="table-or-financial-data-block">4.
+Illustrative statement of cash flows
+8</block>
+      <block index="10" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+2</block>
+    </page>
+    <page number="4" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="206.26" y1="90.42" type="section-heading" section-number="1" title="Introduction">1. Introduction</block>
+      <block index="3" x0="34.02" y0="115.35" x1="561.14" y1="178.70" type="text-block">This factsheet has been prepared to illustrate the format of the statement of cash flows prepared in
+accordance with Section 7 Statement of Cash Flows of FRS 102, and to provide guidance on the
+preparation of the statement of cash flows and the associated disclosures. Note, however, that in a
+full set of financial statements, comparatives would be provided.</block>
+      <block index="6" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+3</block>
+    </page>
+    <page number="5" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="332.40" y1="90.42" type="section-heading" section-number="2" title="Background and scoping">2. Background and scoping</block>
+      <block index="3" x0="34.02" y0="115.33" x1="218.76" y1="135.98" type="subheading" title="Statement of cash flows">Statement of cash flows</block>
+      <block index="4" x0="34.02" y0="142.65" x1="306.91" y1="158.12" type="text-block">A statement of cash flows prepared under FRS 102:</block>
+      <block index="5" x0="34.02" y0="164.61" x1="486.27" y1="180.56" type="text-block">• reconciles the movement in cash and cash equivalents (not just cash) year on year;</block>
+      <block index="6" x0="34.02" y0="192.57" x1="530.40" y1="208.52" type="text-block">• groups cash flows into three headings - cash flows from operating, investing and financing</block>
+      <block index="7" x0="48.24" y0="208.53" x1="103.03" y1="224.00" type="text-block">activities;</block>
+      <block index="8" x0="34.02" y0="236.49" x1="540.47" y1="252.44" type="text-block">• requires the reconciliation of a measure of profit to cash flows from operating activities; and</block>
+      <block index="9" x0="34.02" y0="264.45" x1="557.14" y1="280.40" type="text-block">• requires the preparation of three main supporting notes – a breakdown of the components that</block>
+      <block index="10" x0="48.24" y0="280.41" x1="544.01" y1="311.84" type="text-block">make up cash and cash equivalents, an analysis of changes in net debt, and disclosures about
+supplier finance arrangements.</block>
+      <block index="11" x0="34.02" y0="324.36" x1="264.28" y1="342.38" type="subheading" title="Periodic review 2024 amendments">Periodic review 2024 amendments</block>
+      <block index="12" x0="34.02" y0="348.93" x1="541.41" y1="396.34" type="text-block">As part of the Periodic Review 2024 amendments, Section 20 Leases was revised to eliminate the
+distinction between operating leases and finance leases for lessees, and require recognition of
+more leases on the balance sheet.</block>
+      <block index="13" x0="34.02" y0="402.83" x1="557.02" y1="466.18" type="text-block">Cash flows from operating leases would previously have been included within operating activities,
+whereas cash flows from finance leases would have related to payment of interest (classified either
+as a financing or an operating cash flow) and repayment of capital (classified as a financing cash
+flow).</block>
+      <block index="14" x0="34.02" y0="472.67" x1="557.96" y1="536.02" type="text-block">Under the new requirements of Section 20, cash flows from leases for which a recognition
+exemption has been taken are included within operating activities, whereas cash flows from leases
+recognised on the balance sheet relate to payment of interest (classified either as a financing or an
+operating cash flow) and repayment of capital (classified as a financing cash flow).</block>
+      <block index="15" x0="34.02" y0="542.51" x1="563.54" y1="589.90" type="text-block">Whilst the changes to Section 20 did not require significant consequential changes to Section 7, the
+result is that cash flows for the payment of interest and the repayment of capital will be more
+prevalent in the statement of cash flows.</block>
+      <block index="16" x0="34.02" y0="596.42" x1="259.48" y1="614.44" type="subheading" title="Other topics covered by Section 7">Other topics covered by Section 7</block>
+      <block index="17" x0="34.02" y0="621.07" x1="554.99" y1="668.46" type="text-block">As well as the topics covered in this factsheet, Section 7 also covers topics including the treatment
+of foreign currency cash flows, income tax cash flows and cash flows associated with hedging
+contracts.</block>
+      <block index="20" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+4</block>
+    </page>
+    <page number="6" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.03" x1="448.58" y1="82.68" type="subheading" title="Exemptions from presenting a statement of cash flows">Exemptions from presenting a statement of cash flows</block>
+      <block index="3" x0="34.02" y0="89.35" x1="560.03" y1="120.80" type="text-block">Certain entities applying FRS 102 can take an exemption from presenting a statement of cash flows
+and related notes:</block>
+      <block index="4" x0="34.02" y0="127.29" x1="532.38" y1="143.24" type="text-block">• Paragraph 3.1B allows an entity that qualifies as small (regardless of the reporting regime it</block>
+      <block index="5" x0="48.24" y0="143.25" x1="523.25" y1="174.68" type="text-block">applies) to take an exemption unless an applicable SORP, law or other relevant regulation
+requires it to present a statement of cash flows.</block>
+      <block index="6" x0="34.02" y0="187.17" x1="505.43" y1="203.12" type="text-block">• Paragraph 1.12(b) allows a qualifying entity (i.e. an entity included in publicly available</block>
+      <block index="7" x0="48.24" y0="203.13" x1="557.16" y1="250.52" type="table-or-financial-data-block">consolidated financial statements which are intended to give a true and fair view, as set out in
+the Glossary to FRS 102) to take an exemption, provided that it complies with certain conditions
+set out in paragraph 1.11.</block>
+      <block index="8" x0="34.02" y0="263.01" x1="534.74" y1="278.96" type="text-block">• Paragraph 7.1A allows certain types of entities (mutual life assurance companies, retirement</block>
+      <block index="9" x0="48.24" y0="278.97" x1="506.85" y1="294.44" type="text-block">benefit plans, and investment funds meeting certain conditions) to take an exemption.</block>
+      <block index="12" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+5</block>
+    </page>
+    <page number="7" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="361.50" y1="90.42" type="section-heading" section-number="3" title="Presentation and disclosure">3. Presentation and disclosure</block>
+      <block index="3" x0="34.02" y0="115.33" x1="133.74" y1="135.98" type="subheading" title="Presentation">Presentation</block>
+      <block index="4" x0="34.02" y0="142.68" x1="342.66" y1="160.70" type="subheading" title="Reporting cash flows from operating activities">Reporting cash flows from operating activities</block>
+      <block index="5" x0="34.02" y0="167.25" x1="562.64" y1="246.56" type="text-block">Paragraph 7.7 requires cash flows from operating activities to be presented using either the indirect
+or the direct method. The illustrative statement of cash flows in this factsheet uses the indirect
+method, which is the method most commonly applied in the UK. The reconciliation of profit or loss
+to cash from operations can be shown either on the face of the statement of cash flows or in the
+notes.</block>
+      <block index="6" x0="34.02" y0="253.05" x1="562.62" y1="348.32" type="text-block">Under the indirect method, paragraph 7.8 allows the reconciliation to start with ‘a measure of profit
+or loss disclosed in the statement of comprehensive income’. This means that entities are permitted
+to use any profit figure (including operating profit) as a starting point for the reconciliation, if that
+profit figure appears as a subtotal in their statement of comprehensive income. The reconciling
+items required will vary depending on which profit figure is used. The illustrative statement of cash
+flows uses operating profit.</block>
+      <block index="7" x0="34.02" y0="354.86" x1="209.26" y1="372.88" type="subheading" title="Cash and cash equivalents">Cash and cash equivalents</block>
+      <block index="8" x0="34.02" y0="379.43" x1="534.39" y1="426.82" type="text-block">As set out in paragraph 7.2, cash equivalents are short-term, highly liquid investments that are
+readily convertible to known amounts of cash and that are subject to an insignificant risk of
+changes in value.</block>
+      <block index="9" x0="34.02" y0="433.34" x1="107.98" y1="451.36" type="subheading" title="Overdrafts">Overdrafts</block>
+      <block index="10" x0="34.02" y0="457.97" x1="560.55" y1="537.28" type="text-block">As set out in paragraph 7.2, bank overdrafts are normally considered to be financing activities,
+similar to borrowings. However, if overdrafts are repayable on demand and form an integral part of
+an entity’s cash management, they are a component of cash and cash equivalents, and should be
+presented as such in the analysis of changes in net debt. This factsheet illustrates the latter
+presentation.</block>
+      <block index="11" x0="34.02" y0="543.80" x1="184.72" y1="561.82" type="subheading" title="Interest and dividends">Interest and dividends</block>
+      <block index="12" x0="34.02" y0="568.37" x1="547.55" y1="599.80" type="text-block">Paragraph 7.14 sets out that cash flows relating to interest paid, dividends paid, interest received
+and dividends received shall be presented separately.</block>
+      <block index="13" x0="34.02" y0="606.29" x1="240.67" y1="621.76" type="text-block">Paragraphs 7.15 and 7.16 set out that:</block>
+      <block index="14" x0="34.02" y0="628.27" x1="542.06" y1="644.22" type="text-block">• Interest and dividends paid may be classified as either financing cash flows or operating cash</block>
+      <block index="15" x0="48.24" y0="644.23" x1="81.59" y1="659.70" type="text-block">flows.</block>
+      <block index="16" x0="34.02" y0="672.19" x1="562.24" y1="688.14" type="text-block">• Interest and dividends received may be classified as either investing cash flows or operating cash</block>
+      <block index="17" x0="48.24" y0="688.15" x1="81.59" y1="703.62" type="text-block">flows.</block>
+      <block index="18" x0="34.02" y0="716.11" x1="406.77" y1="731.58" type="text-block">These classifications shall be made consistently from period to period.</block>
+      <block index="20" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+6</block>
+    </page>
+    <page number="8" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.08" x1="184.42" y1="80.10" type="subheading" title="Non-cash transactions">Non-cash transactions</block>
+      <block index="3" x0="34.02" y0="86.71" x1="559.01" y1="166.04" type="text-block">Paragraph 7.18 requires that investing and financing transactions that do not require the use of
+cash or cash equivalents shall be excluded from the statement of cash flows. Examples of such
+transactions include the acquisition of an asset by means of a lease, the acquisition of an entity by
+means of an equity issue, and the conversion of debt to equity. Disclosure may be required of such
+items in the analysis of changes in net debt (see below).</block>
+      <block index="4" x0="34.02" y0="172.51" x1="122.64" y1="193.16" type="subheading" title="Disclosures">Disclosures</block>
+      <block index="5" x0="34.02" y0="199.80" x1="312.40" y1="217.82" type="subheading" title="Components of cash and cash equivalents">Components of cash and cash equivalents</block>
+      <block index="6" x0="34.02" y0="224.43" x1="557.27" y1="271.82" type="text-block">Paragraph 7.20 requires an entity to present the components that make up the cash and cash
+equivalents balance, and a reconciliation of this amount to the amounts shown in the statement of
+financial position if they are different.</block>
+      <block index="7" x0="34.02" y0="278.31" x1="553.37" y1="325.70" type="text-block">Paragraph 7.21 requires the disclosure of cash held by the entity but which is not available for use
+(including amounts sometimes referred to as ‘restricted cash’). There is no such cash in the
+illustrative statement of cash flows.</block>
+      <block index="8" x0="34.02" y0="332.22" x1="242.68" y1="350.24" type="subheading" title="Analysis of changes in net debt">Analysis of changes in net debt</block>
+      <block index="9" x0="34.02" y0="356.81" x1="552.16" y1="388.24" type="text-block">Paragraph 7.22 requires an entity to present a net debt reconciliation. This analysis does not need
+to be presented for prior periods.</block>
+      <block index="10" x0="34.02" y0="394.73" x1="553.50" y1="426.16" type="text-block">Net debt (as defined in FRS 102) consists of the borrowings of an entity, together with any related
+derivatives and obligations under leases, less any cash and cash equivalents.</block>
+      <block index="11" x0="34.02" y0="432.68" x1="239.92" y1="450.70" type="subheading" title="Supplier finance arrangements">Supplier finance arrangements</block>
+      <block index="12" x0="34.02" y0="457.15" x1="561.04" y1="536.62" type="table-or-financial-data-block">Paragraph 7.20C sets out disclosure requirements in respect of supplier finance arrangements.1 The
+exemption for qualifying entities from the requirements of this paragraph, as set out in
+paragraphs 1.11 and 1.12(b), is conditional on disclosures equivalent to those required by
+paragraph 7.20C being included in the consolidated financial statements in which the qualifying
+entity is included.</block>
+      <block index="13" x0="34.02" y0="543.11" x1="455.97" y1="558.58" type="text-block">This factsheet does not illustrate the supplier finance arrangements disclosures.</block>
+      <block index="15" x0="34.02" y0="766.69" x1="555.62" y1="790.23" type="text-block">1 These disclosure requirements were introduced by the Periodic Review 2024 amendments and are effective for accounting periods
+beginning on or after 1 January 2025, with early application permitted.</block>
+      <block index="17" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+7</block>
+    </page>
+    <page number="9" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="437.64" y1="90.42" type="section-heading" section-number="4" title="Illustrative statement of cash flows">4. Illustrative statement of cash flows</block>
+      <block index="3" x0="34.02" y0="115.38" x1="284.20" y1="133.40" type="subheading" title="Consolidated statement of cash flows">Consolidated statement of cash flows</block>
+      <block index="4" x0="34.02" y0="139.98" x1="291.34" y1="158.00" type="text-block">for the year ended 31 December 20X1</block>
+      <block index="5" x0="39.42" y0="164.61" x1="558.77" y1="709.80" type="table-or-financial-data-block">20X1
+
+Note
+CU‘000
+Cash flows from operating activities
+
+
+Operating profit for the financial year
+
+6,022
+Adjustments for:
+
+
+  Depreciation of property, plant and equipment
+
+869
+  Amortisation of intangible assets
+
+50
+  Profit on disposal of property, plant and equipment
+
+(20)
+  Decrease/(increase) in trade and other receivables
+
+(72)
+  Decrease/(increase) in inventories
+
+(194)
+  Increase/(decrease) in trade payables
+
+234
+Cash from operations
+
+6,889
+Income taxes paid
+
+(2,922)
+Net cash from operating activities
+
+3,967
+
+
+
+Cash flows from investing activities
+
+
+Proceeds from sale of equipment
+
+42
+Purchases of property, plant and equipment
+
+(1,496)
+Purchases of intangible assets
+
+(71)
+Interest received2
+
+15
+Net cash used in investing activities
+
+(1,510)
+
+
+
+Cash flows from financing activities
+
+
+Interest paid2
+
+(12)
+Issue of ordinary share capital
+
+320
+Purchase of non-controlling interest
+
+(114)
+Repayment of borrowings
+
+(100)
+Payment of capital element of lease liabilities
+
+(54)
+Dividends paid3
+
+(2,400)
+Net cash used in financing activities
+
+(2,360)
+
+
+
+Net increase/(decrease) in cash and cash equivalents
+
+97
+Cash and cash equivalents at beginning of year
+(i)
+530
+Cash and cash equivalents at end of year
+(i)
+627</block>
+      <block index="7" x0="34.02" y0="754.69" x1="549.60" y1="790.23" type="table-or-financial-data-block">2 Paragraph 7.15 gives an entity the choice to include interest paid and received either in operating cash flows, or (respectively) as
+financing and investing cash flows.
+3 Paragraph 7.16 gives an entity the choice to include dividends paid either in operating cash flows, or as financing cash flows.</block>
+      <block index="9" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+8</block>
+    </page>
+    <page number="10" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.08" x1="344.40" y1="80.10" type="subheading" title="Notes to the consolidated financial statements">Notes to the consolidated financial statements</block>
+      <block index="3" x0="34.02" y0="86.74" x1="291.34" y1="104.76" type="text-block">for the year ended 31 December 20X1</block>
+      <block index="4" x0="34.02" y0="111.33" x1="228.39" y1="126.80" type="subheading" title="(i) Analysis of changes in net debt">(i) Analysis of changes in net debt</block>
+      <block index="5" x0="503.74" y0="135.27" x1="561.70" y1="150.74" type="text-block">At 31 Dec</block>
+      <block index="6" x0="39.42" y0="135.27" x1="234.62" y1="150.80" type="text-block">At 1 Jan</block>
+      <block index="7" x0="202.76" y0="135.27" x1="481.97" y1="166.70" type="text-block">20X1
+Cash flows
+New leases
+Other non-
+cash changes</block>
+      <block index="8" x0="529.86" y0="151.23" x1="561.73" y1="166.70" type="text-block">20X1</block>
+      <block index="9" x0="39.42" y0="171.27" x1="561.71" y1="186.74" type="table-or-financial-data-block">CU‘000
+CU‘000
+CU‘000
+CU‘000
+CU‘000</block>
+      <block index="10" x0="39.42" y0="191.13" x1="492.75" y1="222.62" type="subheading" title="Cash and cash equivalents">Cash and cash
+equivalents</block>
+      <block index="11" x0="39.42" y0="227.13" x1="558.19" y1="242.60" type="table-or-financial-data-block">Cash
+536
+(112)
+-
+-
+424</block>
+      <block index="12" x0="39.42" y0="246.95" x1="562.63" y1="262.58" type="table-or-financial-data-block">Overdrafts4
+(256)
+44
+-
+-
+(212)</block>
+      <block index="13" x0="39.42" y0="267.03" x1="558.19" y1="282.50" type="table-or-financial-data-block">Cash equivalents
+250
+165
+-
+-
+415</block>
+      <block index="14" x0="39.42" y0="287.49" x1="558.19" y1="302.96" type="table-or-financial-data-block">530
+97
+-
+-
+627</block>
+      <block index="15" x0="39.42" y0="307.47" x1="558.19" y1="322.94" type="text-block">Borrowings</block>
+      <block index="16" x0="39.42" y0="327.39" x1="562.63" y1="358.82" type="table-or-financial-data-block">Leases due within
+one year
+(149)
+58
+(70)
+(49)
+(210)</block>
+      <block index="17" x0="39.42" y0="363.29" x1="562.63" y1="394.78" type="table-or-financial-data-block">Leases due after one
+year
+(175)
+-
+(130)
+45
+(260)</block>
+      <block index="18" x0="39.42" y0="399.23" x1="562.63" y1="430.66" type="table-or-financial-data-block">Bank loans due
+within one year
+(100)
+108
+-
+(208)
+(200)</block>
+      <block index="19" x0="39.42" y0="435.17" x1="562.63" y1="466.60" type="table-or-financial-data-block">Bank loans due after
+one year
+(900)
+-
+-
+200
+(700)</block>
+      <block index="20" x0="39.42" y0="471.65" x1="562.63" y1="487.12" type="table-or-financial-data-block">(1,324)
+166
+(200)
+(12)
+(1,370)</block>
+      <block index="22" x0="39.42" y0="512.09" x1="562.63" y1="527.56" type="table-or-financial-data-block">Total
+(794)
+263
+(200)
+(12)
+(743)</block>
+      <block index="24" x0="34.02" y0="556.43" x1="542.00" y1="619.78" type="text-block">The columns in the example illustrate items (a), (c) and (d) from the analysis requirements of
+paragraph 7.22, but the illustration assumes that the entity has nothing to disclose in respect of
+(b) the acquisition and disposal of subsidiaries or (e) the recognition of changes in market value
+and exchange rate movements.</block>
+      <block index="27" x0="34.02" y0="778.63" x1="267.63" y1="790.23" type="text-block">4 See note above regarding the presentation of overdrafts.</block>
+      <block index="29" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 3 | Statement of Cash Flows
+9</block>
+    </page>
+    <page number="11" width="595.32" height="841.92">
+      <block index="3" x0="465.46" y0="598.55" x1="573.97" y1="677.88" type="table-or-financial-data-block">Financial
+Reporting Council
+8th Floor
+125 London Wall
+London EC2Y 5AS</block>
+      <block index="4" x0="465.46" y0="684.85" x1="578.15" y1="700.32" type="text-block">+44 (0)20 7492 2300</block>
+      <block index="5" x0="465.46" y0="712.87" x1="547.13" y1="728.34" type="text-block">www.frc.org.uk</block>
+      <block index="6" x0="465.46" y0="768.97" x1="535.43" y1="784.44" type="text-block">Follow us on</block>
+      <block index="7" x0="465.46" y0="800.89" x1="561.78" y1="816.36" type="text-block">or      @FRCnews</block>
+    </page>
+  </body>
+</frs102-factsheet>

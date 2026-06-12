@@ -1,0 +1,992 @@
+<?xml version='1.0' encoding='utf-8'?>
+<frs102-factsheet factsheet-number="4" title="Financial Instruments" publication-date="2024-11" source-format="PDF" conversion-status="machine-extracted-first-pass">
+  <metadata>
+    <publisher>Financial Reporting Council</publisher>
+    <source-file>FRS102 Factsheet Financial Instruments.pdf</source-file>
+    <page-count>31</page-count>
+    <related-standard>FRS 102 Sections 11 and 12</related-standard>
+    <notice>This XML is a machine-extracted derivative of the supplied FRC factsheet. It is not an official FRC XML publication and should be checked against the source PDF.</notice>
+  </metadata>
+  <body>
+    <page number="1" width="595.32" height="841.92">
+      <block index="2" x0="28.38" y0="223.71" x1="325.34" y1="263.69" type="text-block">FRS 102 Factsheet 4</block>
+      <block index="3" x0="219.44" y0="301.04" x1="438.16" y1="329.42" type="text-block">Financial Instruments</block>
+      <block index="4" x0="465.58" y0="772.03" x1="553.91" y1="787.50" type="text-block">November 2024</block>
+    </page>
+    <page number="2" width="595.32" height="841.92">
+      <block index="2" x0="41.58" y0="65.89" x1="551.40" y1="129.38" type="table-or-financial-data-block">This factsheet has been prepared by FRC staff to aid preparers in applying Section 11 Basic
+Financial Instruments and Section 12 Other Financial Instruments Issues of FRS 102. It should not
+be relied upon as a definitive statement on the application of the standard nor is it a substitute
+for reading the detailed requirements of FRS 102.</block>
+      <block index="19" x0="34.02" y0="492.05" x1="563.63" y1="555.40" type="text-block">The FRC does not accept any liability to any party for any loss, damage or costs howsoever arising,
+whether directly or indirectly, whether in contract, tort or otherwise from any action or decision
+taken (or not taken) as a result of any person relying on or otherwise using this document or arising
+from any omission from it.</block>
+      <block index="20" x0="34.02" y0="561.95" x1="537.55" y1="593.38" type="text-block">This document contains copyright material of the IFRS® Foundation (Foundation) in respect of
+which all rights are reserved.</block>
+      <block index="21" x0="34.02" y0="599.87" x1="501.53" y1="647.28" type="text-block">No rights are granted to third parties other than as permitted by the Terms of Use
+(www.frc.org.uk/FRStermsofuse) without the prior written permission of the FRC and the
+Foundation.</block>
+      <block index="22" x0="34.02" y0="653.77" x1="554.69" y1="701.16" type="text-block">Material issued in respect of the application of Financial Reporting Standards in the UK and the
+Republic of Ireland has not been prepared or endorsed by the International Accounting Standards
+Board.</block>
+      <block index="23" x0="34.02" y0="707.65" x1="289.93" y1="723.12" type="text-block">© The Financial Reporting Council Limited 2024</block>
+      <block index="24" x0="34.02" y0="729.61" x1="435.03" y1="777.00" type="table-or-financial-data-block">The Financial Reporting Council Limited is a company limited by guarantee.
+Registered in England number 2486368. Registered Office:
+8th Floor, 125 London Wall, London EC2Y 5AS</block>
+      <block index="26" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+1</block>
+    </page>
+    <page number="3" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="131.80" y1="90.42" type="text-block">Contents</block>
+      <block index="3" x0="538.26" y0="97.31" x1="564.13" y1="110.22" type="text-block">Page</block>
+      <block index="4" x0="34.02" y0="128.13" x1="563.29" y1="143.60" type="table-or-financial-data-block">1.
+Introduction
+3</block>
+      <block index="5" x0="34.02" y0="158.61" x1="563.29" y1="174.08" type="table-or-financial-data-block">2.
+Accounting policy and scope
+4</block>
+      <block index="6" x0="34.02" y0="189.09" x1="563.29" y1="204.56" type="table-or-financial-data-block">3.
+Basic financial instruments
+5</block>
+      <block index="7" x0="34.02" y0="219.51" x1="563.29" y1="234.98" type="table-or-financial-data-block">4.
+Impairment
+9</block>
+      <block index="8" x0="34.02" y0="249.99" x1="563.29" y1="265.46" type="table-or-financial-data-block">5.
+Dividend income
+10</block>
+      <block index="9" x0="34.02" y0="280.47" x1="563.29" y1="295.94" type="table-or-financial-data-block">6.
+Derecognition
+11</block>
+      <block index="10" x0="34.02" y0="310.89" x1="563.29" y1="326.36" type="table-or-financial-data-block">7.
+Disclosures
+13</block>
+      <block index="11" x0="34.02" y0="341.37" x1="563.29" y1="356.84" type="table-or-financial-data-block">8.
+Other financial instruments issues
+15</block>
+      <block index="12" x0="34.02" y0="371.87" x1="563.29" y1="387.34" type="subheading" title="Appendix—Financing transactions 17">Appendix—Financing transactions
+17</block>
+      <block index="15" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+2</block>
+    </page>
+    <page number="4" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="206.26" y1="90.42" type="section-heading" section-number="1" title="Introduction">1. Introduction</block>
+      <block index="3" x0="34.02" y0="115.35" x1="564.45" y1="210.62" type="table-or-financial-data-block">FRS 102 sets out the requirements for financial instruments in two sections, Section 11 Basic
+Financial Instruments and Section 12 Other Financial Instruments Issues. Section 11 is relevant to all
+entities applying FRS 102, but Section 12 is only relevant to entities that have more complex
+financial instruments and transactions. However, Section 12 applies to derivatives, including forward
+foreign exchange contracts and interest rate swaps, that many entities, including smaller entities,
+may have.</block>
+      <block index="6" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+3</block>
+    </page>
+    <page number="5" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="372.78" y1="90.42" type="section-heading" section-number="2" title="Accounting policy and scope">2. Accounting policy and scope</block>
+      <block index="4" x0="493.00" y0="115.83" x1="565.21" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="5" x0="39.42" y0="157.75" x1="496.29" y1="179.24" type="subheading" title="Selecting an accounting policy">Selecting an accounting policy</block>
+      <block index="6" x0="493.00" y0="200.61" x1="546.23" y1="216.08" type="frs102-reference" reference="11.2, 12.2">11.2, 12.2</block>
+      <block index="7" x0="39.42" y0="200.61" x1="460.02" y1="232.04" type="text-block">For financial instruments, FRS 102 allows an entity to apply the recognition and
+measurement requirements of:</block>
+      <block index="9" x0="39.42" y0="238.53" x1="159.31" y1="254.48" type="text-block">• Sections 11 and 12;</block>
+      <block index="12" x0="39.42" y0="266.49" x1="385.77" y1="282.44" type="text-block">• IAS 39 Financial Instruments: Recognition and Measurement; or</block>
+      <block index="14" x0="39.42" y0="294.45" x1="206.35" y1="310.40" type="text-block">• IFRS 9 Financial Instruments.</block>
+      <block index="17" x0="39.42" y0="322.41" x1="443.38" y1="353.84" type="text-block">Whichever accounting policy choice is made, the disclosure requirements of
+Sections 11 and 12 will apply.</block>
+      <block index="22" x0="39.42" y0="360.35" x1="473.78" y1="455.62" type="table-or-financial-data-block">As part of the Periodic Review 2024 amendments, the option to newly adopt the
+recognition and measurement requirements of IAS 39 was restricted to
+situations in which this was necessary to achieve consistency with group financial
+statements. This restriction is effective from 1 January 2026 (or earlier when an
+entity early-adopts the Periodic Review 2024 amendments in accordance with
+paragraph 1.37 of FRS 102).</block>
+      <block index="26" x0="39.42" y0="462.11" x1="477.20" y1="509.50" type="text-block">This amendment has been made in preparation for the expected eventual removal
+of the IAS 39 option. For the time being, entities which have adopted the IAS 39
+option may continue to apply it.</block>
+      <block index="29" x0="39.42" y0="515.99" x1="466.92" y1="547.42" type="text-block">This factsheet has been prepared on the basis that an entity has chosen to apply
+the recognition and measurement requirements of Sections 11 and 12.</block>
+      <block index="30" x0="39.42" y0="553.89" x1="496.29" y1="575.38" type="subheading" title="Scope">Scope</block>
+      <block index="31" x0="493.00" y0="589.19" x1="548.80" y1="620.62" type="frs102-reference" reference="11.3, 11.5, 11.6">11.3, 11.5,
+11.6</block>
+      <block index="32" x0="39.42" y0="589.19" x1="483.25" y1="636.60" type="text-block">A financial instrument is a contract that gives rise to a financial asset of one entity
+and a financial liability or equity instrument of another entity. It includes cash, trade
+receivables and payables, equity investments, borrowings and derivatives.</block>
+      <block index="33" x0="39.42" y0="649.09" x1="478.72" y1="697.32" type="text-block">Some financial instruments are outside the scope of Sections 11 and 12, such as
+investments in subsidiaries, associates and joint ventures; these are not considered
+in this factsheet.</block>
+      <block index="35" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+4</block>
+    </page>
+    <page number="6" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="352.26" y1="90.42" type="section-heading" section-number="3" title="Basic financial instruments">3. Basic financial instruments</block>
+      <block index="4" x0="493.00" y0="115.83" x1="565.21" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="5" x0="39.42" y0="157.75" x1="496.29" y1="179.24" type="subheading" title="Classification">Classification</block>
+      <block index="7" x0="39.42" y0="195.03" x1="469.20" y1="242.42" type="text-block">Financial instruments need to be classified as ‘basic’ or ‘other’, as this determines
+the accounting. Classification requires consideration of the individual terms and
+conditions of each financial instrument.</block>
+      <block index="8" x0="493.00" y0="254.91" x1="546.23" y1="270.38" type="frs102-reference" reference="11.5, 11.8">11.5, 11.8</block>
+      <block index="9" x0="39.42" y0="254.91" x1="438.14" y1="286.34" type="text-block">Cash is classified as a basic financial instrument, as are investments in most
+ordinary shares and some preference shares.</block>
+      <block index="10" x0="493.00" y0="298.83" x1="553.97" y1="314.30" type="frs102-reference" reference="11.9, 11.9A">11.9, 11.9A</block>
+      <block index="11" x0="39.42" y0="298.83" x1="474.81" y1="362.18" type="table-or-financial-data-block">For debt instruments, paragraph 11.9 sets out the conditions that must be met in
+order for them to be classified as basic. If any of the conditions are not met, the
+financial instrument is not basic, unless it meets the principle-based description in
+paragraph 11.9A.</block>
+      <block index="12" x0="493.00" y0="374.69" x1="531.65" y1="390.16" type="text-block">11.9(a)</block>
+      <block index="13" x0="39.42" y0="374.69" x1="481.91" y1="438.04" type="text-block">Basic financial instruments include those for which the contractual return to the
+lender is a fixed amount or a positive fixed or positive variable rate. Although many
+common loans will be classified as basic, just because an instrument appears to be
+common it cannot be assumed that it will be basic.</block>
+      <block index="14" x0="39.42" y0="444.56" x1="425.04" y1="462.58" type="subheading" title="Principle-based description of a basic financial instrument">Principle-based description of a basic financial instrument</block>
+      <block index="16" x0="39.42" y0="479.15" x1="474.62" y1="558.52" type="table-or-financial-data-block">The principle-based description of a basic financial instrument in paragraph 11.9A
+only needs to be considered if a financial instrument has failed to meet the
+conditions in paragraph 11.9. In practice it will not need to be considered for all
+financial instruments that are not initially basic because some, such as derivatives,
+clearly fall within the scope of Section 12.</block>
+      <block index="17" x0="39.42" y0="565.04" x1="496.29" y1="586.48" type="subheading" title="Examples">Examples</block>
+      <block index="18" x0="493.00" y0="599.63" x1="526.05" y1="615.10" type="frs102-reference" reference="11.9A">11.9A</block>
+      <block index="19" x0="39.42" y0="599.63" x1="448.84" y1="631.50" type="text-block">Section 11 includes 12 examples of applying the classification conditions and
+principle-based description. These follow paragraph 11.9A.</block>
+      <block index="21" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+5</block>
+    </page>
+    <page number="7" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.62" x1="145.78" y1="80.64" type="subheading" title="Directors’ loans">Directors’ loans</block>
+      <block index="4" x0="39.42" y0="91.21" x1="478.32" y1="170.54" type="table-or-financial-data-block">A loan that is interest-free can meet the conditions in paragraph 11.9(a) because
+the contractual return to the holder is a fixed amount of nil. Therefore the fact that
+it is interest-free does not prevent classification as basic. If a loan meets the
+conditions in paragraph 11.9 it is classified as basic and there is no need to
+consider the requirements of paragraph 11.9A.</block>
+      <block index="5" x0="39.42" y0="177.03" x1="478.37" y1="288.68" type="table-or-financial-data-block">However, if other features of an interest-free loan mean that it fails to meet any of
+the other conditions in paragraph 11.9, it is unlikely that it would meet the
+requirements of paragraph 11.9A and it would then be classified as ‘other’. For a
+loan to be considered basic in accordance with paragraph 11.9A there must be
+reasonable compensation for the time value of money, credit risk and other basic
+lending risks which, subject to prevailing economic conditions, is unlikely to be the
+case if a loan is interest-free.</block>
+      <block index="6" x0="39.42" y0="294.73" x1="495.75" y1="315.38" type="subheading" title="Initial measurement">Initial measurement</block>
+      <block index="7" x0="39.42" y0="332.01" x1="482.43" y1="347.48" type="text-block">Usually initial recognition will be at transaction price, adjusted for transaction costs.</block>
+      <block index="8" x0="493.00" y0="332.01" x1="524.79" y1="347.48" type="frs102-reference" reference="11.13">11.13</block>
+      <block index="9" x0="39.42" y0="354.02" x1="190.78" y1="372.04" type="subheading" title="Financing transactions">Financing transactions</block>
+      <block index="11" x0="39.42" y0="388.61" x1="484.12" y1="515.80" type="text-block">One of the exceptions to this relates to financing transactions. A financing
+transaction has taken place when payment is deferred beyond normal business
+terms, or has been financed at a rate of interest that is not a market rate. Therefore,
+examples would include offering a buyer interest-free credit or providing an
+interest-free loan. A financing transaction shall be measured at the present value of
+the future payments discounted at a market rate of interest for a similar instrument,
+adjusted for transaction costs. This means it should be measured as if it were a
+market-rate loan.</block>
+      <block index="12" x0="39.42" y0="528.77" x1="532.55" y1="544.24" type="text-block">There are three exceptions to the usual requirements for financing transactions:
+11.13A</block>
+      <block index="13" x0="39.42" y0="551.12" x1="496.29" y1="572.56" type="subheading" title="Directors’ loans to a small entity">Directors’ loans to a small entity</block>
+      <block index="14" x0="493.00" y0="585.71" x1="545.87" y1="601.18" type="text-block">11.13A(a)</block>
+      <block index="15" x0="39.42" y0="585.71" x1="481.54" y1="649.14" type="text-block">A small entity that has received a loan that is not at a market rate of interest from a
+person who is within a director’s group of close family members, and that group
+includes at least one shareholder in the entity, may choose to measure that loan
+initially at transaction price.</block>
+      <block index="16" x0="39.42" y0="655.63" x1="382.23" y1="671.10" type="text-block">This only applies to small entities and only to loans to the entity.</block>
+      <block index="19" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+6</block>
+    </page>
+    <page number="8" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.62" x1="496.29" y1="84.06" type="subheading" title="Public benefit entity concessionary loans">Public benefit entity concessionary loans</block>
+      <block index="3" x0="493.00" y0="97.21" x1="558.80" y1="160.58" type="frs102-reference" reference="PBE11.1A, PBE11.13A, PBE34.87 to PBE34.97">PBE11.1A,
+PBE11.13A,
+PBE34.87 to
+PBE34.97</block>
+      <block index="4" x0="39.42" y0="91.21" x1="482.58" y1="170.54" type="text-block">A public benefit entity and other members of a public benefit entity group that
+make or receive public benefit entity concessionary loans, may account for such
+loans at the amount paid or received adjusted for interest and any impairment loss,
+irrespective of the accounting policy choice made in accordance with
+paragraph 11.2 of FRS 102.</block>
+      <block index="5" x0="39.42" y0="183.06" x1="496.29" y1="204.50" type="subheading" title="Trade receivable or contract asset">Trade receivable or contract asset</block>
+      <block index="6" x0="493.00" y0="217.65" x1="545.33" y1="233.12" type="text-block">11.13A(c)</block>
+      <block index="7" x0="39.42" y0="217.65" x1="471.68" y1="265.04" type="text-block">A trade receivable or contract asset may be measured initially at transaction price
+when, at contract inception, payment is expected within 12 months or less from
+when the entity transfers the corresponding good or service.</block>
+      <block index="8" x0="39.42" y0="271.56" x1="495.75" y1="290.42" type="subheading" title="Examples">Examples</block>
+      <block index="9" x0="493.00" y0="306.15" x1="524.79" y1="321.62" type="frs102-reference" reference="11.13">11.13</block>
+      <block index="10" x0="39.42" y0="306.15" x1="408.01" y1="337.58" type="text-block">Section 11 includes six examples of initial measurement. These follow
+paragraph 11.13.</block>
+      <block index="11" x0="39.42" y0="344.07" x1="464.68" y1="375.94" type="text-block">Examples of accounting for financing transactions are set out in the appendix to
+this factsheet.</block>
+      <block index="13" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+7</block>
+    </page>
+    <page number="9" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.57" x1="496.29" y1="84.06" type="subheading" title="Subsequent measurement – amortised cost">Subsequent measurement – amortised cost</block>
+      <block index="3" x0="493.00" y0="93.85" x1="539.18" y1="125.30" type="frs102-reference" reference="11.14 to 11.20">11.14 to
+11.20</block>
+      <block index="4" x0="39.42" y0="93.85" x1="466.97" y1="141.26" type="text-block">Basic debt instruments shall be measured at amortised cost using the effective
+interest method (unless the choice to measure them at fair value is available and
+taken).</block>
+      <block index="6" x0="39.42" y0="153.75" x1="479.80" y1="217.10" type="text-block">The effective interest method allocates the interest (and transaction costs) over the
+life of an instrument at a constant rate, based on its carrying amount. Interest
+includes not just the coupon rate, but any other receipts/payments or changes in
+value that constitute interest.</block>
+      <block index="7" x0="39.42" y0="229.59" x1="351.21" y1="245.06" type="text-block">This need not lead to adjustments to the transaction price:</block>
+      <block index="8" x0="39.42" y0="257.55" x1="468.83" y1="273.50" type="text-block">• In accordance with paragraph 11.14(a)(ii) of FRS 102, receivables and payables</block>
+      <block index="9" x0="53.64" y0="273.51" x1="470.56" y1="352.82" type="text-block">due within one year on normal business terms continue to be measured at the
+undiscounted amount of cash or other consideration expected to be paid or
+received. Therefore in most situations short term receivables and payables are
+measured at their invoiced amount until they are settled or otherwise
+extinguished.</block>
+      <block index="10" x0="39.42" y0="365.33" x1="469.90" y1="381.28" type="text-block">• For loans bearing a market rate of interest, provided no transaction costs have</block>
+      <block index="11" x0="53.64" y0="381.29" x1="460.25" y1="428.68" type="text-block">been incurred or premiums/discounts have been paid/received, the effective
+interest rate is equal to the market rate of interest at the date of initial
+recognition.</block>
+      <block index="12" x0="39.42" y0="441.17" x1="466.85" y1="472.60" type="text-block">Certain financial instruments, such as equity investments, are subject to different
+requirements that are not covered in this factsheet.</block>
+      <block index="13" x0="39.42" y0="485.12" x1="496.29" y1="506.56" type="subheading" title="Examples">Examples</block>
+      <block index="14" x0="493.00" y0="513.71" x1="524.79" y1="529.18" type="frs102-reference" reference="11.20">11.20</block>
+      <block index="15" x0="39.42" y0="513.71" x1="465.02" y1="545.14" type="text-block">Section 11 includes an example of determining an effective interest rate and the
+amortised cost for a five-year loan. This follows paragraph 11.20.</block>
+      <block index="17" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+8</block>
+    </page>
+    <page number="10" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="197.68" y1="90.42" type="section-heading" section-number="4" title="Impairment">4. Impairment</block>
+      <block index="3" x0="39.42" y0="115.83" x1="565.21" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="4" x0="493.00" y0="157.77" x1="539.18" y1="189.20" type="frs102-reference" reference="11.21 to 11.26">11.21 to
+11.26</block>
+      <block index="5" x0="39.42" y0="157.77" x1="478.51" y1="221.12" type="text-block">At the end of each reporting period an entity is required to assess whether there is
+objective evidence of impairment of any financial assets measured at cost or
+amortised cost. If there is objective evidence of impairment, an impairment loss
+shall be recognised immediately in profit or loss.</block>
+      <block index="7" x0="39.42" y0="233.61" x1="480.60" y1="296.96" type="text-block">Losses must be the result of past events, not losses expected as a result of possible
+future events. In the absence of any objective evidence or observable data
+indicating that a loss has occurred, there is no basis for recognising an impairment,
+or bad debt provision.</block>
+      <block index="8" x0="493.00" y0="309.45" x1="524.25" y1="324.92" type="frs102-reference" reference="11.24">11.24</block>
+      <block index="9" x0="39.42" y0="309.45" x1="452.74" y1="372.82" type="text-block">Some financial assets must be assessed individually for impairment (all equity
+instruments, regardless of significance, and other financial assets that are
+individually significant). Others can either be assessed individually or grouped
+based on similar credit risk characteristics.</block>
+      <block index="11" x0="39.42" y0="385.31" x1="465.00" y1="416.74" type="text-block">The Section 11 impairment accounting requirements apply to contract assets (in
+accordance with paragraph 23.126 of FRS 102) as well as to trade receivables.</block>
+      <block index="12" x0="39.42" y0="429.26" x1="495.75" y1="448.12" type="subheading" title="Examples">Examples</block>
+      <block index="13" x0="39.42" y0="457.85" x1="461.97" y1="489.28" type="text-block">Examples of objective evidence of impairment are included in paragraphs 11.22
+and 11.23 of FRS 102.</block>
+      <block index="14" x0="493.00" y0="457.85" x1="548.04" y1="489.28" type="frs102-reference" reference="11.22 and 11.23">11.22 and
+11.23</block>
+      <block index="16" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+9</block>
+    </page>
+    <page number="11" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="250.90" y1="90.42" type="section-heading" section-number="5" title="Dividend income">5. Dividend income</block>
+      <block index="3" x0="39.42" y0="115.83" x1="565.21" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="4" x0="493.00" y0="158.37" x1="535.13" y1="189.80" type="frs102-reference" reference="11.14A, 12.9A">11.14A,
+12.9A</block>
+      <block index="5" x0="39.42" y0="158.37" x1="475.27" y1="205.76" type="table-or-financial-data-block">As part of the Periodic Review 2024 amendments, the accounting requirements for
+dividend income from investments in non-derivative financial instruments were
+relocated to Sections 11 and 12 of FRS 102.</block>
+      <block index="6" x0="39.42" y0="218.25" x1="477.28" y1="249.68" type="text-block">Dividend income from investments in non-derivative financial instruments that are
+equity of the issuer is recognised in profit or loss only when:</block>
+      <block index="7" x0="39.42" y0="262.17" x1="324.81" y1="278.12" type="text-block">• the entity’s right to receive payment is established;</block>
+      <block index="8" x0="39.42" y0="290.13" x1="471.04" y1="306.08" type="text-block">• it is probable that the economic benefits associated with the dividend will flow</block>
+      <block index="9" x0="53.64" y0="306.09" x1="147.55" y1="321.56" type="text-block">to the entity; and</block>
+      <block index="10" x0="39.42" y0="334.05" x1="339.87" y1="350.00" type="text-block">• the amount of the dividend can be measured reliably.</block>
+      <block index="14" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+10</block>
+    </page>
+    <page number="12" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="223.66" y1="90.42" type="section-heading" section-number="6" title="Derecognition">6. Derecognition</block>
+      <block index="3" x0="39.42" y0="115.83" x1="565.21" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="5" x0="39.42" y0="157.77" x1="473.90" y1="205.16" type="text-block">The derecognition requirements of paragraphs 11.33 to 11.38 of FRS 102 apply to
+all financial instruments, and are not dependent on their classification as basic or
+other.</block>
+      <block index="6" x0="39.42" y0="217.63" x1="495.77" y1="238.28" type="subheading" title="Derecognition of a financial asset">Derecognition of a financial asset</block>
+      <block index="7" x0="39.42" y0="248.91" x1="471.05" y1="280.34" type="text-block">A financial asset is derecognised when it is settled, or when the contractual rights
+to the cash flows expire.</block>
+      <block index="8" x0="493.00" y0="248.91" x1="539.18" y1="280.34" type="frs102-reference" reference="11.33 to 11.35">11.33 to
+11.35</block>
+      <block index="9" x0="39.42" y0="292.83" x1="485.09" y1="388.12" type="text-block">When a financial asset is transferred to another party, whether it is derecognised
+will depend on whether the entity has transferred, or retained, the risks and rewards
+of ownership. If substantially all the risks and rewards are transferred, the financial
+asset is derecognised. If substantially all the risks and rewards are retained, the
+financial asset is not derecognised (and a financial liability shall be recognised for
+the consideration received).</block>
+      <block index="10" x0="39.42" y0="400.61" x1="469.14" y1="463.96" type="text-block">If the entity has retained some, but not substantially all, risks and rewards of
+ownership, but has transferred control of the asset to another party, the financial
+asset shall be derecognised and any rights and obligations retained or created in
+the transfer shall be recognised separately.</block>
+      <block index="11" x0="39.42" y0="476.54" x1="496.29" y1="497.98" type="subheading" title="Examples">Examples</block>
+      <block index="12" x0="493.00" y0="511.13" x1="524.79" y1="526.60" type="frs102-reference" reference="11.35">11.35</block>
+      <block index="13" x0="39.42" y0="505.13" x1="477.94" y1="536.98" type="text-block">Section 11 includes examples of a transfer that qualifies for derecognition and one
+that does not. These follow paragraph 11.35.</block>
+      <block index="14" x0="39.42" y0="549.03" x1="496.29" y1="570.52" type="subheading" title="Derecognition of a financial liability">Derecognition of a financial liability</block>
+      <block index="15" x0="493.00" y0="580.31" x1="524.79" y1="595.78" type="frs102-reference" reference="11.36">11.36</block>
+      <block index="16" x0="39.42" y0="580.31" x1="449.19" y1="611.74" type="text-block">A financial liability is derecognised only when it is extinguished (i.e. when it is
+discharged, cancelled or expires).</block>
+      <block index="17" x0="493.00" y0="628.51" x1="559.19" y1="643.98" type="frs102-reference" reference="11.37, 11.38">11.37, 11.38</block>
+      <block index="18" x0="39.42" y0="628.51" x1="482.44" y1="707.82" type="text-block">If an existing borrower and lender exchange financial instruments with substantially
+different terms, or substantially modify the terms of an existing financial liability,
+they shall be accounted for as an extinguishment of the original liability, and the
+recognition of any new liability. Any difference between the carrying amount of the
+liability derecognised and the consideration paid is recognised in profit or loss.</block>
+      <block index="20" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+11</block>
+    </page>
+    <page number="13" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.57" x1="496.29" y1="84.06" type="subheading" title="Leases">Leases</block>
+      <block index="3" x0="493.00" y0="93.85" x1="531.11" y1="109.32" type="text-block">11.7(c)</block>
+      <block index="4" x0="39.42" y0="93.85" x1="484.49" y1="173.18" type="table-or-financial-data-block">Whilst leases are outside the scope of Section 11 in accordance with
+paragraph 11.7, it is important to remember that the derecognition and impairment
+accounting requirements of Section 11 apply to receivables recognised by a lessor,
+and the derecognition accounting requirements of Section 11 apply to lease
+liabilities recognised by a lessee.</block>
+      <block index="8" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+12</block>
+    </page>
+    <page number="14" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="191.86" y1="90.42" type="section-heading" section-number="7" title="Disclosures">7. Disclosures</block>
+      <block index="3" x0="39.42" y0="115.83" x1="565.21" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="4" x0="39.42" y0="167.19" x1="361.11" y1="182.66" type="text-block">Various disclosures are required about financial instruments.</block>
+      <block index="5" x0="493.00" y0="167.19" x1="539.18" y1="198.62" type="frs102-reference" reference="11.40 to 11.48A">11.40 to
+11.48A</block>
+      <block index="6" x0="39.42" y0="189.15" x1="484.86" y1="236.54" type="table-or-financial-data-block">The following does not necessarily apply to a qualifying entity that takes advantage
+of reduced disclosures as set out in Section 1 Scope of FRS 102, nor to a small entity
+applying Section 1A Small Entities.</block>
+      <block index="7" x0="493.00" y0="253.53" x1="524.27" y1="269.00" type="frs102-reference" reference="11.40">11.40</block>
+      <block index="8" x0="39.42" y0="253.53" x1="484.76" y1="316.88" type="table-or-financial-data-block">FRS 102 requires an entity to disclose in its financial statements material accounting
+policy information. Such information includes the measurement basis (or bases) for
+financial instruments used in preparing the financial statements (including the
+accounting policy choice made in accordance with paragraph 11.2 of FRS 102).</block>
+      <block index="10" x0="39.42" y0="329.37" x1="478.00" y1="392.74" type="text-block">FRS 102 requires the disclosure of the carrying amounts of financial instruments
+measured at fair value through profit or loss. Various items of income, expense,
+gains and losses must be disclosed including changes in fair value, interest income
+and expense, and impairment losses.</block>
+      <block index="11" x0="39.42" y0="399.23" x1="314.11" y1="414.70" type="text-block">Paragraph 11.42 contains a significant requirement:</block>
+      <block index="12" x0="39.42" y0="421.19" x1="470.06" y1="468.58" type="text-block">An entity shall disclose information that enables users of its financial statements to
+evaluate the significance of financial instruments for its financial position and
+performance…</block>
+      <block index="13" x0="39.42" y0="475.07" x1="476.54" y1="538.42" type="text-block">This is a principle-based disclosure requirement. Examples are given of possible
+disclosures for a debt instrument, such as interest rate, maturity, repayment
+schedule and any restrictions on the entity. However, entities will need to consider
+carefully what information is needed by users.</block>
+      <block index="14" x0="39.42" y0="550.91" x1="473.92" y1="614.32" type="text-block">When the risks arising from financial instruments are particularly significant to the
+business, additional disclosure may be required. Paragraph 11.42 cross-refers to
+additional disclosure requirements (usually applicable for financial institutions)
+which may be relevant in such circumstances.</block>
+      <block index="16" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+13</block>
+    </page>
+    <page number="15" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.57" x1="497.42" y1="89.22" type="subheading" title="Financial instruments at fair value through profit or loss">Financial instruments at fair value through profit or loss</block>
+      <block index="4" x0="39.42" y0="95.83" x1="452.04" y1="127.28" type="text-block">Company law sets out requirements about which financial instruments can be
+measured at fair value and includes related disclosure requirements.</block>
+      <block index="5" x0="39.42" y0="139.77" x1="476.01" y1="219.08" type="text-block">In the UK financial assets, and financial liabilities that are held as part of a trading
+portfolio or are derivatives, are always permitted to be measured at fair value. Any
+other financial liabilities can be measured at fair value only when this is permitted
+by IFRS Accounting Standards and provided certain disclosures required by IFRS
+Accounting Standards are given.</block>
+      <block index="6" x0="39.42" y0="231.57" x1="475.44" y1="310.88" type="text-block">In the Republic of Ireland, all financial instruments can be measured at fair value
+when this is permitted by IFRS Accounting Standards and provided certain
+disclosures required by IFRS Accounting Standards are given. Therefore additional
+disclosures may be required more frequently in the Republic of Ireland as they
+apply to any financial instruments measured at fair value, including derivatives.</block>
+      <block index="7" x0="39.42" y0="323.37" x1="478.04" y1="386.74" type="table-or-financial-data-block">The additional disclosure requirements have been incorporated into Section 11 (as
+explained in paragraph A3.13 for the UK and paragraph A4.7 for the Republic of
+Ireland). Some of the disclosures apply to all financial instruments; others are
+reflected in paragraph 11.48A.</block>
+      <block index="8" x0="39.42" y0="399.21" x1="496.29" y1="420.70" type="subheading" title="Financial institutions and retirement benefit plans">Financial institutions and retirement benefit plans</block>
+      <block index="9" x0="493.00" y0="431.15" x1="534.29" y1="462.58" type="frs102-reference" reference="11.48B, 11.48C">11.48B,
+11.48C</block>
+      <block index="10" x0="39.42" y0="431.15" x1="478.82" y1="526.42" type="text-block">There are specific disclosure requirements for financial institutions and retirement
+benefit plans. Such entities are required to provide information that enables users
+of the financial statements to evaluate the nature and extent of credit risk, liquidity
+risk and market risk arising from financial instruments to which the financial
+institution is exposed at the end of the reporting period. These requirements are
+set out in Section 34 Specialised Activities.</block>
+      <block index="11" x0="39.42" y0="538.89" x1="496.29" y1="560.38" type="subheading" title="Hedge accounting">Hedge accounting</block>
+      <block index="12" x0="39.42" y0="570.23" x1="407.06" y1="601.66" type="text-block">Disclosures required when hedge accounting is applied are set out in
+paragraphs 12.27 to 12.30 of FRS 102</block>
+      <block index="13" x0="493.00" y0="570.23" x1="539.18" y1="601.66" type="frs102-reference" reference="12.27 to 12.30">12.27 to
+12.30</block>
+      <block index="15" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+14</block>
+    </page>
+    <page number="16" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="425.58" y1="90.42" type="section-heading" section-number="8" title="Other financial instruments issues">8. Other financial instruments issues</block>
+      <block index="3" x0="39.42" y0="115.83" x1="562.33" y1="147.26" type="text-block">Key FRS 102
+references</block>
+      <block index="4" x0="39.42" y0="157.75" x1="492.87" y1="173.24" type="text-block">This applies to financial instruments that are within the scope of Section 12.</block>
+      <block index="5" x0="39.42" y0="185.71" x1="493.41" y1="206.36" type="subheading" title="Initial measurement">Initial measurement</block>
+      <block index="6" x0="490.12" y0="216.99" x1="515.43" y1="232.46" type="frs102-reference" reference="12.7">12.7</block>
+      <block index="7" x0="39.42" y0="216.99" x1="452.73" y1="248.42" type="text-block">Usually a financial asset or a financial liability within the scope of Section 12 is
+recognised initially at fair value, which is normally transaction price.</block>
+      <block index="8" x0="39.42" y0="260.91" x1="474.77" y1="324.26" type="text-block">If a financial asset arises from a financing transaction, it is initially measured at the
+present value of the future payments discounted at a market rate of interest for a
+similar debt instrument (as determined at initial recognition) and adjusted for
+transaction costs.</block>
+      <block index="9" x0="39.42" y0="336.75" x1="482.32" y1="463.96" type="text-block">One of the exceptions to this relates to financing transactions. A financing
+transaction has taken place when payment is deferred beyond normal business
+terms, or has been financed at a rate of interest that is not a market rate. Therefore
+examples would include offering a buyer interest-free credit or providing an
+interest-free loan. Financing transactions shall be measured at the present value of
+the future payments discounted at a market rate of interest for a similar
+instrument, adjusted for transaction costs. This means it should be measured as if it
+were a market-rate loan.</block>
+      <block index="10" x0="39.42" y0="476.49" x1="493.41" y1="497.14" type="subheading" title="Subsequent measurement">Subsequent measurement</block>
+      <block index="11" x0="490.12" y0="507.77" x1="555.11" y1="523.24" type="frs102-reference" reference="12.8 to 12.9">12.8 to 12.9</block>
+      <block index="12" x0="39.42" y0="507.77" x1="476.71" y1="571.12" type="text-block">Other financial instruments shall normally be measured at fair value, with the
+change in fair value recognised in profit or loss. There are some exceptions to this,
+such as in certain hedge accounting relationships and when the use of fair value
+would not be permitted by company law. The latter is expected to arise rarely.</block>
+      <block index="13" x0="39.42" y0="583.61" x1="493.41" y1="601.66" type="subheading" title="Interest rate swaps and forward foreign exchange contracts">Interest rate swaps and forward foreign exchange contracts</block>
+      <block index="15" x0="39.42" y0="612.25" x1="482.12" y1="691.56" type="text-block">In practice this means that any interest rate swaps or forward foreign exchange
+contracts will be measured at fair value at each reporting date, with the change in
+fair value being recognised in profit or loss, unless the entity chooses to apply
+hedge accounting. The contract rate agreed in a forward foreign exchange contract
+cannot be used to measure the hedged item.</block>
+      <block index="17" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+15</block>
+    </page>
+    <page number="17" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.57" x1="493.41" y1="83.22" type="subheading" title="Disclosure">Disclosure</block>
+      <block index="4" x0="39.42" y0="93.85" x1="442.29" y1="141.26" type="table-or-financial-data-block">The disclosure requirements set out in paragraphs 11.40 to 11.48A apply to
+financial instruments that are within the scope of Section 12 Other Financial
+Instruments Issues as well as those within the scope of Section 11.</block>
+      <block index="5" x0="39.42" y0="153.73" x1="493.41" y1="174.38" type="subheading" title="Hedge accounting">Hedge accounting</block>
+      <block index="6" x0="490.12" y0="185.01" x1="536.30" y1="216.44" type="frs102-reference" reference="12.15 to 12.25A">12.15 to
+12.25A</block>
+      <block index="7" x0="39.42" y0="185.01" x1="467.96" y1="248.36" type="text-block">Hedge accounting is optional. A hedging relationship consists of a hedging
+instrument and a hedged item. Provided the qualifying conditions set out in
+paragraph 12.18 are met, hedge accounting may be applied. The effect of hedge
+accounting is to reduce the volatility in the profit and loss account.</block>
+      <block index="8" x0="39.42" y0="260.83" x1="492.87" y1="278.90" type="subheading" title="Examples">Examples</block>
+      <block index="9" x0="39.42" y0="289.47" x1="537.57" y1="320.90" type="table-or-financial-data-block">The Appendix to Section 12 provides examples of hedge accounting.
+12A.1 to
+12A.7</block>
+      <block index="13" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+16</block>
+    </page>
+    <page number="18" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="62.04" x1="393.84" y1="90.42" type="subheading" title="Appendix—Financing transactions">Appendix—Financing transactions</block>
+      <block index="3" x0="39.42" y0="115.83" x1="531.05" y1="147.26" type="text-block">Paragraph 11.13 of FRS 102 states that an arrangement constitutes a financing transaction if:</block>
+      <block index="4" x0="39.42" y0="159.75" x1="348.93" y1="175.70" type="text-block">• payment is deferred beyond normal business terms; or</block>
+      <block index="5" x0="39.42" y0="187.71" x1="360.39" y1="203.66" type="text-block">• it is financed at a rate of interest that is not a market rate.</block>
+      <block index="6" x0="39.42" y0="215.67" x1="363.81" y1="231.14" type="text-block">Examples of such transactions include, but are not limited to:</block>
+      <block index="7" x0="39.42" y0="243.63" x1="519.33" y1="259.58" type="text-block">• the sale of goods to a customer, with payment deferred beyond normal business terms;</block>
+      <block index="8" x0="39.42" y0="271.59" x1="427.29" y1="287.54" type="text-block">• below market rate and interest-free loans between group entities; and</block>
+      <block index="9" x0="39.42" y0="299.55" x1="385.41" y1="315.50" type="text-block">• below market rate and interest-free loans to or from directors.</block>
+      <block index="10" x0="39.42" y0="327.49" x1="338.54" y1="348.14" type="subheading" title="Measurement of financing transactions">Measurement of financing transactions</block>
+      <block index="11" x0="39.42" y0="358.85" x1="566.73" y1="454.12" type="table-or-financial-data-block">Section 11 Basic Financial Instruments and Section 12 Other Financial Instruments Issues of FRS 102
+set out specific measurement requirements for financial assets and financial liabilities when the
+arrangement constitutes a financing transaction. The following discussion is limited to the
+requirements in Section 11 and therefore only applies to financial assets and financial liabilities that
+are classified as basic. It does not apply to directors’ loans to a small entity, when the small entity
+has taken the option in paragraph 11.13A to measure the loan at transaction price.</block>
+      <block index="12" x0="39.42" y0="466.59" x1="194.40" y1="487.24" type="subheading" title="Initial measurement">Initial measurement</block>
+      <block index="13" x0="39.42" y0="497.87" x1="560.84" y1="609.10" type="table-or-financial-data-block">Paragraph 11.13 of FRS 102 sets out the initial measurement requirements for financial assets and
+financial liabilities. Generally financial assets and financial liabilities are measured at their
+transaction price, which typically is the amount of cash borrowed or the invoiced amount when
+goods or services are sold. However, when a financial asset or financial liability, e.g. a receivable or
+payable, originates from an arrangement that is a financing transaction, that receivable or payable
+is measured at the present value of the future cash payments discounted at a market rate of
+interest for a similar debt instrument1 (paragraph 11.13).</block>
+      <block index="14" x0="39.42" y0="621.61" x1="550.55" y1="669.00" type="text-block">Below are five common examples of financing transactions when the loan has a fixed repayment
+date to demonstrate the application of the present value measurement requirement of
+paragraph 11.13.</block>
+      <block index="15" x0="39.42" y0="681.49" x1="569.44" y1="728.88" type="text-block">It should be noted that the present value of a financial asset or financial liability that is repayable on
+demand is equal to the undiscounted cash amount payable, reflecting the lender’s right to demand
+immediate repayment.</block>
+      <block index="17" x0="34.02" y0="778.63" x1="404.69" y1="790.23" type="text-block">1 Debt instruments include loans receivable, loans payable, trade debtors and trade creditors.</block>
+      <block index="19" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+17</block>
+    </page>
+    <page number="19" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.62" x1="416.76" y1="80.64" type="subheading" title="The sale of goods or services on deferred payment terms">The sale of goods or services on deferred payment terms</block>
+      <block index="3" x0="39.42" y0="91.21" x1="551.43" y1="186.50" type="table-or-financial-data-block">When goods or services are sold on credit, the arrangement has in substance two components:
+firstly, the sale of the goods or services, and secondly, a financing element. The two components
+are accounted for separately. To that effect, a seller recognises the revenue from the sale in
+accordance with Section 23 Revenue from Contracts with Customers of FRS 102, and a purchaser
+recognises the acquired goods and services in accordance with the applicable accounting
+requirements in FRS 102.</block>
+      <block index="4" x0="39.42" y0="198.99" x1="564.65" y1="326.18" type="text-block">When the arrangement is a financing transaction, i.e. when the payment for goods or services is
+deferred beyond normal business terms or the sale is financed at a below-market rate of interest,
+the trade debtor (or trade creditor) is measured at the present value of the cash flows receivable or
+payable discounted at the market rate of interest for a similar receivable or payable
+(paragraph 11.13). In practice, an entity may use the current cash selling price for the goods or
+services sold on an arm’s length basis as an estimate for the present value of the future payments.
+However, if there is no cash sale alternative or the cash selling price is the same as the price when
+buying on credit, the entity must calculate the present value of the future cash flows.</block>
+      <block index="5" x0="39.42" y0="338.67" x1="566.18" y1="370.10" type="text-block">The following numerical example demonstrates the accounting by a seller (the manufacturer) and a
+buyer (the customer) when payment is deferred.</block>
+      <block index="6" x0="39.42" y0="382.61" x1="367.91" y1="398.08" type="worked-example" example-number="1" title="The sale of goods on deferred payment terms">Example 1: The sale of goods on deferred payment terms</block>
+      <block index="7" x0="39.42" y0="408.53" x1="569.33" y1="503.86" type="table-or-financial-data-block">A manufacturer sells a piece of machinery to a customer on credit for CU1,000 on 1 January 20X0,
+agreeing with the customer that full payment is due in two years’ time on 31 December 20X1.
+Applying Section 23, the manufacturer determines that it recognises revenue for the sale of the
+machinery at a point in time, being 1 January 20X0. Under normal business terms the piece of
+machinery is sold for cash and the current cash selling price is CU900. Sales taxes are ignored in this
+example.</block>
+      <block index="8" x0="39.42" y0="516.35" x1="555.54" y1="563.74" type="text-block">Because the credit period provided to the customer is two years, the exception in
+paragraph 11.13A(c) cannot be applied to measure the trade receivable initially at the transaction
+price.</block>
+      <block index="11" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+18</block>
+    </page>
+    <page number="20" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="248.83" y1="78.06" type="text-block">(1) Accounting by the manufacturer</block>
+      <block index="3" x0="39.42" y0="90.55" x1="561.34" y1="122.00" type="text-block">On 1 January 20X0 the manufacturer recognises the revenue from the sale at the cash selling price
+of the piece of machinery of CU900.</block>
+      <block index="4" x0="39.42" y0="134.49" x1="569.60" y1="213.80" type="table-or-financial-data-block">The trade receivable is measured at the present value of the future payments discounted at a
+market rate of interest for a similar trade receivable. As set out in Example 3 to paragraph 11.13 of
+FRS 102, in transactions conducted on an arm’s length basis the cash sales price for immediate
+settlement would normally approximate to the present value. The manufacturer determines that the
+trade receivable is measured at CU900.</block>
+      <block index="5" x0="39.42" y0="226.29" x1="550.73" y1="241.76" type="text-block">The manufacturer records the following accounting entries when the piece of machinery is sold:</block>
+      <block index="6" x0="44.82" y0="254.25" x1="359.91" y1="269.72" type="text-block">Dr Trade Receivable
+CU900</block>
+      <block index="7" x0="44.82" y0="282.21" x1="395.01" y1="297.68" type="text-block">Cr Revenue
+
+CU900</block>
+      <block index="8" x0="39.42" y0="310.17" x1="553.07" y1="405.46" type="table-or-financial-data-block">After initial recognition the manufacturer will account for the trade receivable at amortised cost
+using the effective interest method as demonstrated in Example 6 below. In accordance with
+paragraph 23.58 of FRS 102, the CU100 difference between the present value of the trade
+receivable of CU900 and the nominal amount of the consideration of CU1,000 is recognised as
+interest income using the effective interest method over the two years until payment is due from
+the customer, and presented separately from revenue from contracts with customers.</block>
+      <block index="9" x0="39.42" y0="417.95" x1="224.55" y1="433.42" type="text-block">(2) Accounting by the customer</block>
+      <block index="10" x0="39.42" y0="445.91" x1="566.80" y1="557.14" type="table-or-financial-data-block">The customer applies the requirements of Section 17 Property, Plant and Equipment of FRS 102 and
+measures the piece of machinery at its cost in accordance with paragraph 17.9. In accordance with
+paragraph 17.13, because payment is deferred beyond normal credit terms, the cost is the present
+value of the future payments. Like the manufacturer, the customer also concludes that this
+approximates to the cash selling price of CU900. Therefore, in this example, the customer records a
+trade payable measured at the cash selling price of CU900 in accordance with paragraph 11.13 of
+FRS 1022.</block>
+      <block index="11" x0="39.42" y0="569.63" x1="561.89" y1="585.10" type="text-block">The customer records the following accounting entries when the piece of machinery is purchased:</block>
+      <block index="12" x0="44.82" y0="597.59" x1="359.91" y1="613.06" type="text-block">Dr Property, plant and equipment
+CU900</block>
+      <block index="13" x0="44.82" y0="625.57" x1="395.01" y1="641.04" type="text-block">Cr Trade payable
+
+CU900</block>
+      <block index="14" x0="39.42" y0="655.57" x1="548.90" y1="687.00" type="text-block">After initial recognition the customer accounts for the trade payable at amortised cost using the
+effective interest method as demonstrated in Example 6 below.</block>
+      <block index="16" x0="34.02" y0="766.69" x1="512.87" y1="790.23" type="text-block">2 See Example 6 below for the calculation of the present value and a demonstration of the subsequent accounting for an
+interest-free loan.</block>
+      <block index="18" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+19</block>
+    </page>
+    <page number="21" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.62" x1="485.94" y1="80.64" type="subheading" title="Fixed term loans with no interest or a below market rate of interest">Fixed term loans with no interest or a below market rate of interest</block>
+      <block index="3" x0="39.42" y0="91.21" x1="568.24" y1="154.58" type="text-block">A loan provided or received at no, or a below market, rate of interest constitutes a financing
+transaction. Paragraph 11.13 of FRS 102 requires that such a loan is measured at the present value
+of the future cash receipts or payments discounted at a market rate of interest for a similar financial
+asset or financial liability.</block>
+      <block index="4" x0="39.42" y0="167.07" x1="564.84" y1="246.38" type="text-block">The present value calculated in accordance with paragraph 11.13 reflects the value of a similar loan
+with a market rate of interest. For loans other than those repayable on demand, a difference arises
+between the amount of cash received or advanced and the present value of the loan. This
+difference reflects that the lender has made a loan at a lower than market rate of interest and
+thereby has provided an additional benefit to the borrower.</block>
+      <block index="5" x0="39.42" y0="258.87" x1="565.80" y1="338.18" type="table-or-financial-data-block">FRS 102 does not set out specific accounting requirements for that difference. Where FRS 102 does
+not specifically address the accounting for a transaction, an entity applies judgement to determine
+the accounting treatment that meets the requirements of paragraph 10.4, i.e. an entity selects an
+accounting policy that results in relevant and reliable information. Paragraph 10.5 sets out the
+sources an entity should consider for that analysis.</block>
+      <block index="6" x0="39.42" y0="350.67" x1="568.91" y1="477.88" type="text-block">To determine the accounting treatment for the difference, an entity should assess the particular
+facts and circumstances of each arrangement. In that regard it is particularly important to establish
+the reasons a lender decided to make a loan at a non-market rate of interest. For example, a lender
+may make the loan because of an ownership interest in the borrower. If so, the lender is, in its
+capacity as the owner, effectively making an additional investment in the entity when making a loan
+at a below market rate of interest. In other instances, there may be related transactions to consider,
+for example the lender may be compensated by obtaining goods or services from the borrower at
+below market prices.</block>
+      <block index="7" x0="39.42" y0="490.37" x1="565.20" y1="553.72" type="text-block">When a loan is made at a non-market rate of interest and the lender and the borrower are related
+parties because one owns the other or the lender and borrower are owned by the same entity or
+person, the difference arising on initial recognition of the loan would generally be accounted for as
+a distribution or capital contribution.</block>
+      <block index="8" x0="39.42" y0="566.21" x1="569.80" y1="709.38" type="table-or-financial-data-block">FRS 102 sets out accounting requirements for distributions. For the entity making a distribution it
+represents a decrease of economic benefits that results in a decrease in equity. A distribution is not
+an expense and is therefore recorded as a reduction of equity (paragraph 22.17 and Appendix I
+Glossary – see definition of expenses). It should be noted that in some cases a distribution may be
+recorded in the financial statements in accordance with FRS 102, although it may not be a
+distribution as a matter of law, and vice versa. An entity that is subject to company law should
+consider whether the distribution recorded in the financial statements for reporting purposes is also
+a distribution as a matter of law and, if so, should assess whether it has sufficient distributable
+profits to make the distribution.</block>
+      <block index="11" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+20</block>
+    </page>
+    <page number="22" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="568.96" y1="205.76" type="text-block">The entity receiving a distribution records it as income, since it represents an increase in economic
+benefits that results in an increase of equity that is not related to a capital contribution from an
+equity investor (Appendix I Glossary – see definition of income). Income is recorded in total
+comprehensive income, either in profit or loss or in other comprehensive income. Company law
+prohibits the inclusion of unrealised profits within profit or loss, except when an unrealised
+revaluation gain arises from the application of fair value accounting. If the distribution is considered
+a realised profit it is recorded in profit or loss, otherwise it is recorded in other comprehensive
+income. An entity that is a company should assess whether the distribution received is a realised
+profit within the meaning of company law.</block>
+      <block index="3" x0="39.42" y0="218.25" x1="565.59" y1="329.48" type="table-or-financial-data-block">The determination of realised and distributable profits in accordance with company law is a
+complex area where accounting and legal requirements interface. This factsheet does not address
+company law issues that may be relevant in this regard. An entity may refer to Technical Release
+02/17BL Guidance on realised and distributable profits under the Companies Act 2006 (Technical
+Release 02/17BL) issued by the Institute of Chartered Accountants in England and Wales and the
+Institute of Chartered Accounts of Scotland, or any successor document. An entity may also wish to
+take specialist legal advice on these matters.</block>
+      <block index="4" x0="39.42" y0="341.97" x1="569.86" y1="405.34" type="text-block">Capital contributions from equity investors do not meet the definition of income. A capital
+contribution is therefore recorded by the receiving entity as an increase in equity. The entity making
+a capital contribution records it as an increase in its investment in the entity receiving the capital
+contribution.</block>
+      <block index="5" x0="39.42" y0="417.83" x1="544.05" y1="449.26" type="text-block">Examples 2 to 5 below illustrate different scenarios of interest-free loan arrangements between
+related parties and demonstrate the accounting for the difference.</block>
+      <block index="6" x0="39.42" y0="461.75" x1="481.19" y1="477.22" type="worked-example" example-number="2" title="Fixed term interest-free loans between a parent and its subsidiary">Example 2: Fixed term interest-free loans between a parent and its subsidiary</block>
+      <block index="7" x0="39.42" y0="487.73" x1="569.48" y1="535.12" type="text-block">Loans between parents and their subsidiaries are often made on interest-free terms. It can generally
+be presumed that a loan is made on these terms because the parent owns and controls its
+subsidiary.</block>
+      <block index="8" x0="39.42" y0="547.61" x1="433.35" y1="595.00" type="text-block">A fixed term interest free-loan consists, in substance, of two components:
+(a) a loan at a market rate of interest; and
+(b) a benefit or contribution to the borrower.</block>
+      <block index="9" x0="39.42" y0="607.51" x1="565.94" y1="702.78" type="text-block">In the case of an interest-free loan between a parent and its subsidiary, the first component, i.e. the
+loan made at a market-rate of interest, is determined by calculating the present value of the future
+payments discounted at a market rate of interest of a similar loan. The second component, i.e. the
+gift or contribution to the borrower, is the measurement difference which is accounted for as a
+capital contribution or distribution. The accounting is demonstrated in the numerical examples
+below.</block>
+      <block index="11" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+21</block>
+    </page>
+    <page number="23" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="561.30" y1="125.96" type="table-or-financial-data-block">(1) A parent provides a fixed term interest-free loan of CU1,000 to its subsidiary. The present value
+of the loan using a market rate of interest for a similar loan is CU9003. The difference of CU100
+represents an additional investment by the parent in the subsidiary. The parent would record the
+following accounting entries in its individual financial statements:</block>
+      <block index="3" x0="44.82" y0="138.29" x1="439.35" y1="153.92" type="text-block">Dr Loan receivable from subsidiary4
+CU900</block>
+      <block index="4" x0="44.82" y0="164.21" x1="477.69" y1="179.84" type="table-or-financial-data-block">Dr Investment in subsidiary4
+
+CU100</block>
+      <block index="5" x0="44.82" y0="190.35" x1="483.51" y1="205.82" type="text-block">Cr Cash
+
+CU1,000</block>
+      <block index="6" x0="39.42" y0="216.33" x1="371.07" y1="243.83" type="text-block">The subsidiary would record the following accounting entries:</block>
+      <block index="7" x0="44.82" y0="244.23" x1="439.35" y1="259.70" type="text-block">Dr Cash
+CU1,000</block>
+      <block index="8" x0="44.82" y0="270.21" x1="474.45" y1="285.68" type="text-block">Cr Loan repayable to parent
+
+CU900</block>
+      <block index="9" x0="44.82" y0="296.19" x1="474.45" y1="311.66" type="text-block">Cr Capital contribution (equity)
+
+CU100</block>
+      <block index="10" x0="39.42" y0="322.11" x1="568.61" y1="385.48" type="table-or-financial-data-block">(2) A subsidiary provides a fixed term interest-free loan of CU1,000 to its parent. The present value
+of the loan using a market rate of interest for a similar loan is CU9003. The difference of CU100 is a
+distribution to the parent. The parent would record the following accounting entries in its individual
+financial statements:</block>
+      <block index="11" x0="44.82" y0="397.97" x1="439.35" y1="413.44" type="text-block">Dr Cash
+CU1,000</block>
+      <block index="12" x0="44.82" y0="423.95" x1="474.45" y1="439.42" type="text-block">Cr Loan repayable to subsidiary
+
+CU900</block>
+      <block index="13" x0="44.82" y0="449.77" x1="474.45" y1="465.40" type="table-or-financial-data-block">Cr Distribution received from subsidiary (profit or loss)5
+
+CU100</block>
+      <block index="14" x0="39.42" y0="475.85" x1="371.07" y1="491.32" type="text-block">The subsidiary would record the following accounting entries:</block>
+      <block index="15" x0="44.82" y0="503.81" x1="439.35" y1="519.28" type="text-block">Dr Loan receivable from parent
+CU900</block>
+      <block index="16" x0="44.82" y0="529.63" x1="439.35" y1="545.26" type="text-block">Dr Distribution to parent (equity)6
+CU100</block>
+      <block index="17" x0="44.82" y0="555.77" x1="483.51" y1="571.24" type="text-block">Cr Cash
+
+CU1,000</block>
+      <block index="20" x0="34.02" y0="646.99" x1="562.18" y1="790.23" type="table-or-financial-data-block">3 See Example 6 below for the calculation of the present value and a demonstration of the subsequent accounting for an
+interest-free loan.
+4 Loans and investments are subject to impairment. An entity shall apply the relevant accounting requirements in FRS 102 to
+determine whether a loan or investment is impaired.
+5 Company law requires that only profits realised at the reporting date are included in profit or loss. For the purpose of this example
+it is assumed that the distribution is a realised profit and it is therefore recorded in profit or loss. The legal requirements on realised
+profits are not addressed in this factsheet. Technical Release 02/17BL considers issues concerning the determination of realised
+profits and entities may refer to this or any successor document for more guidance.
+6 In accordance with paragraph 22.17 of FRS 102 a distribution is recorded as a reduction of equity. A distribution recorded in the
+financial statements in accordance with FRS 102 may not be a distribution as a matter of law. The legal requirements on distributable
+profits are not addressed in this factsheet. Technical Release 02/17BL considers issues concerning the determination of distributable
+profits and entities may refer to this or any successor document for more guidance.</block>
+      <block index="22" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+22</block>
+    </page>
+    <page number="24" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="436.79" y1="78.06" type="worked-example" example-number="3" title="Fixed term interest-free loans between fellow subsidiaries">Example 3: Fixed term interest-free loans between fellow subsidiaries</block>
+      <block index="3" x0="39.42" y0="88.51" x1="567.70" y1="151.88" type="text-block">In a situation where fellow subsidiaries enter into a loan which constitutes a financing transaction, it
+can generally be presumed that the loan was made at the direction of their parent. However,
+sometimes the facts and circumstances may indicate otherwise, for example when an interest-free
+loan is made in return for receiving goods or services at a discounted price.</block>
+      <block index="4" x0="39.42" y0="164.37" x1="567.51" y1="227.72" type="text-block">If an interest-free loan is made at the direction of the parent, the subsidiaries account for the
+transaction as if it had been conducted through the parent. The lending subsidiary accounts for the
+loan as if it had made a loan to its parent and the borrowing subsidiary accounts for the loan as if it
+had received a loan from its parent.</block>
+      <block index="5" x0="39.42" y0="240.21" x1="563.83" y1="303.56" type="text-block">As noted in Example 2 above, a fixed term interest-free loan consists, in substance, of two separate
+components. In the case of an interest-free loan between fellow subsidiaries, the first component
+represents a loan made at a market-rate of interest and the second component is a distribution or
+capital contribution. The accounting is demonstrated in the following numerical example.</block>
+      <block index="6" x0="39.42" y0="316.05" x1="562.68" y1="379.42" type="table-or-financial-data-block">A subsidiary makes a fixed term interest-free loan of CU1,000 to a fellow subsidiary. The present
+value of the loan using a market rate of interest for a similar loan is CU9007. The excess of the cash
+advanced over the present value of the loan of CU100 is accounted for as a distribution from the
+lending subsidiary. The accounting entries of the lending subsidiary are as follows:</block>
+      <block index="7" x0="44.82" y0="391.91" x1="362.79" y1="407.38" type="text-block">Dr Loan receivable from fellow subsidiary CU900</block>
+      <block index="8" x0="44.82" y0="419.71" x1="362.79" y1="435.34" type="text-block">Dr Distribution (equity)8
+CU100</block>
+      <block index="9" x0="44.82" y0="447.83" x1="406.95" y1="463.30" type="text-block">Cr Cash
+
+CU1,000</block>
+      <block index="10" x0="39.42" y0="475.85" x1="539.05" y1="507.28" type="text-block">The borrowing subsidiary would account for the excess of CU100 as a capital contribution and
+record the following accounting entries:</block>
+      <block index="11" x0="44.82" y0="519.77" x1="355.47" y1="535.24" type="text-block">Dr Cash
+CU1,000</block>
+      <block index="12" x0="44.82" y0="547.73" x1="390.57" y1="563.20" type="text-block">Cr Loan repayable to fellow subsidiary
+
+CU900</block>
+      <block index="13" x0="44.82" y0="575.69" x1="390.57" y1="591.16" type="text-block">Cr Capital contribution (equity)
+
+CU100</block>
+      <block index="18" x0="34.02" y0="718.81" x1="562.18" y1="790.23" type="table-or-financial-data-block">7 See Example 6 below for the calculation of the present value and a demonstration of the subsequent accounting for an interest-
+free loan.
+8 In accordance with paragraph 22.17 of FRS 102 a distribution is recorded as a reduction of equity. A distribution recorded in the
+financial statements in accordance with FRS 102 may not be a distribution as a matter of law. The legal requirements on distributable
+profits are not addressed in this factsheet. Technical Release 02/17BL considers issues concerning the determination of distributable
+profits and entities may refer to this or any successor document for more guidance.</block>
+      <block index="20" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+23</block>
+    </page>
+    <page number="25" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="525.77" y1="78.06" type="worked-example" example-number="4" title="Fixed term interest-free loans between entities owned by the same person">Example 4: Fixed term interest-free loans between entities owned by the same person</block>
+      <block index="3" x0="39.42" y0="88.51" x1="568.24" y1="183.80" type="text-block">In some instances, an interest-free loan is made between entities that are not members of the same
+group, but the entities are related parties because they are owned and controlled by the same
+person. Unless the facts and circumstances indicate that the loan is made on these terms for a
+reason other than that the entities are controlled by the same owner, the accounting for the loan
+will be the same as shown in Example 3 above for a fixed term interest-free loan between fellow
+subsidiaries.</block>
+      <block index="4" x0="39.42" y0="196.29" x1="563.83" y1="275.60" type="text-block">As noted in Example 2 above, a fixed term interest-free loan consists, in substance, of two separate
+components. In the case of a fixed term interest-free loan between entities that are owned by the
+same person, the first component represents a loan made at a market-rate of interest and the
+second component is a distribution or capital contribution. The accounting is demonstrated in the
+numerical example below.</block>
+      <block index="5" x0="39.42" y0="288.09" x1="562.65" y1="335.48" type="table-or-financial-data-block">An entity makes a fixed term interest-free loan of CU1,000 to another entity. Both entities have the
+same owner. The present value of the loan using a market rate of interest for a similar loan is
+CU9009.</block>
+      <block index="6" x0="39.42" y0="347.97" x1="360.45" y1="363.44" type="text-block">The lending entity records the following accounting entries:</block>
+      <block index="7" x0="44.82" y0="375.95" x1="359.91" y1="391.42" type="text-block">Dr Loan receivable from related party
+CU900</block>
+      <block index="8" x0="44.82" y0="403.75" x1="359.91" y1="419.38" type="text-block">Dr Distribution (equity)10
+CU100</block>
+      <block index="9" x0="44.82" y0="431.87" x1="404.07" y1="447.34" type="text-block">Cr Cash
+
+CU1,000</block>
+      <block index="10" x0="39.42" y0="459.83" x1="375.51" y1="475.30" type="text-block">The borrowing entity records the following accounting entries:</block>
+      <block index="11" x0="44.82" y0="487.85" x1="359.91" y1="503.32" type="text-block">Dr Cash
+CU1,000</block>
+      <block index="12" x0="44.82" y0="515.81" x1="395.01" y1="531.28" type="text-block">Cr Loan repayable to related party
+
+CU900</block>
+      <block index="13" x0="44.82" y0="543.77" x1="395.01" y1="559.24" type="text-block">Cr Capital contribution (equity)
+
+CU100</block>
+      <block index="19" x0="34.02" y0="718.81" x1="562.33" y1="790.23" type="table-or-financial-data-block">9  See Example 6 below for the calculation of the present value and a demonstration of the subsequent accounting for an interest-
+free loan.
+10 In accordance with paragraph 22.17 of FRS 102 a distribution is recorded as a reduction of equity. A distribution recorded in the
+financial statements in accordance with FRS 102 may not be a distribution as a matter of law. The legal requirements on distributable
+profits are not addressed in this factsheet. Technical Release 02/17BL considers issues concerning the determination of distributable
+profits and entities may refer to this or any successor document for more guidance.</block>
+      <block index="21" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+24</block>
+    </page>
+    <page number="26" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="58.25" x1="483.02" y1="78.90" type="worked-example" example-number="5" title="Fixed term interest-free loans between entities and their directors">Example 5: Fixed term interest-free loans between entities and their directors</block>
+      <block index="3" x0="39.42" y0="88.51" x1="570.01" y1="199.76" type="text-block">A fixed term interest-free loan may be made between an entity and its director(s). The accounting
+for the measurement difference arising on the initial recognition of the loan will depend on whether
+the loan was made in the director’s capacity as a shareholder or for another reason. For example, in
+a situation where a director is the majority shareholder it generally can be presumed that the loan
+was made in the director’s capacity as a shareholder. This presumption can be rebutted, if, for
+example, loans between the entity and other third parties without an ownership interest in the
+entity (e.g. employees) are made on the same or similar terms.</block>
+      <block index="4" x0="39.42" y0="212.25" x1="551.05" y1="259.64" type="text-block">If a fixed term interest-free loan is made between the entity and a director in their capacity as a
+shareholder the accounting for the loan is similar to the accounting for a fixed term interest-free
+loan between a parent and its subsidiary shown in Example 2 above.</block>
+      <block index="5" x0="39.42" y0="272.13" x1="565.12" y1="351.44" type="table-or-financial-data-block">As noted in Example 2, a fixed term interest-free loan consists, in substance, of two components. In
+the case of a fixed term loan between an entity and a director who is also a shareholder, the first
+component represents a loan at a market rate of interest and the second component is a capital
+contribution or distribution between the director and the entity. The numerical examples below
+demonstrate the accounting11.</block>
+      <block index="6" x0="39.42" y0="363.95" x1="569.29" y1="443.32" type="table-or-financial-data-block">(1) A director provides a fixed term interest-free loan of CU1,000 to an entity owned by the director.
+The loan is considered to be provided by the director in his/her capacity as a shareholder. The
+present value of the loan using a market rate of interest of a similar loan is CU900. The difference of
+CU100 represents an additional investment by the owner which is recorded by the entity as a
+capital contribution. The entity would record the following accounting entries:</block>
+      <block index="7" x0="44.82" y0="455.81" x1="359.91" y1="471.28" type="text-block">Dr Cash
+CU1,000</block>
+      <block index="8" x0="44.82" y0="483.77" x1="395.01" y1="499.24" type="text-block">Cr Loan repayable to owner/director
+
+CU900</block>
+      <block index="9" x0="44.82" y0="511.73" x1="395.01" y1="527.20" type="text-block">Cr Capital contribution (equity)
+
+CU100</block>
+      <block index="10" x0="39.42" y0="540.10" x1="559.92" y1="632.82" type="table-or-financial-data-block">(2) An entity provides a fixed term interest-free loan of CU1,000 to a director who also owns the
+entity. The loan is considered to be provided to the director in his/her capacity as a shareholder.
+The present value of the loan using a market rate of interest of a similar loan is CU90012. The
+difference of CU100 represents a distribution from the entity to its owner. The entity would record
+the following accounting entries:</block>
+      <block index="14" x0="34.02" y0="742.75" x1="555.03" y1="790.23" type="table-or-financial-data-block">11 Only the accounting entries for the entity are shown here as it is presumed that the director is not preparing financial statements
+in accordance with FRS 102.
+12 See Example 6 below for the calculation of the present value and a demonstration of the subsequent accounting for an interest-
+free loan.</block>
+      <block index="16" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+25</block>
+    </page>
+    <page number="27" width="595.32" height="841.92">
+      <block index="2" x0="44.82" y0="62.59" x1="359.91" y1="78.06" type="text-block">Dr Loan receivable from owner/director
+CU900</block>
+      <block index="3" x0="44.82" y0="90.39" x1="359.91" y1="106.02" type="text-block">Dr Distribution to owner (equity)13
+CU100</block>
+      <block index="4" x0="44.82" y0="118.53" x1="404.07" y1="134.00" type="text-block">Cr Cash
+
+CU1,000</block>
+      <block index="5" x0="39.42" y0="146.49" x1="535.28" y1="193.88" type="text-block">If an interest-free loan is made between an entity and a director who has no direct ownership
+interest in the entity, the terms of the loan and the reasons for making it should be assessed
+carefully as this is relevant for determining the appropriate accounting under FRS 102.</block>
+      <block index="6" x0="39.42" y0="206.37" x1="565.62" y1="269.72" type="text-block">For example, an entity may offer interest-free loans to all employees, including its directors, as an
+additional employee benefit. Often these loans are made for a specific purpose, for example to
+purchase a season travel ticket. In this situation the entity accounts for the measurement difference
+as an employee benefit cost in accordance with Section 28 Employee Benefits of FRS 102.</block>
+      <block index="7" x0="39.42" y0="282.21" x1="561.13" y1="345.56" type="text-block">When a director without ownership interest makes a loan to the entity, the director’s motives have
+to be identified, as the director would not normally directly benefit from making a loan on these
+terms. The appropriate accounting for the measurement difference will be dependent on the
+individual circumstances of each transaction.</block>
+      <block index="8" x0="39.42" y0="358.10" x1="218.44" y1="376.12" type="subheading" title="Subsequent measurement">Subsequent measurement</block>
+      <block index="9" x0="39.42" y0="386.69" x1="552.50" y1="450.04" type="text-block">Basic financial assets and financial liabilities are generally measured at amortised cost using the
+effective interest method (paragraph 11.14(a) of FRS 102). This requirement applies regardless of
+whether the financial asset or financial liability results from an arrangement that constitutes a
+financing transaction or not.</block>
+      <block index="10" x0="39.42" y0="462.53" x1="559.14" y1="541.84" type="table-or-financial-data-block">The effective interest rate is determined in accordance with the requirements of paragraphs 11.16
+to 11.20 of FRS 102. Assuming that the original effective interest rate as determined at the time of
+the initial recognition of the loan is a fixed rate of interest, the rate is not updated for subsequent
+changes to the market rate of interest. The following numerical example demonstrates the
+subsequent accounting for an interest-free loan.</block>
+      <block index="15" x0="34.02" y0="742.75" x1="562.33" y1="790.23" type="table-or-financial-data-block">13 In accordance with paragraph 22.17 of FRS 102 a distribution is recorded as a reduction of equity. A distribution recorded in the
+financial statements in accordance with FRS 102 may not be a distribution as a matter of law. The legal requirements on distributable
+profits are not addressed in this factsheet. Technical Release 02/17BL considers issues concerning the determination of distributable
+profits and entities may refer to this or any successor document for more guidance.</block>
+      <block index="17" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+26</block>
+    </page>
+    <page number="28" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="376.01" y1="78.06" type="worked-example" example-number="6" title="Subsequent measurement of interest-free loans">Example 6: Subsequent measurement of interest-free loans</block>
+      <block index="3" x0="39.42" y0="88.51" x1="565.76" y1="151.88" type="table-or-financial-data-block">On 1 January 20X1 a subsidiary obtains an interest-free loan of CU1,000 from its parent. The loan is
+repayable in full on 31 December 20X2. The market rate of interest for similar loans is 5.4% per
+annum. The net present value of the loan is CU90014 (1,000/1.0542=900). The amortised cost of the
+loan as at 31 December 20X1 and 20X2 is as follows:</block>
+      <block index="4" x0="44.82" y0="164.37" x1="221.56" y1="179.84" type="text-block">Year
+Carrying amount at</block>
+      <block index="5" x0="232.40" y0="164.37" x1="326.42" y1="179.84" type="text-block">Interest accrued</block>
+      <block index="6" x0="334.00" y0="164.37" x1="395.27" y1="179.84" type="text-block">Cash flow</block>
+      <block index="7" x0="406.42" y0="164.37" x1="519.48" y1="179.84" type="text-block">Carrying amount at</block>
+      <block index="8" x0="164.00" y0="180.33" x1="224.85" y1="195.80" type="text-block">1 January</block>
+      <block index="9" x0="286.82" y0="180.33" x1="329.81" y1="195.80" type="text-block">(5.4%)</block>
+      <block index="10" x0="441.82" y0="180.33" x1="522.83" y1="195.80" type="text-block">31 December</block>
+      <block index="11" x0="202.10" y0="196.29" x1="224.91" y1="211.76" type="text-block">CU</block>
+      <block index="12" x0="306.92" y0="196.29" x1="329.75" y1="211.76" type="text-block">CU</block>
+      <block index="13" x0="500.02" y0="196.29" x1="522.83" y1="211.76" type="text-block">CU</block>
+      <block index="14" x0="372.52" y0="180.33" x1="395.33" y1="227.72" type="text-block">CU</block>
+      <block index="15" x0="39.42" y0="228.21" x1="562.40" y1="387.34" type="table-or-financial-data-block">20X1
+900
+49
+-
+949
+20X2
+949
+51
+(1,000)
+-
+
+On 1 January 20X1 the parent and the subsidiary would record the accounting entries set out in
+Example 2 above when a parent makes an interest-free loan to its subsidiary. As described in
+Example 2, at initial recognition the interest-free loan is accounted for as a loan at a market rate of
+interest and a capital contribution or distribution. After initial recognition the interest-free loan is
+treated for accounting purposes as if it was a loan at a market rate of interest with capital and
+interest payable at the end of the term of the loan. Interest is accounted for applying the effective
+interest method.</block>
+      <block index="16" x0="39.42" y0="399.83" x1="567.04" y1="463.24" type="text-block">The entity receiving interest (in this example the parent) records it as income. Income is recorded in
+total comprehensive income, either in profit or loss or in other comprehensive income. Company
+law prohibits the inclusion of unrealised profits within profit or loss, except for an unrealised
+revaluation gain arising from the application of fair value accounting.</block>
+      <block index="17" x0="39.42" y0="475.73" x1="552.90" y1="555.04" type="text-block">If the interest income is considered a realised profit it is recorded in profit or loss, otherwise it is
+recorded in other comprehensive income. An entity that is a company should assess whether the
+interest income is a realised profit within the meaning of company law. The determination of
+realised profits in accordance with company law is a complex area where accounting and legal
+requirements interface.</block>
+      <block index="18" x0="39.42" y0="567.53" x1="559.99" y1="583.00" type="text-block">The entity paying interest (in this example the subsidiary) records it as an expense in profit or loss.</block>
+      <block index="20" x0="34.02" y0="778.63" x1="139.47" y1="790.23" type="text-block">14 900 is a rounded figure.</block>
+      <block index="22" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+27</block>
+    </page>
+    <page number="29" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="189.73" y1="78.06" type="text-block">(1) Accounts of the parent</block>
+      <block index="3" x0="39.42" y0="90.55" x1="349.35" y1="106.02" type="text-block">The parent would record the following accounting entries:</block>
+      <block index="4" x0="44.82" y0="118.53" x1="359.91" y1="134.00" type="text-block">Year ended 31 December 20X1</block>
+      <block index="5" x0="44.82" y0="146.49" x1="359.91" y1="161.96" type="text-block">To record the accrued interest</block>
+      <block index="6" x0="44.82" y0="174.45" x1="359.91" y1="189.92" type="text-block">Dr Loan receivable from subsidiary
+CU49</block>
+      <block index="7" x0="44.82" y0="202.25" x1="388.53" y1="217.88" type="table-or-financial-data-block">Cr Interest income15
+
+CU49</block>
+      <block index="9" x0="44.82" y0="258.33" x1="359.91" y1="273.80" type="text-block">Year ended 31 December 20X2</block>
+      <block index="10" x0="44.82" y0="286.29" x1="359.91" y1="301.76" type="text-block">To record the accrued interest</block>
+      <block index="11" x0="44.82" y0="314.25" x1="359.91" y1="329.72" type="text-block">Dr Loan receivable from subsidiary
+CU51</block>
+      <block index="12" x0="44.82" y0="342.05" x1="388.53" y1="357.68" type="table-or-financial-data-block">Cr Interest income15
+
+CU51</block>
+      <block index="14" x0="44.82" y0="398.15" x1="359.91" y1="413.62" type="text-block">To record the loan repayment</block>
+      <block index="15" x0="44.82" y0="426.11" x1="359.91" y1="441.58" type="text-block">Dr Cash
+CU1,000</block>
+      <block index="16" x0="44.82" y0="454.07" x1="404.07" y1="469.54" type="text-block">Cr Loan receivable from subsidiary
+
+CU1,000</block>
+      <block index="19" x0="34.02" y0="742.75" x1="561.72" y1="790.23" type="table-or-financial-data-block">15 Company law requires that only profits realised at the reporting date are included in profit or loss. For the purpose of this example
+it is assumed that the interest income is a realised profit. The legal requirements on realised profits are not addressed in this
+factsheet. Technical Release 02/17BL considers issues concerning the determination of realised profits and entities may refer to this
+or any successor document for more guidance.</block>
+      <block index="21" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+28</block>
+    </page>
+    <page number="30" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="62.59" x1="209.97" y1="78.06" type="text-block">(2) Accounts of the subsidiary</block>
+      <block index="3" x0="39.42" y0="90.55" x1="367.77" y1="106.02" type="text-block">The subsidiary would record the following accounting entries:</block>
+      <block index="4" x0="44.82" y0="118.53" x1="375.63" y1="134.00" type="text-block">Year ended 31 December 20X1</block>
+      <block index="5" x0="44.82" y0="146.49" x1="375.63" y1="161.96" type="text-block">To record the accrued interest</block>
+      <block index="6" x0="44.82" y0="174.45" x1="375.63" y1="189.92" type="text-block">Dr Interest expense
+CU49</block>
+      <block index="7" x0="44.82" y0="202.41" x1="404.25" y1="217.88" type="text-block">Cr Loan repayable to parent
+
+CU49</block>
+      <block index="9" x0="44.82" y0="258.33" x1="375.63" y1="273.80" type="text-block">Year ended 31 December 20X2</block>
+      <block index="10" x0="44.82" y0="286.29" x1="375.63" y1="301.76" type="text-block">To record the accrued interest</block>
+      <block index="11" x0="44.82" y0="314.25" x1="375.63" y1="329.72" type="text-block">Dr Interest Expense
+CU51</block>
+      <block index="12" x0="44.82" y0="342.21" x1="404.25" y1="357.68" type="text-block">Cr Loan repayable to parent
+
+CU51</block>
+      <block index="13" x0="44.82" y0="370.19" x1="375.63" y1="385.66" type="text-block">To record the loan repayment</block>
+      <block index="14" x0="44.82" y0="398.15" x1="375.63" y1="413.62" type="text-block">Dr Loan repayable to parent
+CU1,000</block>
+      <block index="15" x0="44.82" y0="426.11" x1="419.79" y1="441.58" type="text-block">Cr Cash
+
+CU1,000</block>
+      <block index="17" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS 102 Factsheet 4 | Financial Instruments
+29</block>
+    </page>
+    <page number="31" width="595.32" height="841.92">
+      <block index="3" x0="465.46" y0="598.55" x1="573.97" y1="677.88" type="table-or-financial-data-block">Financial
+Reporting Council
+8th Floor
+125 London Wall
+London EC2Y 5AS</block>
+      <block index="4" x0="465.46" y0="684.85" x1="578.15" y1="700.32" type="text-block">+44 (0)20 7492 2300</block>
+      <block index="5" x0="465.46" y0="712.87" x1="547.13" y1="728.34" type="text-block">www.frc.org.uk</block>
+      <block index="6" x0="465.46" y0="768.97" x1="535.43" y1="784.44" type="text-block">Follow us on</block>
+      <block index="7" x0="465.46" y0="800.89" x1="561.78" y1="816.36" type="text-block">or      @FRCnews</block>
+    </page>
+  </body>
+</frs102-factsheet>

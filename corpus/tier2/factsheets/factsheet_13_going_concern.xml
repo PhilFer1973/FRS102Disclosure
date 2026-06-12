@@ -1,0 +1,707 @@
+<?xml version='1.0' encoding='utf-8'?>
+<frs-factsheet factsheet-number="13" title="The Going Concern Basis of Accounting for Small Companies and Micro-entities" publication-date="2025-09" source-format="PDF" conversion-status="machine-extracted-first-pass">
+  <metadata>
+    <publisher>Financial Reporting Council</publisher>
+    <source-file>FRS102 Factsheet The Going Concern Basis.pdf</source-file>
+    <page-count>22</page-count>
+    <related-standards>FRS 102; FRS 105; Companies Act 2006</related-standards>
+    <notice>This XML is a machine-extracted derivative of the supplied FRC factsheet. It is not an official FRC XML publication and should be checked against the source PDF.</notice>
+  </metadata>
+  <body>
+    <page number="1" width="595.32" height="841.92">
+      <block index="2" x0="28.38" y0="184.35" x1="280.29" y1="224.33" type="text-block">FRS Factsheet 13</block>
+      <block index="3" x0="142.28" y0="266.30" x1="448.80" y1="348.56" type="text-block">The Going Concern Basis of
+Accounting for Small
+Companies and Micro-entities</block>
+      <block index="4" x0="465.60" y0="772.03" x1="555.89" y1="787.50" type="text-block">September 2025</block>
+    </page>
+    <page number="2" width="595.32" height="841.92">
+      <block index="2" x0="39.66" y0="49.27" x1="549.16" y1="144.56" type="table-or-data-block">This factsheet has been prepared by FRC staff to aid preparers of small company and
+micro-entity accounts in applying FRS 102 The Financial Reporting Standard applicable in the UK
+and Republic of Ireland or FRS 105 The Financial Reporting Standard applicable to the
+Micro-entities Regime. It should not be relied upon as a definitive or complete statement on the
+application of the standards and associated legislation, nor is it a substitute for reading the
+detailed requirements of both standards and that legislation.</block>
+      <block index="18" x0="34.02" y0="485.09" x1="563.63" y1="548.44" type="text-block">The FRC does not accept any liability to any party for any loss, damage or costs howsoever arising,
+whether directly or indirectly, whether in contract, tort or otherwise from any action or decision
+taken (or not taken) as a result of any person relying on or otherwise using this document or arising
+from any omission from it.</block>
+      <block index="19" x0="34.02" y0="554.93" x1="537.55" y1="586.36" type="text-block">This document contains copyright material of the IFRS® Foundation (Foundation) in respect of
+which all rights are reserved.</block>
+      <block index="20" x0="34.02" y0="592.91" x1="535.52" y1="640.30" type="text-block">No rights are granted to third parties other than as permitted by the Terms of Use
+(http://www.frc.org.uk/FRStermsofuse) without the prior written permission of the FRC and the
+Foundation.</block>
+      <block index="21" x0="34.02" y0="646.79" x1="554.69" y1="694.18" type="text-block">Material issued in respect of the application of Financial Reporting Standards in the UK and the
+Republic of Ireland has not been prepared or endorsed by the International Accounting Standards
+Board.</block>
+      <block index="22" x0="34.02" y0="700.69" x1="289.95" y1="716.16" type="text-block">© The Financial Reporting Council Limited 2025</block>
+      <block index="23" x0="34.02" y0="722.65" x1="435.05" y1="754.08" type="text-block">The Financial Reporting Council Limited is a company limited by guarantee.
+Registered in England number 2486368.</block>
+      <block index="24" x0="34.02" y0="760.57" x1="580.45" y1="776.04" type="text-block">Registered Office:13th Floor, 1 Harbour Exchange Square, London, E14 9GE</block>
+      <block index="26" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+1</block>
+    </page>
+    <page number="3" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.78" x1="391.02" y1="77.16" type="text-block">Contents</block>
+      <block index="3" x0="538.26" y0="83.99" x1="564.13" y1="96.90" type="text-block">Page</block>
+      <block index="4" x0="34.02" y0="114.85" x1="563.57" y1="130.32" type="table-or-data-block">1.
+Introduction
+3</block>
+      <block index="5" x0="34.02" y0="145.29" x1="563.57" y1="160.76" type="table-or-data-block">2.
+The going concern basis of accounting and material uncertainties
+6</block>
+      <block index="6" x0="34.02" y0="175.77" x1="563.57" y1="191.24" type="table-or-data-block">3.
+The assessment process
+12</block>
+      <block index="7" x0="34.02" y0="206.25" x1="563.57" y1="221.72" type="table-or-data-block">4.
+The micro-entities regime: the going concern basis of accounting under FRS 105
+17</block>
+      <block index="10" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+2</block>
+    </page>
+    <page number="4" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.78" x1="198.64" y1="77.16" type="section-heading" section-number="1" title="Introduction">1. Introduction</block>
+      <block index="3" x0="34.02" y0="101.89" x1="515.84" y1="117.36" type="numbered-paragraph" paragraph-number="1.1">1.1. This factsheet has been prepared to aid preparers of small company and micro-entity</block>
+      <block index="4" x0="62.40" y0="117.91" x1="529.31" y1="165.38" type="table-or-data-block">accounts in the UK in applying the going concern basis of accounting under FRS 102
+The Financial Reporting Standard applicable in the UK and Republic of Ireland or FRS 105
+The Financial Reporting Standard applicable to the Micro-entities Regime.</block>
+      <block index="5" x0="34.02" y0="178.03" x1="129.30" y1="198.68" type="subheading" title="Background">Background</block>
+      <block index="6" x0="34.02" y0="209.19" x1="534.33" y1="224.66" type="numbered-paragraph" paragraph-number="1.2">1.2. The assumption that a company is and will continue as a going concern is a fundamental</block>
+      <block index="7" x0="62.40" y0="225.21" x1="556.40" y1="256.70" type="text-block">concept in accounting standards and company law that underlies the preparation of financial
+statements for all UK companies,1 including small companies and micro-entities.</block>
+      <block index="8" x0="34.02" y0="269.19" x1="561.99" y1="284.66" type="numbered-paragraph" paragraph-number="1.3">1.3. Directors of all companies, regardless of size are required to assess the appropriateness of the</block>
+      <block index="9" x0="62.40" y0="285.21" x1="465.77" y1="300.68" type="text-block">going concern basis of accounting when preparing the financial statements.</block>
+      <block index="10" x0="34.02" y0="313.17" x1="542.75" y1="328.64" type="numbered-paragraph" paragraph-number="1.4">1.4. In many cases, small companies and micro-entities have straightforward business activities</block>
+      <block index="11" x0="62.40" y0="329.19" x1="561.80" y1="376.70" type="text-block">and fewer lenders and creditors. As a result, the assessment process for these companies is
+likely to be simpler than for larger, more complex companies. Nevertheless, it is still important
+that the assessment is carried out.</block>
+      <block index="12" x0="34.02" y0="389.19" x1="555.20" y1="404.66" type="numbered-paragraph" paragraph-number="1.5">1.5. As a result of the Periodic Review 2024 completed in March 2024, changes were made to the</block>
+      <block index="13" x0="62.40" y0="405.23" x1="558.89" y1="452.68" type="text-block">disclosure requirements in UK accounting standards relating to going concern, which include
+new disclosures for small companies. These changes are effective for periods beginning on or
+after 1 January 2026.</block>
+      <block index="14" x0="34.02" y0="465.33" x1="99.72" y1="485.98" type="subheading" title="Purpose">Purpose</block>
+      <block index="15" x0="34.02" y0="496.49" x1="508.07" y1="511.96" type="numbered-paragraph" paragraph-number="1.6">1.6. This factsheet is intended to help directors of small companies and micro-entities in</block>
+      <block index="16" x0="62.40" y0="512.51" x1="547.44" y1="559.96" type="text-block">performing going concern assessments and in preparing financial statements disclosures
+about their conclusions and how those conclusions were reached, to the extent required by
+accounting standards and company law.</block>
+      <block index="17" x0="34.02" y0="572.51" x1="528.22" y1="587.98" type="numbered-paragraph" paragraph-number="1.7">1.7. It brings together the requirements of company law and accounting standards for small</block>
+      <block index="18" x0="62.40" y0="588.47" x1="555.95" y1="619.96" type="text-block">companies and micro-entities relating to reporting on the going concern basis of accounting
+and any material uncertainties in the financial statements.</block>
+      <block index="19" x0="34.02" y0="632.61" x1="83.46" y1="653.26" type="subheading" title="Scope">Scope</block>
+      <block index="20" x0="34.02" y0="663.77" x1="524.66" y1="679.24" type="numbered-paragraph" paragraph-number="1.8">1.8. Small companies and micro-entities are defined in the Companies Act 2006 (the Act) in</block>
+      <block index="21" x0="62.40" y0="679.81" x1="382.65" y1="695.28" type="text-block">sections 381 to 384 and sections 384A to 384B, respectively.</block>
+      <block index="23" x0="34.02" y0="778.63" x1="541.63" y1="790.23" type="text-block">1 For simplicity, this factsheet uses the terms ‘director’ and ‘company’. The factsheet is also likely to be relevant to other entities.</block>
+      <block index="25" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+3</block>
+    </page>
+    <page number="5" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.45" x1="535.85" y1="64.08" type="numbered-paragraph" paragraph-number="1.9">1.9. Small companies that prepare Companies Act individual accounts2 could choose to apply</block>
+      <block index="3" x0="62.40" y0="64.63" x1="551.33" y1="112.14" type="table-or-data-block">FRS 102 The Financial Reporting Standard applicable in the UK and Republic of Ireland, which
+includes an option for more limited disclosures as set out in Section 1A Small Entities of
+FRS 102 (the small companies regime).3</block>
+      <block index="4" x0="34.02" y0="124.65" x1="526.87" y1="140.12" type="numbered-paragraph" paragraph-number="1.10">1.10. Section 2 and Section 3 of this factsheet apply to small companies that choose to apply</block>
+      <block index="5" x0="62.40" y0="140.67" x1="558.97" y1="204.14" type="table-or-data-block">FRS 102 including the small companies regime, rather than all companies that meet the
+definition of a small company under the Act. For example, this factsheet does not address the
+requirements for small companies that choose to prepare IAS accounts or that apply FRS 101
+Reduced Disclosure Framework.</block>
+      <block index="6" x0="34.02" y0="216.47" x1="481.15" y1="232.10" type="numbered-paragraph" paragraph-number="1.11">1.11. Micro-entities may prepare Companies Act individual accounts2 using FRS 102,</block>
+      <block index="7" x0="62.40" y0="232.65" x1="539.57" y1="264.14" type="text-block">the small companies regime or FRS 105 The Financial Reporting Standard applicable to the
+Micro-entities Regime.</block>
+      <block index="8" x0="34.02" y0="276.63" x1="552.35" y1="292.10" type="numbered-paragraph" paragraph-number="1.12">1.12. Micro-entities that voluntarily choose to prepare their financial statements under FRS 102 or</block>
+      <block index="9" x0="62.40" y0="292.65" x1="560.03" y1="340.16" type="table-or-data-block">the small companies regime instead of FRS 105 should refer to Section 2 and Section 3 of this
+factsheet. Section 4 is intended for micro-entities preparing financial statements under
+FRS 105.</block>
+      <block index="10" x0="34.02" y0="352.65" x1="545.41" y1="368.12" type="numbered-paragraph" paragraph-number="1.13">1.13. The table below summarises the scope of this factsheet and highlights the specific sections</block>
+      <block index="11" x0="62.40" y0="368.67" x1="434.27" y1="384.14" type="text-block">applicable to each company based on the accounting standards used:</block>
+      <block index="12" x0="39.66" y0="410.33" x1="559.02" y1="441.76" type="text-block">Accounting standards
+Size category
+Relevant section of
+the factsheet</block>
+      <block index="13" x0="39.66" y0="459.05" x1="102.85" y1="474.52" type="text-block">FRS 102 or</block>
+      <block index="14" x0="316.12" y0="467.03" x1="414.53" y1="482.50" type="text-block">Small company or</block>
+      <block index="15" x0="447.84" y0="469.49" x1="523.13" y1="500.92" type="text-block">Section 2 and
+Section 3</block>
+      <block index="16" x0="316.12" y0="487.97" x1="384.15" y1="503.44" type="text-block">micro-entity</block>
+      <block index="17" x0="39.66" y0="479.99" x1="231.79" y1="511.42" type="text-block">Section 1A Small Entities of FRS 102
+(small companies regime)</block>
+      <block index="18" x0="39.66" y0="533.75" x1="499.85" y1="549.22" type="table-or-data-block">FRS 105
+Micro-entity
+Section 4</block>
+      <block index="20" x0="34.02" y0="588.11" x1="546.68" y1="603.58" type="numbered-paragraph" paragraph-number="1.14">1.14. The factsheet is also likely to be helpful for other types of entities (for example, LLPs) of the</block>
+      <block index="21" x0="62.40" y0="604.13" x1="562.60" y1="635.62" type="text-block">same size category and applying the same accounting standards. Such entities may be subject
+to other requirements not covered in this factsheet depending on their legal form.</block>
+      <block index="22" x0="34.02" y0="642.11" x1="544.24" y1="657.58" type="numbered-paragraph" paragraph-number="1.15">1.15. The factsheet may also be helpful to small companies and micro-entities in the Republic of</block>
+      <block index="23" x0="62.40" y0="658.13" x1="561.79" y1="689.62" type="text-block">Ireland that are preparing their financial statements in accordance with FRS 102 or FRS 105, as
+applicable. However, the disclosure requirements are different and companies in the Republic</block>
+      <block index="25" x0="34.02" y0="730.75" x1="562.51" y1="790.23" type="table-or-data-block">2 Under section 395 of the Act, a company’s individual accounts may be prepared in accordance with (a) section 396 (Companies Act
+individual accounts), or (b) UK-adopted international accounting standards (IAS individual accounts).
+3 FRS 102 paragraph 1A.1. Section 1A of FRS 102 sets out the presentation and disclosure requirements for a small company that
+chooses to apply the small companies regime. Unless excluded by Section 1A, all of the requirements of FRS 102 apply to a company
+applying the small companies regime, including the recognition and measurement requirements.</block>
+      <block index="27" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+4</block>
+    </page>
+    <page number="6" width="595.32" height="841.92">
+      <block index="2" x0="62.40" y0="48.61" x1="530.94" y1="80.10" type="text-block">of Ireland should refer to FRS 102, FRS 105 and the Companies Act 2014 for the relevant
+requirements.</block>
+      <block index="3" x0="34.02" y0="86.75" x1="225.72" y1="107.40" type="subheading" title="How to use the factsheet">How to use the factsheet</block>
+      <block index="4" x0="34.02" y0="117.91" x1="564.59" y1="133.38" type="numbered-paragraph" paragraph-number="1.16">1.16. The factsheet uses the following terms to distinguish between mandatory requirements (in law</block>
+      <block index="5" x0="62.40" y0="133.95" x1="467.75" y1="149.42" type="text-block">or accounting standards), good practice and other suggestions or examples:</block>
+      <block index="6" x0="39.42" y0="172.59" x1="114.63" y1="188.06" type="text-block">Terminology</block>
+      <block index="7" x0="39.42" y0="205.23" x1="521.45" y1="252.62" type="text-block">•
+‘Must’ or ‘required to’ are used to refer to mandatory requirements derived from law or
+accounting standards for companies within their scope. Such requirements might be
+mandatory only when resulting disclosures would be material.</block>
+      <block index="8" x0="39.42" y0="274.89" x1="552.11" y1="306.32" type="text-block">•
+‘Should’ is used throughout this document to refer to good practice and recommended ways
+of applying the requirements in law or accounting standards.</block>
+      <block index="9" x0="39.42" y0="328.59" x1="536.57" y1="391.94" type="text-block">•
+‘Could’ or ‘may’ is generally used when preparers may wish to consider alternative ways to
+perform assessments and present information, or when providing examples of issues,
+techniques or disclosures which may be applicable depending on the company’s specific
+circumstances.</block>
+      <block index="15" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+5</block>
+    </page>
+    <page number="7" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.72" x1="504.51" y1="77.10" type="section-heading" section-number="2" title="The going concern basis of accounting and">2. The going concern basis of accounting and</block>
+      <block index="3" x0="55.32" y0="78.00" x1="293.28" y1="106.38" type="text-block">material uncertainties</block>
+      <block index="4" x0="34.02" y0="131.29" x1="125.76" y1="151.94" type="subheading" title="Assessment">Assessment</block>
+      <block index="5" x0="34.02" y0="162.60" x1="372.48" y1="180.62" type="subheading" title="Adoption of the going concern basis of accounting">Adoption of the going concern basis of accounting</block>
+      <block index="7" x0="42.30" y0="194.88" x1="218.32" y1="212.90" type="subheading" title="Summary of requirements">Summary of requirements</block>
+      <block index="9" x0="39.42" y0="235.05" x1="479.20" y1="250.52" type="numbered-paragraph" paragraph-number="2.1">2.1. All companies, including small companies and micro-entities, must assess the</block>
+      <block index="10" x0="67.80" y0="251.01" x1="537.10" y1="282.50" type="text-block">appropriateness of the going concern basis of accounting when preparing their financial
+statements.</block>
+      <block index="11" x0="39.42" y0="295.05" x1="552.64" y1="310.52" type="numbered-paragraph" paragraph-number="2.2">2.2. Financial statements are normally prepared on the assumption that the company is a going</block>
+      <block index="12" x0="67.80" y0="310.91" x1="419.63" y1="326.54" type="text-block">concern and will continue in operation for the foreseeable future.4</block>
+      <block index="13" x0="39.42" y0="339.03" x1="506.00" y1="354.50" type="numbered-paragraph" paragraph-number="2.3">2.3. Companies are required to adopt the going concern basis of accounting, except in</block>
+      <block index="14" x0="67.80" y0="355.05" x1="549.47" y1="402.50" type="text-block">circumstances when the directors determine at the date of approval of the financial
+statements either that they intend to liquidate the company or to cease trading or have no
+realistic alternative to liquidation or cessation of operations.5</block>
+      <block index="15" x0="34.02" y0="415.07" x1="556.94" y1="446.50" type="numbered-paragraph" paragraph-number="2.4">2.4. The threshold for departing from the going concern basis of accounting is very high, as there</block>
+      <block index="16" x0="62.40" y0="447.05" x1="509.70" y1="478.54" type="text-block">are often realistic alternatives to liquidation or cessation of operations. Such realistic
+alternatives can exist even if they depend on uncertain future events.</block>
+      <block index="17" x0="34.02" y0="491.03" x1="533.66" y1="506.50" type="numbered-paragraph" paragraph-number="2.5">2.5. The assessment process carried out by the directors (see Section 3 for more information)</block>
+      <block index="18" x0="62.40" y0="507.05" x1="524.91" y1="538.54" type="text-block">should be proportionate to the size, complexity and the particular circumstances of the
+company.</block>
+      <block index="19" x0="34.02" y0="551.03" x1="537.15" y1="566.50" type="numbered-paragraph" paragraph-number="2.6">2.6. The assessment must take into account all relevant facts and circumstances at the date of</block>
+      <block index="20" x0="62.40" y0="566.89" x1="557.94" y1="630.52" type="table-or-data-block">approval of the financial statements.6 It is not appropriate to prepare the financial statements
+using the going concern basis of accounting if the directors determine after the reporting
+period that they intend to liquidate the company or to cease trading or have no realistic
+alternative but to do so.7</block>
+      <block index="21" x0="34.02" y0="643.07" x1="522.05" y1="658.54" type="numbered-paragraph" paragraph-number="2.7">2.7. Deterioration in operating results and financial position after the reporting period may</block>
+      <block index="22" x0="62.40" y0="659.03" x1="564.46" y1="690.52" type="text-block">indicate a need to consider whether the going concern basis of accounting is still appropriate.
+If it is no longer appropriate, the effect is so pervasive that it requires a fundamental change in</block>
+      <block index="24" x0="34.02" y0="730.75" x1="537.59" y1="790.23" type="table-or-data-block">4 FRS 102 paragraph 2.30 and paragraph 11 of Schedule 1 to The Small Companies and Groups (Accounts and Directors' Report)
+Regulations 2008 (SI 2008/409)
+5 FRS 102 paragraphs 2.30 and 3.8
+6 FRS 102 paragraph 3.8
+7 FRS 102 paragraph 32.7A</block>
+      <block index="26" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+6</block>
+    </page>
+    <page number="8" width="595.32" height="841.92">
+      <block index="2" x0="62.40" y0="48.61" x1="533.24" y1="80.10" type="text-block">the basis of accounting, rather than an adjustment to the amounts recognised within the
+original basis of accounting.8</block>
+      <block index="3" x0="34.02" y0="92.65" x1="475.67" y1="108.12" type="numbered-paragraph" paragraph-number="2.8">2.8. When making the assessment, directors might apply significant judgement in:</block>
+      <block index="4" x0="62.40" y0="120.81" x1="514.01" y1="136.76" type="text-block">• the determination of the assumptions used in the assessment (see Section 3); and</block>
+      <block index="5" x0="62.40" y0="148.77" x1="540.69" y1="164.72" type="text-block">• the determination of whether the going concern basis of accounting is appropriate and</block>
+      <block index="6" x0="76.58" y0="164.73" x1="356.85" y1="180.20" type="text-block">whether there are material uncertainties (see below).</block>
+      <block index="7" x0="34.02" y0="192.51" x1="547.20" y1="207.98" type="numbered-paragraph" paragraph-number="2.9">2.9. The assessment should be sufficiently robust and documented in sufficient detail to explain</block>
+      <block index="8" x0="62.40" y0="208.53" x1="559.69" y1="288.02" type="text-block">the basis of the directors’ conclusion with respect to the going concern basis of accounting at
+the date of approval of the financial statements. The documentation should include any
+significant judgements made and assumptions used, which should usually be consistent with
+those used in other forward-looking parts of the financial statements (such as impairment
+reviews) unless FRS 102 permits or requires otherwise in specific circumstances.</block>
+      <block index="9" x0="34.02" y0="300.72" x1="182.14" y1="318.74" type="subheading" title="Material uncertainties">Material uncertainties</block>
+      <block index="11" x0="43.02" y0="336.36" x1="219.04" y1="354.38" type="subheading" title="Summary of requirements">Summary of requirements</block>
+      <block index="13" x0="39.42" y0="372.95" x1="548.70" y1="388.58" type="numbered-paragraph" paragraph-number="2.10">2.10. FRS 1029 requires directors to assess the company’s ability to continue as a going concern.</block>
+      <block index="14" x0="67.80" y0="389.13" x1="525.05" y1="436.60" type="text-block">As part of their assessment, the directors must determine if there are any material
+uncertainties relating to events or conditions that may cast significant doubt upon the
+company’s ability to continue as a going concern.</block>
+      <block index="15" x0="39.42" y0="449.15" x1="544.01" y1="464.62" type="numbered-paragraph" paragraph-number="2.11">2.11. In performing this assessment, the directors must consider all available information about</block>
+      <block index="16" x0="67.80" y0="465.17" x1="126.01" y1="480.64" type="text-block">the future.</block>
+      <block index="17" x0="34.02" y0="495.27" x1="489.76" y1="524.62" type="numbered-paragraph" paragraph-number="2.12">2.12. Events or conditions could result in the going concern basis of accounting being</block>
+      <block index="18" x0="62.40" y0="525.17" x1="287.13" y1="540.64" type="text-block">inappropriate in future reporting periods.</block>
+      <block index="19" x0="34.02" y0="553.13" x1="342.81" y1="568.60" type="numbered-paragraph" paragraph-number="2.13">2.13. In assessing material uncertainties, directors should:</block>
+      <block index="20" x0="62.40" y0="581.27" x1="510.83" y1="597.22" type="text-block">• identify any events or conditions by reviewing an appropriate assessment period;</block>
+      <block index="21" x0="62.40" y0="609.23" x1="549.58" y1="625.18" type="text-block">• consider the realistically possible outcomes of these events and changes in conditions by</block>
+      <block index="22" x0="76.58" y0="625.19" x1="547.61" y1="640.66" type="text-block">assessing the magnitude of the potential impacts and the likelihood of their occurrence;</block>
+      <block index="23" x0="62.40" y0="653.15" x1="547.84" y1="669.10" type="text-block">• consider the realistic availability and likely effectiveness of any mitigating actions to such</block>
+      <block index="24" x0="76.58" y0="669.11" x1="432.23" y1="684.58" type="text-block">events and conditions that would be available to the directors; and</block>
+      <block index="26" x0="34.02" y0="766.69" x1="151.35" y1="790.23" type="text-block">8 FRS 102 paragraph 32.7B
+9 FRS 102 paragraphs 3.8–3.9</block>
+      <block index="28" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+7</block>
+    </page>
+    <page number="9" width="595.32" height="841.92">
+      <block index="2" x0="62.40" y0="48.79" x1="551.50" y1="64.74" type="text-block">• consider whether the uncertain future events or changes in conditions are unusual, rather</block>
+      <block index="3" x0="76.58" y0="64.75" x1="549.20" y1="96.18" type="text-block">than occurring with sufficient regularity for the directors to make predictions about them
+with a high degree of confidence.</block>
+      <block index="4" x0="34.02" y0="108.49" x1="549.71" y1="123.96" type="numbered-paragraph" paragraph-number="2.14">2.14. Section 3 sets out factors to consider when identifying events or conditions, and techniques</block>
+      <block index="5" x0="62.40" y0="124.53" x1="531.67" y1="156.02" type="text-block">that may be used in the assessment, while paragraphs 2.17 to 2.20 cover the assessment
+period.</block>
+      <block index="6" x0="34.02" y0="168.51" x1="551.95" y1="183.98" type="numbered-paragraph" paragraph-number="2.15">2.15. Uncertainties relating to such events or conditions are considered material if their disclosure</block>
+      <block index="7" x0="62.40" y0="184.53" x1="553.09" y1="248.00" type="text-block">could reasonably be expected to affect the economic decisions of owners and other users of
+the financial statements. This is a matter of judgement. In making this judgement, the
+directors should consider the uncertainties arising from their assessment, both individually
+and in combination with others.</block>
+      <block index="8" x0="34.02" y0="260.55" x1="561.74" y1="276.02" type="numbered-paragraph" paragraph-number="2.16">2.16. Uncertainties should not usually be considered material if the likelihood that the company will</block>
+      <block index="9" x0="62.40" y0="276.51" x1="522.60" y1="308.00" type="text-block">not be able to continue to use the going concern basis of accounting is assessed to be
+remote, however significant the assessed potential impact is.</block>
+      <block index="10" x0="34.02" y0="320.65" x1="208.80" y1="341.30" type="subheading" title="The assessment period">The assessment period</block>
+      <block index="12" x0="42.78" y0="363.72" x1="218.80" y1="381.74" type="subheading" title="Summary of requirements">Summary of requirements</block>
+      <block index="14" x0="39.42" y0="395.63" x1="529.82" y1="411.26" type="numbered-paragraph" paragraph-number="2.17">2.17. FRS 10210 provides for a minimum period that must be reviewed by directors as part of</block>
+      <block index="15" x0="67.80" y0="411.77" x1="543.53" y1="459.28" type="text-block">their assessment of the going concern basis of accounting and any material uncertainties.
+It requires companies to consider a period of at least, but not limited to, 12 months from
+the date the financial statements are authorised for issue.</block>
+      <block index="16" x0="34.02" y0="471.77" x1="529.80" y1="503.26" type="numbered-paragraph" paragraph-number="2.18">2.18. The minimum period for the going concern assessment does not mean that the outlook</block>
+      <block index="17" x0="62.40" y0="503.81" x1="555.10" y1="583.30" type="text-block">should be limited to 12 months. A longer assessment period may be more appropriate, if
+significant events or conditions (such as large debt repayments, debt covenant tests,
+significant capital commitments or expiry dates for key contracts or licences) are identified
+beyond that minimum period that may cast significant doubt upon the continuing use of the
+going concern basis of accounting.</block>
+      <block index="18" x0="34.02" y0="595.79" x1="543.53" y1="611.26" type="numbered-paragraph" paragraph-number="2.19">2.19. Determining the appropriate assessment period is a matter of judgement for the directors.</block>
+      <block index="19" x0="62.40" y0="611.81" x1="557.30" y1="723.30" type="table-or-data-block">Directors must consider all available information about the future when determining the
+assessment period, which includes the company’s specific circumstances, risks and factors
+relevant to the assessment (see Section 3). If the directors choose to perform an initial
+assessment over 12 months, they still need to carry out a robust assessment of material
+uncertainties as set out in paragraphs 2.10 to 2.16 considering events and conditions that are
+evident up to the date of approval of the financial statements, including any events and
+conditions identified over a longer period.</block>
+      <block index="21" x0="34.02" y0="778.63" x1="134.61" y1="790.23" type="text-block">10 FRS 102 paragraph 3.8</block>
+      <block index="23" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+8</block>
+    </page>
+    <page number="10" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.61" x1="561.45" y1="64.08" type="numbered-paragraph" paragraph-number="2.20">2.20. If a longer assessment period has been selected or when the determination of the assessment</block>
+      <block index="3" x0="62.40" y0="64.63" x1="547.96" y1="112.14" type="text-block">period involves significant judgement, companies should clearly identify in their going
+concern disclosures the period covered by the assessment and the reason for selecting that
+duration.</block>
+      <block index="4" x0="34.02" y0="124.75" x1="218.82" y1="145.40" type="subheading" title="Reporting requirements">Reporting requirements</block>
+      <block index="5" x0="42.30" y0="167.16" x1="218.32" y1="185.18" type="subheading" title="Summary of requirements">Summary of requirements</block>
+      <block index="7" x0="39.42" y0="187.83" x1="553.01" y1="219.32" type="numbered-paragraph" paragraph-number="2.21">2.21. FRS 102 requires a company that prepares financial statements on a going concern basis to</block>
+      <block index="8" x0="67.80" y0="219.87" x1="507.46" y1="251.30" type="text-block">disclose that fact, together with confirmation that the directors have considered all
+available information about the future.11</block>
+      <block index="9" x0="39.42" y0="261.87" x1="544.55" y1="277.34" type="numbered-paragraph" paragraph-number="2.22">2.22. When a company does not prepare financial statements on a going concern basis, it must</block>
+      <block index="10" x0="67.80" y0="277.83" x1="552.30" y1="309.26" type="text-block">disclose that fact, together with the basis on which it prepared the financial statements and
+the reason why it is not regarded as a going concern.12</block>
+      <block index="11" x0="39.42" y0="319.83" x1="543.16" y1="335.30" type="numbered-paragraph" paragraph-number="2.23">2.23. FRS 102 requires disclosure when the directors are aware of material uncertainties related</block>
+      <block index="12" x0="67.80" y0="335.85" x1="519.65" y1="367.28" type="text-block">to events or conditions that may cast significant doubt upon the company’s ability to
+continue to adopt the going concern basis of accounting.12</block>
+      <block index="13" x0="39.42" y0="377.85" x1="538.74" y1="393.32" type="numbered-paragraph" paragraph-number="2.24">2.24. A company must also disclose, in accordance with FRS 102 paragraph 8.6, any significant</block>
+      <block index="14" x0="67.80" y0="393.65" x1="526.43" y1="409.28" type="text-block">judgements made in assessing the company’s ability to continue as a going concern.11</block>
+      <block index="15" x0="34.02" y0="419.87" x1="170.02" y1="454.06" type="subheading" title="Basis of preparation">Basis of preparation</block>
+      <block index="16" x0="34.02" y0="464.51" x1="556.76" y1="479.98" type="numbered-paragraph" paragraph-number="2.25">2.25. All financial statements must describe the basis of preparation, including material accounting</block>
+      <block index="17" x0="62.40" y0="480.31" x1="550.10" y1="511.96" type="text-block">policy information.13 This includes the adoption of the going concern basis of accounting or
+any alternative basis adopted if the going concern basis of accounting is not appropriate.</block>
+      <block index="18" x0="34.02" y0="524.51" x1="530.73" y1="539.98" type="numbered-paragraph" paragraph-number="2.26">2.26. The explicit statement about the adoption of the going concern basis of accounting and</block>
+      <block index="19" x0="62.40" y0="540.47" x1="551.51" y1="571.96" type="text-block">confirmation that the directors have considered all available information about the future as
+required by FRS 102 forms part of the basis of preparation.11</block>
+      <block index="20" x0="34.02" y0="584.51" x1="528.68" y1="599.98" type="numbered-paragraph" paragraph-number="2.27">2.27. Companies could include a summary of how the directors reached their conclusions, for</block>
+      <block index="21" x0="62.40" y0="600.47" x1="561.92" y1="647.98" type="text-block">example, with reference to their profitability, cash flows, liquidity position, available borrowing
+facilities or other sources of financing including the techniques applied in the analysis. This
+may be particularly relevant for users at times of greater economic uncertainty.</block>
+      <block index="22" x0="34.02" y0="660.47" x1="546.00" y1="675.94" type="numbered-paragraph" paragraph-number="2.28">2.28. The amount of information provided should be proportionate to the uncertainties to which</block>
+      <block index="23" x0="62.40" y0="676.49" x1="551.30" y1="723.96" type="text-block">the company is exposed and to its financial and liquidity position. A company facing greater
+uncertainty and with less financial headroom may need to provide more detail than one
+without such challenges.</block>
+      <block index="25" x0="34.02" y0="754.69" x1="428.71" y1="790.23" type="table-or-data-block">11 FRS 102 paragraphs 1AC.2C and 3.8A (effective for periods beginning on or after 1 January 2026)
+12 FRS 102 paragraphs 1AC.2C and 3.9 (effective for periods beginning on or after 1 January 2026)
+13 FRS 102 paragraphs 1AC.3, 8.5 and 8.5A</block>
+      <block index="27" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+9</block>
+    </page>
+    <page number="11" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.61" x1="559.47" y1="64.08" type="numbered-paragraph" paragraph-number="2.29">2.29. For example, a small company with a material uncertainty or significant judgement relating to</block>
+      <block index="3" x0="62.40" y0="64.63" x1="559.96" y1="160.16" type="text-block">its borrowing facilities, might disclose information about its levels of drawn and undrawn
+facilities, repayment terms, covenants, headroom, and whether the company expects any
+breaches of covenants or waivers of covenants during the going concern assessment period.
+The greater the uncertainty the company faces, the more likely such information is to be
+material and relevant to users in understanding how such matters might affect the company’s
+financial and liquidity position.</block>
+      <block index="4" x0="34.02" y0="169.80" x1="182.14" y1="187.82" type="subheading" title="Material uncertainties">Material uncertainties</block>
+      <block index="5" x0="34.02" y0="198.27" x1="542.16" y1="213.74" type="numbered-paragraph" paragraph-number="2.30">2.30. When there are material uncertainties that may cast significant doubt upon the company’s</block>
+      <block index="6" x0="62.40" y0="214.29" x1="556.05" y1="261.74" type="text-block">ability to continue to adopt the going concern basis of accounting, the financial statements
+must disclose them. The financial statements should clearly disclose the existence and nature
+of the material uncertainty, including:</block>
+      <block index="7" x0="62.40" y0="274.41" x1="534.29" y1="289.88" type="text-block">• a description of the principal events or conditions that may cast significant doubt; and</block>
+      <block index="8" x0="62.40" y0="300.39" x1="391.29" y1="315.86" type="text-block">• the directors’ plans to deal with these events or conditions.</block>
+      <block index="9" x0="34.02" y0="326.19" x1="556.21" y1="341.66" type="numbered-paragraph" paragraph-number="2.31">2.31. Disclosures about material uncertainties should be company-specific, and should identify the</block>
+      <block index="10" x0="62.40" y0="342.21" x1="507.35" y1="357.68" type="text-block">specific issue and how it could affect the company’s financial position and liquidity.</block>
+      <block index="11" x0="34.02" y0="370.38" x1="428.66" y1="388.40" type="subheading" title="Significant judgements, assumptions and true and fair view">Significant judgements, assumptions and true and fair view</block>
+      <block index="12" x0="34.02" y0="398.79" x1="540.86" y1="414.26" type="numbered-paragraph" paragraph-number="2.32">2.32. Disclosures about significant judgements related to going concern assessments should be</block>
+      <block index="13" x0="62.40" y0="414.83" x1="556.50" y1="494.32" type="text-block">company-specific and should clearly identify the judgement made. For example, companies
+could explain the company-specific factors considered (see Section 3) and how they affected
+the assessment, such as the events or conditions that are subject to significant judgement, or
+the feasibility and effectiveness of the directors’ plans or mitigating actions in response to
+those events or conditions.</block>
+      <block index="14" x0="34.02" y0="506.81" x1="546.54" y1="522.28" type="numbered-paragraph" paragraph-number="2.33">2.33. Examples of situations that could involve significant judgement in determining whether the</block>
+      <block index="15" x0="62.40" y0="522.83" x1="560.59" y1="570.34" type="text-block">going concern basis of accounting is appropriate or whether a material uncertainty exists (if
+they have a significant effect on the overall assessment either individually or when considered
+together with other factors) may include:</block>
+      <block index="16" x0="62.40" y0="582.95" x1="493.73" y1="598.42" type="text-block">• when a significant borrowing facility may need to be restructured or renewed;</block>
+      <block index="17" x0="62.40" y0="608.93" x1="556.37" y1="624.40" type="text-block">• when a waiver of a covenant by a lender of a significant borrowing facility may be needed;</block>
+      <block index="18" x0="76.58" y0="624.89" x1="94.33" y1="640.36" type="text-block">or</block>
+      <block index="19" x0="62.40" y0="650.87" x1="518.87" y1="666.34" type="text-block">• if other types of significant business changes, asset disposals or cost reductions are</block>
+      <block index="20" x0="76.58" y0="666.83" x1="542.34" y1="698.28" type="text-block">planned during the assessment period and these have been assumed in the assessment
+based on the directors’ expectations of achieving them.</block>
+      <block index="22" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+10</block>
+    </page>
+    <page number="12" width="595.32" height="841.92">
+      <block index="3" x0="42.78" y0="45.64" x1="218.80" y1="63.66" type="subheading" title="Summary of requirements">Summary of requirements</block>
+      <block index="4" x0="39.42" y0="67.87" x1="544.40" y1="96.12" type="numbered-paragraph" paragraph-number="2.34">2.34. Other disclosures may be required by accounting standards or company law; for example,</block>
+      <block index="5" x0="67.80" y0="96.61" x1="546.55" y1="144.14" type="text-block">to comply with requirements to disclose key assumptions concerning the future and other
+key sources of estimation uncertainty,14 or for the financial statements to give a true and
+fair view.</block>
+      <block index="6" x0="39.42" y0="156.63" x1="547.08" y1="172.10" type="numbered-paragraph" paragraph-number="2.35">2.35. The directors are responsible for ensuring that the financial statements give a true and fair</block>
+      <block index="7" x0="67.80" y0="172.49" x1="109.21" y1="188.12" type="text-block">view.15</block>
+      <block index="8" x0="39.42" y0="200.67" x1="505.72" y1="216.14" type="numbered-paragraph" paragraph-number="2.36">2.36. The financial statements of a company must give a true and fair view of the assets,</block>
+      <block index="9" x0="67.80" y0="216.53" x1="533.39" y1="232.16" type="text-block">liabilities, financial position and profit or loss of the company for the reporting period.16</block>
+      <block index="10" x0="39.42" y0="244.65" x1="555.56" y1="260.12" type="numbered-paragraph" paragraph-number="2.37">2.37. In order to give a true and fair view, financial statements may need to provide disclosures in</block>
+      <block index="11" x0="67.80" y0="260.51" x1="271.53" y1="276.14" type="text-block">addition to those set out in FRS 102.17</block>
+      <block index="12" x0="34.02" y0="288.63" x1="541.97" y1="320.12" type="numbered-paragraph" paragraph-number="2.38">2.38. Any disclosures about key assumptions should be company-specific and provide sufficient</block>
+      <block index="13" x0="62.40" y0="320.67" x1="544.99" y1="384.14" type="text-block">information about the directors’ basis for their assessment. This allows users to understand
+whether the assumptions are consistent with those applied in other areas of the financial
+statements (such as impairment reviews) or if not, the reason why; for example, if another
+section of FRS 102 permits or requires otherwise.</block>
+      <block index="14" x0="34.02" y0="396.63" x1="556.42" y1="412.10" type="numbered-paragraph" paragraph-number="2.39">2.39. Directors must consider whether additional disclosures relating to the going concern basis of</block>
+      <block index="15" x0="62.40" y0="412.67" x1="522.52" y1="444.16" type="text-block">accounting and any material uncertainties are necessary for the financial statements to
+present a true and fair view.</block>
+      <block index="16" x0="34.02" y0="456.65" x1="541.14" y1="472.12" type="numbered-paragraph" paragraph-number="2.40">2.40. This involves considering whether additional company-specific information is necessary to</block>
+      <block index="17" x0="62.40" y0="472.67" x1="279.63" y1="488.14" type="text-block">understand the particular circumstances.</block>
+      <block index="18" x0="34.02" y0="500.69" x1="549.77" y1="516.16" type="numbered-paragraph" paragraph-number="2.41">2.41. For example, a small company may be heavily loss-making or have substantial net liabilities.</block>
+      <block index="19" x0="62.40" y0="516.65" x1="563.35" y1="596.14" type="text-block">The financial statements of the small company might therefore give the impression that the
+company is experiencing significant financial difficulties. However, the existence of ongoing
+support from its owners may, in some circumstances, mean that no material uncertainty exists.
+Disclosure of this ongoing support as a key assumption made in the assessment may be
+necessary to give a true and fair view.</block>
+      <block index="22" x0="34.02" y0="742.75" x1="476.05" y1="790.23" type="table-or-data-block">14 FRS 102 paragraph 8.7. This is not explicitly required for companies choosing to apply Section 1A of FRS 102.
+15 Companies Act 2006, section 393. The FRC paper True and Fair (June 2014) provides further information.
+16 FRS 102 paragraphs 1A.5 and 3.2
+17 FRS 102 paragraphs 1A.6 and 3.2</block>
+      <block index="24" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+11</block>
+    </page>
+    <page number="13" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.78" x1="312.78" y1="77.16" type="section-heading" section-number="3" title="The assessment process">3. The assessment process</block>
+      <block index="3" x0="34.02" y0="101.89" x1="533.39" y1="117.36" type="numbered-paragraph" paragraph-number="3.1">3.1. This section sets out factors to consider and techniques that may be applied in assessing</block>
+      <block index="4" x0="62.40" y0="117.91" x1="533.15" y1="149.42" type="text-block">whether the going concern basis of accounting is appropriate and whether there are any
+material uncertainties that may cast significant doubt that it will continue to be so.</block>
+      <block index="5" x0="34.02" y0="161.91" x1="553.61" y1="177.38" type="numbered-paragraph" paragraph-number="3.2">3.2. As set out in Section 2, the directors must consider all available information about the future</block>
+      <block index="6" x0="62.40" y0="177.93" x1="560.04" y1="209.42" type="text-block">in performing these assessments. Examples of internal and external factors to consider are set
+out in the table after paragraph 3.14.</block>
+      <block index="7" x0="34.02" y0="221.91" x1="557.41" y1="237.38" type="numbered-paragraph" paragraph-number="3.3">3.3. Directors should assess which factors are likely to be relevant to their company. These factors</block>
+      <block index="8" x0="62.40" y0="237.93" x1="564.30" y1="285.38" type="text-block">will vary according to the company’s particular circumstances including its business activities,
+sources of finance, industry, and how it is affected by the general economic and wider external
+environment.</block>
+      <block index="9" x0="34.02" y0="298.03" x1="195.96" y1="318.68" type="subheading" title="Extent of assessment">Extent of assessment</block>
+      <block index="10" x0="34.02" y0="329.19" x1="526.91" y1="344.66" type="numbered-paragraph" paragraph-number="3.4">3.4. The extent of the directors’ assessment process will depend on the size, complexity and</block>
+      <block index="11" x0="62.40" y0="345.21" x1="562.68" y1="456.70" type="text-block">particular circumstances of the company. The process is likely to be simpler and less extensive
+for companies that depend on fewer providers of finance and are readily able to access
+finance, have more straightforward business activities with a history of profitable and
+cash-generating operations, and are less affected by the economic and wider external
+environment. However, it is still important that the assessment is carried out and addresses, to
+the extent necessary, the directors’ plans to manage the company’s borrowing requirements,
+the timing of cash flows and the company’s exposure to contingent liabilities.</block>
+      <block index="12" x0="34.02" y0="469.19" x1="557.96" y1="484.66" type="numbered-paragraph" paragraph-number="3.5">3.5. In contrast, directors of companies with more complex circumstances may need to consider a</block>
+      <block index="13" x0="62.40" y0="485.21" x1="557.13" y1="548.68" type="text-block">wider range of factors including those related to current and expected profits and cash flows,
+debt covenants and maturities, potential alternative sources of finance, potential changes to
+the business model and various market and other external conditions that could affect the
+business and its financial and liquidity position.</block>
+      <block index="14" x0="34.02" y0="561.23" x1="552.01" y1="576.70" type="numbered-paragraph" paragraph-number="3.6">3.6. The assessment of the going concern basis of accounting is an integral process in managing</block>
+      <block index="15" x0="62.40" y0="577.25" x1="483.41" y1="592.72" type="text-block">the business. The assessment should be robust and appropriately documented.</block>
+      <block index="16" x0="34.02" y0="605.21" x1="541.12" y1="620.68" type="numbered-paragraph" paragraph-number="3.7">3.7. In many cases, the directors of small companies and micro-entities are also its owners and</block>
+      <block index="17" x0="62.40" y0="621.23" x1="557.69" y1="668.68" type="text-block">there may not be any independent oversight or review of the going concern assessments.
+However, sufficient time should be allowed for performing and documenting the assessment,
+and preparing disclosures.</block>
+      <block index="18" x0="34.02" y0="681.25" x1="555.53" y1="696.72" type="numbered-paragraph" paragraph-number="3.8">3.8. The level of detail applied in the analysis will depend on the scale and nature of the risks and</block>
+      <block index="19" x0="62.40" y0="697.21" x1="544.49" y1="760.74" type="text-block">uncertainties a company faces. In many cases, small companies and micro-entities may not
+have a detailed method to assess going concern, but instead may rely on the directors’
+in-depth knowledge of the business and anticipated future prospects which might be
+documented less formally compared to larger companies.</block>
+      <block index="21" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+12</block>
+    </page>
+    <page number="14" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.61" x1="559.42" y1="64.08" type="numbered-paragraph" paragraph-number="3.9">3.9. The going concern assessment and related disclosures may need to be updated to reflect any</block>
+      <block index="3" x0="62.40" y0="64.63" x1="517.09" y1="96.12" type="text-block">developments occurring after the end of the reporting period but before the financial
+statements are authorised for issue.</block>
+      <block index="4" x0="34.02" y0="108.77" x1="206.52" y1="129.42" type="subheading" title="Forecasts and budgets">Forecasts and budgets</block>
+      <block index="5" x0="34.02" y0="139.95" x1="552.85" y1="155.42" type="numbered-paragraph" paragraph-number="3.10">3.10. For the purposes of assessing whether the going concern basis of accounting is appropriate,</block>
+      <block index="6" x0="62.40" y0="155.91" x1="558.77" y1="219.44" type="text-block">directors could prepare a budget, trading estimate, cash flow forecast or other equivalent
+analysis covering the appropriate assessment period (as described in Section 2). The directors
+could also review previous forecasts or other analyses against actual results and make
+appropriate adjustments to the analysis for the current assessment.</block>
+      <block index="7" x0="34.02" y0="231.93" x1="524.75" y1="247.40" type="numbered-paragraph" paragraph-number="3.11">3.11. Cash flow forecasts and other financial plans can indicate whether there is an adequate</block>
+      <block index="8" x0="62.40" y0="247.95" x1="551.91" y1="295.40" type="text-block">matching (of both the timing and the amount) of projected cash inflows with projected cash
+outflows, including those for the settlement of different liabilities, such as loan repayments,
+payment of tax and other commitments.</block>
+      <block index="9" x0="34.02" y0="307.95" x1="562.48" y1="323.42" type="numbered-paragraph" paragraph-number="3.12">3.12. Preparing forecasts often involves significant judgement and various assumptions, which must</block>
+      <block index="10" x0="62.40" y0="323.91" x1="558.35" y1="467.44" type="table-or-data-block">be reasonable and supportable, reflect conditions at the date of authorisation of the financial
+statements and should usually be consistent with other forward-looking parts of the annual
+report such as any impairment reviews, unless FRS 102 permits or requires otherwise in
+specific circumstances. Both internal and external factors and sources of information are
+relevant when making these judgements and assumptions. Directors should be aware of their
+own potential bias when making judgements and assumptions in forecasts: for example,
+overestimation of positive outcomes and underestimation of negative effects. As discussed in
+Section 2, significant judgements and assumptions may need to be disclosed in the financial
+statements.</block>
+      <block index="11" x0="34.02" y0="479.93" x1="545.09" y1="495.40" type="numbered-paragraph" paragraph-number="3.13">3.13. Small companies and micro-entities could use information from reputable external sources</block>
+      <block index="12" x0="62.40" y0="495.95" x1="549.25" y1="559.42" type="text-block">(e.g. from the Bank of England or statistical reports from reputable, authoritative sources) in
+determining assumptions that are both appropriate and relevant to the company’s specific
+circumstances. These assumptions may include inflation rates, growth rates and discount
+rates.</block>
+      <block index="13" x0="34.02" y0="572.07" x1="180.96" y1="592.72" type="subheading" title="Factors to consider">Factors to consider</block>
+      <block index="14" x0="34.02" y0="603.23" x1="513.70" y1="618.70" type="numbered-paragraph" paragraph-number="3.14">3.14. Directors should consider both internal and external factors in the assessment. When</block>
+      <block index="15" x0="34.02" y0="619.25" x1="561.34" y1="714.72" type="text-block">evaluating which factors to consider, directors should think broadly of the uncertain future
+events or conditions most relevant to them. Examples of factors to consider in the assessment
+include but are not limited to those set out in the table that follows.</block>
+      <block index="17" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+13</block>
+    </page>
+    <page number="15" width="595.32" height="841.92">
+      <block index="2" x0="42.48" y0="71.47" x1="315.23" y1="86.94" type="text-block">Factors</block>
+      <block index="3" x0="42.48" y0="106.81" x1="424.85" y1="122.28" type="text-block">Expected sales volumes and prices
+Working capital risks</block>
+      <block index="4" x0="311.92" y0="146.31" x1="453.05" y1="161.78" type="text-block">Availability of borrowings</block>
+      <block index="5" x0="42.48" y0="146.25" x1="277.37" y1="173.72" type="text-block">Raw material, energy, labour, transportation
+and other costs</block>
+      <block index="6" x0="42.48" y0="197.79" x1="521.57" y1="213.26" type="text-block">Inflation rates
+Compliance with borrowing covenants</block>
+      <block index="7" x0="42.48" y0="237.33" x1="387.39" y1="252.80" type="text-block">Exchange rates
+Interest rates</block>
+      <block index="8" x0="311.92" y0="276.81" x1="474.41" y1="292.28" type="text-block">Alternative sources of finance</block>
+      <block index="9" x0="42.48" y0="276.75" x1="283.84" y1="304.22" type="text-block">Acquisitions, disposals, restructuring or other
+planned changes to the business activities</block>
+      <block index="10" x0="311.92" y0="328.29" x1="496.19" y1="343.76" type="text-block">Support from government bodies</block>
+      <block index="11" x0="42.48" y0="328.23" x1="288.90" y1="367.76" type="text-block">Technological, sustainability-related or other
+external developments affecting products and
+services</block>
+      <block index="12" x0="42.48" y0="391.83" x1="431.15" y1="407.30" type="text-block">Geopolitical and economic events
+Capital commitments</block>
+      <block index="13" x0="42.48" y0="431.27" x1="276.59" y1="458.74" type="text-block">A customer or supplier failing (counterparty
+and supply chain risks)</block>
+      <block index="14" x0="311.92" y0="431.27" x1="536.01" y1="458.74" type="text-block">Penalties or damages from claims or legal
+judgements (contingent liabilities)</block>
+      <block index="15" x0="42.48" y0="482.75" x1="295.56" y1="510.28" type="text-block">Business disruption or systems failure including
+from digital or cybersecurity threats</block>
+      <block index="16" x0="311.92" y0="482.75" x1="550.50" y1="510.28" type="text-block">Changes in legislation, government policy or
+public finance</block>
+      <block index="17" x0="42.48" y0="529.31" x1="448.61" y1="549.82" type="text-block">Availability of cash balances
+Changes in taxation rates</block>
+      <block index="18" x0="34.02" y0="565.13" x1="536.50" y1="596.44" type="numbered-paragraph" paragraph-number="3.15">3.15. When relevant, directors could read paragraphs 5.15 to 5.30 of the FRC’s Guidance on the</block>
+      <block index="19" x0="62.40" y0="596.99" x1="538.82" y1="628.48" type="text-block">Going Concern Basis of Accounting and Related Reporting (including Solvency and Liquidity
+Risks), issued in February 2025, on specific factors and apply these proportionately.</block>
+      <block index="20" x0="34.02" y0="641.12" x1="458.00" y1="659.14" type="subheading" title="Common considerations for small companies and micro-entities">Common considerations for small companies and micro-entities</block>
+      <block index="21" x0="34.02" y0="669.59" x1="550.74" y1="685.06" type="numbered-paragraph" paragraph-number="3.16">3.16. The above factors apply as much to small companies and micro-entities as they do to larger</block>
+      <block index="22" x0="62.40" y0="685.63" x1="561.17" y1="717.12" type="text-block">companies. However, certain considerations may be particularly relevant or more common for
+small companies and micro-entities.</block>
+      <block index="23" x0="34.02" y0="729.61" x1="534.96" y1="745.08" type="numbered-paragraph" paragraph-number="3.17">3.17. For example, the size of a company may affect its ability to withstand adverse conditions.</block>
+      <block index="24" x0="62.40" y0="745.63" x1="551.66" y1="777.12" type="text-block">Small companies and micro-entities may be able to respond quickly to exploit opportunities
+but may lack reserves to sustain operations.</block>
+      <block index="26" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+14</block>
+    </page>
+    <page number="16" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.61" x1="556.21" y1="64.08" type="numbered-paragraph" paragraph-number="3.18">3.18. Conditions of particular relevance to small companies and micro-entities include the risk that</block>
+      <block index="3" x0="62.40" y0="64.63" x1="548.53" y1="144.14" type="text-block">banks and other lenders may cease to support the company, exposure to significant legal
+claims or litigation, as well as the possible loss of a principal supplier, major customer, key
+employee, or the right to operate under a licence, franchise or other legal agreement. Small
+companies and micro-entities may be more vulnerable to these events or conditions due to
+their typically focused resources and narrower scope of operations.</block>
+      <block index="4" x0="34.02" y0="156.84" x1="220.30" y1="174.86" type="subheading" title="Owner-supported financing">Owner-supported financing</block>
+      <block index="5" x0="34.02" y0="185.25" x1="519.52" y1="200.72" type="numbered-paragraph" paragraph-number="3.19">3.19. Continued support by owners is often important to the ability of small companies and</block>
+      <block index="6" x0="62.40" y0="201.27" x1="560.50" y1="312.74" type="text-block">micro-entities to continue as a going concern. If a company is largely financed by a loan from
+the owner, it may be important that these funds are not withdrawn. For example, a company
+in financial difficulty may be dependent on the owner subordinating a loan to the company in
+favour of banks or other creditors, or the owner supporting a loan for the company by
+providing a guarantee with their personal assets as collateral. In such circumstances, the
+directors should consider the ability of the owner to provide adequate support and maintain
+appropriate documentation for such arrangements as part of the going concern assessment.</block>
+      <block index="7" x0="34.02" y0="325.44" x1="178.78" y1="343.46" type="subheading" title="Group considerations">Group considerations</block>
+      <block index="8" x0="34.02" y0="353.91" x1="538.57" y1="369.38" type="numbered-paragraph" paragraph-number="3.20">3.20. Directors of small companies and micro-entities applying FRS 102 or the small companies</block>
+      <block index="9" x0="62.40" y0="369.93" x1="498.53" y1="385.40" type="text-block">regime that are members of a group should consider the following when relevant:</block>
+      <block index="10" x0="62.40" y0="398.01" x1="444.83" y1="413.96" type="text-block">• the need for support from the parent company or fellow subsidiaries;</block>
+      <block index="11" x0="62.40" y0="425.99" x1="555.53" y1="441.94" type="text-block">• the ability and intention of the parent company or fellow subsidiaries to provide adequate</block>
+      <block index="12" x0="76.58" y0="441.95" x1="456.83" y1="457.42" type="text-block">support over the period covered by the going concern assessment; and</block>
+      <block index="13" x0="62.40" y0="469.91" x1="545.09" y1="485.86" type="text-block">• the risks to the company arising from support that it has undertaken to provide to other</block>
+      <block index="14" x0="76.58" y0="485.87" x1="201.91" y1="501.34" type="text-block">members of the group.</block>
+      <block index="15" x0="34.02" y0="513.71" x1="526.66" y1="529.18" type="numbered-paragraph" paragraph-number="3.21">3.21. Directors could read Section 7 Group considerations of the FRC’s Guidance on the Going</block>
+      <block index="16" x0="62.40" y0="529.73" x1="539.51" y1="561.22" type="text-block">Concern Basis of Accounting and Related Reporting (including Solvency and Liquidity Risks),
+issued in February 2025.</block>
+      <block index="17" x0="34.02" y0="573.81" x1="123.30" y1="594.46" type="subheading" title="Techniques">Techniques</block>
+      <block index="18" x0="34.02" y0="604.97" x1="546.46" y1="620.44" type="numbered-paragraph" paragraph-number="3.22">3.22. In more complex circumstances, directors of small companies and micro-entities could also</block>
+      <block index="19" x0="62.40" y0="620.99" x1="492.95" y1="636.46" type="text-block">consider additional techniques to tailor the analysis to support their assessment.</block>
+      <block index="20" x0="34.02" y0="649.01" x1="517.79" y1="664.48" type="numbered-paragraph" paragraph-number="3.23">3.23. Additional techniques that may assist directors in preparing their assessments include</block>
+      <block index="21" x0="62.40" y0="665.03" x1="436.19" y1="680.50" type="text-block">different types of sensitivity analysis, stress tests and scenario analysis.</block>
+      <block index="22" x0="34.02" y0="693.01" x1="551.31" y1="708.48" type="numbered-paragraph" paragraph-number="3.24">3.24. Directors could refer to paragraphs 5.31 to 5.36 of the FRC’s Guidance on the Going Concern</block>
+      <block index="23" x0="62.40" y0="709.03" x1="546.73" y1="772.50" type="text-block">Basis of Accounting and Related Reporting (including Solvency and Liquidity Risks), issued in
+February 2025, to understand what these techniques involve and determine whether to use
+them. These different techniques could be applied in a way that is proportionate to the
+circumstances.</block>
+      <block index="25" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+15</block>
+    </page>
+    <page number="17" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.61" x1="546.91" y1="64.08" type="numbered-paragraph" paragraph-number="3.25">3.25. For example, to support an uncomplicated going concern assessment based on a cash flow</block>
+      <block index="3" x0="62.40" y0="64.63" x1="548.06" y1="96.12" type="text-block">forecast, the directors could choose to prepare a simple sensitivity analysis by changing the
+most critical assumption (such as the growth rate) to assess its impact on the forecast.</block>
+      <block index="4" x0="34.02" y0="108.61" x1="557.66" y1="124.08" type="numbered-paragraph" paragraph-number="3.26">3.26. In contrast, to support a more complex going concern assessment for a business that is more</block>
+      <block index="5" x0="62.40" y0="124.65" x1="554.45" y1="156.14" type="text-block">susceptible to a variety of uncertainties, the techniques used may be more complex and may
+require significant judgement.</block>
+      <block index="9" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+16</block>
+    </page>
+    <page number="18" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.72" x1="535.70" y1="77.10" type="section-heading" section-number="4" title="The micro-entities regime: the going concern">4. The micro-entities regime: the going concern</block>
+      <block index="3" x0="52.02" y0="78.00" x1="413.30" y1="106.38" type="text-block">basis of accounting under FRS 105</block>
+      <block index="4" x0="34.02" y0="131.19" x1="537.55" y1="146.66" type="numbered-paragraph" paragraph-number="4.1">4.1. This section is intended for micro-entities choosing to prepare financial statements under</block>
+      <block index="5" x0="62.40" y0="147.15" x1="562.07" y1="194.66" type="text-block">FRS 105 The Financial Reporting Standard applicable to the Micro-entities Regime. It addresses
+some key questions for directors of micro-entities to consider in relation to the going concern
+basis of accounting.</block>
+      <block index="6" x0="34.02" y0="204.31" x1="420.82" y1="224.96" type="subheading" title="Adoption of the going concern basis of accounting">Adoption of the going concern basis of accounting</block>
+      <block index="7" x0="34.02" y0="235.62" x1="457.82" y1="253.64" type="question-heading" question-number="1" title="When is a micro-entity considered a going concern?">Question 1: When is a micro-entity considered a going concern?</block>
+      <block index="9" x0="42.30" y0="273.30" x1="94.96" y1="291.32" type="subheading" title="Answer">Answer</block>
+      <block index="11" x0="39.42" y0="308.01" x1="489.14" y1="323.48" type="numbered-paragraph" paragraph-number="4.2">4.2. FRS 105 financial statements are normally prepared on the assumption that the</block>
+      <block index="12" x0="67.80" y0="324.03" x1="541.37" y1="387.50" type="text-block">micro-entity is a going concern and will continue in operation for the foreseeable future.
+However, if the directors either intend to liquidate the company or cease trading, or have
+no realistic alternative but to do so, the financial statements must be prepared on a
+different basis.18</block>
+      <block index="13" x0="39.42" y0="397.05" x1="545.86" y1="412.52" type="numbered-paragraph" paragraph-number="4.3">4.3. FRS 105 (consistent with other accounting standards applicable in the UK) sets a very high</block>
+      <block index="14" x0="67.80" y0="413.03" x1="549.80" y1="460.54" type="text-block">threshold for departing from the going concern basis of accounting, as there are often
+realistic alternatives to liquidation or cessation of operations. Such realistic alternatives can
+exist even if they depend on uncertain future events.</block>
+      <block index="15" x0="34.02" y0="470.21" x1="462.05" y1="522.82" type="question-heading" question-number="2" title="Are directors of micro-entities required to assess the">Question 2: Are directors of micro-entities required to assess the
+appropriateness of the going concern basis of accounting?</block>
+      <block index="17" x0="42.72" y0="541.76" x1="95.38" y1="559.78" type="subheading" title="Answer">Answer</block>
+      <block index="19" x0="39.42" y0="577.19" x1="533.42" y1="592.66" type="numbered-paragraph" paragraph-number="4.4">4.4. Yes. When preparing financial statements under FRS 105, the directors of a micro-entity</block>
+      <block index="20" x0="67.80" y0="593.21" x1="526.40" y1="656.68" type="text-block">must make an assessment of whether the going concern basis of accounting is
+appropriate. The going concern basis of accounting is appropriate unless the directors
+either intend to liquidate the micro-entity or to cease trading, or have no realistic
+alternative but to do so.19</block>
+      <block index="21" x0="39.42" y0="666.23" x1="552.84" y1="681.70" type="numbered-paragraph" paragraph-number="4.5">4.5. The assessment must take into account all available information about the future, including</block>
+      <block index="22" x0="67.80" y0="682.09" x1="535.79" y1="697.74" type="text-block">all relevant facts and circumstances at the date of approval of the financial statements.19</block>
+      <block index="24" x0="34.02" y0="766.69" x1="195.75" y1="790.23" type="text-block">18 FRS 105 paragraph 2.7
+19 FRS 105 paragraphs 3.3, 26.8 and 26.9</block>
+      <block index="26" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+17</block>
+    </page>
+    <page number="19" width="595.32" height="841.92">
+      <block index="2" x0="39.42" y0="48.61" x1="491.44" y1="64.08" type="numbered-paragraph" paragraph-number="4.6">4.6. The assessment process carried out by the directors of a micro-entity should be</block>
+      <block index="3" x0="67.80" y0="64.63" x1="417.47" y1="80.10" type="text-block">proportionate to its size, complexity and particular circumstances.</block>
+      <block index="4" x0="39.42" y0="89.65" x1="520.01" y1="105.12" type="numbered-paragraph" paragraph-number="4.7">4.7. FRS 105 does not prescribe any factors to consider or any particular approach for the</block>
+      <block index="5" x0="67.80" y0="105.61" x1="549.32" y1="153.14" type="text-block">going concern assessment of a micro-entity. The directors of micro-entities could read the
+information in Section 2 and Section 3 about the assessment process, including the factors
+to consider.</block>
+      <block index="6" x0="34.02" y0="162.77" x1="196.92" y1="198.02" type="subheading" title="Period of assessment">Period of assessment</block>
+      <block index="7" x0="34.02" y0="208.74" x1="526.64" y1="226.76" type="question-heading" question-number="3" title="What is the minimum period of assessment for micro-entities?">Question 3: What is the minimum period of assessment for micro-entities?</block>
+      <block index="9" x0="42.36" y0="245.70" x1="95.02" y1="263.72" type="subheading" title="Answer">Answer</block>
+      <block index="11" x0="39.42" y0="281.73" x1="500.34" y1="297.20" type="numbered-paragraph" paragraph-number="4.8">4.8. FRS 105 states that in assessing whether the going concern basis of accounting is</block>
+      <block index="12" x0="67.80" y0="297.75" x1="552.59" y1="345.26" type="table-or-data-block">appropriate, the directors must take into account all available information about the future,
+which is at least, but is not limited to, 12 months from the date when the financial
+statements are authorised for issue.20</block>
+      <block index="13" x0="39.42" y0="354.75" x1="543.11" y1="370.22" type="numbered-paragraph" paragraph-number="4.9">4.9. This 12-month period is a minimum assessment period and not a cap which means that a</block>
+      <block index="14" x0="67.80" y0="370.77" x1="522.88" y1="402.26" type="text-block">longer assessment period could be more appropriate in some circumstances. Refer to
+paragraphs 2.18 to 2.19 for further information.</block>
+      <block index="15" x0="34.02" y0="411.91" x1="122.64" y1="447.16" type="subheading" title="Disclosures">Disclosures</block>
+      <block index="16" x0="34.02" y0="457.88" x1="555.80" y1="494.50" type="question-heading" question-number="4" title="Are there any reporting requirements for micro-entities relating to">Question 4: Are there any reporting requirements for micro-entities relating to
+the going concern basis of accounting under FRS 105?</block>
+      <block index="18" x0="42.48" y0="511.76" x1="95.14" y1="529.78" type="subheading" title="Answer">Answer</block>
+      <block index="20" x0="39.42" y0="549.53" x1="543.84" y1="565.00" type="numbered-paragraph" paragraph-number="4.10">4.10. No. Under FRS 105, micro-entities are not required to make specific disclosures about the</block>
+      <block index="21" x0="67.80" y0="565.49" x1="535.91" y1="613.00" type="text-block">going concern basis of accounting. This is different from FRS 102 which requires specific
+disclosures about the going concern basis of accounting, including any material
+uncertainties and significant judgements.</block>
+      <block index="22" x0="39.42" y0="622.49" x1="546.47" y1="637.96" type="numbered-paragraph" paragraph-number="4.11">4.11. However, if a micro-entity is being wound up, FRS 105 requires that fact to be disclosed in</block>
+      <block index="23" x0="67.80" y0="638.35" x1="208.03" y1="653.98" type="text-block">the financial statements.21</block>
+      <block index="26" x0="34.02" y0="766.69" x1="157.89" y1="790.23" type="text-block">20 FRS 105 paragraph 3.3
+21 FRS 105 paragraph 3.13A (e)</block>
+      <block index="28" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+18</block>
+    </page>
+    <page number="20" width="595.32" height="841.92">
+      <block index="2" x0="34.02" y0="48.82" x1="564.92" y1="85.44" type="question-heading" question-number="5" title="How does the true and fair view concept apply to the going concern">Question 5: How does the true and fair view concept apply to the going concern
+basis of accounting for micro-entities?</block>
+      <block index="3" x0="42.60" y0="109.72" x1="95.26" y1="127.74" type="subheading" title="Answer">Answer</block>
+      <block index="4" x0="39.42" y0="125.34" x1="552.42" y1="159.26" type="numbered-paragraph" paragraph-number="4.12">4.12. The financial statements of a micro-entity that comply with FRS 105 are presumed in law to</block>
+      <block index="5" x0="67.80" y0="159.81" x1="534.07" y1="191.30" type="text-block">give a true and fair view of the financial position and profit or loss of the micro-entity in
+accordance with the micro-entities regime.22</block>
+      <block index="6" x0="39.42" y0="200.79" x1="542.95" y1="216.26" type="numbered-paragraph" paragraph-number="4.13">4.13. The following provisions of the Act apply to the directors of a micro-entity that choose to</block>
+      <block index="7" x0="67.80" y0="216.81" x1="543.96" y1="248.30" type="text-block">apply the micro-entities regime when considering whether the financial statements give a
+true and fair view:</block>
+      <block index="8" x0="66.54" y0="257.97" x1="544.61" y1="273.92" type="text-block">• Where the financial statements comprise only micro-entity minimum accounting items</block>
+      <block index="9" x0="84.44" y0="273.93" x1="543.06" y1="321.32" type="text-block">(as set out in FRS 105 and in company law), the directors must disregard any provision
+of an accounting standard which would require the financial statements to contain
+information additional to those items.</block>
+      <block index="10" x0="66.54" y0="333.81" x1="540.52" y1="349.76" type="text-block">• In relation to a micro-entity minimum accounting item in the financial statements, the</block>
+      <block index="11" x0="84.44" y0="349.77" x1="543.42" y1="381.20" type="text-block">directors must disregard any provision of an accounting standard which would require
+the financial statements to contain further information in relation to that item.</block>
+      <block index="12" x0="66.54" y0="393.69" x1="507.37" y1="409.64" type="text-block">• Where the financial statements contain an item of information additional to the</block>
+      <block index="13" x0="84.44" y0="409.67" x1="504.94" y1="441.10" type="text-block">micro-entity minimum accounting items, the directors must have regard to any
+provision of an accounting standard which relates to that item.23</block>
+      <block index="14" x0="39.42" y0="453.41" x1="543.96" y1="468.88" type="numbered-paragraph" paragraph-number="4.14">4.14. FRS 105 does not require disclosures in addition to the micro-entity minimum accounting</block>
+      <block index="15" x0="67.80" y0="469.43" x1="102.37" y1="484.90" type="text-block">items.</block>
+      <block index="16" x0="39.42" y0="494.45" x1="532.22" y1="509.92" type="numbered-paragraph" paragraph-number="4.15">4.15. If the directors of a micro-entity provide additional disclosures beyond the micro-entity</block>
+      <block index="17" x0="67.80" y0="510.41" x1="522.58" y1="541.90" type="text-block">minimum accounting items in FRS 105, they must have regard to any requirements of
+Section 1A Small Entities of FRS 102 that relate to that information or disclosure.24</block>
+      <block index="18" x0="39.42" y0="551.45" x1="541.32" y1="566.92" type="numbered-paragraph" paragraph-number="4.16">4.16. As there are no disclosure requirements in FRS 105 relating to the going concern basis of</block>
+      <block index="19" x0="67.80" y0="567.41" x1="546.64" y1="614.92" type="table-or-data-block">accounting, if the directors of a micro-entity provide any additional information they must
+have regard to the disclosure requirements in FRS 102. Examples of disclosures that are
+addressed by Section 1A Small Entities of FRS 102 include when:</block>
+      <block index="20" x0="66.54" y0="624.59" x1="512.23" y1="640.54" type="text-block">• the going concern basis of accounting is not appropriate and a different basis of</block>
+      <block index="21" x0="84.44" y0="640.55" x1="228.43" y1="656.02" type="text-block">accounting has been used;</block>
+      <block index="22" x0="66.54" y0="668.51" x1="484.47" y1="684.46" type="text-block">• the going concern basis of accounting is appropriate but there are material</block>
+      <block index="23" x0="84.44" y0="684.49" x1="161.41" y1="699.96" type="text-block">uncertainties;</block>
+      <block index="25" x0="34.02" y0="754.69" x1="195.33" y1="790.23" type="table-or-data-block">22 FRS 105 paragraph 3.2
+23 Companies Act 2006, section 393 (1A)
+24 FRS 105 paragraph 1.3</block>
+      <block index="27" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+19</block>
+    </page>
+    <page number="21" width="595.32" height="841.92">
+      <block index="2" x0="66.54" y0="48.79" x1="519.44" y1="64.74" type="text-block">• the going concern basis of accounting is appropriate but the assessment involved</block>
+      <block index="3" x0="84.44" y0="64.75" x1="219.61" y1="80.22" type="text-block">significant judgement; or</block>
+      <block index="4" x0="66.54" y0="92.71" x1="503.73" y1="108.66" type="text-block">• the going concern basis of accounting is appropriate and there are no material</block>
+      <block index="5" x0="84.44" y0="108.51" x1="166.75" y1="124.14" type="text-block">uncertainties.25</block>
+      <block index="6" x0="34.02" y0="136.65" x1="467.56" y1="173.24" type="subheading" title="The going concern basis of accounting is not appropriate">The going concern basis of accounting is not appropriate</block>
+      <block index="7" x0="34.02" y0="183.90" x1="530.50" y1="220.52" type="question-heading" question-number="6" title="What are the implications to the financial statements when the">Question 6: What are the implications to the financial statements when the
+directors conclude that the micro-entity is not a going concern?</block>
+      <block index="9" x0="42.36" y0="239.04" x1="95.02" y1="257.06" type="subheading" title="Answer">Answer</block>
+      <block index="11" x0="39.42" y0="275.55" x1="543.29" y1="291.02" type="numbered-paragraph" paragraph-number="4.17">4.17. If at the end of the reporting period, or if after the end of the reporting period but before</block>
+      <block index="12" x0="67.80" y0="291.57" x1="561.71" y1="339.02" type="text-block">the financial statements are authorised for issue, the directors either intend to liquidate the
+micro-entity or to cease trading, or have no realistic alternative but to do so, the financial
+statements must be prepared on a basis other than the going concern basis of accounting.26</block>
+      <block index="13" x0="39.42" y0="348.57" x1="552.98" y1="364.04" type="numbered-paragraph" paragraph-number="4.18">4.18. Deterioration in operating results and financial position after the reporting period may lead</block>
+      <block index="14" x0="67.80" y0="364.53" x1="556.44" y1="428.08" type="text-block">the directors to determine that they intend to liquidate the micro-entity or to cease trading
+or that they have no realistic alternative but to do so. If the going concern basis of
+accounting is no longer appropriate, the effect is so pervasive that it requires a fundamental
+change in the basis of accounting.27</block>
+      <block index="15" x0="39.42" y0="437.57" x1="511.78" y1="453.04" type="numbered-paragraph" paragraph-number="4.19">4.19. For micro-entities that are no longer considered a going concern, FRS 105 does not</block>
+      <block index="16" x0="67.80" y0="453.59" x1="487.19" y1="469.06" type="text-block">prescribe a different basis of accounting. This is for the directors to determine.</block>
+      <block index="17" x0="39.42" y0="478.55" x1="545.27" y1="494.02" type="numbered-paragraph" paragraph-number="4.20">4.20. As mentioned above in 4.11, under FRS 105 micro-entities are required to disclose in their</block>
+      <block index="18" x0="67.80" y0="494.41" x1="431.09" y1="510.04" type="text-block">financial statements the fact that the company is being wound up.28</block>
+      <block index="20" x0="34.02" y0="742.75" x1="191.85" y1="790.23" type="table-or-data-block">25 FRS 102 paragraphs 3.8, 3.8A and 3.9
+26 FRS 105 paragraphs 2.7 and 26.8
+27 FRS 105 paragraph 26.9
+28 FRS 105 paragraph 3.13A(e)</block>
+      <block index="22" x0="34.02" y0="805.75" x1="563.83" y1="817.35" type="running-header-or-footer">FRC | FRS Factsheet 13 | Going Concern Basis of Accounting for Small Companies and Micro-entities
+20</block>
+    </page>
+    <page number="22" width="595.32" height="841.92">
+      <block index="3" x0="465.48" y0="513.65" x1="573.99" y1="545.08" type="text-block">Financial
+Reporting Council</block>
+      <block index="4" x0="465.48" y0="561.53" x1="582.30" y1="624.88" type="table-or-data-block">London office:
+13th Floor, 1 Harbour
+Exchange Square,
+London, E14 9GE</block>
+      <block index="5" x0="465.48" y0="641.33" x1="583.93" y1="704.70" type="table-or-data-block">Birmingham office:
+5th Floor, 3 Arena
+Central, Bridge Street,
+Birmingham, B1 2AX</block>
+      <block index="6" x0="465.48" y0="711.67" x1="578.17" y1="727.14" type="text-block">+44 (0)20 7492 2300</block>
+      <block index="7" x0="465.48" y0="739.69" x1="547.13" y1="755.16" type="text-block">www.frc.org.uk</block>
+      <block index="8" x0="465.48" y0="767.83" x1="535.43" y1="783.30" type="text-block">Follow us on</block>
+    </page>
+  </body>
+</frs-factsheet>

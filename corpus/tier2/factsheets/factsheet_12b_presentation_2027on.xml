@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='utf-8'?>
+<frs-factsheet factsheet-number="12B" title="Presentation of the financial statements" scope="reporting periods beginning on or after 1 January 2027" publication-date="2026-03" source-format="PDF" conversion-status="machine-extracted-first-pass">
+  <metadata>
+    <publisher>Financial Reporting Council</publisher>
+    <source-file>FRS102 Factsheet Presentation of the financial statements2.pdf</source-file>
+    <page-count>11</page-count>
+    <related-standards>FRS 102 Sections 4 and 5; FRS 101; FRS 105; IFRS 18</related-standards>
+    <notice>This XML is a machine-extracted derivative of the supplied FRC factsheet. It is not an official FRC XML publication and should be checked against the source PDF.</notice>
+  </metadata>
+  <body>
+    <page number="1" width="595.32" height="841.92">
+      <block index="2" x0="28.32" y0="201.93" x1="301.03" y1="241.84" type="text-block">FRS Factsheet 12B</block>
+      <block index="3" x0="154.46" y0="256.80" x1="441.63" y1="365.86" type="text-block">Presentation of the financial
+statements (for reporting
+periods beginning on or
+after 1 January 2027)</block>
+      <block index="4" x0="465.70" y0="772.21" x1="531.51" y1="787.68" type="text-block">March 2026</block>
+    </page>
+    <page number="2" width="595.32" height="841.92">
+      <block index="2" x0="41.52" y0="65.91" x1="556.92" y1="193.34" type="table-diagram-or-data-block">This factsheet has been prepared by FRC staff to aid preparers in applying certain requirements
+of Section 4 Statement of Financial Position and Section 5 Statement of Comprehensive Income
+and Income Statement of FRS 102 The Financial Reporting Standard applicable in the UK and
+Republic of Ireland, as well as certain requirements of FRS 101 Reduced Disclosure Framework and
+FRS 105 The Financial Reporting Standard applicable to the Micro-entities Regime. It should not
+be relied upon as a definitive or complete statement on the application of the standards and
+legislation, nor is it a substitute for reading the detailed requirements of the standards and
+legislation.</block>
+      <block index="23" x0="33.96" y0="645.95" x1="563.51" y1="709.30" type="text-block">The FRC does not accept any liability to any party for any loss, damage or costs howsoever arising,
+whether directly or indirectly, whether in contract, tort or otherwise from any action or decision
+taken (or not taken) as a result of any person relying on or otherwise using this document or arising
+from any omission from it.</block>
+      <block index="24" x0="33.96" y0="715.79" x1="290.02" y1="731.26" type="text-block">© The Financial Reporting Council Limited 2026</block>
+      <block index="25" x0="33.96" y0="737.77" x1="483.63" y1="785.16" type="table-diagram-or-data-block">The Financial Reporting Council Limited is a company limited by guarantee.
+Registered in England number 2486368. Registered Office:
+13th Floor, 1 Harbour Exchange Square, London, E14 9GE</block>
+      <block index="27" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+1</block>
+    </page>
+    <page number="3" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.13" x1="131.72" y1="90.43" type="text-block">Contents</block>
+      <block index="3" x0="538.18" y0="97.39" x1="564.09" y1="110.23" type="text-block">Page</block>
+      <block index="4" x0="33.96" y0="128.19" x1="563.55" y1="143.66" type="table-diagram-or-data-block">1.
+Introduction
+3</block>
+      <block index="5" x0="33.96" y0="158.67" x1="563.55" y1="174.14" type="table-diagram-or-data-block">2.
+Presentation options under FRS 102
+4</block>
+      <block index="6" x0="33.96" y0="189.15" x1="563.55" y1="204.62" type="table-diagram-or-data-block">3.
+Presentation options under FRS 101
+8</block>
+      <block index="7" x0="33.96" y0="219.63" x1="563.55" y1="235.10" type="table-diagram-or-data-block">4.
+Presentation under FRS 105
+9</block>
+      <block index="10" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+2</block>
+    </page>
+    <page number="4" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.13" x1="212.27" y1="90.43" type="section-heading" section-number="1" title="Introduction">1. Introduction</block>
+      <block index="3" x0="33.96" y0="115.52" x1="179.74" y1="136.09" type="subheading" title="Purpose and scope">Purpose and scope</block>
+      <block index="4" x0="33.96" y0="146.67" x1="532.02" y1="210.02" type="table-diagram-or-data-block">This factsheet is primarily aimed at entities applying FRS 102 The Financial Reporting Standard
+applicable in the UK and Republic of Ireland. It also refers briefly to considerations for entities
+applying FRS 101 Reduced Disclosure Framework or FRS 105 The Financial Reporting Standard
+applicable to the Micro‑entities Regime.</block>
+      <block index="5" x0="33.96" y0="222.51" x1="560.99" y1="301.85" type="table-diagram-or-data-block">The purpose of this factsheet is to set out the options available for presenting the financial
+statements when applying the above standards. The relevant presentation requirements are set out
+in Section 4 Statement of Financial Position and Section 5 Statement of Comprehensive Income and
+Income Statement of FRS 102; the corresponding sections in FRS 105 are Section 4 Statement of
+Financial Position and Section 5 Income Statement.</block>
+      <block index="6" x0="33.96" y0="314.34" x1="558.74" y1="425.59" type="table-diagram-or-data-block">Factsheet 12 Presentation of the Financial Statements was first published in September 2025. In
+February 2026 the FRC issued Amendments to FRS 102 The Financial Reporting Standard applicable
+in the UK and Republic of Ireland and FRS 105 The Financial Reporting Standard applicable to the
+Micro-entities Regime – Adapted formats1, effective for reporting periods beginning on or after
+1 January 2027. Factsheet 12 was therefore reissued in two versions: Factsheet 12A2 for reporting
+periods beginning before 1 January 2027, and Factsheet 12B for reporting periods beginning on or
+after 1 January 2027, or when the February 2026 amendments are applied early.</block>
+      <block index="7" x0="33.96" y0="438.08" x1="148.76" y1="453.55" type="text-block">This is Factsheet 12B.</block>
+      <block index="8" x0="33.96" y0="466.04" x1="549.87" y1="513.43" type="text-block">This factsheet contains references to UK company law. Republic of Ireland company law contains
+similar requirements to UK company law; corresponding legal references to those set out in this
+factsheet are detailed in Appendix IV Republic of Ireland legal references to FRS 102 and FRS 105.</block>
+      <block index="9" x0="33.96" y0="526.09" x1="217.09" y1="546.66" type="subheading" title="The primary statements">The primary statements</block>
+      <block index="10" x0="33.96" y0="557.15" x1="559.23" y1="668.50" type="text-block">References in company law to ‘balance sheet’ correspond to the ‘statement of financial position’ in
+accounting standards, and references in company law to ‘profit and loss account’ correspond to
+either the ‘statement of comprehensive income’ (if taking the ‘single-statement approach’) or the
+‘income statement’ (if taking the ‘two-statement approach’) in accounting standards. Accounting
+standards may also require the presentation of a ‘statement of cash flows’, a ‘statement of changes
+in equity’ or a ‘statement of income and retained earnings’, but these are not addressed in
+company law and are not covered in this factsheet.</block>
+      <block index="13" x0="33.96" y0="754.81" x1="555.89" y1="790.29" type="table-diagram-or-data-block">1 Amendments to FRS 102 The Financial Reporting Standard applicable in the UK and Republic of Ireland and FRS 105 The Financial
+Reporting Standard applicable to the Micro-entities Regime – Adapted formats
+2 Factsheet 12A – Presentation of the financial statements</block>
+      <block index="15" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+3</block>
+    </page>
+    <page number="5" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.13" x1="446.80" y1="90.43" type="section-heading" section-number="2" title="Presentation options under FRS 102">2. Presentation options under FRS 102</block>
+      <block index="4" x0="33.96" y0="391.57" x1="294.01" y1="412.14" type="subheading" title="Banking and insurance companies">Banking and insurance companies</block>
+      <block index="5" x0="33.96" y0="422.72" x1="562.47" y1="486.07" type="table-diagram-or-data-block">Banking and insurance companies (for which the requirements are set out in Schedules 2 and 3
+respectively of The Large and Medium-sized Companies and Groups (Accounts and Reports)
+Regulations 20083 (SI 2008/410)) are not able to choose to adapt the format of the balance sheet or
+of the profit and loss account, and must follow the statutory formats set out in those Schedules.</block>
+      <block index="6" x0="33.96" y0="498.73" x1="327.39" y1="519.30" type="subheading" title="Other large and medium-sized entities">Other large and medium-sized entities</block>
+      <block index="7" x0="33.96" y0="529.76" x1="544.74" y1="561.19" type="text-block">FRS 102 requires a preparer (other than a banking or insurance company) to present its financial
+statements in accordance with Part 1 of Schedule 1 to SI 2008/4104.</block>
+      <block index="8" x0="33.96" y0="573.71" x1="522.93" y1="605.14" type="text-block">Schedule 1 sets out specific formats for presenting the balance sheet and the profit and loss
+account, which are generally referred to as the ‘statutory formats’.</block>
+      <block index="9" x0="33.96" y0="617.63" x1="559.59" y1="665.02" type="text-block">Schedule 1 also offers the option of ‘adapting’ one of the balance sheet formats and/or one of the
+profit and loss account formats. An entity can choose to adapt the format of just one of those
+statements or both of them. These are generally referred to as the ‘adapted formats’.</block>
+      <block index="11" x0="33.96" y0="754.81" x1="533.33" y1="790.29" type="table-diagram-or-data-block">3 The Large and Medium-sized Companies and Groups (Accounts and Reports) Regulations 2008
+4 Or, for a limited liability partnership, The Large and Medium sized Limited Liability Partnerships (Accounts) Regulations 2008
+(SI 2008/1913).</block>
+      <block index="13" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+4</block>
+    </page>
+    <page number="6" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.15" x1="155.10" y1="80.25" type="subheading" title="Statutory formats">Statutory formats</block>
+      <block index="3" x0="33.96" y0="90.75" x1="556.31" y1="138.14" type="table-diagram-or-data-block">Schedule 1 sets out the statutory formats available for use – Formats 1 and 2 for the balance sheet
+and Formats 1 and 2 for the profit and loss account. These formats also include a set of headings,
+sub-headings and subtotals that must be presented.</block>
+      <block index="4" x0="33.96" y0="150.63" x1="195.00" y1="166.10" type="subheading" title="What flexibility is available?">What flexibility is available?</block>
+      <block index="5" x0="33.96" y0="176.55" x1="415.56" y1="192.02" type="text-block">The following provisions apply when using any of the statutory formats:</block>
+      <block index="6" x0="33.96" y0="204.51" x1="482.07" y1="220.46" type="text-block">• Items may be shown in greater detail than required by the particular format used.</block>
+      <block index="7" x0="33.96" y0="232.50" x1="479.91" y1="248.45" type="text-block">• Additional items may be included if not already covered by the standard formats.</block>
+      <block index="8" x0="33.96" y0="260.46" x1="529.17" y1="276.41" type="text-block">• The arrangement, headings and sub-headings must be adapted if the special nature of the</block>
+      <block index="9" x0="48.12" y0="276.42" x1="215.26" y1="291.89" type="text-block">company's business requires it.</block>
+      <block index="10" x0="39.60" y0="304.38" x1="551.04" y1="367.73" type="text-block">Applying any of these provisions is not the same as choosing to adapt one of the balance sheet
+formats and/or one of the profit and loss account formats. An entity applying these provisions is
+still applying the statutory formats, even if they look different to the standard formats set out in
+Schedule 1.</block>
+      <block index="11" x0="33.96" y0="380.30" x1="149.58" y1="398.40" type="subheading" title="Adapted formats">Adapted formats</block>
+      <block index="12" x0="33.96" y0="408.92" x1="564.07" y1="472.27" type="table-diagram-or-data-block">An entity choosing to adapt one of the balance sheet formats and/or one of the profit and loss
+account formats must follow the requirements of FRS 102 in relation to the adapted formats.
+Certain paragraphs in FRS 102 apply, and certain glossary definitions differ, when choosing to adapt
+the formats.</block>
+      <block index="13" x0="33.96" y0="484.76" x1="552.89" y1="548.11" type="table-diagram-or-data-block">For the balance sheet, the purpose specified in Schedule 1 for adapting the format of the balance
+sheet is to allow an entity to distinguish between current and non-current items in a different way
+to that provided by the statutory formats; no specific purpose is identified in Schedule 1 for
+adapting the format of the profit and loss account.</block>
+      <block index="14" x0="33.96" y0="560.63" x1="564.21" y1="639.94" type="text-block">The statutory formats include groupings in the balance sheet for fixed assets, current assets,
+creditors falling due within one year and creditors falling due after one year; the adapted formats
+group the balance sheet into current and non-current assets, and current and non-current liabilities.
+These groups of terms are not interchangeable – for example, the definition of fixed assets is not
+the same as the definition of non-current assets.</block>
+      <block index="15" x0="33.96" y0="652.43" x1="354.38" y1="667.90" type="subheading" title="What is the source of the adapted format requirements?">What is the source of the adapted format requirements?</block>
+      <block index="16" x0="33.96" y0="678.35" x1="557.98" y1="709.78" type="text-block">The ability to adapt the format of the balance sheet and/or of the profit and loss account is set out
+in Schedule 1 and requires that:</block>
+      <block index="17" x0="33.96" y0="722.29" x1="551.50" y1="738.24" type="text-block">• the information given is ‘at least equivalent to that which would have been required by the use</block>
+      <block index="18" x0="48.12" y0="738.25" x1="314.50" y1="753.72" type="text-block">of such format had it not been thus adapted’; and</block>
+      <block index="19" x0="33.96" y0="766.21" x1="538.35" y1="782.16" type="text-block">• ‘the presentation is in accordance with generally accepted accounting principles or practice’.</block>
+      <block index="21" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+5</block>
+    </page>
+    <page number="7" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.05" x1="327.36" y1="77.52" type="text-block">FRS 102 addresses both of these points, by setting out:</block>
+      <block index="3" x0="33.96" y0="90.03" x1="521.81" y1="105.98" type="text-block">• the presentation and disclosure required when choosing to adapt the presentation of the</block>
+      <block index="4" x0="48.12" y0="105.99" x1="438.48" y1="121.46" type="text-block">balance sheet or profit and loss account (paragraphs 4A.6 and 5A.4); and</block>
+      <block index="5" x0="33.96" y0="133.95" x1="544.21" y1="149.90" type="text-block">• the minimum line items required in the balance sheet and profit and loss account of an entity</block>
+      <block index="6" x0="48.12" y0="149.91" x1="393.24" y1="165.38" type="text-block">which chooses to adapt the formats (paragraphs 4A.4 and 5A.4).</block>
+      <block index="7" x0="33.96" y0="177.87" x1="545.57" y1="209.30" type="text-block">Given the FRC’s principle of seeking IFRS-based solutions, the requirements have been based on
+the requirements of IFRS 18 Presentation and Disclosure in Financial Statements5.</block>
+      <block index="8" x0="33.96" y0="221.79" x1="394.58" y1="237.26" type="subheading" title="Is there further flexibility available when adapting the formats?">Is there further flexibility available when adapting the formats?</block>
+      <block index="9" x0="33.96" y0="247.74" x1="545.18" y1="311.21" type="text-block">Yes – just as with the statutory formats, the descriptions, ordering and aggregations set out in
+paragraphs 4A.4, 4A.6 and 5A.4 may be amended (as set out in paragraphs 4A.3 and 5A.3),
+provided that the information given is still ‘at least equivalent’ to that required had the format(s)
+not been adapted.</block>
+      <block index="10" x0="33.96" y0="323.70" x1="361.46" y1="339.17" type="subheading" title="If choosing to adapt, do I have to adapt both statements?">If choosing to adapt, do I have to adapt both statements?</block>
+      <block index="11" x0="33.96" y0="349.62" x1="558.68" y1="381.05" type="text-block">No – the ability to adapt the presentation of the balance sheet is separate from the ability to adapt
+the presentation of the profit and loss account, so a preparer can adapt either, both, or neither.</block>
+      <block index="12" x0="33.96" y0="393.73" x1="139.66" y1="414.30" type="subheading" title="Small entities">Small entities</block>
+      <block index="13" x0="33.96" y0="424.88" x1="541.08" y1="472.27" type="text-block">Under the small entities regime, set out in The Small Companies and Groups (Accounts and
+Directors' Report) Regulations 20086 (SI 2008/409), there is again a choice between the statutory
+formats and the adapted formats.</block>
+      <block index="14" x0="33.96" y0="484.76" x1="562.89" y1="611.98" type="table-diagram-or-data-block">A small entity that chooses to apply the small entities regime (and is therefore following the
+presentation and disclosure requirements of Section 1A Small Entities of FRS 102), and that chooses
+to adapt the formats, is required to apply the presentation requirements set out in Appendix A
+Adapting the balance sheet formats and Appendix B Adapting the profit and loss account formats to
+Section 1A. These appendices state the line items that shall be presented when choosing to adapt
+the formats, similar to the Appendix Adapting the balance sheet formats to Section 4 and
+Appendix A Adapting the profit and loss account formats to Section 5 for large and medium-sized
+entities.</block>
+      <block index="15" x0="33.96" y0="624.47" x1="555.88" y1="682.55" type="text-block">Small entities also currently have the option of drawing up a less detailed ‘abridged’ balance sheet
+and/or profit and loss account. This option may be removed in due course, in accordance with the
+Economic Crime and Corporate Transparency Act 20237.</block>
+      <block index="17" x0="33.96" y0="754.81" x1="510.29" y1="790.29" type="table-diagram-or-data-block">5 For reporting periods beginning before 1 January 2027, IAS 1 Presentation of Financial Statements (see Factsheet 12A)
+6 The Small Companies and Groups (Accounts and Directors' Report) Regulations 2008
+7 Economic Crime and Corporate Transparency Act 2023</block>
+      <block index="19" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+6</block>
+    </page>
+    <page number="8" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.24" x1="292.93" y1="82.81" type="subheading" title="Consolidated financial statements">Consolidated financial statements</block>
+      <block index="3" x0="33.96" y0="93.39" x1="557.31" y1="140.78" type="table-diagram-or-data-block">Schedule 6 of SI 2008/410 imposes additional requirements for the presentation of consolidated
+financial statements, but the requirements of Schedules 1-3 still apply and so the formats available
+are effectively identical.</block>
+      <block index="6" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+7</block>
+    </page>
+    <page number="9" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.13" x1="446.80" y1="90.43" type="section-heading" section-number="3" title="Presentation options under FRS 101">3. Presentation options under FRS 101</block>
+      <block index="3" x0="33.96" y0="115.35" x1="537.93" y1="146.78" type="text-block">An entity applying FRS 101, and within the scope of Schedule 1, has the option of adapting the
+formats of either or both of the balance sheet and the profit and loss account.</block>
+      <block index="4" x0="33.96" y0="159.27" x1="561.29" y1="206.66" type="table-diagram-or-data-block">An entity that chooses to adapt the formats is required to apply the relevant requirements of
+adopted IFRS8, which are set out in IFRS 189. For an entity that chooses not to adapt the formats, or
+is not permitted to, the statutory formats are the same as for an FRS 102 preparer.</block>
+      <block index="6" x0="33.96" y0="766.69" x1="507.89" y1="790.29" type="text-block">8 See paragraphs AG1(h) and AG1(i) of the Application Guidance to FRS 101
+9 For reporting periods beginning before 1 January 2027, IAS 1 Presentation of Financial Statements (see Factsheet 12A)</block>
+      <block index="8" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+8</block>
+    </page>
+    <page number="10" width="595.32" height="841.92">
+      <block index="2" x0="33.96" y0="62.13" x1="362.41" y1="90.43" type="section-heading" section-number="4" title="Presentation under FRS 105">4. Presentation under FRS 105</block>
+      <block index="3" x0="33.96" y0="115.35" x1="554.83" y1="162.74" type="table-diagram-or-data-block">There is no option to adapt the formats for micro-entities which apply FRS 105. Such entities must
+follow the statutory formats for micro-entities, which are set out in Section C of Part 1 of
+Schedule 1 to SI 2008/409 and reproduced in Sections 4 and 5 of FRS 105.</block>
+      <block index="5" x0="33.96" y0="805.81" x1="563.81" y1="817.41" type="running-header-or-footer">FRC | FRS Factsheet 12B | Presentation of the financial statements (reporting periods beginning on or after 1 January 2027)
+9</block>
+    </page>
+    <page number="11" width="595.32" height="841.92">
+      <block index="4" x0="464.38" y0="505.40" x1="572.95" y1="536.83" type="text-block">Financial
+Reporting Council</block>
+      <block index="5" x0="464.38" y0="553.28" x1="581.32" y1="616.66" type="table-diagram-or-data-block">London office:
+13th Floor, 1 Harbour
+Exchange Square,
+London, E14 9GE</block>
+      <block index="6" x0="464.38" y0="633.11" x1="582.77" y1="696.46" type="table-diagram-or-data-block">Birmingham office:
+5th Floor, 3 Arena
+Central, Bridge Street,
+Birmingham, B1 2AX</block>
+      <block index="7" x0="464.38" y0="703.43" x1="577.13" y1="718.90" type="text-block">+44 (0)20 7492 2300</block>
+      <block index="8" x0="464.38" y0="731.53" x1="546.03" y1="747.00" type="text-block">www.frc.org.uk</block>
+      <block index="9" x0="464.38" y0="759.61" x1="534.39" y1="775.08" type="text-block">Follow us on</block>
+    </page>
+  </body>
+</frs-factsheet>
