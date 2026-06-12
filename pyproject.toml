@@ -5,6 +5,7 @@ description = "Automated FRS 102 financial statement reviewer"
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=0.40",
+    "openpyxl>=3.1.5",
     "python-dotenv>=1.0",
 ]
 
