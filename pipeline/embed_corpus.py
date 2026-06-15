@@ -54,15 +54,21 @@ def _batches(records, max_texts, max_tokens):
         yield batch
 
 
-def _embed_with_retry(client, texts, retries=5):
+_RETRYABLE = (voyageai.error.RateLimitError, voyageai.error.APIConnectionError,
+              voyageai.error.ServiceUnavailableError, voyageai.error.Timeout)
+
+
+def _embed_with_retry(client, texts, retries=8):
     for attempt in range(retries):
         try:
             return client.embed(texts, model=MODEL, input_type="document")
-        except voyageai.error.RateLimitError:
-            wait = 60 * (attempt + 1)
-            print(f"  rate-limited; backing off {wait}s", flush=True)
+        except _RETRYABLE as e:
+            wait = min(60 * (attempt + 1), 180)
+            print(f"  {type(e).__name__}; backing off {wait}s "
+                  f"(attempt {attempt + 1}/{retries})", flush=True)
             time.sleep(wait)
-    raise SystemExit("repeated rate-limit errors — aborting (progress is saved)")
+    raise SystemExit("repeated transient errors — aborting (progress is saved; re-run "
+                     "to resume from the last checkpoint)")
 
 
 def main() -> None:
