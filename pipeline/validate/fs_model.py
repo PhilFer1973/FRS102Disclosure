@@ -77,6 +77,17 @@ class Equality:
     description: str
 
 
+@dataclass(frozen=True)
+class RatioCheck:
+    """A line that must equal another line times a rate, within tolerance.
+    Covers the ETR reconciliation's 'tax at the standard rate = PBT x rate'
+    (the one multiplicative check; everything else is a signed sum)."""
+    target: str                        # line ref expected to equal base * rate
+    base: str                          # line ref the rate is applied to
+    rate: Money                        # e.g. Decimal('0.25')
+    description: str
+
+
 @dataclass
 class FinancialStatements:
     entity_name: str
@@ -85,6 +96,7 @@ class FinancialStatements:
     statements: dict[str, Statement] = field(default_factory=dict)
     notes: dict[str, Note] = field(default_factory=dict)
     equalities: list[Equality] = field(default_factory=list)
+    ratio_checks: list[RatioCheck] = field(default_factory=list)
     has_comparatives: bool = True
 
     def resolve(self, ref: str) -> LineItem | None:
@@ -127,7 +139,9 @@ def from_dict(d: dict) -> FinancialStatements:
         notes={num: Note(num, n["title"], [_line_from_dict(x) for x in n["items"]])
                for num, n in d.get("notes", {}).items()},
         equalities=[Equality(e["left"], e["right"], e["description"])
-                    for e in d.get("equalities", [])])
+                    for e in d.get("equalities", [])],
+        ratio_checks=[RatioCheck(r["target"], r["base"], _money(r["rate"]),
+                                 r["description"]) for r in d.get("ratio_checks", [])])
 
 
 def load_fs_json(path: str | Path) -> FinancialStatements:

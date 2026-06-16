@@ -137,6 +137,42 @@ def check_equalities(fs: FinancialStatements) -> list[Finding]:
     return findings
 
 
+def check_ratios(fs: FinancialStatements) -> list[Finding]:
+    findings: list[Finding] = []
+    for rc in fs.ratio_checks:
+        target, base = fs.resolve(rc.target), fs.resolve(rc.base)
+        if target is None or base is None:
+            missing = rc.target if target is None else rc.base
+            findings.append(Finding(
+                "eval_error", rc.description,
+                f"{rc.description}: reference {missing!r} does not resolve",
+                "standard-material", is_error=True))
+            continue
+        for column in COLUMNS:
+            if column == "prior" and not fs.has_comparatives:
+                continue
+            tv, bv = getattr(target, column), getattr(base, column)
+            if tv is None and bv is None:
+                continue
+            if tv is None or bv is None:
+                findings.append(Finding(
+                    "eval_error", rc.description,
+                    f"{rc.description} ({column}): missing value "
+                    f"({target.label}={tv}, {base.label}={bv})",
+                    "standard-material", is_error=True))
+                continue
+            expected = bv * rc.rate
+            # product rounding: allow rounding of base and of the stated target
+            tol = fs.rounding_unit * 2
+            if abs(tv - expected) > tol:
+                findings.append(Finding(
+                    "ratio", rc.description,
+                    f"{rc.description} ({column}): {target.label}={tv} != "
+                    f"{base.label} x {rc.rate} = {expected} (tolerance {tol})",
+                    "standard-material", expected=str(expected), actual=str(tv)))
+    return findings
+
+
 def check_comparatives(fs: FinancialStatements) -> list[Finding]:
     if not fs.has_comparatives:
         return []
@@ -156,4 +192,5 @@ def check_comparatives(fs: FinancialStatements) -> list[Finding]:
 
 def validate(fs: FinancialStatements) -> list[Finding]:
     """Run the full deterministic numerical gate; returns all findings."""
-    return check_casting(fs) + check_equalities(fs) + check_comparatives(fs)
+    return (check_casting(fs) + check_equalities(fs) + check_ratios(fs)
+            + check_comparatives(fs))

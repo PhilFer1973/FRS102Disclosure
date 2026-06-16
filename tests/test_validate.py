@@ -7,6 +7,7 @@ from pipeline.validate.checks import (
     check_casting,
     check_comparatives,
     check_equalities,
+    check_ratios,
     validate,
 )
 from pipeline.validate.fs_model import (
@@ -14,6 +15,7 @@ from pipeline.validate.fs_model import (
     FinancialStatements,
     LineItem,
     Note,
+    RatioCheck,
     Statement,
 )
 
@@ -151,6 +153,66 @@ def test_broken_equality_reference_is_error():
                                   "bad ref check"))
     findings = check_equalities(fs)
     assert any(f.is_error and "does not resolve" in f.description for f in findings)
+
+
+def _tax_note(charge_at_rate):
+    """ETR reconciliation note: tax at standard rate + adjustments = total charge,
+    and tax at standard rate = PBT x rate."""
+    note = Note("8", "Tax", [
+        line("pbt", "Profit before tax", 1000, 900),
+        line("at_rate", "Tax at standard rate of 25%", charge_at_rate, 225),
+        line("disallowed", "Expenses not deductible", 30, 20),
+        line("total_tax", "Total tax charge", charge_at_rate + 30, 245,
+             deriv=(("at_rate", 1), ("disallowed", 1))),
+    ])
+    fs = FinancialStatements("T", "2025-12-31", rounding_unit=D(1),
+                             notes={"8": note})
+    fs.ratio_checks.append(RatioCheck("note:8:at_rate", "note:8:pbt", D("0.25"),
+                                      "Tax at standard rate = PBT x 25%"))
+    return fs
+
+
+def test_etr_ratio_passes_when_consistent():
+    assert check_ratios(_tax_note(D(250))) == []   # 1000 x 0.25 = 250
+
+
+def test_etr_ratio_fails_when_standard_rate_line_wrong():
+    findings = check_ratios(_tax_note(D(300)))     # 300 != 1000 x 0.25
+    assert any(f.check_type == "ratio" for f in findings)
+
+
+def test_tax_note_reconciliation_via_derivation():
+    # tax at standard rate (250) + disallowed (30) = total charge (280): casts
+    assert [f for f in check_casting(_tax_note(D(250))) if f.check_type == "cast"] == []
+    # break the total charge -> derivation catches it
+    fs = _tax_note(D(250))
+    note = fs.notes["8"]
+    note.items = [it if it.id != "total_tax"
+                  else LineItem("total_tax", "Total tax charge", D(999), D(245),
+                                derivation=(("at_rate", 1), ("disallowed", 1)))
+                  for it in note.items]
+    assert any(f.check_type == "cast" for f in check_casting(fs))
+
+
+def test_fixed_asset_movement_table_rolls():
+    """opening + additions - disposals - depreciation = closing, via derivation."""
+    note = Note("9", "Tangible fixed assets", [
+        line("opening", "Cost b/f", 1000, 900),
+        line("additions", "Additions", 200, 150),
+        line("disposals", "Disposals", -50, -50),
+        line("closing", "Cost c/f", 1150, 1000,
+             deriv=(("opening", 1), ("additions", 1), ("disposals", 1))),
+    ])
+    fs = FinancialStatements("T", "2025-12-31", rounding_unit=D(1), notes={"9": note})
+    assert [f for f in check_casting(fs) if f.check_type == "cast"] == []
+    # break the roll
+    note.items = [it if it.id != "closing"
+                  else LineItem("closing", "Cost c/f", D(1200), D(1000),
+                                derivation=(("opening", 1), ("additions", 1),
+                                            ("disposals", 1)))
+                  for it in note.items]
+    assert any(f.check_type == "cast" and "closing" in f.location
+               for f in check_casting(fs))
 
 
 def test_tolerance_absorbs_rounding_noise():
