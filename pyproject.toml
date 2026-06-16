@@ -28,6 +28,9 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# Use a project-local tmp dir; the machine's global %TEMP%\pytest-of-* root is
+# permission-locked on this box and breaks pytest's tmp_path cleanup.
+addopts = "--basetemp=.pytest_tmp"
 
 [build-system]
 requires = ["hatchling"]
