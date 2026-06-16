@@ -40,7 +40,7 @@ def main() -> None:
     if not files:
         raise SystemExit(f"no .sql files in {MIGRATIONS_DIR}")
 
-    with psycopg.connect(dsn, autocommit=False) as conn:
+    with psycopg.connect(dsn, autocommit=False, prepare_threshold=None) as conn:
         with conn.cursor() as cur:
             cur.execute("create table if not exists schema_migrations ("
                         "filename text primary key, applied_at timestamptz default now())")

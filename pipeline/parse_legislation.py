@@ -48,6 +48,10 @@ class LegParseResult:
     records: list[ParagraphRecord] = field(default_factory=list)
     skipped_out_of_scope: dict[str, int] = field(default_factory=dict)
     reference_fallbacks: list[str] = field(default_factory=list)
+    # Same reference emitted twice = amendment versions coexisting in the
+    # consolidated snapshot. First (document order) kept; rest recorded here.
+    emitted_refs: set[str] = field(default_factory=set)
+    duplicate_references: list[tuple[str, str]] = field(default_factory=list)
 
 
 def _itext(el: ET.Element | None) -> str:
@@ -117,6 +121,13 @@ def _emit(result: LegParseResult, reference: str, text: str,
           hierarchy: list[str], location: str) -> None:
     if not text:
         text = "[no text — repealed or empty provision]"
+    if reference in result.emitted_refs:
+        # Amendment-version duplicate: keep the first (document order), record
+        # the rest so the choice is transparent and auditable (the in-force
+        # version is a legal-content question for human review).
+        result.duplicate_references.append((reference, text[:100]))
+        return
+    result.emitted_refs.add(reference)
     result.records.append(ParagraphRecord(
         source=result.source, reference=reference, edition="both",
         text=text, hierarchy=hierarchy, location=location))
@@ -248,6 +259,13 @@ def reconciliation_report(result: LegParseResult, source_name: str) -> str:
     if result.skipped_out_of_scope:
         for label, count in sorted(result.skipped_out_of_scope.items()):
             lines.append(f"- {label}: {count}")
+    else:
+        lines.append("- none")
+    lines += ["", "## Duplicate references — amendment versions (FIRST kept; "
+              "in-force version is a human-review question)"]
+    if result.duplicate_references:
+        for ref, snippet in result.duplicate_references:
+            lines.append(f"- {ref}: dropped alternate version — {snippet}")
     else:
         lines.append("- none")
     if result.reference_fallbacks:

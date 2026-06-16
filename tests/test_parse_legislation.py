@@ -45,6 +45,22 @@ def test_ca06_no_part_filter_includes_all():
     assert any(r.reference.startswith("s993") for r in res.records)
 
 
+def test_no_duplicate_references_in_records():
+    """Amendment-version duplicates must be de-duped (first kept), so the
+    paragraph-store key (source, reference, edition) is unique."""
+    for corpus, kwargs in ((CA06_CORPUS, {"part": "15", "schedules": set()}),
+                           (SI_CORPUS, {"schedules": {"1", "5", "7"}})):
+        if not corpus.exists():
+            continue
+        res = parse_file(corpus, **kwargs)
+        refs = [r.reference for r in res.records]
+        assert len(refs) == len(set(refs)), "duplicate references emitted"
+    # CA06 specifically carries 3 known amendment-version dupes
+    if CA06_CORPUS.exists():
+        res = parse_file(CA06_CORPUS, part="15", schedules=set())
+        assert len(res.duplicate_references) >= 1
+
+
 def test_si_regulation_and_schedule_references():
     res = parse_file(SI_FIXTURE, schedules={"1", "7"})
     refs = {r.reference for r in res.records}
