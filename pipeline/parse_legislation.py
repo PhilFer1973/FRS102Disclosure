@@ -49,8 +49,9 @@ class LegParseResult:
     skipped_out_of_scope: dict[str, int] = field(default_factory=dict)
     reference_fallbacks: list[str] = field(default_factory=list)
     # Same reference emitted twice = amendment versions coexisting in the
-    # consolidated snapshot. First (document order) kept; rest recorded here.
-    emitted_refs: set[str] = field(default_factory=set)
+    # consolidated snapshot. The in-force (amended) variant is kept; the
+    # superseded variant is recorded here. See _prefer_variant.
+    ref_index: dict[str, int] = field(default_factory=dict)
     duplicate_references: list[tuple[str, str]] = field(default_factory=list)
 
 
@@ -117,20 +118,36 @@ def _p1_reference(p1: ET.Element, source: str, sched_no: str | None,
     return f"reg {num}" if source == "SI2008/410" else f"s{num}"
 
 
+def _prefer_variant(new_text: str, existing_text: str) -> bool:
+    """For amendment-version duplicates, is `new_text` the in-force variant to
+    keep over `existing_text`? Verified against legislation.gov.uk (corroborated
+    2026-06): the Economic Crime and Corporate Transparency Act 2023 amended
+    CA06 s445(7)/s446(5) to cite s443A (micro-entities); keep the 443A-citing
+    (amended) variant over the superseded 444-only one. Otherwise keep the
+    first seen (document order)."""
+    return "443A" in new_text and "443A" not in existing_text
+
+
 def _emit(result: LegParseResult, reference: str, text: str,
           hierarchy: list[str], location: str) -> None:
     if not text:
         text = "[no text — repealed or empty provision]"
-    if reference in result.emitted_refs:
-        # Amendment-version duplicate: keep the first (document order), record
-        # the rest so the choice is transparent and auditable (the in-force
-        # version is a legal-content question for human review).
-        result.duplicate_references.append((reference, text[:100]))
+    record = ParagraphRecord(source=result.source, reference=reference,
+                             edition="both", text=text, hierarchy=hierarchy,
+                             location=location)
+    if reference in result.ref_index:
+        i = result.ref_index[reference]
+        existing = result.records[i]
+        if _prefer_variant(text, existing.text):
+            result.records[i] = record
+            result.duplicate_references.append(
+                (reference, f"REPLACED superseded variant: {existing.text[:80]}"))
+        else:
+            result.duplicate_references.append(
+                (reference, f"dropped alternate variant: {text[:80]}"))
         return
-    result.emitted_refs.add(reference)
-    result.records.append(ParagraphRecord(
-        source=result.source, reference=reference, edition="both",
-        text=text, hierarchy=hierarchy, location=location))
+    result.ref_index[reference] = len(result.records)
+    result.records.append(record)
 
 
 def _parse_p1(p1: ET.Element, ctx: list[str], result: LegParseResult,

@@ -1,0 +1,39 @@
+{
+  "entity_name": "Demo Trading Limited",
+  "period_end": "2025-12-31",
+  "rounding_unit": 1,
+  "has_comparatives": true,
+  "statements": {
+    "balance_sheet": {
+      "items": [
+        {"id": "fixed_assets", "label": "Fixed assets", "current": 800, "prior": 700},
+        {"id": "debtors", "label": "Debtors", "current": 300, "prior": 250, "note_ref": "5"},
+        {"id": "cash", "label": "Cash at bank", "current": 200, "prior": 150},
+        {"id": "current_assets", "label": "Current assets", "current": 500, "prior": 400,
+         "derivation": [["debtors", 1], ["cash", 1]]},
+        {"id": "creditors", "label": "Creditors", "current": -300, "prior": -250},
+        {"id": "net_assets", "label": "Net assets", "current": 1000, "prior": 850,
+         "derivation": [["fixed_assets", 1], ["current_assets", 1], ["creditors", 1]]},
+        {"id": "share_capital", "label": "Share capital", "current": 100, "prior": 100},
+        {"id": "retained", "label": "Retained earnings", "current": 950, "prior": 750},
+        {"id": "total_equity", "label": "Total equity", "current": 1050, "prior": 850,
+         "derivation": [["share_capital", 1], ["retained", 1]]}
+      ]
+    }
+  },
+  "notes": {
+    "5": {"title": "Debtors", "items": [
+      {"id": "trade", "label": "Trade debtors", "current": 250, "prior": 210},
+      {"id": "prepay", "label": "Prepayments", "current": 50, "prior": 40},
+      {"id": "total", "label": "Total debtors", "current": 300, "prior": 250,
+       "derivation": [["trade", 1], ["prepay", 1]]}
+    ]}
+  },
+  "equalities": [
+    {"left": "statement:balance_sheet:net_assets",
+     "right": "statement:balance_sheet:total_equity",
+     "description": "Balance sheet balances (net assets = total equity)"},
+    {"left": "note:5:total", "right": "statement:balance_sheet:debtors",
+     "description": "Debtors note casts to balance sheet"}
+  ]
+}

@@ -19,8 +19,10 @@ an explicit error finding instead.
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, field
 from decimal import Decimal
+from pathlib import Path
 
 Money = Decimal
 
@@ -98,3 +100,35 @@ class FinancialStatements:
             note = self.notes.get(container)
             return note.by_id().get(line_id) if note else None
         raise ValueError(f"malformed reference {ref!r}")
+
+
+def _money(v: str | int | float | None) -> Money | None:
+    return None if v is None else Decimal(str(v))
+
+
+def _line_from_dict(d: dict) -> LineItem:
+    deriv = d.get("derivation")
+    return LineItem(
+        id=d["id"], label=d["label"],
+        current=_money(d.get("current")), prior=_money(d.get("prior")),
+        derivation=tuple((c[0], int(c[1])) for c in deriv) if deriv else None,
+        note_ref=d.get("note_ref"), source_loc=d.get("source_loc"))
+
+
+def from_dict(d: dict) -> FinancialStatements:
+    """Deserialize an FS model from plain JSON (the extraction output contract).
+    Money values may be strings or numbers; stored as Decimal."""
+    return FinancialStatements(
+        entity_name=d["entity_name"], period_end=d["period_end"],
+        rounding_unit=_money(d.get("rounding_unit", 1)) or Decimal(1),
+        has_comparatives=d.get("has_comparatives", True),
+        statements={name: Statement(name, [_line_from_dict(x) for x in s["items"]])
+                    for name, s in d.get("statements", {}).items()},
+        notes={num: Note(num, n["title"], [_line_from_dict(x) for x in n["items"]])
+               for num, n in d.get("notes", {}).items()},
+        equalities=[Equality(e["left"], e["right"], e["description"])
+                    for e in d.get("equalities", [])])
+
+
+def load_fs_json(path: str | Path) -> FinancialStatements:
+    return from_dict(json.loads(Path(path).read_text(encoding="utf-8")))

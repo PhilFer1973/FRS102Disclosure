@@ -1,0 +1,9 @@
+{
+  "entity_name": "Demo Trading Limited",
+  "period_start": "2025-01-01",
+  "period_end": "2025-12-31",
+  "framework": "FRS102",
+  "entity_type": "company",
+  "is_consolidated": false,
+  "early_adoption_pr2024": false
+}
