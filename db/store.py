@@ -143,6 +143,35 @@ def write_presence_findings(run_id: str, presence_results: list) -> int:
     return len(rows)
 
 
+def get_prior_run(engagement_id: str, before_seq: int) -> str | None:
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute("select id from runs where engagement_id = %s and sequence_no < %s "
+                    "order by sequence_no desc limit 1", (engagement_id, before_seq))
+        row = cur.fetchone()
+        return str(row[0]) if row else None
+
+
+def get_run_findings(run_id: str) -> list[dict]:
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute("select identity_key, category, severity, citation, reasoning, "
+                    "status, disposition from findings where run_id = %s", (run_id,))
+        cols = ("identity_key", "category", "severity", "citation", "reasoning",
+                "status", "disposition")
+        return [dict(zip(cols, r, strict=True)) for r in cur.fetchall()]
+
+
+def resolved_keys_for_engagement(engagement_id: str) -> set[str]:
+    """Identity keys ever dispositioned resolved/accepted on this engagement —
+    a re-appearance of one is a regression, not a new finding."""
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(
+            "select distinct f.identity_key from findings f join runs r "
+            "on r.id = f.run_id where r.engagement_id = %s and "
+            "(f.status = 'resolved' or f.disposition in ('accept','resolved'))",
+            (engagement_id,))
+        return {r[0] for r in cur.fetchall()}
+
+
 def write_questions(run_id: str, round_no: int, questions: list) -> int:
     if not questions:
         return 0

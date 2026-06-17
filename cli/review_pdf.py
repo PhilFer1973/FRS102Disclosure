@@ -17,6 +17,7 @@ from datetime import date
 from pathlib import Path
 
 from db import store
+from pipeline.assemble.delta import compute_delta, summarise
 from pipeline.assemble.register import build_register
 from pipeline.engine.checklist import required_facts, run_checklist
 from pipeline.engine.presence import check_presence, gather_narrative
@@ -132,12 +133,18 @@ def main() -> None:
                             date.fromisoformat(args.period_end), args.edition)
         eid = store.create_engagement(accepted)
         rid, seq = store.create_run(eid)
+        prior = store.get_prior_run(eid, seq)
         n_num = store.write_findings(rid, numerical)
         n_chk = store.write_presence_findings(rid, presence)
         n_q = store.write_questions(rid, 1, questions)
         store.complete_run(rid)
         print(f"\npersisted engagement {eid}, run {rid}: {n_num} numerical + "
               f"{n_chk} disclosure findings + {n_q} questions")
+        if prior:
+            delta = compute_delta(store.get_run_findings(rid),
+                                  store.get_run_findings(prior),
+                                  store.resolved_keys_for_engagement(eid))
+            print(f"delta vs run {prior}: {summarise(delta)}")
     print("\n" + client.usage_summary())
 
 
