@@ -1,0 +1,68 @@
+{
+  "entity_name": "Eval Reference Ltd",
+  "period_end": "2025-12-31",
+  "rounding_unit": 1,
+  "has_comparatives": true,
+  "statements": {
+    "income": {
+      "items": [
+        {"id": "turnover", "label": "Turnover", "current": 1000000, "prior": 950000},
+        {"id": "cost_of_sales", "label": "Cost of sales", "current": -400000, "prior": -390000},
+        {"id": "gross_profit", "label": "Gross profit", "current": 600000, "prior": 560000,
+         "derivation": [["turnover", 1], ["cost_of_sales", 1]]},
+        {"id": "admin", "label": "Administrative expenses", "current": -500000, "prior": -470000},
+        {"id": "operating_profit", "label": "Operating profit", "current": 100000, "prior": 90000,
+         "derivation": [["gross_profit", 1], ["admin", 1]]},
+        {"id": "tax_at_rate", "label": "Tax at standard rate of 25%", "current": 25000, "prior": 22500},
+        {"id": "tax_expense", "label": "Tax on profit", "current": -25000, "prior": -22500},
+        {"id": "profit_after_tax", "label": "Profit for the year", "current": 75000, "prior": 67500,
+         "derivation": [["operating_profit", 1], ["tax_expense", 1]]}
+      ]
+    },
+    "balance_sheet": {
+      "items": [
+        {"id": "total_fixed_assets", "label": "Fixed assets", "current": 200000, "prior": 180000},
+        {"id": "debtors", "label": "Debtors", "current": 150000, "prior": 140000, "note_ref": "5"},
+        {"id": "cash", "label": "Cash at bank", "current": 50000, "prior": 60000},
+        {"id": "total_current_assets", "label": "Current assets", "current": 200000, "prior": 200000,
+         "derivation": [["debtors", 1], ["cash", 1]]},
+        {"id": "creditors", "label": "Creditors", "current": -100000, "prior": -110000, "note_ref": "6"},
+        {"id": "net_current_assets", "label": "Net current assets", "current": 100000, "prior": 90000,
+         "derivation": [["total_current_assets", 1], ["creditors", 1]]},
+        {"id": "net_assets", "label": "Net assets", "current": 300000, "prior": 270000,
+         "derivation": [["total_fixed_assets", 1], ["net_current_assets", 1]]},
+        {"id": "share_capital", "label": "Called up share capital", "current": 100000, "prior": 100000},
+        {"id": "retained", "label": "Profit and loss account", "current": 200000, "prior": 170000},
+        {"id": "total_equity", "label": "Total equity", "current": 300000, "prior": 270000,
+         "derivation": [["share_capital", 1], ["retained", 1]]}
+      ]
+    }
+  },
+  "notes": {
+    "5": {"title": "Debtors", "items": [
+      {"id": "c0", "label": "Trade debtors", "current": 100000, "prior": 95000},
+      {"id": "c1", "label": "Other debtors", "current": 50000, "prior": 45000},
+      {"id": "total", "label": "Total", "current": 150000, "prior": 140000,
+       "derivation": [["c0", 1], ["c1", 1]]}
+    ]},
+    "6": {"title": "Creditors", "items": [
+      {"id": "c0", "label": "Trade creditors", "current": 70000, "prior": 80000},
+      {"id": "c1", "label": "Accruals", "current": 30000, "prior": 30000},
+      {"id": "total", "label": "Total", "current": 100000, "prior": 110000,
+       "derivation": [["c0", 1], ["c1", 1]]}
+    ]}
+  },
+  "equalities": [
+    {"left": "statement:balance_sheet:net_assets",
+     "right": "statement:balance_sheet:total_equity",
+     "description": "Balance sheet balances (net assets = total equity)"},
+    {"left": "note:5:total", "right": "statement:balance_sheet:debtors",
+     "description": "Debtors note casts to balance sheet", "compare_abs": true},
+    {"left": "note:6:total", "right": "statement:balance_sheet:creditors",
+     "description": "Creditors note casts to balance sheet", "compare_abs": true}
+  ],
+  "ratio_checks": [
+    {"target": "statement:income:tax_at_rate", "base": "statement:income:operating_profit",
+     "rate": 0.25, "description": "Tax at standard rate = operating profit x 25%"}
+  ]
+}
