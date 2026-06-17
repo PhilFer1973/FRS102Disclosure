@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 # Sonnet for judgment + challenge + checklist drafting.
 MODELS = {
     "classify": "claude-haiku-4-5",
+    "facts": "claude-haiku-4-5",      # fact resolution (CLAUDE.md routing)
     "draft": "claude-sonnet-4-6",
     "challenge": "claude-sonnet-4-6",
     "structure": "claude-sonnet-4-6",

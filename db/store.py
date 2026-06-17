@@ -12,6 +12,7 @@ from contextlib import contextmanager
 import psycopg
 from dotenv import load_dotenv
 
+from pipeline.engine.checklist import Requirement
 from pipeline.intake.router import Accepted
 from pipeline.validate.checks import Finding
 
@@ -24,6 +25,24 @@ def _connect():
         raise SystemExit("SUPABASE_DB_URL not set.")
     with psycopg.connect(dsn, autocommit=False, prepare_threshold=None) as conn:
         yield conn
+
+
+def get_active_requirements(edition: str) -> list[Requirement]:
+    """Active rules in scope for the engagement's edition (matching or 'both')."""
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(
+            "select id, source, reference, edition, requirement_text, trigger_type, "
+            "trigger_condition, trigger_facts, direction, severity from requirements "
+            "where status = 'active' and edition in ('both', %s)", (edition,))
+        return [Requirement(str(r[0]), r[1], r[2], r[3], r[4], r[5], r[6],
+                            tuple(r[7] or ()), r[8], r[9]) for r in cur.fetchall()]
+
+
+def get_fact_registry() -> dict[str, dict]:
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute("select key, description, value_type from fact_registry")
+        return {r[0]: {"description": r[1], "value_type": r[2]}
+                for r in cur.fetchall()}
 
 
 def create_engagement(accepted: Accepted, materiality_basis: str | None = None,
@@ -75,6 +94,27 @@ def write_findings(run_id: str, findings: list[Finding]) -> int:
                   f.description, f.location) for f in findings])
         conn.commit()
     return len(findings)
+
+
+def write_checklist_findings(run_id: str, results: list) -> int:
+    """Write applicable required-disclosure results (trigger fired, missing
+    direction) as checklist findings to verify against the accounts."""
+    rows = []
+    for res in results:
+        req = res.requirement
+        if res.outcome == "applicable" and req.direction in ("missing", "both"):
+            rows.append((run_id, f"{req.id}|missing", "checklist", "missing",
+                         req.severity, req.id, f"{req.source} {req.reference}",
+                         "Required disclosure (trigger fired) — verify it is "
+                         f"present: {req.requirement_text}"))
+    if rows:
+        with _connect() as conn, conn.cursor() as cur:
+            cur.executemany(
+                "insert into findings (run_id, identity_key, category, direction, "
+                "severity, requirement_id, citation, reasoning, status) "
+                "values (%s,%s,%s,%s,%s,%s,%s,%s,'open')", rows)
+            conn.commit()
+    return len(rows)
 
 
 def complete_run(run_id: str, status: str = "complete",
