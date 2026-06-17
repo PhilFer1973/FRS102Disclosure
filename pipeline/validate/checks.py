@@ -176,7 +176,8 @@ def check_equalities(fs: FinancialStatements) -> list[Finding]:
                     f"({left.label}={lv}, {right.label}={rv})",
                     "standard-material", is_error=True))
                 continue
-            if abs(lv - rv) > tol:
+            diff = abs(abs(lv) - abs(rv)) if eq.compare_abs else abs(lv - rv)
+            if diff > tol:
                 findings.append(Finding(
                     "cross_reference", eq.description,
                     f"{eq.description} ({column}): {left.label}={lv} != "

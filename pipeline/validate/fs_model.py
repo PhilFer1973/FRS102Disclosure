@@ -80,6 +80,8 @@ class Equality:
     left: str                          # 'statement:line_id' or 'note:number:line_id'
     right: str
     description: str
+    compare_abs: bool = False          # match on magnitude (note breakdowns vs a
+                                       # face figure shown with the opposite sign)
 
 
 @dataclass(frozen=True)
@@ -145,7 +147,8 @@ def from_dict(d: dict) -> FinancialStatements:
                     for name, s in d.get("statements", {}).items()},
         notes={num: Note(num, n["title"], [_line_from_dict(x) for x in n["items"]])
                for num, n in d.get("notes", {}).items()},
-        equalities=[Equality(e["left"], e["right"], e["description"])
+        equalities=[Equality(e["left"], e["right"], e["description"],
+                             e.get("compare_abs", False))
                     for e in d.get("equalities", [])],
         ratio_checks=[RatioCheck(r["target"], r["base"], _money(r["rate"]),
                                  r["description"]) for r in d.get("ratio_checks", [])])

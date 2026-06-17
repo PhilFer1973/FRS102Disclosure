@@ -155,6 +155,22 @@ def test_missing_value_is_error_not_silent_zero():
     assert errs and "no current value" in errs[0].description
 
 
+def test_compare_abs_equality_matches_magnitude():
+    """A note breakdown (positive) cross-casts to a face figure shown negative
+    (creditors); magnitude match must not be a finding, but a real difference is."""
+    note = Note("17", "Creditors", [line("total", "Total", 4378519, 3794186)])
+    bs = Statement("balance_sheet", [
+        line("creditors", "Creditors", -4378519, -3794186)])
+    fs = FinancialStatements("T", "2025-12-31", rounding_unit=D(1),
+                             statements={"balance_sheet": bs}, notes={"17": note})
+    fs.equalities.append(Equality("note:17:total", "statement:balance_sheet:creditors",
+                                  "creditors note casts to face", compare_abs=True))
+    assert [f for f in check_equalities(fs) if not f.is_error] == []
+    # introduce a real magnitude discrepancy
+    note.items = [line("total", "Total", 4378999, 3794186)]
+    assert any(f.check_type == "cross_reference" for f in check_equalities(fs))
+
+
 def test_broken_equality_reference_is_error():
     fs = clean_fs()
     fs.equalities.append(Equality("statement:balance_sheet:nonexistent",

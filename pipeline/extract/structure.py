@@ -10,6 +10,9 @@ structure surfaces as a cast/cross-reference finding rather than a silent error.
 
 from __future__ import annotations
 
+import re
+from decimal import Decimal
+
 from pipeline.extract.tables import (
     ExtractedRow,
     WordSpans,
@@ -21,8 +24,11 @@ from pipeline.validate.fs_model import (
     Equality,
     FinancialStatements,
     LineItem,
+    Note,
     Statement,
 )
+
+_NOTE_HEADING = re.compile(r"^(\d{1,2})\.\s+([^()]+?)(?:\s*\(continued\))?$")
 
 STRUCTURE_SCHEMA = {
     "type": "object",
@@ -139,17 +145,96 @@ def classify_table(table: dict) -> str | None:
     return None
 
 
+def _poly_top(obj: dict) -> float:
+    br = (obj.get("boundingRegions") or [{}])[0]
+    poly = br.get("polygon") or []
+    ys = poly[1::2]
+    return min(ys) if ys else 1e9
+
+
+def _note_headings(layout: dict) -> list[dict]:
+    """Note-number headings ('14. Debtors') with page + vertical position, for
+    associating each note table with its note number."""
+    out = []
+    for p in layout.get("paragraphs", []) or []:
+        m = _NOTE_HEADING.match((p.get("content") or "").strip())
+        if m and "(continued)" not in (p.get("content") or ""):
+            page = (p.get("boundingRegions") or [{}])[0].get("pageNumber")
+            out.append({"number": m.group(1), "title": m.group(2).strip(),
+                        "page": page, "top": _poly_top(p)})
+    return out
+
+
+def _note_number_for(table: dict, headings: list[dict]) -> str | None:
+    page = (table.get("boundingRegions") or [{}])[0].get("pageNumber")
+    top = _poly_top(table)
+    on_page = [h for h in headings if h["page"] == page and h["top"] <= top + 0.1]
+    return max(on_page, key=lambda h: h["top"])["number"] if on_page else None
+
+
+def _add_note_crosscasts(fs: FinancialStatements, layout: dict, ws: WordSpans,
+                         primary_ids: set[int]) -> None:
+    """Build referenced note tables and cross-cast each note's total to the face
+    line that cites it — an independent second read of the figure. Catches a
+    face/note disagreement (e.g. debtors face 7,888,837 vs note 7,888,831)."""
+    referenced = {it.note_ref for st in fs.statements.values()
+                  for it in st.items if it.note_ref}
+    if not referenced:
+        return
+    headings = _note_headings(layout)
+    for table in layout.get("tables", []) or []:
+        if id(table) in primary_ids:
+            continue
+        num = _note_number_for(table, headings)
+        if num not in referenced or num in fs.notes:
+            continue
+        rows = [r for r in extract_statement(table, ws)
+                if r.current is not None or r.prior is not None]
+        if len(rows) < 2:
+            continue
+        *components, total_row = rows
+        # Only cross-cast SIMPLE ADDITIVE analysis notes (debtors, creditors,
+        # stocks): the last row must equal the sum of its components. This
+        # excludes movement tables (fixed assets) and reconciliations (tax),
+        # whose totals are not a flat sum and need proper structuring (future).
+        comp_cur = [c.current for c in components if c.current is not None]
+        if (total_row.current is None or len(comp_cur) != len(components)
+                or abs(sum(comp_cur) - total_row.current) > Decimal(2)):
+            continue
+        items = [LineItem(id=f"c{i}", label=c.label or f"(line {i})",
+                          current=c.current, prior=c.prior,
+                          current_confidence=c.current_confidence,
+                          prior_confidence=c.prior_confidence)
+                 for i, c in enumerate(components)]
+        items.append(LineItem(
+            id="total", label=total_row.label or "Total",
+            current=total_row.current, prior=total_row.prior,
+            derivation=tuple((f"c{i}", 1) for i in range(len(components))),
+            current_confidence=total_row.current_confidence,
+            prior_confidence=total_row.prior_confidence))
+        fs.notes[num] = Note(number=num, title="", items=items)
+        for st_name, st in fs.statements.items():
+            for it in st.items:
+                if it.note_ref == num:
+                    fs.equalities.append(Equality(
+                        f"note:{num}:total", f"statement:{st_name}:{it.id}",
+                        f"note {num} total casts to {it.label} on the {st_name}",
+                        compare_abs=True))
+
+
 def assemble(layout: dict, client: LLMClient,
              entity_name: str = "", period_end: str = "") -> FinancialStatements:
     """Azure Layout result -> structured FinancialStatements (income + balance
-    sheet), with per-figure OCR confidence. Adds the balance-sheet balancing
-    equality when both anchor lines are identified."""
+    sheet), with per-figure OCR confidence, the balance-sheet balancing equality,
+    and note-to-face cross-casts for figures that cite a note."""
     fs = FinancialStatements(entity_name=entity_name, period_end=period_end)
     ws: WordSpans = word_spans(layout)
+    primary_ids: set[int] = set()
     for table in layout.get("tables", []) or []:
         kind = classify_table(table)
         if kind not in ("income", "balance_sheet"):
             continue
+        primary_ids.add(id(table))
         rows = extract_statement(table, ws)
         structure = structure_statement(kind, rows, client)
         stmt = build_statement(kind, rows, structure)
@@ -162,4 +247,5 @@ def assemble(layout: dict, client: LLMClient,
                     f"statement:balance_sheet:{na}",
                     f"statement:balance_sheet:{te}",
                     "Balance sheet balances (net assets = total equity)"))
+    _add_note_crosscasts(fs, layout, ws, primary_ids)
     return fs
