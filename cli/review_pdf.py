@@ -17,6 +17,7 @@ from datetime import date
 from pathlib import Path
 
 from db import store
+from pipeline.assemble.register import build_register
 from pipeline.engine.checklist import required_facts, run_checklist
 from pipeline.engine.presence import check_presence, gather_narrative
 from pipeline.engine.questions import generate_questions, undetermined_facts
@@ -38,6 +39,7 @@ def main() -> None:
     ap.add_argument("--answers", help="JSON of reviewer answers (fact_key -> "
                     "true/false/value) to seed the fact profile")
     ap.add_argument("--questions-out", help="write the question round to this JSON")
+    ap.add_argument("--register", help="write the Excel issues register here")
     ap.add_argument("--no-presence", action="store_true",
                     help="skip the (paid) presence pass — for question-round iteration")
     ap.add_argument("--no-persist", action="store_true")
@@ -112,6 +114,11 @@ def main() -> None:
                   "affects": list(q.affected_refs), "answer": None}
                  for q in questions], indent=2), encoding="utf-8")
             print(f"  ...written to {args.questions_out}")
+
+    if args.register:
+        out = build_register(args.register, args.entity, args.period_end,
+                             args.edition, numerical, presence, questions, by_outcome)
+        print(f"\nissues register written to {out}")
 
     if not args.no_persist:
         accepted = Accepted(args.entity, date.fromisoformat("2024-01-01"),
