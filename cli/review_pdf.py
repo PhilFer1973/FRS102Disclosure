@@ -20,6 +20,11 @@ from db import store
 from pipeline.assemble.delta import compute_delta, summarise
 from pipeline.assemble.register import build_register
 from pipeline.engine.checklist import required_facts, run_checklist
+from pipeline.engine.materiality import (
+    compute_materiality,
+    extract_benchmarks,
+    grade_findings,
+)
 from pipeline.engine.presence import check_presence, gather_narrative
 from pipeline.engine.questions import generate_questions, undetermined_facts
 from pipeline.extract.structure import (
@@ -61,10 +66,13 @@ def main() -> None:
     client = LLMClient()
     fs = assemble(layout, client, args.entity, args.period_end)
     headings = _note_headings(layout)
-    numerical = validate(fs) + check_formatting(fs, note_numbers_present(layout))
+    materiality = compute_materiality(extract_benchmarks(fs))
+    numerical = grade_findings(
+        validate(fs) + check_formatting(fs, note_numbers_present(layout)), materiality)
+    mv = "n/a" if materiality.value is None else f"{materiality.value:,}"
     print(f"extracted {sum(len(s.items) for s in fs.statements.values())} lines across "
-          f"{len(fs.statements)} statements; numerical + formatting: "
-          f"{len(numerical)} findings")
+          f"{len(fs.statements)} statements; materiality: {mv} ({materiality.basis}); "
+          f"numerical + formatting: {len(numerical)} findings")
 
     reqs = store.get_active_requirements(args.edition)
     registry = store.get_fact_registry()
@@ -124,14 +132,19 @@ def main() -> None:
             print(f"  ...written to {args.questions_out}")
 
     if args.register:
+        mat_line = (f"{materiality.value:,} ({materiality.basis})"
+                    if materiality.value else materiality.basis)
         out = build_register(args.register, args.entity, args.period_end,
-                             args.edition, numerical, presence, questions, by_outcome)
+                             args.edition, numerical, presence, questions, by_outcome,
+                             materiality=mat_line)
         print(f"\nissues register written to {out}")
 
     if not args.no_persist:
         accepted = Accepted(args.entity, date.fromisoformat("2024-01-01"),
                             date.fromisoformat(args.period_end), args.edition)
-        eid = store.create_engagement(accepted)
+        eid = store.create_engagement(
+            accepted, materiality_basis=materiality.basis,
+            materiality_value=float(materiality.value) if materiality.value else None)
         rid, seq = store.create_run(eid)
         prior = store.get_prior_run(eid, seq)
         n_num = store.write_findings(rid, numerical)

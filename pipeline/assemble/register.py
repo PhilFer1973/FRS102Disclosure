@@ -74,7 +74,7 @@ def _issue_rows(numerical, presence) -> list[dict]:
 
 def build_register(out_path: str | Path, entity: str, period_end: str, edition: str,
                    numerical: list, presence: list, questions: list,
-                   counts: dict | None = None) -> Path:
+                   counts: dict | None = None, materiality: str | None = None) -> Path:
     wb = Workbook()
     body = Font(name=FONT, size=10)
     wrap = Alignment(vertical="top", wrap_text=True)
@@ -85,7 +85,10 @@ def build_register(out_path: str | Path, entity: str, period_end: str, edition: 
     info = [("FRS 102 disclosure review - issues register", True),
             ("", False), (f"Entity: {entity}", False),
             (f"Period end: {period_end}", False),
-            (f"FRS 102 edition: {edition}", False), ("", False)]
+            (f"FRS 102 edition: {edition}", False)]
+    if materiality:
+        info.append((f"Materiality: {materiality}", False))
+    info.append(("", False))
     miss = sum(1 for p in presence if p.status == "absent")
     verify = sum(1 for p in presence if p.status == "unclear")
     num_real = sum(1 for f in numerical if not f.is_error)
