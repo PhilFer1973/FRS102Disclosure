@@ -19,7 +19,7 @@ accounting-content decisions. **Claude Code builds; Phil signs off accounting co
 | Entities | Single UK companies under **full FRS 102** (all sizes) |
 | Out of scope (router rejects with reason) | Consolidated/group accounts, FRS 101, IFRS, FRS 105 micros, charities, LLPs |
 | Editions | Both: Jan 2022 edition AND Sept 2024 (Periodic Review) edition, routed by period start date (PR2024 effective periods beginning 1 Jan 2026, early adoption detected from compliance statement) |
-| Inputs | PDF, Word (.docx), Excel (.xlsx) |
+| Inputs | **V1: PDF only** (owner decision 2026-06 — no sample Word/Excel accounts available; .docx/.xlsx deferred post-V1). Spec target remains PDF + Word + Excel. |
 | Review directions | Bidirectional: required-and-missing AND present-and-untriggered |
 | Numerical checks | Full deterministic suite (see below) — **in code, never LLM** |
 | Formatting review | Mechanical (code) + stylistic (LLM) |
