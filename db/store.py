@@ -143,6 +143,19 @@ def write_presence_findings(run_id: str, presence_results: list) -> int:
     return len(rows)
 
 
+def write_questions(run_id: str, round_no: int, questions: list) -> int:
+    if not questions:
+        return 0
+    with _connect() as conn, conn.cursor() as cur:
+        cur.executemany(
+            "insert into questions (run_id, round, fact_key, question_text, "
+            "provenance) values (%s,%s,%s,%s,%s)",
+            [(run_id, round_no, q.fact_key, q.question_text, q.provenance)
+             for q in questions])
+        conn.commit()
+    return len(questions)
+
+
 def complete_run(run_id: str, status: str = "complete",
                  assumptions: list[str] | None = None) -> None:
     with _connect() as conn:
