@@ -28,7 +28,29 @@ from pipeline.validate.fs_model import (
     Statement,
 )
 
-_NOTE_HEADING = re.compile(r"^(\d{1,2})\.\s+([^()]+?)(?:\s*\(continued\))?$")
+# Note heading: 'N. Title'. The title may contain parentheses (6. Operating
+# (loss)/profit) and be long (3. Judgments in applying accounting policies and
+# key sources of estimation uncertainty), but contains no sentence period — the
+# discriminator from prose that merely begins 'N.'. '(continued)' excluded.
+_NOTE_HEADING = re.compile(r"^(\d{1,2})\.\s+([^.]+?)\s*$")
+_NOTE_HEADING_MAXLEN = 120
+# Lenient note-NUMBER detector for the formatting checks: a note number is
+# present if a paragraph begins 'N. ' (a space after the period — so sub-numbered
+# policy items like '2.1' don't match). Robust to title quirks (parentheses, long
+# titles, OCR double-periods) that defeat title parsing.
+_NOTE_NUMBER = re.compile(r"^(\d{1,2})\.\s")
+
+
+def note_numbers_present(layout: dict) -> list[str]:
+    seen: set[str] = set()
+    for p in layout.get("paragraphs", []) or []:
+        content = (p.get("content") or "").strip()
+        if "(continued)" in content:
+            continue
+        m = _NOTE_NUMBER.match(content)
+        if m:
+            seen.add(m.group(1))
+    return sorted(seen, key=int)
 
 STRUCTURE_SCHEMA = {
     "type": "object",
@@ -155,13 +177,21 @@ def _poly_top(obj: dict) -> float:
 def _note_headings(layout: dict) -> list[dict]:
     """Note-number headings ('14. Debtors') with page + vertical position, for
     associating each note table with its note number."""
-    out = []
+    out, seen = [], set()
     for p in layout.get("paragraphs", []) or []:
-        m = _NOTE_HEADING.match((p.get("content") or "").strip())
-        if m and "(continued)" not in (p.get("content") or ""):
-            page = (p.get("boundingRegions") or [{}])[0].get("pageNumber")
-            out.append({"number": m.group(1), "title": m.group(2).strip(),
-                        "page": page, "top": _poly_top(p)})
+        content = (p.get("content") or "").strip()
+        if len(content) > _NOTE_HEADING_MAXLEN or "(continued)" in content:
+            continue
+        m = _NOTE_HEADING.match(content)
+        if not m:
+            continue
+        num = m.group(1)
+        if num in seen:                       # keep the first occurrence only
+            continue
+        seen.add(num)
+        page = (p.get("boundingRegions") or [{}])[0].get("pageNumber")
+        out.append({"number": num, "title": m.group(2).strip(),
+                    "page": page, "top": _poly_top(p)})
     return out
 
 

@@ -1,6 +1,27 @@
 """Note-number recovery and cross-cast assembly (no LLM: pure helpers)."""
 
-from pipeline.extract.structure import _note_headings, _note_number_for
+from pipeline.extract.structure import (
+    _note_headings,
+    _note_number_for,
+    note_numbers_present,
+)
+
+
+def test_note_numbers_present_robust_to_title_quirks():
+    layout = {"paragraphs": [
+        {"content": "6. Operating (loss)/profit"},                  # parentheses
+        {"content": "25. . Ultimate parent company"},              # OCR double-period
+        {"content": "3. Judgments in applying accounting policies and key "
+                    "sources of estimation uncertainty"},          # long title
+        {"content": "13. Stocks"},
+        {"content": "2.1 Revenue recognition"},                    # sub-item -> excluded
+        {"content": "Note 4 is referenced here in prose."},        # not 'N. ' start
+    ]}
+    nums = note_numbers_present(layout)
+    assert {"3", "6", "13", "25"} <= set(nums)
+    assert "2" not in nums           # 2.1 sub-item must not register note 2
+    assert "4" not in nums           # prose mention must not register note 4
+    assert nums == sorted(nums, key=int)
 
 
 def _para(text, page, y):

@@ -21,11 +21,16 @@ from pipeline.assemble.register import build_register
 from pipeline.engine.checklist import required_facts, run_checklist
 from pipeline.engine.presence import check_presence, gather_narrative
 from pipeline.engine.questions import generate_questions, undetermined_facts
-from pipeline.extract.structure import _note_headings, assemble
+from pipeline.extract.structure import (
+    _note_headings,
+    assemble,
+    note_numbers_present,
+)
 from pipeline.facts.builder import build_fact_profile
 from pipeline.intake.router import Accepted
 from pipeline.llm_client import LLMClient
 from pipeline.validate.checks import validate
+from pipeline.validate.formatting import check_formatting
 
 
 def main() -> None:
@@ -54,13 +59,15 @@ def main() -> None:
 
     client = LLMClient()
     fs = assemble(layout, client, args.entity, args.period_end)
-    numerical = validate(fs)
+    headings = _note_headings(layout)
+    numerical = validate(fs) + check_formatting(fs, note_numbers_present(layout))
     print(f"extracted {sum(len(s.items) for s in fs.statements.values())} lines across "
-          f"{len(fs.statements)} statements; numerical gate: {len(numerical)} findings")
+          f"{len(fs.statements)} statements; numerical + formatting: "
+          f"{len(numerical)} findings")
 
     reqs = store.get_active_requirements(args.edition)
     registry = store.get_fact_registry()
-    note_titles = [f"{h['number']}. {h['title']}" for h in _note_headings(layout)]
+    note_titles = [f"{h['number']}. {h['title']}" for h in headings]
     needed = required_facts(reqs, args.edition)
     print(f"active rules in scope: {len(reqs)}; facts to resolve: {len(needed)}")
 

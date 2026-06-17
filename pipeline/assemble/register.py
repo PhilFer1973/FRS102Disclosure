@@ -59,9 +59,11 @@ def _issue_rows(numerical, presence) -> list[dict]:
                          else "Could not confirm this required disclosure - verify: ")
                         + req.requirement_text),
             "evidence": p.evidence, "status": "open", "fill": MISSING_FILL})
+    formatting_types = {"note_numbering", "cross_reference_note"}
     for f in numerical:
+        family = "Formatting" if f.check_type in formatting_types else "Numerical"
         rows.append({
-            "category": "Numerical - " + f.check_type,
+            "category": f"{family} - {f.check_type}",
             "citation": f.location,
             "severity": SEVERITY_LABEL.get(f.severity, f.severity),
             "finding": f.description,
