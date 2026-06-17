@@ -78,7 +78,8 @@ def _ocr_hint(line: LineItem, index: dict[str, LineItem], column: str,
     the cast, point at the likely culprit and the casting-implied value. The
     statements over-determine the figures, so this localises OCR errors."""
     delta = computed - stated
-    suspects: list[str] = []
+    # (confidence, text) per suspect; lower OCR confidence = more likely culprit
+    suspects: list[tuple[float, str]] = []
     for comp_id, sign in line.derivation or ():
         comp = index.get(comp_id)
         v = None if comp is None else getattr(comp, column)
@@ -86,14 +87,21 @@ def _ocr_hint(line: LineItem, index: dict[str, LineItem], column: str,
             continue
         implied = v - sign * delta           # value this component needs for the cast
         if _digit_close(v, implied):
-            suspects.append(f"{comp.label!r} read {v:,} but casting implies {implied:,}")
+            cf = comp.confidence_for(column)
+            conf = cf if cf is not None else 1.0
+            ctxt = f" [OCR confidence {cf:.3f}]" if cf is not None else ""
+            suspects.append((conf, f"{comp.label!r} read {v:,} but casting implies "
+                                   f"{implied:,}{ctxt}"))
     if _digit_close(stated, computed):
-        suspects.append(f"the total {line.label!r} read {stated:,} but components "
-                        f"imply {computed:,}")
-    if suspects:
-        return (" PROBABLE OCR MISREAD (single digit): "
-                + "; ".join(suspects) + " — re-read/verify before treating as a finding.")
-    return ""
+        suspects.append((1.0, f"the total {line.label!r} read {stated:,} but "
+                              f"components imply {computed:,}"))
+    if not suspects:
+        return ""
+    suspects.sort(key=lambda s: s[0])        # lowest-confidence first
+    lead = " (most likely the first)" if suspects[0][0] < 0.99 else ""
+    return (" PROBABLE OCR MISREAD (single digit), candidates by ascending OCR "
+            f"confidence{lead}: " + "; ".join(t for _, t in suspects)
+            + " — re-read/verify before treating as a finding.")
 
 
 def _check_container(name: str, items: list[LineItem], index: dict[str, LineItem],
@@ -239,7 +247,29 @@ def check_comparatives(fs: FinancialStatements) -> list[Finding]:
     return findings
 
 
+LOW_CONFIDENCE = 0.95
+
+
+def check_low_confidence(fs: FinancialStatements,
+                         threshold: float = LOW_CONFIDENCE) -> list[Finding]:
+    """Flag extracted figures whose OCR confidence is below threshold — the
+    backstop for a misread that does not happen to break any cast/cross-cast."""
+    findings: list[Finding] = []
+    for stmt in fs.statements.values():
+        for ln in stmt.items:
+            for column in COLUMNS:
+                cf = ln.confidence_for(column)
+                value = getattr(ln, column)
+                if cf is not None and cf < threshold and value is not None:
+                    findings.append(Finding(
+                        "low_confidence", f"{stmt.name}:{ln.id}",
+                        f"'{ln.label}' {column} figure {value:,} extracted at low OCR "
+                        f"confidence {cf:.3f} — verify against the document",
+                        "standard-material", is_error=True))
+    return findings
+
+
 def validate(fs: FinancialStatements) -> list[Finding]:
     """Run the full deterministic numerical gate; returns all findings."""
     return (check_casting(fs) + check_equalities(fs) + check_ratios(fs)
-            + check_comparatives(fs))
+            + check_comparatives(fs) + check_low_confidence(fs))

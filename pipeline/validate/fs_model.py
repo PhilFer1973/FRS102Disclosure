@@ -37,6 +37,11 @@ class LineItem:
     derivation: tuple[tuple[str, int], ...] | None = None
     note_ref: str | None = None        # note number this line points to
     source_loc: str | None = None      # page/table/cell provenance from extraction
+    current_confidence: float | None = None   # OCR confidence per figure
+    prior_confidence: float | None = None
+
+    def confidence_for(self, column: str) -> float | None:
+        return self.current_confidence if column == "current" else self.prior_confidence
 
 
 @dataclass
@@ -124,7 +129,9 @@ def _line_from_dict(d: dict) -> LineItem:
         id=d["id"], label=d["label"],
         current=_money(d.get("current")), prior=_money(d.get("prior")),
         derivation=tuple((c[0], int(c[1])) for c in deriv) if deriv else None,
-        note_ref=d.get("note_ref"), source_loc=d.get("source_loc"))
+        note_ref=d.get("note_ref"), source_loc=d.get("source_loc"),
+        current_confidence=d.get("current_confidence"),
+        prior_confidence=d.get("prior_confidence"))
 
 
 def from_dict(d: dict) -> FinancialStatements:

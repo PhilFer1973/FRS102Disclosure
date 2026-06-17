@@ -31,14 +31,13 @@ def main() -> None:
 
     if args.layout_json:
         layout = json.loads(Path(args.layout_json).read_text(encoding="utf-8"))
-        tables = layout["tables"]
     else:
         from pipeline.extract.pdf_layout import analyze_pdf
         result = analyze_pdf(args.pdf)
-        tables = (result.as_dict() if hasattr(result, "as_dict") else result)["tables"]
+        layout = result.as_dict() if hasattr(result, "as_dict") else result
 
     client = LLMClient()
-    fs = assemble(tables, client, args.entity, args.period_end)
+    fs = assemble(layout, client, args.entity, args.period_end)
 
     for name, stmt in fs.statements.items():
         print(f"\n=== {name} ({len(stmt.items)} lines) ===")

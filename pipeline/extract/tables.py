@@ -49,13 +49,45 @@ class ExtractedRow:
     note: str | None
     current: Decimal | None
     prior: Decimal | None
+    current_confidence: float | None = None   # Azure OCR confidence per figure
+    prior_confidence: float | None = None
 
 
-def _grid(table: dict) -> tuple[dict[tuple[int, int], str], int, int]:
-    g = {}
+WordSpans = list[tuple[int, int, float]]
+
+
+def word_spans(layout: dict) -> WordSpans:
+    """(offset, end, confidence) for every recognised word, for mapping a table
+    cell back to its OCR confidence via the shared character-span index."""
+    out: WordSpans = []
+    for page in layout.get("pages", []) or []:
+        for w in page.get("words", []) or []:
+            sp = w.get("span") or {}
+            if sp.get("offset") is not None and w.get("confidence") is not None:
+                out.append((sp["offset"], sp["offset"] + sp.get("length", 0),
+                            w["confidence"]))
+    return sorted(out)
+
+
+def _cell_confidence(spans: list[dict] | None, ws: WordSpans) -> float | None:
+    confs = []
+    for cs in spans or []:
+        c0 = cs.get("offset")
+        if c0 is None:
+            continue
+        c1 = c0 + cs.get("length", 0)
+        confs += [conf for w0, w1, conf in ws if w0 < c1 and w1 > c0]
+    return min(confs) if confs else None
+
+
+def _grid(table: dict):
+    content: dict[tuple[int, int], str] = {}
+    spans: dict[tuple[int, int], list[dict]] = {}
     for c in table["cells"]:
-        g[(c["rowIndex"], c["columnIndex"])] = (c.get("content") or "").replace("\n", " ").strip()
-    return g, table["rowCount"], table["columnCount"]
+        key = (c["rowIndex"], c["columnIndex"])
+        content[key] = (c.get("content") or "").replace("\n", " ").strip()
+        spans[key] = c.get("spans") or []
+    return content, spans, table["rowCount"], table["columnCount"]
 
 
 def _note_column(g: dict, cc: int) -> int | None:
@@ -65,11 +97,12 @@ def _note_column(g: dict, cc: int) -> int | None:
     return None
 
 
-def extract_statement(table: dict) -> list[ExtractedRow]:
+def extract_statement(table: dict, ws: WordSpans | None = None) -> list[ExtractedRow]:
     """Extract (label, note, current, prior) rows from a two-period statement
     table. Header/blank rows yield no usable row and are skipped, but a blank
-    label with figures (an unlabelled subtotal) is kept with label ''."""
-    g, rc, cc = _grid(table)
+    label with figures (an unlabelled subtotal) is kept with label ''. When
+    `ws` (word spans) is given, the current figure carries its OCR confidence."""
+    g, spans, rc, cc = _grid(table)
     note_col = _note_column(g, cc)
 
     # Money columns: those (excluding label col 0 and the note col) where some
@@ -89,8 +122,8 @@ def extract_statement(table: dict) -> list[ExtractedRow]:
         for c in cols:
             v = parse_money(g.get((row, c), ""))
             if v is not None:
-                return v
-        return None
+                return v, c
+        return None, None
 
     rows: list[ExtractedRow] = []
     started = False  # skip the leading header band (year / '£' rows)
@@ -102,15 +135,22 @@ def extract_statement(table: dict) -> list[ExtractedRow]:
             started = True
         note = g.get((r, note_col), "") if note_col is not None else ""
         note = note if note and re.fullmatch(r"\d{1,2}[A-Za-z]?", note) else None
+        cur_col = pri_col = None
         if even:
-            current, prior = first_money(cur_cols, r), first_money(pri_cols, r)
+            current, cur_col = first_money(cur_cols, r)
+            prior, pri_col = first_money(pri_cols, r)
         else:  # odd/degenerate layout: fall back to left-to-right order
-            vals = [parse_money(g.get((r, c), "")) for c in money_cols]
-            vals = [v for v in vals if v is not None]
-            current = vals[0] if vals else None
-            prior = vals[1] if len(vals) > 1 else None
+            found = [(parse_money(g.get((r, c), "")), c) for c in money_cols]
+            found = [(v, c) for v, c in found if v is not None]
+            current, cur_col = found[0] if found else (None, None)
+            prior, pri_col = found[1] if len(found) > 1 else (None, None)
         if current is None and prior is None and not label:
             continue
-        rows.append(ExtractedRow(label=label, note=note,
-                                 current=current, prior=prior))
+        cc_conf = (_cell_confidence(spans.get((r, cur_col)), ws)
+                   if ws is not None and cur_col is not None else None)
+        pc_conf = (_cell_confidence(spans.get((r, pri_col)), ws)
+                   if ws is not None and pri_col is not None else None)
+        rows.append(ExtractedRow(label=label, note=note, current=current,
+                                 prior=prior, current_confidence=cc_conf,
+                                 prior_confidence=pc_conf))
     return rows

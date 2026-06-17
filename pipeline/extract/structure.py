@@ -10,7 +10,12 @@ structure surfaces as a cast/cross-reference finding rather than a silent error.
 
 from __future__ import annotations
 
-from pipeline.extract.tables import ExtractedRow, extract_statement
+from pipeline.extract.tables import (
+    ExtractedRow,
+    WordSpans,
+    extract_statement,
+    word_spans,
+)
 from pipeline.llm_client import LLMClient
 from pipeline.validate.fs_model import (
     Equality,
@@ -117,7 +122,9 @@ def build_statement(name: str, rows: list[ExtractedRow], structure: dict) -> Sta
             deriv = tuple((c["component_id"], c["sign"]) for c in ln["derivation"])
         items.append(LineItem(id=lid, label=r.label or f"(line {i})",
                               current=r.current, prior=r.prior, derivation=deriv,
-                              note_ref=r.note))
+                              note_ref=r.note,
+                              current_confidence=r.current_confidence,
+                              prior_confidence=r.prior_confidence))
     return Statement(name=name, items=items)
 
 
@@ -132,17 +139,18 @@ def classify_table(table: dict) -> str | None:
     return None
 
 
-def assemble(tables: list[dict], client: LLMClient,
+def assemble(layout: dict, client: LLMClient,
              entity_name: str = "", period_end: str = "") -> FinancialStatements:
-    """PDF Layout tables -> structured FinancialStatements (income + balance
-    sheet). Adds the balance-sheet balancing equality when both anchor lines
-    are identified."""
+    """Azure Layout result -> structured FinancialStatements (income + balance
+    sheet), with per-figure OCR confidence. Adds the balance-sheet balancing
+    equality when both anchor lines are identified."""
     fs = FinancialStatements(entity_name=entity_name, period_end=period_end)
-    for table in tables:
+    ws: WordSpans = word_spans(layout)
+    for table in layout.get("tables", []) or []:
         kind = classify_table(table)
         if kind not in ("income", "balance_sheet"):
             continue
-        rows = extract_statement(table)
+        rows = extract_statement(table, ws)
         structure = structure_statement(kind, rows, client)
         stmt = build_statement(kind, rows, structure)
         fs.statements[kind] = stmt

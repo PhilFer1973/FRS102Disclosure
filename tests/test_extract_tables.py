@@ -49,6 +49,31 @@ def test_extract_pl_like_table():
     assert all(r.label not in ("2024", "") for r in rows)
 
 
+def test_confidence_attached_to_current_figure():
+    # one money word with low confidence on the current cell
+    t = {"rowCount": 3, "columnCount": 4,
+         "cells": [
+             _cell(0, 0, ""), _cell(0, 1, "Note"), _cell(0, 2, "2024"),
+             _cell(0, 3, "2023"),
+             {"rowIndex": 2, "columnIndex": 0, "content": "Debtors", "spans": []},
+             {"rowIndex": 2, "columnIndex": 2, "content": "7,888,837",
+              "spans": [{"offset": 100, "length": 9}]},
+             {"rowIndex": 2, "columnIndex": 3, "content": "7,888,831",
+              "spans": [{"offset": 200, "length": 9}]},
+         ],
+         "boundingRegions": [{"pageNumber": 1}]}
+    layout = {"pages": [{"words": [
+        {"content": "7,888,837", "confidence": 0.962, "span": {"offset": 100, "length": 9}},
+        {"content": "7,888,831", "confidence": 0.999, "span": {"offset": 200, "length": 9}},
+    ]}]}
+    from pipeline.extract.tables import word_spans
+    rows = extract_statement(t, word_spans(layout))
+    debtors = next(r for r in rows if r.label == "Debtors")
+    assert debtors.current == D(7888837)
+    assert abs(debtors.current_confidence - 0.962) < 1e-9
+    assert abs(debtors.prior_confidence - 0.999) < 1e-9
+
+
 def test_extract_balance_sheet_inner_outer_columns():
     # 6-col vertical format: figures land in different columns but read
     # current-then-prior left to right; blank-label subtotals kept.
