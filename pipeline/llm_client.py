@@ -20,6 +20,7 @@ MODELS = {
     "classify": "claude-haiku-4-5",
     "draft": "claude-sonnet-4-6",
     "challenge": "claude-sonnet-4-6",
+    "structure": "claude-sonnet-4-6",
 }
 
 # USD per million tokens (input, output) — platform.claude.com pricing, 2026-06.

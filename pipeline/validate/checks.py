@@ -174,19 +174,28 @@ def check_ratios(fs: FinancialStatements) -> list[Finding]:
 
 
 def check_comparatives(fs: FinancialStatements) -> list[Finding]:
+    """Detect a WHOLESALE-missing comparative column (a CA06/Sch 1 breach), not
+    individual new line items — a provision first recognised this year, or a nil
+    prior, legitimately has no comparative and must not be flagged. Heuristic: if
+    almost every value-bearing line lacks a prior, the comparative column is
+    absent."""
     if not fs.has_comparatives:
         return []
-    findings: list[Finding] = []
     containers: list[tuple[str, list[LineItem]]] = [
         (s.name, s.items) for s in fs.statements.values()]
     containers += [(f"note {n.number}", n.items) for n in fs.notes.values()]
+    findings: list[Finding] = []
     for name, items in containers:
-        for line in items:
-            if line.current is not None and line.prior is None:
-                findings.append(Finding(
-                    "comparative", f"{name}:{line.id}",
-                    f"'{line.label}' has a current-year figure but no comparative",
-                    "standard-material", is_error=False))
+        valued = [ln for ln in items if ln.current is not None]
+        if len(valued) < 4:
+            continue
+        missing = [ln for ln in valued if ln.prior is None]
+        if len(missing) / len(valued) >= 0.8:
+            findings.append(Finding(
+                "comparative", name,
+                f"comparative (prior-year) column appears absent in {name}: "
+                f"{len(missing)} of {len(valued)} value lines have no comparative",
+                "standard-material", is_error=False))
     return findings
 
 

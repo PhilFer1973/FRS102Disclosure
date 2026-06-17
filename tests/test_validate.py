@@ -123,14 +123,23 @@ def test_note_not_crosscasting_to_face_detected():
     assert any(f.check_type in ("cross_reference", "cast") for f in findings)
 
 
-def test_missing_comparative_detected():
+def test_single_new_line_item_not_flagged_as_missing_comparative():
     fs = clean_fs()
     bs = fs.statements["balance_sheet"]
+    # one genuinely new line (no prior) must NOT raise a comparative finding
     bs.items = [it if it.id != "fixed_assets"
                 else LineItem("fixed_assets", "Fixed assets", D(800), None)
                 for it in bs.items]
+    assert check_comparatives(fs) == []
+
+
+def test_wholesale_missing_comparative_column_detected():
+    fs = clean_fs()
+    bs = fs.statements["balance_sheet"]
+    bs.items = [LineItem(it.id, it.label, it.current, None, it.derivation)
+                for it in bs.items]  # strip the entire prior column
     findings = check_comparatives(fs)
-    assert any(f.check_type == "comparative" and "fixed_assets" in f.location
+    assert any(f.check_type == "comparative" and "balance_sheet" in f.location
                for f in findings)
 
 

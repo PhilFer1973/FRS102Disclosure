@@ -71,6 +71,27 @@ def extract_statement(table: dict) -> list[ExtractedRow]:
     label with figures (an unlabelled subtotal) is kept with label ''."""
     g, rc, cc = _grid(table)
     note_col = _note_column(g, cc)
+
+    # Money columns: those (excluding label col 0 and the note col) where some
+    # row holds a parseable figure. In the UK vertical format each year occupies
+    # an equal block of columns (inner + outer), so split the money columns into
+    # two halves: left = current year, right = prior year. This assigns blank
+    # current/prior cells correctly (where left-to-right order would not).
+    money_cols = sorted(
+        c for c in range(1, cc) if c != note_col
+        and any(parse_money(g.get((r, c), "")) is not None for r in range(rc)))
+    half = len(money_cols) // 2
+    even = len(money_cols) % 2 == 0 and half > 0
+    cur_cols = money_cols[:half] if even else money_cols
+    pri_cols = money_cols[half:] if even else money_cols
+
+    def first_money(cols, row):
+        for c in cols:
+            v = parse_money(g.get((row, c), ""))
+            if v is not None:
+                return v
+        return None
+
     rows: list[ExtractedRow] = []
     started = False  # skip the leading header band (year / '£' rows)
     for r in range(rc):
@@ -79,24 +100,17 @@ def extract_statement(table: dict) -> list[ExtractedRow]:
             if not label:
                 continue
             started = True
-        money: list[Decimal] = []
-        note: str | None = None
-        for c in range(1, cc):
-            cell = g.get((r, c), "")
-            if c == note_col:
-                if cell and re.fullmatch(r"\d{1,2}[A-Za-z]?", cell):
-                    note = cell
-                continue
-            v = parse_money(cell)
-            if v is not None:
-                money.append(v)
-        if not money and not label:
+        note = g.get((r, note_col), "") if note_col is not None else ""
+        note = note if note and re.fullmatch(r"\d{1,2}[A-Za-z]?", note) else None
+        if even:
+            current, prior = first_money(cur_cols, r), first_money(pri_cols, r)
+        else:  # odd/degenerate layout: fall back to left-to-right order
+            vals = [parse_money(g.get((r, c), "")) for c in money_cols]
+            vals = [v for v in vals if v is not None]
+            current = vals[0] if vals else None
+            prior = vals[1] if len(vals) > 1 else None
+        if current is None and prior is None and not label:
             continue
-        # NOTE limitation: current/prior assigned by left-to-right order, correct
-        # for fully-populated rows. A row with a blank current but a present prior
-        # would mis-assign; flagged for the structuring step to reconcile.
-        rows.append(ExtractedRow(
-            label=label, note=note,
-            current=money[0] if money else None,
-            prior=money[1] if len(money) > 1 else None))
+        rows.append(ExtractedRow(label=label, note=note,
+                                 current=current, prior=prior))
     return rows
