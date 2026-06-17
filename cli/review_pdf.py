@@ -18,6 +18,7 @@ from pathlib import Path
 
 from db import store
 from pipeline.engine.checklist import required_facts, run_checklist
+from pipeline.engine.presence import check_presence, gather_narrative
 from pipeline.extract.structure import _note_headings, assemble
 from pipeline.facts.builder import build_fact_profile
 from pipeline.intake.router import Accepted
@@ -65,15 +66,21 @@ def main() -> None:
 
     applicable = [r for r in results if r.outcome == "applicable"
                   and r.requirement.direction in ("missing", "both")]
-    print(f"\napplicable required disclosures (sample of {min(8, len(applicable))} "
-          f"of {len(applicable)}):")
-    for r in applicable[:8]:
-        print(f"  [{r.requirement.reference}] {r.requirement.requirement_text[:90]}")
+
+    # Presence detection: of the required disclosures, which are actually present?
+    presence = check_presence(applicable, gather_narrative(layout), client)
+    missing = [p for p in presence if p.status == "absent"]
+    unclear = [p for p in presence if p.status == "unclear"]
+    present = [p for p in presence if p.status == "present"]
+    print(f"\npresence of {len(applicable)} required disclosures: "
+          f"{len(present)} present, {len(missing)} MISSING, {len(unclear)} unclear")
+    print(f"\nMISSING required disclosures ({len(missing)}):")
+    for p in missing[:15]:
+        print(f"  [{p.requirement.requirement.reference}] "
+              f"{p.requirement.requirement.requirement_text[:88]}")
+
     undetermined = [r for r in results if r.outcome == "undetermined"]
-    if undetermined:
-        print(f"\n{len(undetermined)} undetermined (-> question queue), e.g.:")
-        for r in undetermined[:5]:
-            print(f"  [{r.requirement.reference}] needs: {', '.join(r.missing_facts)}")
+    print(f"\n{len(undetermined)} undetermined (-> question queue)")
 
     if not args.no_persist:
         accepted = Accepted(args.entity, date.fromisoformat("2024-01-01"),
@@ -81,10 +88,10 @@ def main() -> None:
         eid = store.create_engagement(accepted)
         rid, seq = store.create_run(eid)
         n_num = store.write_findings(rid, numerical)
-        n_chk = store.write_checklist_findings(rid, results)
+        n_chk = store.write_presence_findings(rid, presence)
         store.complete_run(rid)
         print(f"\npersisted engagement {eid}, run {rid}: {n_num} numerical + "
-              f"{n_chk} checklist findings")
+              f"{n_chk} disclosure findings")
     print("\n" + client.usage_summary())
 
 

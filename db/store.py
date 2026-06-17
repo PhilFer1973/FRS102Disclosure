@@ -117,6 +117,32 @@ def write_checklist_findings(run_id: str, results: list) -> int:
     return len(rows)
 
 
+def write_presence_findings(run_id: str, presence_results: list) -> int:
+    """Write disclosure findings from presence detection: absent => missing
+    disclosure; unclear => verify; present => satisfied (no finding)."""
+    rows = []
+    for p in presence_results:
+        req = p.requirement.requirement
+        if p.status == "absent":
+            reasoning = f"MISSING required disclosure: {req.requirement_text}"
+        elif p.status == "unclear":
+            reasoning = ("Could not confirm this required disclosure is present "
+                         f"— verify: {req.requirement_text}")
+        else:
+            continue
+        rows.append((run_id, f"{req.id}|missing", "checklist", "missing",
+                     req.severity, req.id, f"{req.source} {req.reference}",
+                     reasoning))
+    if rows:
+        with _connect() as conn, conn.cursor() as cur:
+            cur.executemany(
+                "insert into findings (run_id, identity_key, category, direction, "
+                "severity, requirement_id, citation, reasoning, status) "
+                "values (%s,%s,%s,%s,%s,%s,%s,%s,'open')", rows)
+            conn.commit()
+    return len(rows)
+
+
 def complete_run(run_id: str, status: str = "complete",
                  assumptions: list[str] | None = None) -> None:
     with _connect() as conn:
