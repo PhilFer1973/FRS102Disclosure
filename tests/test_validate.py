@@ -224,6 +224,37 @@ def test_fixed_asset_movement_table_rolls():
                for f in check_casting(fs))
 
 
+def test_ocr_misread_localised_in_cast_finding():
+    """A single-digit misread of a component is localised: the finding names the
+    suspect and the casting-implied value (real case: debtors 7,888,837 vs 831)."""
+    bs = Statement("balance_sheet", [
+        line("stocks", "Stocks", 349054, 349054),
+        line("debtors", "Debtors", 7888837, 7888837),   # misread: true is 7888831
+        line("cash", "Cash", 2130087, 2130087),
+        line("total_ca", "Current assets", 10367972, 10367972,
+             deriv=(("stocks", 1), ("debtors", 1), ("cash", 1))),
+    ])
+    fs = FinancialStatements("T", "2025-12-31", rounding_unit=D(1),
+                             statements={"balance_sheet": bs})
+    findings = [f for f in check_casting(fs) if f.check_type == "cast"]
+    assert findings
+    assert "PROBABLE OCR MISREAD" in findings[0].description
+    assert "7,888,831" in findings[0].description  # the casting-implied correction
+
+
+def test_real_cast_error_not_misflagged_as_ocr():
+    """A large, non-digit-close discrepancy is a genuine finding, not 'OCR'."""
+    bs = Statement("balance_sheet", [
+        line("a", "A", 100, 100),
+        line("b", "B", 200, 200),
+        line("total", "Total", 900, 900, deriv=(("a", 1), ("b", 1))),  # 300 vs 900
+    ])
+    fs = FinancialStatements("T", "2025-12-31", rounding_unit=D(1),
+                             statements={"balance_sheet": bs})
+    f = next(x for x in check_casting(fs) if x.check_type == "cast")
+    assert "PROBABLE OCR MISREAD" not in f.description
+
+
 def test_tolerance_absorbs_rounding_noise():
     fs = clean_fs()
     fs.rounding_unit = D(1)

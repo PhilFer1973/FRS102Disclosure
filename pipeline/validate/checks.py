@@ -57,6 +57,45 @@ def _eval_derivation(line: LineItem, index: dict[str, LineItem],
     return total, None
 
 
+def _digit_close(a: Decimal, b: Decimal) -> bool:
+    """Do two figures look like an OCR digit-misread of each other — same number
+    of digits, differing in at most two positions, AND the magnitude change is
+    small relative to the figure (so 7,888,837 vs 7,888,831 qualifies, but
+    100 vs 700 — a 600% jump — does not)?"""
+    if a == b:
+        return False
+    sa, sb = str(abs(int(a))), str(abs(int(b)))
+    if len(sa) != len(sb):
+        return False
+    if sum(x != y for x, y in zip(sa, sb, strict=True)) > 2:
+        return False
+    return abs(a - b) * 100 < abs(a)   # < 1% relative change
+
+
+def _ocr_hint(line: LineItem, index: dict[str, LineItem], column: str,
+              stated: Decimal, computed: Decimal) -> str:
+    """If a single component (or the total) being a digit-misread would resolve
+    the cast, point at the likely culprit and the casting-implied value. The
+    statements over-determine the figures, so this localises OCR errors."""
+    delta = computed - stated
+    suspects: list[str] = []
+    for comp_id, sign in line.derivation or ():
+        comp = index.get(comp_id)
+        v = None if comp is None else getattr(comp, column)
+        if v is None:
+            continue
+        implied = v - sign * delta           # value this component needs for the cast
+        if _digit_close(v, implied):
+            suspects.append(f"{comp.label!r} read {v:,} but casting implies {implied:,}")
+    if _digit_close(stated, computed):
+        suspects.append(f"the total {line.label!r} read {stated:,} but components "
+                        f"imply {computed:,}")
+    if suspects:
+        return (" PROBABLE OCR MISREAD (single digit): "
+                + "; ".join(suspects) + " — re-read/verify before treating as a finding.")
+    return ""
+
+
 def _check_container(name: str, items: list[LineItem], index: dict[str, LineItem],
                      fs: FinancialStatements) -> list[Finding]:
     findings: list[Finding] = []
@@ -84,10 +123,11 @@ def _check_container(name: str, items: list[LineItem], index: dict[str, LineItem
                     "standard-material", is_error=True))
                 continue
             if abs(stated - computed) > tol:
+                hint = _ocr_hint(line, index, column, stated, computed)
                 findings.append(Finding(
                     "cast", f"{name}:{line.id}",
                     f"'{line.label}' ({column}) does not cast: components sum to "
-                    f"{computed}, statement shows {stated} (tolerance {tol})",
+                    f"{computed}, statement shows {stated} (tolerance {tol})." + hint,
                     "standard-material",
                     expected=str(computed), actual=str(stated)))
     return findings
