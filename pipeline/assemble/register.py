@@ -61,7 +61,12 @@ def _issue_rows(numerical, presence) -> list[dict]:
             "evidence": p.evidence, "status": "open", "fill": MISSING_FILL})
     formatting_types = {"note_numbering", "cross_reference_note"}
     for f in numerical:
-        family = "Formatting" if f.check_type in formatting_types else "Numerical"
+        if f.check_type in formatting_types:
+            family = "Formatting"
+        elif f.check_type == "judgment":
+            family = "Judgment"
+        else:
+            family = "Numerical"
         rows.append({
             "category": f"{family} - {f.check_type}",
             "citation": f.location,

@@ -79,8 +79,19 @@ def create_run(engagement_id: str) -> tuple[str, int]:
 
 
 def _identity_key(f: Finding) -> str:
-    # numerical findings dedupe across runs on (check_type, statement_location)
+    # findings dedupe across runs on (check_type, statement_location)
     return f"{f.check_type}|{f.location}"
+
+
+_FORMATTING = {"note_numbering", "cross_reference_note"}
+
+
+def _category(check_type: str) -> str:
+    if check_type in _FORMATTING:
+        return "formatting"
+    if check_type == "judgment":
+        return "judgment"
+    return "numerical"
 
 
 def write_findings(run_id: str, findings: list[Finding]) -> int:
@@ -89,9 +100,9 @@ def write_findings(run_id: str, findings: list[Finding]) -> int:
             cur.executemany(
                 "insert into findings (run_id, identity_key, category, direction, "
                 "severity, citation, reasoning, source_loc, status) "
-                "values (%s,%s,'numerical',NULL,%s,%s,%s,%s,'open')",
-                [(run_id, _identity_key(f), f.severity, f.check_type,
-                  f.description, f.location) for f in findings])
+                "values (%s,%s,%s,NULL,%s,%s,%s,%s,'open')",
+                [(run_id, _identity_key(f), _category(f.check_type), f.severity,
+                  f.check_type, f.description, f.location) for f in findings])
         conn.commit()
     return len(findings)
 

@@ -35,6 +35,7 @@ from pipeline.extract.structure import (
 )
 from pipeline.facts.builder import build_fact_profile
 from pipeline.intake.router import Accepted
+from pipeline.judgment.assess import run_judgment
 from pipeline.llm_client import LLMClient
 from pipeline.validate.checks import validate
 from pipeline.validate.formatting import check_formatting
@@ -54,6 +55,8 @@ def main() -> None:
     ap.add_argument("--register", help="write the Excel issues register here")
     ap.add_argument("--no-presence", action="store_true",
                     help="skip the (paid) presence pass — for question-round iteration")
+    ap.add_argument("--judgment", action="store_true",
+                    help="run the RAG-grounded judgment layer (extra LLM calls)")
     ap.add_argument("--no-persist", action="store_true")
     args = ap.parse_args()
 
@@ -67,9 +70,16 @@ def main() -> None:
     client = LLMClient()
     fs = assemble(layout, client, args.entity, args.period_end)
     headings = _note_headings(layout)
+    narrative = gather_narrative(layout)
     materiality = compute_materiality(extract_benchmarks(fs))
     numerical = grade_findings(
         validate(fs) + check_formatting(fs, note_numbers_present(layout)), materiality)
+    if args.judgment:
+        judgment = run_judgment(narrative, args.edition, client)
+        numerical += judgment
+        print(f"judgment layer: {len(judgment)} findings")
+        for f in judgment:
+            print(f"  [{f.location}] {f.description[:90]}")
     mv = "n/a" if materiality.value is None else f"{materiality.value:,}"
     print(f"extracted {sum(len(s.items) for s in fs.statements.values())} lines across "
           f"{len(fs.statements)} statements; materiality: {mv} ({materiality.basis}); "
@@ -100,7 +110,6 @@ def main() -> None:
     # Presence detection: of the required disclosures, which are actually present?
     presence = []
     if not args.no_presence:
-        narrative = gather_narrative(layout)
         presence = check_presence(applicable, narrative, client)
         # Challenge pass: adversarially re-verify the missing/unclear findings.
         to_challenge = [p for p in presence if p.status in ("absent", "unclear")]
