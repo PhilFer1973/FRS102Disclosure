@@ -34,6 +34,7 @@ from pipeline.extract.structure import (
     note_numbers_present,
 )
 from pipeline.facts.builder import build_fact_profile
+from pipeline.fronthalf.review import review_front_half
 from pipeline.intake.router import Accepted
 from pipeline.judgment.assess import run_judgment
 from pipeline.llm_client import LLMClient
@@ -57,6 +58,8 @@ def main() -> None:
                     help="skip the (paid) presence pass — for question-round iteration")
     ap.add_argument("--judgment", action="store_true",
                     help="run the RAG-grounded judgment layer (extra LLM calls)")
+    ap.add_argument("--fronthalf", action="store_true",
+                    help="review the directors'/strategic report under CA06 + SI Sch 7")
     ap.add_argument("--no-persist", action="store_true")
     args = ap.parse_args()
 
@@ -131,6 +134,18 @@ def main() -> None:
     else:
         print(f"\n{len(applicable)} applicable required disclosures "
               "(presence pass skipped)")
+
+    # Front-half review: directors'/strategic report under CA06 + SI Sch 7.
+    if args.fronthalf:
+        fh = review_front_half(layout, client)
+        fh_missing = [p for p in fh if p.status == "absent"]
+        presence = presence + fh         # merge into the disclosure findings
+        print(f"\nfront-half (CA06/Sch 7): {len(fh_missing)} of {len(fh)} statutory "
+              "items appear MISSING")
+        for p in fh_missing:
+            print(f"  [{p.requirement.requirement.source} "
+                  f"{p.requirement.requirement.reference}] "
+                  f"{p.requirement.requirement.requirement_text[:80]}")
 
     undetermined = [r for r in results if r.outcome == "undetermined"]
     print(f"\n{len(undetermined)} undetermined (-> question queue)")
