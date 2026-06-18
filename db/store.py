@@ -199,13 +199,24 @@ def write_questions(run_id: str, round_no: int, questions: list) -> int:
     if not questions:
         return 0
     with _connect() as conn, conn.cursor() as cur:
-        cur.executemany(
-            "insert into questions (run_id, round, fact_key, question_text, "
-            "provenance) values (%s,%s,%s,%s,%s)",
-            [(run_id, round_no, q.fact_key, q.question_text, q.provenance)
-             for q in questions])
-        conn.commit()
-    return len(questions)
+        cur.execute("select key from fact_registry")
+        registered = {r[0] for r in cur.fetchall()}
+        # questions.fact_key has a NOT NULL FK to fact_registry; an unregistered
+        # key would abort the whole run's persistence. Skip (don't crash) — the
+        # question is still in the Excel register regardless.
+        rows = [(run_id, round_no, q.fact_key, q.question_text, q.provenance)
+                for q in questions if q.fact_key in registered]
+        skipped = sorted({q.fact_key for q in questions
+                          if q.fact_key not in registered})
+        if skipped:
+            print(f"  note: {len(skipped)} question(s) not persisted to DB "
+                  f"(fact_key not registered): {skipped}")
+        if rows:
+            cur.executemany(
+                "insert into questions (run_id, round, fact_key, question_text, "
+                "provenance) values (%s,%s,%s,%s,%s)", rows)
+            conn.commit()
+    return len(rows)
 
 
 def complete_run(run_id: str, status: str = "complete",
