@@ -74,6 +74,34 @@ PROBES: list[Probe] = [
           "entity's position. Flag a bare boilerplate statement where the figures "
           "(e.g. losses, net current liabilities) suggest a fuller assessment is "
           "needed."),
+    Probe("prior_period_restatement",
+          "prior period error restatement comparative Section 10",
+          "If the comparatives are labelled 'as restated' or a prior period "
+          "adjustment has been made, FRS 102 Section 10 requires disclosure of the "
+          "nature of the error and the amount of the correction for each line "
+          "affected. Flag a restatement that lacks this explanatory note."),
+    Probe("deferred_tax_recognition",
+          "deferred tax timing differences recognition Section 29",
+          "Deferred tax must be recognised on timing differences (e.g. accelerated "
+          "capital allowances; tax losses only to the extent recoverable). Flag "
+          "where the accounts suggest deferred tax has been omitted or a deferred "
+          "tax asset recognised without evidence of recoverability."),
+    Probe("dividends_distributable_reserves",
+          "dividends distributable reserves profit and loss account",
+          "Dividends may only be paid out of distributable profits. Flag where "
+          "dividends are paid while the profit and loss reserve is negative or "
+          "insufficient, indicating a possible unlawful distribution."),
+    Probe("related_party_completeness",
+          "related party transactions group undertakings disclosure Section 33",
+          "Where the entity has a parent, subsidiaries or other related parties, "
+          "FRS 102 Section 33 requires disclosure of related party transactions and "
+          "outstanding balances. Flag where group undertakings clearly exist but "
+          "related party disclosure is absent or merely boilerplate."),
+    Probe("depreciation_of_tangible_assets",
+          "tangible fixed assets depreciation useful life Section 17",
+          "Tangible fixed assets with a finite useful life must be depreciated. "
+          "Flag where material tangible assets appear not to be depreciated, or the "
+          "depreciation policy/useful lives are not disclosed."),
 ]
 
 
