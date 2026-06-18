@@ -19,6 +19,7 @@ from pathlib import Path
 from db import store
 from pipeline.assemble.delta import compute_delta, summarise
 from pipeline.assemble.register import build_register
+from pipeline.challenge.verify import challenge_missing
 from pipeline.engine.checklist import required_facts, run_checklist
 from pipeline.engine.materiality import (
     compute_materiality,
@@ -99,11 +100,20 @@ def main() -> None:
     # Presence detection: of the required disclosures, which are actually present?
     presence = []
     if not args.no_presence:
-        presence = check_presence(applicable, gather_narrative(layout), client)
+        narrative = gather_narrative(layout)
+        presence = check_presence(applicable, narrative, client)
+        # Challenge pass: adversarially re-verify the missing/unclear findings.
+        to_challenge = [p for p in presence if p.status in ("absent", "unclear")]
+        if to_challenge:
+            present_kept = [p for p in presence if p.status == "present"]
+            challenged, refuted = challenge_missing(to_challenge, narrative, client)
+            presence = present_kept + challenged
+            print(f"\nchallenge pass: {refuted} of {len(to_challenge)} missing/unclear "
+                  "findings refuted (disclosure actually present) and discarded")
         missing = [p for p in presence if p.status == "absent"]
         unclear = [p for p in presence if p.status == "unclear"]
         present = [p for p in presence if p.status == "present"]
-        print(f"\npresence of {len(applicable)} required disclosures: "
+        print(f"\npresence of {len(applicable)} required disclosures (post-challenge): "
               f"{len(present)} present, {len(missing)} MISSING, {len(unclear)} unclear")
         print(f"\nMISSING required disclosures ({len(missing)}):")
         for p in missing[:15]:
