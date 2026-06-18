@@ -29,18 +29,24 @@ class Materiality:
     overridden: bool = False
 
 
-def _income_line(fs: FinancialStatements, *keywords: str) -> Decimal | None:
+def _income_line(fs: FinancialStatements, *keywords: str,
+                 column: str = "current") -> Decimal | None:
     stmt = fs.statements.get("income")
     if stmt is None:
         return None
     for it in stmt.items:
         label = (it.label or "").lower()
-        if any(k in label for k in keywords) and it.current is not None:
-            return it.current
+        value = it.prior if column == "prior" else it.current
+        if any(k in label for k in keywords) and value is not None:
+            return value
     return None
 
 
 def extract_benchmarks(fs: FinancialStatements) -> dict[str, Decimal | None]:
+    """Current- AND prior-year benchmarks. The accounts present two years on the
+    face, so disclosure/materiality decisions must consider both (Phil's rule):
+    e.g. an accounting policy whose balance is immaterial this year may be
+    material in the prior year and the policy still has to be disclosed."""
     pbt = _income_line(fs, "before tax", "before taxation")
     turnover = _income_line(fs, "turnover", "revenue")
     gross_assets = None
@@ -52,7 +58,12 @@ def extract_benchmarks(fs: FinancialStatements) -> dict[str, Decimal | None]:
                    if "total_current" in it.id and it.current is not None), None)
         if fa is not None and ca is not None:
             gross_assets = fa + ca
-    return {"pbt": pbt, "turnover": turnover, "gross_assets": gross_assets}
+    return {
+        "pbt": pbt, "turnover": turnover, "gross_assets": gross_assets,
+        "pbt_prior": _income_line(fs, "before tax", "before taxation",
+                                  column="prior"),
+        "turnover_prior": _income_line(fs, "turnover", "revenue", column="prior"),
+    }
 
 
 def compute_materiality(benchmarks: dict[str, Decimal | None]) -> Materiality:

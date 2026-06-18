@@ -33,6 +33,38 @@ def test_first_statement_page_and_front_half_text():
     assert "Profit and loss account" not in fh   # page 15 excluded
 
 
+def test_highlights_table_does_not_truncate_front_half():
+    # A Strategic-Report financial-highlights table (Change/% columns) on page 4
+    # must NOT be read as the start of the primary statements. The real P&L is on
+    # page 15. The directors'-report content on pages 5-10 must stay in the front
+    # half (regression: FC.pdf reported going concern / responsibilities missing).
+    highlights = {
+        "rowCount": 1, "columnCount": 8, "cells": [
+            {"rowIndex": 0, "columnIndex": i, "content": v} for i, v in enumerate(
+                ["", "31 December 2024", "31 December 2023", "Change",
+                 "£'000", "£'000", "£'000", "%"])],
+        "boundingRegions": [{"pageNumber": 4}]}
+    real_pl = {
+        "rowCount": 1, "columnCount": 4, "cells": [
+            {"rowIndex": 0, "columnIndex": i, "content": v} for i, v in enumerate(
+                ["", "Note", "2024", "2023", "Turnover", "gross profit",
+                 "operating"])],
+        "boundingRegions": [{"pageNumber": 15}]}
+    layout = {
+        "tables": [highlights, real_pl],
+        "paragraphs": [
+            {"content": "Directors' responsibilities statement",
+             "boundingRegions": [{"pageNumber": 9}]},
+            {"content": "the going concern basis of preparation",
+             "boundingRegions": [{"pageNumber": 9}]},
+        ],
+    }
+    assert first_statement_page(layout) == 15        # not 4
+    fh = gather_front_half(layout)
+    assert "Directors' responsibilities statement" in fh
+    assert "going concern" in fh
+
+
 def test_requirements_cover_key_statutory_items():
     refs = {r[1] for r in FRONT_HALF_REQUIREMENTS}
     assert "s416(3)" in refs           # dividends

@@ -67,7 +67,12 @@ PROBES: list[Probe] = [
           "accounting policies disclosure relevant to understanding",
           "Assess whether the accounting policies are entity-specific or are "
           "generic boilerplate that does not reflect the entity's actual "
-          "transactions and balances. Flag clearly boilerplate/irrelevant policies."),
+          "transactions and balances. Flag clearly boilerplate/irrelevant policies. "
+          "IMPORTANT: the accounts present TWO years, so a policy is only "
+          "unnecessary if the related balance/transaction is immaterial in BOTH the "
+          "current AND the prior year. If the item is material in either year shown, "
+          "the policy is required - do not flag it. When you do flag a policy, say "
+          "you have considered both years."),
     Probe("going_concern_proportionality",
           "going concern basis material uncertainty disclosure",
           "Assess whether the going concern disclosure is proportionate to the "

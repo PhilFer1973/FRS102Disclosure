@@ -62,12 +62,18 @@ class Question:
 
 
 def undetermined_facts(results: list[EngineResult]) -> dict[str, set[str]]:
-    """Unresolved fact -> set of requirement references that need it."""
+    """Unresolved fact -> set of source-qualified citations that need it.
+
+    Citations are source-qualified (e.g. 'FRS102 29.20', 'CA06 s416(3)') so the
+    reviewer can look each one up directly from the question row (Phil's rule:
+    every question/issue carries its source paragraph)."""
     out: dict[str, set[str]] = defaultdict(set)
     for r in results:
         if r.outcome == "undetermined":
+            req = r.requirement
+            citation = f"{req.source} {req.reference}".strip()
             for f in r.missing_facts:
-                out[f].add(r.requirement.reference)
+                out[f].add(citation)
     return out
 
 

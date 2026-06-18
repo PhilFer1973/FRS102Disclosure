@@ -53,10 +53,28 @@ FRONT_HALF_REQUIREMENTS: list[tuple[str, str, str]] = [
 ]
 
 
+def _is_highlights_table(table: dict) -> bool:
+    """A Strategic-Report financial-highlights / year-on-year movement table —
+    NOT a primary statement. These carry a 'Change' and/or '%' column, which a
+    profit-and-loss account or balance sheet never does. They appear in the front
+    half and must not be mistaken for the start of the primary statements
+    (otherwise the directors'/strategic report below them is cut from review)."""
+    cells = {(c.get("content") or "").strip().lower() for c in table.get("cells", [])}
+    return "change" in cells or "%" in cells
+
+
 def first_statement_page(layout: dict) -> int:
+    """Page on which the primary statements begin (the front-half cutoff).
+
+    A genuine primary statement is an income/balance-sheet table that is NOT a
+    highlights/movement table. Without this guard, a financial-highlights table in
+    the Strategic Report is read as the profit-and-loss account and the whole
+    directors'/strategic report below it is excluded from the front-half review.
+    """
     pages = [t["boundingRegions"][0]["pageNumber"]
              for t in layout.get("tables", []) or []
              if classify_table(t) in ("income", "balance_sheet")
+             and not _is_highlights_table(t)
              and t.get("boundingRegions")]
     return min(pages) if pages else 9999
 

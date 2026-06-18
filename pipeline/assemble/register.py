@@ -24,8 +24,9 @@ NUMERIC_FILL = PatternFill("solid", start_color="FCE4D6")
 ISSUE_HEADERS = ["#", "Category", "Citation", "Severity", "Finding",
                  "Evidence / source", "Status", "Reviewer disposition"]
 ISSUE_WIDTHS = [5, 22, 14, 26, 70, 50, 12, 26]
-Q_HEADERS = ["Fact key", "Question", "Affects", "Answer (true/false/value)"]
-Q_WIDTHS = [40, 70, 30, 26]
+Q_HEADERS = ["Fact key", "Question", "Source citation (look up)",
+             "Answer (true/false/value)"]
+Q_WIDTHS = [40, 70, 32, 26]
 
 SEVERITY_LABEL = {"statutory": "Statutory (materiality-blind)",
                   "standard-material": "Standard - material",

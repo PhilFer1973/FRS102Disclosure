@@ -19,6 +19,7 @@ def test_undetermined_facts_aggregates_provenance():
         EngineResult(_req("4.1", []), "applicable"),     # resolved -> ignored
     ]
     prov = undetermined_facts(results)
-    assert prov["is_consolidated"] == {"9.23", "9.27"}
-    assert prov["is_retirement_benefit_plan"] == {"34.40"}
-    assert "4.1" not in {r for refs in prov.values() for r in refs}
+    # citations are source-qualified so each is directly lookup-able
+    assert prov["is_consolidated"] == {"FRS102 9.23", "FRS102 9.27"}
+    assert prov["is_retirement_benefit_plan"] == {"FRS102 34.40"}
+    assert "FRS102 4.1" not in {r for refs in prov.values() for r in refs}
