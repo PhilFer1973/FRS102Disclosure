@@ -1,6 +1,7 @@
 from pipeline.fronthalf.review import (
     FRONT_HALF_REQUIREMENTS,
     first_statement_page,
+    front_half_questions,
     gather_front_half,
 )
 
@@ -65,8 +66,23 @@ def test_highlights_table_does_not_truncate_front_half():
     assert "going concern" in fh
 
 
-def test_requirements_cover_key_statutory_items():
+def test_requirements_cover_always_applicable_items():
     refs = {r[1] for r in FRONT_HALF_REQUIREMENTS}
-    assert "s416(3)" in refs           # dividends
-    assert "s418" in refs              # audit information statement
+    assert "s418" in refs              # audit information statement (always applies)
+    assert "s416(1)(a)" in refs        # directors' names (always applies)
     assert any("Sch7" in r[1] for r in FRONT_HALF_REQUIREMENTS)
+    # conditional items are NOT hard requirements (they over-flag) ...
+    assert "s416(3)" not in refs       # dividend recommendation
+    assert "Sch7 para10" not in refs   # >250-employee disabled-persons policy
+    assert "Sch7 para11" not in refs   # >250-employee engagement statement
+
+
+def test_conditional_items_are_questions_with_citations():
+    qs = front_half_questions()
+    keys = {q.fact_key for q in qs}
+    assert "dividend_recommended" in keys
+    assert "average_employees_gt_250" in keys
+    # every front-half question carries a lookup citation
+    assert all(q.affected_refs and q.affected_refs[0] for q in qs)
+    divq = next(q for q in qs if q.fact_key == "dividend_recommended")
+    assert "s416(3)" in divq.affected_refs[0]

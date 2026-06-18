@@ -178,10 +178,14 @@ def check_equalities(fs: FinancialStatements) -> list[Finding]:
                 continue
             diff = abs(abs(lv) - abs(rv)) if eq.compare_abs else abs(lv - rv)
             if diff > tol:
+                hint = (" PROBABLE OCR MISREAD (single digit) — the two figures "
+                        "differ by a digit; re-read/verify against the document "
+                        "before treating as a finding." if _digit_close(lv, rv)
+                        else "")
                 findings.append(Finding(
                     "cross_reference", eq.description,
                     f"{eq.description} ({column}): {left.label}={lv} != "
-                    f"{right.label}={rv} (tolerance {tol})",
+                    f"{right.label}={rv} (tolerance {tol})." + hint,
                     "standard-material", expected=str(lv), actual=str(rv)))
     return findings
 

@@ -13,17 +13,16 @@ from __future__ import annotations
 
 from pipeline.engine.checklist import EngineResult, Requirement
 from pipeline.engine.presence import PresenceResult, check_presence
+from pipeline.engine.questions import Question
 from pipeline.extract.structure import classify_table
 from pipeline.llm_client import LLMClient
 
 # (citation, ref, requirement text). Severity 'statutory' — company-law items.
+# These ALWAYS apply to a company filing full accounts, so absence is a finding.
 FRONT_HALF_REQUIREMENTS: list[tuple[str, str, str]] = [
     ("CA06", "s416(1)(a)",
      "The directors' report must state the names of the persons who were "
      "directors during the financial year."),
-    ("CA06", "s416(3)",
-     "The directors' report must state the amount (if any) the directors "
-     "recommend should be paid by way of dividend."),
     ("SI2008/410", "Sch7 para7",
      "The directors' report must give an indication of likely future "
      "developments in the business of the company."),
@@ -42,14 +41,23 @@ FRONT_HALF_REQUIREMENTS: list[tuple[str, str, str]] = [
     ("FRS102/CA06", "going_concern_fronthalf",
      "The directors' report or strategic report should address the going "
      "concern basis of preparation."),
-    ("SI2008/410", "Sch7 para11",
-     "If the company had on average more than 250 employees, the directors' "
-     "report must contain a statement on employee engagement (how directors "
-     "have engaged with employees). [Conditional on >250 employees.]"),
-    ("SI2008/410", "Sch7 para10",
-     "If the company had on average more than 250 employees, the directors' "
-     "report must describe its policy on the employment of disabled persons. "
-     "[Conditional on >250 employees.]"),
+]
+
+# Conditional / judgement front-half items. These do NOT always apply (they
+# depend on a fact we cannot read reliably from the narrative — e.g. the
+# >250-employee threshold, or whether a dividend was recommended), so reporting
+# them as "missing" over-flags (reviewer notes #5, #11, #12). They are surfaced
+# as reviewer QUESTIONS carrying their citation, not as hard findings.
+# (fact_key, citation, question text)
+FRONT_HALF_QUESTIONS: list[tuple[str, str, str]] = [
+    ("dividend_recommended", "CA06 s416(3)",
+     "Does the directors' report state the dividend the directors recommend "
+     "(or that none is recommended)? CA06 s416(3) requires this to be stated."),
+    ("average_employees_gt_250", "SI2008/410 Sch7 para10-11",
+     "Did the company employ on average more than 250 people in the year? If so, "
+     "the directors' report must include an employee-engagement statement (Sch 7 "
+     "para 11) and a statement of policy on the employment of disabled persons "
+     "(Sch 7 para 10). Both are not required below 250 employees."),
 ]
 
 
@@ -98,8 +106,17 @@ def _requirements() -> list[EngineResult]:
 
 
 def review_front_half(layout: dict, client: LLMClient) -> list[PresenceResult]:
-    """Presence-check the statutory front-half disclosures; absent => finding."""
+    """Presence-check the always-applicable statutory front-half disclosures;
+    absent => finding. Conditional items (dividend, >250-employee) are not checked
+    here — see front_half_questions()."""
     narrative = gather_front_half(layout)
     if not narrative.strip():
         return []
     return check_presence(_requirements(), narrative, client)
+
+
+def front_half_questions() -> list[Question]:
+    """Conditional front-half items, surfaced as reviewer questions (with their
+    citation) rather than hard findings, so they don't over-flag."""
+    return [Question(fact_key, text, (citation,))
+            for fact_key, citation, text in FRONT_HALF_QUESTIONS]

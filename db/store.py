@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 from contextlib import contextmanager
+from uuid import UUID
 
 import psycopg
 from dotenv import load_dotenv
@@ -128,6 +129,17 @@ def write_checklist_findings(run_id: str, results: list) -> int:
     return len(rows)
 
 
+def _uuid_or_none(value: str) -> str | None:
+    """A DB requirement_id only if it parses as a UUID. Front-half/company-law
+    items carry synthetic ids (e.g. 'fh-going_concern_fronthalf') that aren't rows
+    in the requirements table, so they persist with requirement_id = NULL (their
+    citation and identity_key still drive the register and the delta)."""
+    try:
+        return str(UUID(str(value)))
+    except (ValueError, AttributeError, TypeError):
+        return None
+
+
 def write_presence_findings(run_id: str, presence_results: list) -> int:
     """Write disclosure findings from presence detection: absent => missing
     disclosure; unclear => verify; present => satisfied (no finding)."""
@@ -142,8 +154,8 @@ def write_presence_findings(run_id: str, presence_results: list) -> int:
         else:
             continue
         rows.append((run_id, f"{req.id}|missing", "checklist", "missing",
-                     req.severity, req.id, f"{req.source} {req.reference}",
-                     reasoning))
+                     req.severity, _uuid_or_none(req.id),
+                     f"{req.source} {req.reference}", reasoning))
     if rows:
         with _connect() as conn, conn.cursor() as cur:
             cur.executemany(

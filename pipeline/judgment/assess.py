@@ -101,7 +101,13 @@ PROBES: list[Probe] = [
           "Where the entity has a parent, subsidiaries or other related parties, "
           "FRS 102 Section 33 requires disclosure of related party transactions and "
           "outstanding balances. Flag where group undertakings clearly exist but "
-          "related party disclosure is absent or merely boilerplate."),
+          "related party disclosure is absent or merely boilerplate. DO NOT flag a "
+          "validly-claimed para 33.1A exemption: a company that is a wholly-owned "
+          "member of a group need not disclose transactions with other group members "
+          "wholly owned within that group. 'Wholly owned' means the parent owns all "
+          "the shares, and other group members that are 100% owned throughout the "
+          "group also qualify. If the entity states it has taken this exemption and "
+          "it appears wholly owned, that is correct — do not raise it."),
     Probe("depreciation_of_tangible_assets",
           "tangible fixed assets depreciation useful life Section 17",
           "Tangible fixed assets with a finite useful life must be depreciated. "

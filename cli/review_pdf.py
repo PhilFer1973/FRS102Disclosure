@@ -34,7 +34,7 @@ from pipeline.extract.structure import (
     note_numbers_present,
 )
 from pipeline.facts.builder import build_fact_profile
-from pipeline.fronthalf.review import review_front_half
+from pipeline.fronthalf.review import front_half_questions, review_front_half
 from pipeline.intake.router import Accepted
 from pipeline.judgment.assess import run_judgment
 from pipeline.llm_client import LLMClient
@@ -77,6 +77,15 @@ def main() -> None:
     materiality = compute_materiality(extract_benchmarks(fs))
     numerical = grade_findings(
         validate(fs) + check_formatting(fs, note_numbers_present(layout)), materiality)
+    # Don't report extraction gaps as findings: a cast we cannot evaluate because
+    # the component detail isn't extractable is not an accounting issue (reviewer
+    # rule: "if the detail isn't available that's fine"). Low-confidence and
+    # comparative checks are kept — only eval_error is suppressed.
+    gaps = [f for f in numerical if f.check_type == "eval_error"]
+    numerical = [f for f in numerical if f.check_type != "eval_error"]
+    if gaps:
+        print(f"suppressed {len(gaps)} non-reportable extraction gaps "
+              "(cast could not be evaluated — not surfaced as findings)")
     if args.judgment:
         judgment = run_judgment(narrative, args.edition, client)
         numerical += judgment
@@ -164,6 +173,15 @@ def main() -> None:
                   "affects": list(q.affected_refs), "answer": None}
                  for q in questions], indent=2), encoding="utf-8")
             print(f"  ...written to {args.questions_out}")
+
+    # Conditional front-half items (dividend, >250-employee) are reviewer
+    # questions, not hard findings — see fronthalf.review.front_half_questions.
+    if args.fronthalf:
+        fhq = front_half_questions()
+        questions = questions + fhq
+        print(f"\nfront-half conditional questions ({len(fhq)}):")
+        for q in fhq:
+            print(f"  [{', '.join(q.affected_refs)}] {q.question_text[:80]}")
 
     if args.register:
         mat_line = (f"{materiality.value:,} ({materiality.basis})"
