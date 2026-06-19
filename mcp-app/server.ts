@@ -11,8 +11,13 @@ import { z } from "zod";
 const DIST_DIR = import.meta.filename.endsWith(".ts")
   ? path.join(import.meta.dirname, "dist")
   : import.meta.dirname;
-// mcp-app lives inside the pipeline repo (.../App/mcp-app); the pipeline runs from .../App.
-const APP_DIR = path.resolve(import.meta.dirname, "..");
+// The pipeline runs from .../App. This file lives at .../App/mcp-app (run via tsx)
+// or .../App/mcp-app/dist (run bundled) — anchor on the 'mcp-app' segment so both
+// resolve to App.
+const MARKER = `${path.sep}mcp-app`;
+const APP_DIR = import.meta.dirname.includes(MARKER)
+  ? import.meta.dirname.slice(0, import.meta.dirname.indexOf(MARKER))
+  : path.resolve(import.meta.dirname, "..");
 
 const summarySchema = z.object({
   entity: z.string(),
