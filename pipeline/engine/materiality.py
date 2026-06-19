@@ -66,19 +66,27 @@ def extract_benchmarks(fs: FinancialStatements) -> dict[str, Decimal | None]:
     }
 
 
+def _graded(value: Decimal) -> Decimal | None:
+    """Quantize to the unit; None if it rounds below 1 (a benchmark that yields a
+    materiality of 0 is unusable — almost always an extraction miss, e.g. turnover
+    read as 0 — so fall through to the next basis rather than returning 0)."""
+    v = value.quantize(Decimal(1))
+    return v if v >= 1 else None
+
+
 def compute_materiality(benchmarks: dict[str, Decimal | None]) -> Materiality:
     pbt = benchmarks.get("pbt")
     turnover = benchmarks.get("turnover")
     gross = benchmarks.get("gross_assets")
-    if pbt is not None and pbt > 0:
-        return Materiality("5% of profit before tax", (pbt * PBT_RATE).quantize(Decimal(1)))
+    if pbt is not None and pbt > 0 and (v := _graded(pbt * PBT_RATE)) is not None:
+        return Materiality("5% of profit before tax", v)
     # loss-making (or nil/None PBT): 1% of turnover (owner rule)
-    if turnover is not None and turnover != 0:
-        return Materiality("1% of turnover (loss-making)",
-                           (abs(turnover) * TURNOVER_RATE).quantize(Decimal(1)))
-    if gross is not None and gross != 0:
-        return Materiality("1% of gross assets (no turnover)",
-                           (abs(gross) * GROSS_ASSETS_RATE).quantize(Decimal(1)))
+    if (turnover is not None and turnover != 0
+            and (v := _graded(abs(turnover) * TURNOVER_RATE)) is not None):
+        return Materiality("1% of turnover (loss-making)", v)
+    if (gross is not None and gross != 0
+            and (v := _graded(abs(gross) * GROSS_ASSETS_RATE)) is not None):
+        return Materiality("1% of gross assets (no turnover)", v)
     return Materiality("undetermined — set manually", None)
 
 

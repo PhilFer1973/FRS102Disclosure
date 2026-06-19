@@ -91,8 +91,12 @@ def _grid(table: dict):
 
 
 def _note_column(g: dict, cc: int) -> int | None:
+    """The note-reference column, identified by its header ('Note', 'Notes',
+    'Note(s)', 'Ref'…). Must be excluded from money parsing, else single-digit
+    note references are read as figures and shift every value on the row."""
     for col in range(cc):
-        if g.get((0, col), "").strip().lower() == "note":
+        h = g.get((0, col), "").strip().lower().rstrip(".")
+        if h.startswith("note") or h in ("ref", "refs", "reference"):
             return col
     return None
 
