@@ -19,6 +19,7 @@ from pathlib import Path
 from db import store
 from pipeline.assemble.delta import compute_delta, summarise
 from pipeline.assemble.register import build_register
+from pipeline.assemble.summary import build_summary
 from pipeline.challenge.verify import challenge_missing
 from pipeline.engine.checklist import required_facts, run_checklist
 from pipeline.engine.materiality import (
@@ -54,6 +55,8 @@ def main() -> None:
                     "true/false/value) to seed the fact profile")
     ap.add_argument("--questions-out", help="write the question round to this JSON")
     ap.add_argument("--register", help="write the Excel issues register here")
+    ap.add_argument("--summary-json", help="write the structured review summary "
+                    "(JSON contract for the MCP app front end) here")
     ap.add_argument("--no-presence", action="store_true",
                     help="skip the (paid) presence pass — for question-round iteration")
     ap.add_argument("--judgment", action="store_true",
@@ -190,6 +193,15 @@ def main() -> None:
                              args.edition, numerical, presence, questions, by_outcome,
                              materiality=mat_line)
         print(f"\nissues register written to {out}")
+
+    if args.summary_json:
+        summary = build_summary(args.entity, args.period_end, materiality,
+                                numerical, presence, questions)
+        Path(args.summary_json).write_text(json.dumps(summary, indent=2),
+                                           encoding="utf-8")
+        print(f"summary JSON written to {args.summary_json} "
+              f"({summary['counts']['total_findings']} findings, "
+              f"{summary['counts']['questions']} questions)")
 
     if not args.no_persist:
         accepted = Accepted(args.entity, date.fromisoformat("2024-01-01"),
