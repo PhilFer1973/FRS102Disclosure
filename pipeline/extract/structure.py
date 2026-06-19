@@ -32,13 +32,23 @@ from pipeline.validate.fs_model import (
 # (loss)/profit) and be long (3. Judgments in applying accounting policies and
 # key sources of estimation uncertainty), but contains no sentence period — the
 # discriminator from prose that merely begins 'N.'. '(continued)' excluded.
-_NOTE_HEADING = re.compile(r"^(\d{1,2})\.\s+([^.]+?)\s*$")
+# The period after the note number is OPTIONAL: some sets write '4. Turnover',
+# others '4 Turnover'. A space is still required so sub-numbered policy items
+# ('2.17') don't match.
+_NOTE_HEADING = re.compile(r"^(\d{1,2})\.?\s+([^.]+?)\s*$")
 _NOTE_HEADING_MAXLEN = 120
-# Lenient note-NUMBER detector for the formatting checks: a note number is
-# present if a paragraph begins 'N. ' (a space after the period — so sub-numbered
-# policy items like '2.1' don't match). Robust to title quirks (parentheses, long
-# titles, OCR double-periods) that defeat title parsing.
-_NOTE_NUMBER = re.compile(r"^(\d{1,2})\.\s")
+_NOTE_NUMBER = re.compile(r"^(\d{1,2})\.?\s+(\S+)")
+# Without the period, 'N <word>' would also catch movement dates in the statement
+# of changes in equity ('1 January 2024', '31 December 2023'); exclude any line
+# whose first title word is a month so those aren't read as note headings.
+_MONTHS = frozenset((
+    "january", "february", "march", "april", "may", "june", "july", "august",
+    "september", "october", "november", "december"))
+
+
+def _is_date_start(title: str) -> bool:
+    first = title.split()[0].strip(",.").lower() if title.split() else ""
+    return first in _MONTHS
 
 
 def note_numbers_present(layout: dict) -> list[str]:
@@ -48,7 +58,7 @@ def note_numbers_present(layout: dict) -> list[str]:
         if "(continued)" in content:
             continue
         m = _NOTE_NUMBER.match(content)
-        if m:
+        if m and not _is_date_start(m.group(2)):
             seen.add(m.group(1))
     return sorted(seen, key=int)
 
@@ -195,7 +205,7 @@ def _note_headings(layout: dict) -> list[dict]:
         if len(content) > _NOTE_HEADING_MAXLEN or "(continued)" in content:
             continue
         m = _NOTE_HEADING.match(content)
-        if not m:
+        if not m or _is_date_start(m.group(2)):
             continue
         num = m.group(1)
         if num in seen:                       # keep the first occurrence only
