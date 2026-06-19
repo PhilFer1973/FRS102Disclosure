@@ -51,16 +51,46 @@ def _is_date_start(title: str) -> bool:
     return first in _MONTHS
 
 
+def _is_note_title(s: str) -> bool:
+    """A plausible note title following a bare note number on its own line.
+    Excludes the running page header, continued markers, dates and figures, so a
+    page number ('16' followed by 'Teneo ... Notes forming part ...') is not read
+    as a note heading."""
+    if not (3 <= len(s) <= 90):
+        return False
+    low = s.lower()
+    if "notes forming part" in low or "continued" in low or "financial statements" in low:
+        return False
+    if _NOTE_NUMBER.match(s) or _is_date_start(s):
+        return False
+    return bool(re.match(r"^[A-Za-z(]", s))   # a word or '(a) ...' sub-heading
+
+
 def note_numbers_present(layout: dict) -> list[str]:
-    seen: set[str] = set()
-    for p in layout.get("paragraphs", []) or []:
-        content = (p.get("content") or "").strip()
+    paras = [(p.get("content") or "").strip()
+             for p in layout.get("paragraphs", []) or []]
+    inline: set[str] = set()
+    split: set[str] = set()
+    for i, content in enumerate(paras):
         if "(continued)" in content:
             continue
         m = _NOTE_NUMBER.match(content)
         if m and not _is_date_start(m.group(2)):
-            seen.add(m.group(1))
-    return sorted(seen, key=int)
+            inline.add(m.group(1))
+            continue
+        # Split heading: a bare number on its own line, title in the next
+        # paragraph (e.g. Teneo's notes 7 and 8).
+        if re.fullmatch(r"\d{1,2}", content):
+            nxt = next((p for p in paras[i + 1:i + 3] if p), "")
+            if _is_note_title(nxt):
+                split.add(content)
+    # Accept split-heading numbers only where they fill a gap WITHIN the
+    # inline-detected range, so stray 'figure + label' pairs outside the note
+    # sequence (e.g. '98' / 'annual accounts') aren't read as notes.
+    if inline:
+        lo, hi = min(map(int, inline)), max(map(int, inline))
+        inline |= {n for n in split if lo <= int(n) <= hi}
+    return sorted(inline, key=int)
 
 STRUCTURE_SCHEMA = {
     "type": "object",
