@@ -1,0 +1,25 @@
+{
+  "name": "frs102-reviewer-mcp-app",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "FRS 102 Disclosure Reviewer — MCP app for Claude Desktop",
+  "private": true,
+  "scripts": {
+    "build": "cross-env INPUT=mcp-app.html vite build",
+    "stdio": "tsx main.ts",
+    "dev": "cross-env NODE_ENV=development INPUT=mcp-app.html vite build --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.7.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.0.0",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}
