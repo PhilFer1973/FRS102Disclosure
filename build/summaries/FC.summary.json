@@ -1,0 +1,202 @@
+{
+  "entity": "Four Communications Limited",
+  "period_end": "2024-12-31",
+  "materiality": {
+    "value": 193481.0,
+    "basis": "1% of turnover (loss-making)",
+    "display": "\u00a3193k"
+  },
+  "counts": {
+    "total_findings": 7,
+    "by_category": {
+      "judgement": 2,
+      "disclosure": 1,
+      "numerical": 4,
+      "formatting": 0
+    },
+    "need_judgement": 2,
+    "questions": 27
+  },
+  "findings": [
+    {
+      "category": "numerical",
+      "citation": "balance_sheet:total_current_assets",
+      "severity": "standard-immaterial-candidate",
+      "text": "'(line 8)' (prior) does not cast: components sum to 10367978, statement shows 10367972 (tolerance 2). PROBABLE OCR MISREAD (single digit), candidates by ascending OCR confidence (most likely the first): 'Debtors' read 7,888,837 but casting implies 7,888,831 [OCR confidence 0.962]; 'Cash at bank and in hand' read 2,130,087 but casting implies 2,130,081 [OCR confidence 0.993]; 'Stocks' read 349,054 but casting implies 349,048 [OCR confidence 0.996]; the total '(line 8)' read 10,367,972 but components imply 10,367,978 \u2014 re-read/verify before treating as a finding."
+    },
+    {
+      "category": "numerical",
+      "citation": "note 14 total casts to Debtors on the balance_sheet",
+      "severity": "standard-immaterial-candidate",
+      "text": "note 14 total casts to Debtors on the balance_sheet (prior): Total=7888831 != Debtors=7888837 (tolerance 1). PROBABLE OCR MISREAD (single digit) \u2014 the two figures differ by a digit; re-read/verify against the document before treating as a finding."
+    },
+    {
+      "category": "numerical",
+      "citation": "balance_sheet:called_up_share_capital",
+      "severity": "standard-material",
+      "text": "'Called up share capital' prior figure 206,541 extracted at low OCR confidence 0.852 \u2014 verify against the document"
+    },
+    {
+      "category": "numerical",
+      "citation": "balance_sheet:share_premium_account",
+      "severity": "standard-material",
+      "text": "'Share premium account' prior figure 1,093,221 extracted at low OCR confidence 0.836 \u2014 verify against the document"
+    },
+    {
+      "category": "judgement",
+      "citation": "FRS102 10.21",
+      "severity": "standard-material",
+      "text": "The 2023 comparatives on the statement of financial position and in note 14 (Debtors) and note 17 (Creditors) are labelled 'as restated', reflecting a netting of intercompany balances under a Multilateral Netting Deed. While note 14 briefly explains the mechanics of the offset, neither that note nor any other note discloses: (a) the nature of the prior period error (i.e. whether this is a correction of a misstatement or merely a reclassification, and why the original presentation was incorrect); (b) the amount of the correction for each financial statement line affected on a gross-to-net basis with clear quantification of the restatement impact; or (c) confirmation of which other lines, if any, were affected. FRS 102 Section 10 requires that when a prior period error is corrected, the entity discloses the nature of the error and the amount of the correction for each financial statement line item affected. This disclosure is absent, meaning users cannot assess the significance or propriety of the restatement. (confidence 0.82)"
+    },
+    {
+      "category": "judgement",
+      "citation": "FRS102 29.6",
+      "severity": "standard-material",
+      "text": "The company recognises a deferred tax asset of \u00a341,970 at 31 December 2024, of which \u00a341,306 (approximately 98%) relates to tax losses carried forward. The company reported an operating loss in 2024 and a significant decline in profitability. While the accounting policy correctly states that recognition of deferred tax assets is limited to the extent it is probable they will be recovered against future taxable profits, the notes provide no evidence or explanation to support the recoverability of this loss-related deferred tax asset \u2014 no forward-looking profit forecasts, no discussion of the basis for concluding recovery is probable, and no disclosure of the amount of unrecognised losses (if any). Given the loss-making position and difficult trading conditions described, the absence of any recoverability assessment or disclosure is a quality concern. (confidence 0.72)"
+    },
+    {
+      "category": "disclosure",
+      "citation": "FRS102/CA06 going_concern_fronthalf",
+      "severity": "statutory",
+      "status": "unclear",
+      "text": "Verify: The directors' report or strategic report should address the going concern basis of preparation."
+    }
+  ],
+  "questions": [
+    {
+      "fact_key": "applies_section_1A",
+      "question": "Does the company apply FRS 102 Section 1A (Micro-entities)?",
+      "citation": "FRS102 1A.10, FRS102 1A.16, FRS102 1A.18, FRS102 1A.22, FRS102 1A.6, FRS102 1A.6A, FRS102 1A.8, FRS102 1AA.3, FRS102 1AA.4, FRS102 1AA.6, FRS102 1AB.2, FRS102 1AB.3, FRS102 1AB.4, FRS102 1AC.1, FRS102 1AC.10, FRS102 1AC.11, FRS102 1AC.12, FRS102 1AC.13, FRS102 1AC.14, FRS102 1AC.16, FRS102 1AC.20, FRS102 1AC.21, FRS102 1AC.23, FRS102 1AC.24, FRS102 1AC.27, FRS102 1AC.28, FRS102 1AC.29, FRS102 1AC.3, FRS102 1AC.30, FRS102 1AC.31, FRS102 1AC.32, FRS102 1AC.33, FRS102 1AC.34, FRS102 1AC.35, FRS102 1AC.36, FRS102 1AC.37, FRS102 1AC.38, FRS102 1AC.39, FRS102 1AC.5, FRS102 1AC.7, FRS102 1AC.8, FRS102 1AC.9"
+    },
+    {
+      "fact_key": "is_qualifying_entity",
+      "question": "Is the company a qualifying entity as defined in FRS 102 \u2014 that is, a member of a group where a parent prepares publicly available consolidated accounts that include this company?",
+      "citation": "FRS102 1AC.34, FRS102 3.17, FRS102 7.10, FRS102 7.14, FRS102 7.17, FRS102 7.20, FRS102 7.3, FRS102 7.7"
+    },
+    {
+      "fact_key": "applies_paragraph_1A1_adapted_balance_sheet_format",
+      "question": "Does the company apply the adapted balance sheet format under FRS 102 Section 1A paragraph 1A1?",
+      "citation": "FRS102 1AA.3, FRS102 1AB.2, FRS102 1AC.13, FRS102 29.23, FRS102 4.2A, FRS102 5.5B"
+    },
+    {
+      "fact_key": "is_parent_entity",
+      "question": "Is the company a parent entity that controls one or more subsidiaries?",
+      "citation": "FRS102 14.15A, FRS102 15.21A, FRS102 9.27, FRS102 9.27A, FRS102 9.27B, FRS102 9.8"
+    },
+    {
+      "fact_key": "uses_consolidation_exemption",
+      "question": "Does the company use the consolidation exemption under FRS 102 and is therefore not preparing consolidated financial statements?",
+      "citation": "FRS102 14.15A, FRS102 15.21A, FRS102 3.17, FRS102 7.14, FRS102 7.7, FRS102 9.27A"
+    },
+    {
+      "fact_key": "is_first_time_adopter_frs102",
+      "question": "Is the company a first-time adopter of FRS 102 in these financial statements?",
+      "citation": "FRS102 34.11C, FRS102 35.12, FRS102 35.13, FRS102 35.14, FRS102 35.15"
+    },
+    {
+      "fact_key": "is_small_entity",
+      "question": "Is the company a small entity as defined by FRS 102?",
+      "citation": "FRS102 3.17, FRS102 7.10, FRS102 7.17, FRS102 7.20, FRS102 7.3"
+    },
+    {
+      "fact_key": "has_acquisition_of_subsidiary_or_business_unit",
+      "question": "Has the company acquired a subsidiary or business unit during the period or in a prior period?",
+      "citation": "FRS102 19.16, FRS102 19.25, FRS102 19.25A, FRS102 7.10"
+    },
+    {
+      "fact_key": "has_impaired_assets",
+      "question": "Does the company have any impaired assets recorded in these financial statements?",
+      "citation": "FRS102 1AC.20, FRS102 27.32, FRS102 27.33, FRS102 27.33A"
+    },
+    {
+      "fact_key": "has_impairment_reversal_on_fixed_assets",
+      "question": "Has the company reversed any impairment loss on fixed assets during the period?",
+      "citation": "FRS102 1AC.21, FRS102 27.32, FRS102 27.33, FRS102 27.33A"
+    },
+    {
+      "fact_key": "has_investments_in_associates",
+      "question": "Does the company hold investments in associates?",
+      "citation": "FRS102 14.12, FRS102 14.13, FRS102 14.15, FRS102 14.15A"
+    },
+    {
+      "fact_key": "has_share_based_payment_arrangements",
+      "question": "Does the company have share-based payment arrangements in place?",
+      "citation": "FRS102 26.18, FRS102 26.19, FRS102 26.22, FRS102 26.23"
+    },
+    {
+      "fact_key": "is_lessee",
+      "question": "Is the company a lessee under any lease arrangements?",
+      "citation": "FRS102 16.11, FRS102 20.13, FRS102 20.14, FRS102 20.16"
+    },
+    {
+      "fact_key": "is_lessor_operating_lease",
+      "question": "Does the company act as a lessor under any operating leases?",
+      "citation": "FRS102 16.11, FRS102 20.24, FRS102 20.30, FRS102 20.31"
+    },
+    {
+      "fact_key": "prepares_consolidated_financial_statements",
+      "question": "Does the company itself prepare consolidated (group) financial statements by consolidating its subsidiaries?",
+      "citation": "FRS102 19.25A, FRS102 30.22, FRS102 9.21, FRS102 9.23"
+    },
+    {
+      "fact_key": "has_finance_lease_assets",
+      "question": "Does the company hold any assets under finance leases?",
+      "citation": "FRS102 11.42, FRS102 20.13, FRS102 20.14"
+    },
+    {
+      "fact_key": "has_group_reconstruction_under_merger_accounting",
+      "question": "Has the company undertaken a group reconstruction accounted for using merger accounting?",
+      "citation": "FRS102 19.30, FRS102 19.31, FRS102 19.33"
+    },
+    {
+      "fact_key": "has_interests_in_jointly_controlled_entities",
+      "question": "Does the company have interests in jointly controlled entities?",
+      "citation": "FRS102 15.20, FRS102 15.21, FRS102 15.21A"
+    },
+    {
+      "fact_key": "has_service_concession_arrangement",
+      "question": "Does the company have any service concession arrangements?",
+      "citation": "FRS102 34.16B, FRS102 34.16C, FRS102 34.56"
+    },
+    {
+      "fact_key": "presentation_currency_differs_from_functional_currency",
+      "question": "Does the company's presentation currency differ from its functional currency?",
+      "citation": "FRS102 30.17, FRS102 30.18, FRS102 30.26"
+    },
+    {
+      "fact_key": "applies_paragraph_1A2_adapted_profit_and_loss_account_format",
+      "question": "Does the company apply the adapted profit and loss account format under FRS 102 Section 1A paragraph 1A2?",
+      "citation": "FRS102 5.5B, FRS102 5.7A"
+    },
+    {
+      "fact_key": "applies_schedule1_paragraph_1A1",
+      "question": "Does the company apply Schedule 1 paragraph 1A1?",
+      "citation": "FRS102 4.2B, FRS102 4.4A"
+    },
+    {
+      "fact_key": "has_accounting_policy_changes",
+      "question": "Has the company changed any of its accounting policies during the period?",
+      "citation": "FRS102 2.11, FRS102 6.2"
+    },
+    {
+      "fact_key": "has_defined_benefit_plan",
+      "question": "Does the company operate or participate in any defined benefit pension plans?",
+      "citation": "FRS102 28.41, FRS102 28.41A"
+    },
+    {
+      "fact_key": "has_issued_financial_guarantee_contracts",
+      "question": "Has the company issued any financial guarantee contracts?",
+      "citation": "FRS102 11.42, FRS102 21.17A"
+    },
+    {
+      "fact_key": "dividend_recommended",
+      "question": "Does the directors' report state the dividend the directors recommend (or that none is recommended)? CA06 s416(3) requires this to be stated.",
+      "citation": "CA06 s416(3)"
+    },
+    {
+      "fact_key": "average_employees_gt_250",
+      "question": "Did the company employ on average more than 250 people in the year? If so, the directors' report must include an employee-engagement statement (Sch 7 para 11) and a statement of policy on the employment of disabled persons (Sch 7 para 10). Both are not required below 250 employees.",
+      "citation": "SI2008/410 Sch7 para10-11"
+    }
+  ]
+}
