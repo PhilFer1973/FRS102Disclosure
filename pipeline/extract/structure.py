@@ -158,8 +158,20 @@ def build_statement(name: str, rows: list[ExtractedRow], structure: dict) -> Sta
 
 def classify_table(table: dict) -> str | None:
     """Keyword classifier: which primary statement (if any) this table is."""
-    labels = " ".join((c.get("content") or "").lower() for c in table["cells"])
-    if "net assets" in labels or "total assets less current liabilities" in labels:
+    # Normalise whitespace so a line-wrapped subtotal ('Total assets less\ncurrent
+    # liabilities') still matches as a single phrase.
+    labels = " ".join(
+        " ".join((c.get("content") or "").lower() for c in table["cells"]).split())
+    # Balance sheet: an asset/liability structure. Match the classic subtotals OR
+    # 'fixed assets' alongside a balance-sheet-only line (net current assets /
+    # shareholders' funds — older UK style). Requiring 'fixed assets' for that
+    # second path keeps the statement of changes in equity (share capital /
+    # premium / total equity, no fixed assets) from being read as a balance sheet.
+    if ("net assets" in labels or "total assets less current" in labels):
+        return "balance_sheet"
+    if "fixed assets" in labels and ("shareholders' funds" in labels
+                                     or "net current assets" in labels
+                                     or "called up share capital" in labels):
         return "balance_sheet"
     if "turnover" in labels and ("gross profit" in labels
                                  or "operating" in labels):
