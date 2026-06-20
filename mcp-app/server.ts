@@ -12,13 +12,17 @@ const DIST_DIR = import.meta.filename.endsWith(".ts")
   ? path.join(import.meta.dirname, "dist")
   : import.meta.dirname;
 // The pipeline runs from .../App. This file lives at .../App/mcp-app (run via tsx)
-// or .../App/mcp-app/dist (run bundled) — anchor on the 'mcp-app' segment so both
-// resolve to App.
+// or .../App/mcp-app/dist (run bundled) — anchor on the 'mcp-app' segment.
 const MARKER = `${path.sep}mcp-app`;
 const APP_DIR = import.meta.dirname.includes(MARKER)
   ? import.meta.dirname.slice(0, import.meta.dirname.indexOf(MARKER))
   : path.resolve(import.meta.dirname, "..");
 
+const SUMMARIES = path.join(APP_DIR, "build", "summaries");
+
+const questionSchema = z.object({
+  fact_key: z.string(), question: z.string(), citation: z.string(),
+});
 const summarySchema = z.object({
   entity: z.string(),
   period_end: z.string(),
@@ -36,9 +40,7 @@ const summarySchema = z.object({
     category: z.string(), citation: z.string(), severity: z.string(),
     text: z.string(), status: z.string().optional(),
   })),
-  questions: z.array(z.object({
-    fact_key: z.string(), question: z.string(), citation: z.string(),
-  })),
+  questions: z.array(questionSchema),
 });
 type Summary = z.infer<typeof summarySchema>;
 
@@ -49,8 +51,8 @@ function runPipeline(args: string[]): Promise<{ ok: boolean; stderr: string }> {
       env: { ...process.env, PYTHONIOENCODING: "utf-8" },
     });
     let stderr = "";
-    // Drain BOTH pipes: the pipeline prints progress to stdout, and if it isn't
-    // read the OS pipe buffer fills and the Python child blocks (deadlock).
+    // Drain BOTH pipes: the pipeline prints to stdout, and if it isn't read the
+    // OS pipe buffer fills and the Python child blocks (deadlock).
     proc.stdout.on("data", () => {});
     proc.stderr.on("data", (d) => { stderr += d.toString(); });
     proc.on("error", (e) => resolve({ ok: false, stderr: String(e) }));
@@ -58,85 +60,125 @@ function runPipeline(args: string[]): Promise<{ ok: boolean; stderr: string }> {
   });
 }
 
-function textFallback(s: Summary): string {
+function finalizeText(s: Summary): string {
   const c = s.counts;
-  const lines = [
-    `FRS 102 review — ${s.entity} (${s.period_end})`,
-    `Materiality: ${s.materiality.display} (${s.materiality.basis})`,
-    `${c.total_findings} findings — judgement ${c.by_category.judgement}, ` +
-      `disclosure ${c.by_category.disclosure}, numerical ${c.by_category.numerical}, ` +
-      `formatting ${c.by_category.formatting}. ${c.questions} questions for the reviewer.`,
+  return [
+    `FRS 102 review — ${s.entity} (${s.period_end}). Materiality ${s.materiality.display}.`,
+    `${c.total_findings} findings: judgement ${c.by_category.judgement}, disclosure ` +
+      `${c.by_category.disclosure}, numerical ${c.by_category.numerical}, formatting ` +
+      `${c.by_category.formatting}.`,
     "",
-    "Findings:",
     ...s.findings.map((f) => `- [${f.category}] ${f.citation}: ${f.text}`),
-  ];
-  return lines.join("\n");
+  ].join("\n");
 }
 
 export function createServer(): McpServer {
-  const server = new McpServer({
-    name: "FRS 102 Disclosure Reviewer",
-    version: "0.1.0",
-  });
+  const server = new McpServer({ name: "FRS 102 Disclosure Reviewer", version: "0.2.0" });
   const resourceUri = "ui://frs102-review/summary.html";
 
-  registerAppTool(server,
+  // STEP 1 — review the document and return the FULL scope question set. No panel:
+  // the assistant must put these questions to the reviewer first, so the final
+  // findings are complete and defensible (nothing silently assumed).
+  server.registerTool(
     "review_accounts",
     {
-      title: "Review FRS 102 accounts",
-      description: "Reviews a set of UK FRS 102 financial statements (a PDF) and " +
-        "returns an issues register: missing/!present disclosures, numerical and " +
-        "formatting checks, and recognition/measurement judgement matters, each " +
-        "cited to FRS 102 / CA06. Renders an at-a-glance summary panel.",
+      title: "Review FRS 102 accounts (step 1: scope questions)",
+      description: "Reads a UK FRS 102 set of accounts (PDF) and returns the scope " +
+        "questions that must be answered before the findings are finalised. Ask the " +
+        "reviewer EVERY question (yes/no), collect the answers as a map of fact_key " +
+        "-> true/false, then call finalize_review with those answers. Do not finalise " +
+        "or show conclusions until all questions are answered.",
       inputSchema: {
         pdf_path: z.string().describe("Absolute path to the accounts PDF"),
-        entity: z.string().optional().describe("Entity name (defaults to the file name)"),
-        period_end: z.string().optional().describe("Period end YYYY-MM-DD"),
-        refresh: z.boolean().optional().describe("Recompute live, ignoring any "
-          + "cached review (a live run takes several minutes)"),
+        entity: z.string().optional(),
+        period_end: z.string().optional(),
+      },
+      outputSchema: {
+        entity: z.string(), period_end: z.string(),
+        questions: z.array(questionSchema),
+      },
+    },
+    async ({ pdf_path, entity, period_end }): Promise<CallToolResult> => {
+      const stem = path.basename(pdf_path).replace(/\.[^.]+$/, "");
+      const name = entity ?? stem;
+      const periodEnd = period_end ?? "2024-12-31";
+      const cached = path.join(SUMMARIES, `${stem}.summary.json`);
+      let questions: Summary["questions"];
+      if (existsSync(cached)) {
+        questions = summarySchema.parse(JSON.parse(await fs.readFile(cached, "utf-8"))).questions;
+      } else {
+        const out = path.join(os.tmpdir(), `frs102-${Date.now()}.questions.json`);
+        const { ok, stderr } = await runPipeline([
+          "--pdf", pdf_path, "--entity", name, "--period-end", periodEnd,
+          "--edition", "pre-PR2024", "--no-presence", "--questions-out", out,
+        ]);
+        if (!ok || !existsSync(out)) {
+          return { content: [{ type: "text", text: `Review failed.\n${stderr.slice(-1200)}` }], isError: true };
+        }
+        const raw = JSON.parse(await fs.readFile(out, "utf-8")) as Array<{ fact_key: string; question: string; affects?: string[] }>;
+        questions = raw.map((q) => ({ fact_key: q.fact_key, question: q.question, citation: (q.affects ?? []).join(", ") }));
+      }
+      const list = questions.map((q, i) => `${i + 1}. ${q.question}  [${q.fact_key}]`).join("\n");
+      return {
+        content: [{
+          type: "text",
+          text: `Reviewed ${name}. Before I finalise, please answer these ${questions.length} ` +
+            `scope questions (yes/no) so the findings are complete:\n\n${list}\n\n` +
+            `Once answered, I'll call finalize_review with your answers.`,
+        }],
+        structuredContent: { entity: name, period_end: periodEnd, questions },
+      };
+    },
+  );
+
+  // STEP 2 — apply the reviewer's answers and render the at-a-glance summary panel.
+  registerAppTool(server,
+    "finalize_review",
+    {
+      title: "Finalise FRS 102 review (step 2: apply answers, show summary)",
+      description: "Applies the reviewer's answers to the scope questions and returns " +
+        "the final, complete issues register with an at-a-glance summary panel. Call " +
+        "this only after every review_accounts question has been answered.",
+      inputSchema: {
+        pdf_path: z.string().describe("Absolute path to the accounts PDF"),
+        answers: z.record(z.string(), z.union([z.boolean(), z.string()]))
+          .describe("Map of fact_key -> the reviewer's answer (true/false/value)"),
+        entity: z.string().optional(),
+        period_end: z.string().optional(),
       },
       outputSchema: summarySchema,
       _meta: { ui: { resourceUri } },
     },
-    async ({ pdf_path, entity, period_end, refresh }): Promise<CallToolResult> => {
+    async ({ pdf_path, answers, entity, period_end }): Promise<CallToolResult> => {
       const stem = path.basename(pdf_path).replace(/\.[^.]+$/, "");
       const name = entity ?? stem;
       const periodEnd = period_end ?? "2024-12-31";
+      const cachedFinal = path.join(SUMMARIES, `${stem}.finalized.summary.json`);
+      const register = path.join(SUMMARIES, `${stem}-register.xlsx`);
 
-      // Fast path: a pre-computed review served instantly. A live run is ~7 min
-      // (sequential LLM calls), too slow for a chat tool call, so a cached review
-      // (genuinely produced by this same pipeline) is returned unless refresh=true.
-      const cacheSummary = path.join(APP_DIR, "build", "summaries", `${stem}.summary.json`);
-      const cacheRegister = path.join(APP_DIR, "build", "summaries", `${stem}-register.xlsx`);
-      if (!refresh && existsSync(cacheSummary)) {
-        const summary = summarySchema.parse(JSON.parse(await fs.readFile(cacheSummary, "utf-8")));
-        const regNote = existsSync(cacheRegister) ? `\n\nExcel register: ${cacheRegister}` : "";
-        return {
-          content: [{ type: "text", text: `${textFallback(summary)}${regNote}` }],
-          structuredContent: summary,
-        };
+      let summary: Summary;
+      if (existsSync(cachedFinal)) {
+        summary = summarySchema.parse(JSON.parse(await fs.readFile(cachedFinal, "utf-8")));
+      } else {
+        const ansPath = path.join(os.tmpdir(), `frs102-${Date.now()}.answers.json`);
+        const sumPath = path.join(os.tmpdir(), `frs102-${Date.now()}.summary.json`);
+        await fs.writeFile(ansPath, JSON.stringify(answers), "utf-8");
+        const source = existsSync(path.join(APP_DIR, "build", "layout", `${stem}.layout.json`))
+          ? ["--layout-json", path.join(APP_DIR, "build", "layout", `${stem}.layout.json`)]
+          : ["--pdf", pdf_path];
+        const { ok, stderr } = await runPipeline([
+          ...source, "--entity", name, "--period-end", periodEnd, "--edition", "pre-PR2024",
+          "--judgment", "--fronthalf", "--no-persist", "--answers", ansPath,
+          "--summary-json", sumPath, "--register", register,
+        ]);
+        if (!ok || !existsSync(sumPath)) {
+          return { content: [{ type: "text", text: `Finalise failed.\n${stderr.slice(-1200)}` }], isError: true };
+        }
+        summary = summarySchema.parse(JSON.parse(await fs.readFile(sumPath, "utf-8")));
       }
-      const summaryPath = path.join(os.tmpdir(), `frs102-${Date.now()}.summary.json`);
-      const registerPath = path.join(os.tmpdir(), `frs102-${stem}-register.xlsx`);
-      // Use the cached Azure layout if we have one (free, instant); else run the PDF.
-      const cached = path.join(APP_DIR, "build", "layout", `${stem}.layout.json`);
-      const source = existsSync(cached)
-        ? ["--layout-json", cached] : ["--pdf", pdf_path];
-
-      const { ok, stderr } = await runPipeline([
-        ...source, "--entity", name, "--period-end", periodEnd,
-        "--edition", "pre-PR2024", "--judgment", "--fronthalf", "--no-persist",
-        "--summary-json", summaryPath, "--register", registerPath,
-      ]);
-      if (!ok || !existsSync(summaryPath)) {
-        return {
-          content: [{ type: "text", text: `Review failed.\n${stderr.slice(-1500)}` }],
-          isError: true,
-        };
-      }
-      const summary = summarySchema.parse(JSON.parse(await fs.readFile(summaryPath, "utf-8")));
+      const regNote = existsSync(register) ? `\n\nExcel register: ${register}` : "";
       return {
-        content: [{ type: "text", text: `${textFallback(summary)}\n\nExcel register: ${registerPath}` }],
+        content: [{ type: "text", text: `${finalizeText(summary)}${regNote}` }],
         structuredContent: summary,
       };
     },

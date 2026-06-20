@@ -42,21 +42,28 @@ def build_summary(entity: str, period_end: str, materiality: Materiality,
     """Assemble the at-a-glance summary + detailed findings the MCP app consumes."""
     by_cat = {"judgement": 0, "disclosure": 0, "numerical": 0, "formatting": 0}
     findings: list[dict] = []
+    seen: set[tuple[str, str, str]] = set()   # collapse duplicate active rules
+
+    def add(row: dict) -> None:
+        key = (row["category"], row["citation"], row["text"])
+        if key in seen:
+            return
+        seen.add(key)
+        by_cat[row["category"]] += 1
+        findings.append(row)
+
     for f in numerical:
         cat = _category(f.check_type)
-        by_cat[cat] += 1
-        findings.append({"category": cat, "citation": f.location,
-                         "severity": f.severity, "text": f.description})
+        add({"category": cat, "citation": f.location,
+             "severity": f.severity, "text": f.description})
     for p in presence:
         if p.status == "present":
             continue
-        by_cat["disclosure"] += 1
         req = p.requirement.requirement
         lead = "Missing: " if p.status == "absent" else "Verify: "
-        findings.append({"category": "disclosure",
-                         "citation": f"{req.source} {req.reference}",
-                         "severity": req.severity, "status": p.status,
-                         "text": lead + req.requirement_text})
+        add({"category": "disclosure", "citation": f"{req.source} {req.reference}",
+             "severity": req.severity, "status": p.status,
+             "text": lead + req.requirement_text})
     return {
         "entity": entity,
         "period_end": period_end,

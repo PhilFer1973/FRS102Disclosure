@@ -1,0 +1,237 @@
+{
+  "entity": "Four Communications Limited",
+  "period_end": "2024-12-31",
+  "materiality": {
+    "value": 193481.0,
+    "basis": "1% of turnover (loss-making)",
+    "display": "£193k"
+  },
+  "counts": {
+    "total_findings": 12,
+    "by_category": {
+      "judgement": 2,
+      "disclosure": 6,
+      "numerical": 4,
+      "formatting": 0
+    },
+    "need_judgement": 2,
+    "questions": 27
+  },
+  "findings": [
+    {
+      "category": "numerical",
+      "citation": "balance_sheet:total_current_assets",
+      "severity": "standard-immaterial-candidate",
+      "text": "'(line 8)' (prior) does not cast: components sum to 10367978, statement shows 10367972 (tolerance 2). PROBABLE OCR MISREAD (single digit), candidates by ascending OCR confidence (most likely the first): 'Debtors' read 7,888,837 but casting implies 7,888,831 [OCR confidence 0.962]; 'Cash at bank and in hand' read 2,130,087 but casting implies 2,130,081 [OCR confidence 0.993]; 'Stocks' read 349,054 but casting implies 349,048 [OCR confidence 0.996]; the total '(line 8)' read 10,367,972 but components imply 10,367,978 — re-read/verify before treating as a finding."
+    },
+    {
+      "category": "numerical",
+      "citation": "note 14 total casts to Debtors on the balance_sheet",
+      "severity": "standard-immaterial-candidate",
+      "text": "note 14 total casts to Debtors on the balance_sheet (prior): Total=7888831 != Debtors=7888837 (tolerance 1). PROBABLE OCR MISREAD (single digit) — the two figures differ by a digit; re-read/verify against the document before treating as a finding."
+    },
+    {
+      "category": "numerical",
+      "citation": "balance_sheet:called_up_share_capital",
+      "severity": "standard-material",
+      "text": "'Called up share capital' prior figure 206,541 extracted at low OCR confidence 0.852 — verify against the document"
+    },
+    {
+      "category": "numerical",
+      "citation": "balance_sheet:share_premium_account",
+      "severity": "standard-material",
+      "text": "'Share premium account' prior figure 1,093,221 extracted at low OCR confidence 0.836 — verify against the document"
+    },
+    {
+      "category": "judgement",
+      "citation": "FRS102 10.21",
+      "severity": "standard-material",
+      "text": "The 2023 comparatives in the statement of financial position and notes 14 and 17 are labelled 'as restated', arising from the netting of intercompany balances under a Multilateral Netting Deed. Note 14 explains the nature of the presentational change and quantifies the gross amounts offset (amounts owed to group undertakings of £26.5m offset against £28.8m owed by group undertakings). However, the accounts treat this as a restatement of comparatives without disclosing whether this constitutes correction of a prior period error or a change in accounting policy, and critically the statement of changes in equity shows no adjustment to opening equity and the income statement comparatives carry no 'as restated' label, meaning the line-by-line effect of the correction on each affected financial statement line and the cumulative effect on opening equity are not disclosed as required. FRS 102 paragraph 10.21 requires that a material prior period error be corrected by restating the comparative amounts and disclosing the nature of the error and the amount of the correction for each financial statement line item affected. (confidence 0.75)"
+    },
+    {
+      "category": "judgement",
+      "citation": "FRS102 29.6",
+      "severity": "standard-material",
+      "text": "The company has recognised a deferred tax asset of £41,970 at 31 December 2024, of which £41,306 relates to tax losses carried forward. The company reported an operating loss and EBITDA loss in 2024, and the accounts note difficult trading conditions and reduced profitability. There is no explicit evidence provided in the notes or accounting policy disclosures demonstrating that recovery of the tax loss element against future taxable profits is probable. The accounting policy (note 2.13) correctly limits recognition to amounts probable of recovery, but note 15 and the surrounding narrative provide no forward-looking assessment or probability analysis to support the recoverability of the £41,306 loss-related deferred tax asset, creating doubt as to whether the recognition threshold has been met. (confidence 0.72)"
+    },
+    {
+      "category": "disclosure",
+      "citation": "FRS102 5.7E",
+      "severity": "standard-material",
+      "status": "unclear",
+      "text": "Verify: Disclose on the face of the income statement (or statement of comprehensive income if presented) an amount comprising the total of [the items required by paragraph 5.7E — paragraph text as supplied is truncated and the specific sub-items cannot be determined from the verbatim text provided]"
+    },
+    {
+      "category": "disclosure",
+      "citation": "FRS102 6.2",
+      "severity": "standard-material",
+      "status": "absent",
+      "text": "Missing: Present in the statement of changes in equity: the effects of changes in accounting policies and corrections of material errors recognised in the period (this row covers one sub-element of paragraph 6.2; companion rows should address profit or loss, OCI, and investments/dividends/distributions)"
+    },
+    {
+      "category": "disclosure",
+      "citation": "FRS102 6.2",
+      "severity": "standard-material",
+      "status": "absent",
+      "text": "Missing: Present in the statement of changes in equity: the effects of changes in accounting policies and corrections of material errors recognised in the period"
+    },
+    {
+      "category": "disclosure",
+      "citation": "FRS102 9.8",
+      "severity": "statutory",
+      "status": "unclear",
+      "text": "Verify: Do not exclude a subsidiary from consolidation solely because its business activities are dissimilar to those of other entities within the group."
+    },
+    {
+      "category": "disclosure",
+      "citation": "FRS102 2.11",
+      "severity": "statutory",
+      "status": "absent",
+      "text": "Missing: Disclose any changes in accounting policies and the effects of such changes"
+    },
+    {
+      "category": "disclosure",
+      "citation": "FRS102/CA06 going_concern_fronthalf",
+      "severity": "statutory",
+      "status": "unclear",
+      "text": "Verify: The directors' report or strategic report should address the going concern basis of preparation."
+    }
+  ],
+  "questions": [
+    {
+      "fact_key": "applies_hedge_accounting_section12",
+      "question": "Does the entity apply hedge accounting under Section 12 (Financial Instruments) of FRS 102?",
+      "citation": "FRS102 12.26, FRS102 12.27, FRS102 12.29, FRS102 12.29A"
+    },
+    {
+      "fact_key": "applies_section12",
+      "question": "Does the entity have financial instruments in scope of Section 12 (Financial Instruments) of FRS 102?",
+      "citation": "FRS102 12.26, FRS102 12.29, FRS102 12.29A"
+    },
+    {
+      "fact_key": "has_heritage_assets",
+      "question": "Does the entity hold any heritage assets as defined by FRS 102?",
+      "citation": "FRS102 34.52, FRS102 34.55, FRS102 34.63"
+    },
+    {
+      "fact_key": "has_non_trading_non_derivative_section12_instruments",
+      "question": "Does the entity hold non-trading, non-derivative financial instruments within the scope of Section 12?",
+      "citation": "FRS102 11.42, FRS102 12.26"
+    },
+    {
+      "fact_key": "has_probable_contingent_assets",
+      "question": "Does the entity have contingent assets that are probable of occurring?",
+      "citation": "FRS102 21.16, FRS102 21.17"
+    },
+    {
+      "fact_key": "has_termination_benefits",
+      "question": "Has the entity incurred or committed to termination benefits for employees during the period?",
+      "citation": "FRS102 28.43, FRS102 28.44"
+    },
+    {
+      "fact_key": "has_transferred_financial_assets_not_derecognised",
+      "question": "Does the entity have transferred financial assets that have not been derecognised from the statement of financial position?",
+      "citation": "FRS102 11.42, FRS102 11.45"
+    },
+    {
+      "fact_key": "has_unremedied_loan_breach_or_default",
+      "question": "Does the entity have any loan facility breaches or defaults that remain unremedied at the reporting date?",
+      "citation": "FRS102 11.42, FRS102 11.47"
+    },
+    {
+      "fact_key": "measures_group_rented_investment_property_at_cost",
+      "question": "Does the group measure rented investment property at cost rather than fair value?",
+      "citation": "FRS102 17.30A, FRS102 17.31A"
+    },
+    {
+      "fact_key": "uses_equity_method_for_associates",
+      "question": "Does the entity use the equity method to account for investments in associates?",
+      "citation": "FRS102 14.12, FRS102 14.14"
+    },
+    {
+      "fact_key": "uses_indirect_method_cash_flow",
+      "question": "Does the entity prepare its cash flow statement using the indirect method?",
+      "citation": "FRS102 7.8, FRS102 7.9"
+    },
+    {
+      "fact_key": "additional_soci_line_items_relevant",
+      "question": "Are there additional line items relevant to the entity's statement of comprehensive income beyond the standard items?",
+      "citation": "FRS102 5.9"
+    },
+    {
+      "fact_key": "additional_sofp_line_items_relevant",
+      "question": "Are there additional line items relevant to the entity's statement of financial position beyond the standard items?",
+      "citation": "FRS102 4.3"
+    },
+    {
+      "fact_key": "applicable_sorp_exists",
+      "question": "Is there an applicable Statement of Recommended Practice (SORP) that applies to the entity's activities?",
+      "citation": "FRS102 1.7A"
+    },
+    {
+      "fact_key": "associate_equity_method_with_quoted_price",
+      "question": "Does an associate accounted for under the equity method have a quoted market price available?",
+      "citation": "FRS102 14.12"
+    },
+    {
+      "fact_key": "associate_has_discontinued_operations",
+      "question": "Does any associate have discontinued operations during or before the reporting period?",
+      "citation": "FRS102 14.14"
+    },
+    {
+      "fact_key": "capitalises_borrowing_costs",
+      "question": "Does the entity capitalise any borrowing costs as part of the cost of qualifying assets?",
+      "citation": "FRS102 25.3A"
+    },
+    {
+      "fact_key": "cash_and_cash_equivalents_sofp_matches_scf",
+      "question": "Does the cash and cash equivalents balance in the statement of financial position reconcile to the opening balance in the statement of cash flows?",
+      "citation": "FRS102 7.20"
+    },
+    {
+      "fact_key": "debtors_after_one_year_material_to_net_current_assets",
+      "question": "Are debtors due after more than one year material in relation to the entity's net current assets?",
+      "citation": "FRS102 4.4A"
+    },
+    {
+      "fact_key": "financial_instrument_information_is_material",
+      "question": "Is the disclosure of financial instrument information material to the financial statements as a whole?",
+      "citation": "FRS102 11.42"
+    },
+    {
+      "fact_key": "future_period_effect_of_estimate_change_practicable",
+      "question": "Is it practicable to estimate the effect of accounting estimate changes in future periods?",
+      "citation": "FRS102 10.18"
+    },
+    {
+      "fact_key": "has_accounting_estimate_changes",
+      "question": "Has the entity made any changes to accounting estimates during the reporting period?",
+      "citation": "FRS102 10.18"
+    },
+    {
+      "fact_key": "has_any_discontinued_operations_by_end_of_latest_reporting_period",
+      "question": "Does the entity have any discontinued operations that existed by the end of the latest reporting period?",
+      "citation": "FRS102 5.7F"
+    },
+    {
+      "fact_key": "has_artificial_or_no_substance_exchange_transaction",
+      "question": "Has the entity entered into any exchange transactions that lack commercial substance or are artificial in nature?",
+      "citation": "FRS102 9.32"
+    },
+    {
+      "fact_key": "has_binding_sale_agreement_for_major_disposal",
+      "question": "Does the entity have a binding agreement in place for the sale of a major asset or disposal group?",
+      "citation": "FRS102 4.14"
+    },
+    {
+      "fact_key": "dividend_recommended",
+      "question": "Does the directors' report state the dividend the directors recommend (or that none is recommended)? CA06 s416(3) requires this to be stated.",
+      "citation": "CA06 s416(3)"
+    },
+    {
+      "fact_key": "average_employees_gt_250",
+      "question": "Did the company employ on average more than 250 people in the year? If so, the directors' report must include an employee-engagement statement (Sch 7 para 11) and a statement of policy on the employment of disabled persons (Sch 7 para 10). Both are not required below 250 employees.",
+      "citation": "SI2008/410 Sch7 para10-11"
+    }
+  ]
+}
