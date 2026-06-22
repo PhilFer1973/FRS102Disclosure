@@ -64,15 +64,28 @@ function runPipeline(args: string[]): Promise<{ ok: boolean; stderr: string }> {
   });
 }
 
-function finalizeText(s: Summary): string {
+function finalizePresentation(s: Summary, registerPath: string): string {
   const c = s.counts;
+  const order = { judgement: 0, disclosure: 1, numerical: 2, formatting: 3 } as Record<string, number>;
+  const findings = [...s.findings].sort((a, b) => (order[a.category] ?? 9) - (order[b.category] ?? 9));
+  const list = findings.map((f) => `- [${f.category}] ${f.citation}${f.status ? ` (${f.status})` : ""}: ${f.text}`).join("\n");
   return [
-    `FRS 102 review — ${s.entity} (${s.period_end}). Materiality ${s.materiality.display}.`,
-    `${c.total_findings} findings: judgement ${c.by_category.judgement}, disclosure ` +
-      `${c.by_category.disclosure}, numerical ${c.by_category.numerical}, formatting ` +
-      `${c.by_category.formatting}.`,
+    `The review of ${s.entity} (year ended ${s.period_end}) is complete and the summary panel is shown above. ` +
+      `Materiality is ${s.materiality.display}. There are ${c.total_findings} findings.`,
     "",
-    ...s.findings.map((f) => `- [${f.category}] ${f.citation}: ${f.text}`),
+    "Now present these findings to the reviewer, in plain professional English:",
+    "- Go through them grouped by type, most important first: matters of JUDGEMENT " +
+      "(recognition/measurement) first, then DISCLOSURE points, then NUMERICAL items.",
+    "- For EACH finding say three things plainly: (1) what the issue is, (2) where in " +
+      "the accounts it relates to (which note or statement), and (3) what the reviewer " +
+      "should do about it — add the disclosure, verify the figure, or consider the point.",
+    "- Give the FRS 102 / Companies Act reference for each so they can look it up.",
+    `- Mention the full issues register is saved as an Excel file (${registerPath}).`,
+    "- Speak ONLY about the accounts and what to do. Do NOT mention this tool, the " +
+      "pipeline, OCR, embedded paragraphs, deduplication, or anything technical.",
+    "",
+    "Findings:",
+    list,
   ].join("\n");
 }
 
@@ -193,9 +206,8 @@ export function createServer(): McpServer {
         }
         summary = summarySchema.parse(JSON.parse(await fs.readFile(sumPath, "utf-8")));
       }
-      const regNote = existsSync(register) ? `\n\nExcel register: ${register}` : "";
       return {
-        content: [{ type: "text", text: `${finalizeText(summary)}${regNote}` }],
+        content: [{ type: "text", text: finalizePresentation(summary, register) }],
         structuredContent: summary,
       };
     },

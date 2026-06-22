@@ -48,9 +48,15 @@ For each fact, determine its value ONLY from the accounts provided:
 - enum facts: answer the specific value.
 - if the accounts do not evidence the fact either way: answer 'unknown'.
 
-Do NOT guess. 'unknown' is the correct answer whenever the provided information
-is insufficient — a downstream question will resolve it. Give a one-line
-reasoning grounded in the accounts and a confidence between 0 and 1.
+Resolve from what the statements and NOTES plainly show — do not punt to 'unknown'
+when the answer is visible. For example: a 'Creditors: amounts falling due within
+one year' line means such creditors exist; an employees note stating an average
+number lets you judge the >250 threshold; a goodwill/investments/lease line shows
+those items are present. Only answer 'unknown' when the accounts genuinely do not
+evidence the fact either way (e.g. group status, exemptions claimed, intentions).
+
+Do NOT guess beyond the evidence. Give a one-line reasoning grounded in the
+accounts and a confidence between 0 and 1.
 """
 
 
@@ -73,7 +79,19 @@ def accounts_context(fs: FinancialStatements, note_titles: list[str],
             cur = "" if it.current is None else f"{it.current:,}"
             out.append(f"  {it.label}: {cur}")
         out.append("")
-    if note_titles:
+    # Note line items too (not just titles) — so facts evidenced in the notes
+    # (e.g. the average number of employees, creditor splits) can be resolved
+    # without asking the reviewer.
+    notes = getattr(fs, "notes", {}) or {}
+    if notes:
+        out.append("== Notes ==")
+        for note in notes.values():
+            head = f"  Note {getattr(note, 'number', '')}".rstrip()
+            out.append(head)
+            for it in getattr(note, "items", []) or []:
+                cur = "" if it.current is None else f"{it.current:,}"
+                out.append(f"    {it.label}: {cur}")
+    elif note_titles:
         out.append("== Notes present ==")
         out += [f"  {t}" for t in note_titles]
     return "\n".join(out)
