@@ -1,0 +1,304 @@
+[
+  {
+    "fact_key": "applies_section_1A",
+    "topic": "Micro-entity regime",
+    "question": "Does the company qualify as a micro-entity under the small companies regime?",
+    "why": "Micro-entities follow a heavily simplified reporting framework with far fewer disclosures required.",
+    "affects": [
+      "FRS102 1A.10",
+      "FRS102 1A.16",
+      "FRS102 1A.18",
+      "FRS102 1A.22",
+      "FRS102 1A.6",
+      "FRS102 1A.6A",
+      "FRS102 1A.8",
+      "FRS102 1AA.3",
+      "FRS102 1AA.4",
+      "FRS102 1AA.6",
+      "FRS102 1AB.3",
+      "FRS102 1AC.1",
+      "FRS102 1AC.12",
+      "FRS102 1AC.13",
+      "FRS102 1AC.19",
+      "FRS102 1AC.27",
+      "FRS102 1AC.28",
+      "FRS102 1AC.29",
+      "FRS102 1AC.3",
+      "FRS102 1AC.32",
+      "FRS102 1AC.33",
+      "FRS102 1AC.34",
+      "FRS102 1AC.35",
+      "FRS102 1AC.36",
+      "FRS102 1AC.37",
+      "FRS102 1AC.39",
+      "FRS102 1AC.8",
+      "FRS102 1AC.9"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "is_qualifying_entity",
+    "topic": "Group exemptions",
+    "question": "Is this company part of a larger group where the parent publishes consolidated accounts that include this company?",
+    "why": "Qualifying entities can claim exemptions from preparing certain statements and expanded disclosures if the parent accounts are publicly available.",
+    "affects": [
+      "FRS102 1AC.34",
+      "FRS102 3.17",
+      "FRS102 7.10",
+      "FRS102 7.14",
+      "FRS102 7.17",
+      "FRS102 7.20",
+      "FRS102 7.3",
+      "FRS102 7.7"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "applies_paragraph_1A1_adapted_balance_sheet_format",
+    "topic": "Balance sheet format",
+    "question": "Is the company using the simplified balance sheet layout allowed for small entities?",
+    "why": "If so, the balance sheet must follow the specific adapted format and certain line items can be combined.",
+    "affects": [
+      "FRS102 1AA.3",
+      "FRS102 1AC.13",
+      "FRS102 29.23",
+      "FRS102 4.2A",
+      "FRS102 5.5B"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "is_small_entity",
+    "topic": "Small entity status",
+    "question": "Based on the size criteria, is this a small entity?",
+    "why": "Small entities are exempt from several detailed disclosure requirements and can use simplified statement formats.",
+    "affects": [
+      "FRS102 3.17",
+      "FRS102 7.10",
+      "FRS102 7.17",
+      "FRS102 7.20",
+      "FRS102 7.3"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "uses_consolidation_exemption",
+    "topic": "Consolidation exemption",
+    "question": "Is this a parent company that is exempt from preparing consolidated accounts?",
+    "why": "If exemption applies, no consolidated statements are needed and related-party disclosures for subsidiary transactions are simplified.",
+    "affects": [
+      "FRS102 3.17",
+      "FRS102 7.14",
+      "FRS102 7.7",
+      "FRS102 9.27A"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "is_parent_entity",
+    "topic": "Parent company",
+    "question": "Does this company have subsidiary undertakings or investments in associates or joint ventures?",
+    "why": "Parent entities must disclose details of subsidiaries and may need to prepare consolidated accounts unless exemption applies.",
+    "affects": [
+      "FRS102 9.27",
+      "FRS102 9.27A",
+      "FRS102 9.27B"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "applies_paragraph_1A2_adapted_profit_and_loss_account_format",
+    "topic": "Profit and loss format",
+    "question": "Is the company using the simplified profit and loss account layout available to small entities?",
+    "why": "If so, the profit and loss must follow the specific adapted format with certain items combined or omitted.",
+    "affects": [
+      "FRS102 5.5B",
+      "FRS102 5.7A"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "capitalises_borrowing_costs",
+    "topic": "Borrowing costs",
+    "question": "Has the company capitalised any borrowing costs as part of the cost of an asset?",
+    "why": "If borrowing costs are capitalised, detailed disclosures about the capitalisation policy and amounts are required.",
+    "affects": [
+      "FRS102 1AC.19",
+      "FRS102 25.3A"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_material_prior_period_error",
+    "topic": "Prior period error",
+    "question": "Has a material error been discovered and corrected relating to a prior year?",
+    "why": "Material prior-period errors require restatement of comparative figures and specific disclosures explaining the correction.",
+    "affects": [
+      "FRS102 10.21",
+      "FRS102 6.2"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "not_going_concern",
+    "topic": "Going concern",
+    "question": "Are there any circumstances that would suggest the company may not continue as a going concern?",
+    "why": "If the going concern assumption does not apply, the basis of preparation must change and specific disclosures are mandatory.",
+    "affects": [
+      "FRS102 3.9",
+      "FRS102 32.7B"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "uses_indirect_method_cash_flow",
+    "topic": "Cash flow statement method",
+    "question": "Has the company prepared its cash flow statement using the indirect method?",
+    "why": "The indirect method requires additional disclosures of changes in working capital and reconciliation to profit.",
+    "affects": [
+      "FRS102 7.8",
+      "FRS102 7.9"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "additional_soci_line_items_relevant",
+    "topic": "Statement of changes format",
+    "question": "Does the company have items of other comprehensive income that need to be separately disclosed?",
+    "why": "If relevant, the statement of changes in equity must include all reserves and other comprehensive income movements.",
+    "affects": [
+      "FRS102 5.9"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "additional_sofp_line_items_relevant",
+    "topic": "Balance sheet line items",
+    "question": "Are there any unusual or significant asset or liability categories beyond the standard line items?",
+    "why": "Significant balances must be shown separately on the balance sheet rather than combined with other items.",
+    "affects": [
+      "FRS102 4.3"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "additional_statements_required_for_true_and_fair",
+    "topic": "True and fair statements",
+    "question": "Are any additional statements or supplementary information needed to give a true and fair view?",
+    "why": "If the standard statements alone are not sufficient, additional information must be provided in the notes or separately.",
+    "affects": [
+      "FRS102 1A.6"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "appendix_1ac_disclosures_relevant",
+    "topic": "Appendix 1AC disclosures",
+    "question": "Does the company have any transactions or arrangements covered under the specific disclosure checklist?",
+    "why": "Appendix 1AC lists particular items that require disclosure where they are relevant to the company's circumstances.",
+    "affects": [
+      "FRS102 1AC.1"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "applicable_sorp_exists",
+    "topic": "SORP application",
+    "question": "Is the company subject to a Statement of Recommended Practice in its sector, such as charities or financial institutions?",
+    "why": "If a SORP applies, the company must follow the additional guidance in that SORP alongside FRS 102.",
+    "affects": [
+      "FRS102 1.7A"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "applies_paragraph_1B1_adapted_balance_sheet_format",
+    "topic": "Micro-entity balance sheet",
+    "question": "Is the company using the micro-entity adapted balance sheet format?",
+    "why": "Micro-entities follow a highly condensed balance sheet layout with very few line items.",
+    "affects": [
+      "FRS102 1AA.4"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "applies_paragraph_1B2_adapted_profit_and_loss_account_format",
+    "topic": "Micro-entity profit and loss",
+    "question": "Is the company using the micro-entity simplified profit and loss account format?",
+    "why": "Micro-entities use a condensed profit and loss with minimal line item detail.",
+    "affects": [
+      "FRS102 1AB.3"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "applies_schedule1_paragraph_1A1",
+    "topic": "Schedule 1 exemption",
+    "question": "Does the company meet the conditions to apply the Schedule 1 exemption?",
+    "why": "Schedule 1 sets out specific conditions and exemptions that apply to certain categories of entities.",
+    "affects": [
+      "FRS102 4.2B"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "cash_and_cash_equivalents_sofp_matches_scf",
+    "topic": "Cash reconciliation",
+    "question": "Does the opening and closing cash balance shown on the balance sheet tie to the cash flow statement?",
+    "why": "The closing balance sheet cash must reconcile with the cash flow statement; any differences must be explained.",
+    "affects": [
+      "FRS102 7.20"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_excess_recognised_under_19_24",
+    "topic": "Pension excess",
+    "question": "Has the company recognised any surplus in a defined benefit pension scheme?",
+    "why": "Pension scheme surpluses are subject to specific asset recognition rules and require detailed disclosures.",
+    "affects": [
+      "FRS102 19.26A"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_going_concern_material_uncertainties",
+    "topic": "Going concern uncertainty",
+    "question": "Are there material uncertainties about the company's ability to continue as a going concern?",
+    "why": "Material uncertainties must be disclosed in the notes and may require modification of the audit opinion or management statement.",
+    "affects": [
+      "FRS102 3.9"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_key_estimation_uncertainties",
+    "topic": "Estimation uncertainty",
+    "question": "Are there key judgements or significant estimation uncertainties in preparing the accounts?",
+    "why": "Key sources of estimation uncertainty must be disclosed to help readers understand the major assumptions underlying the figures.",
+    "affects": [
+      "FRS102 8.7"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_material_post_balance_sheet_event",
+    "topic": "Post balance sheet event",
+    "question": "Has anything material occurred between the balance sheet date and the date the accounts are approved?",
+    "why": "Material events after the balance sheet date must be either adjusted or disclosed as non-adjusting events.",
+    "affects": [
+      "FRS102 1AC.39"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_material_related_party_transactions_not_on_normal_market_conditions",
+    "topic": "Related party transactions",
+    "question": "Has the company entered into any significant related party transactions that were not on normal commercial terms?",
+    "why": "Related party transactions at non-market terms must be disclosed with details of the parties and nature of the transaction.",
+    "affects": [
+      "FRS102 1AC.35"
+    ],
+    "answer": null
+  }
+]

@@ -48,15 +48,23 @@ For each fact, determine its value ONLY from the accounts provided:
 - enum facts: answer the specific value.
 - if the accounts do not evidence the fact either way: answer 'unknown'.
 
-Resolve from what the statements and NOTES plainly show — do not punt to 'unknown'
-when the answer is visible. For example: a 'Creditors: amounts falling due within
-one year' line means such creditors exist; an employees note stating an average
-number lets you judge the >250 threshold; a goodwill/investments/lease line shows
-those items are present. Only answer 'unknown' when the accounts genuinely do not
-evidence the fact either way (e.g. group status, exemptions claimed, intentions).
+These are a COMPLETE set of filed financial statements. Treat them as complete:
+a set of accounts discloses what exists, so the ABSENCE of any related line item,
+note or mention is itself evidence.
 
-Do NOT guess beyond the evidence. Give a one-line reasoning grounded in the
-accounts and a confidence between 0 and 1.
+- PRESENCE facts (keys like 'has_...', 'is_...', 'uses_...', 'applies_...'): if
+  there is no line, note or mention supporting them, resolve to 'false' — NOT
+  'unknown'. E.g. no associates note -> has_investments_in_associates = false;
+  no lease commitments -> is_lessee = false; no share-based-payment note ->
+  has_share_based_payment_arrangements = false. If the item IS present (a
+  'Creditors: amounts falling due within one year' line, an employees note giving
+  an average number, a goodwill/investments line), resolve to 'true' / the value.
+- Reserve 'unknown' ONLY for facts that genuinely would not be visible in the
+  accounts even when true: group membership / qualifying-entity or consolidation
+  status, exemptions the entity has chosen to claim, management intentions, and
+  going-concern uncertainties. Those go to the reviewer.
+
+Give a one-line reasoning grounded in the accounts and a confidence 0 to 1.
 """
 
 

@@ -57,6 +57,8 @@ def main() -> None:
     ap.add_argument("--register", help="write the Excel issues register here")
     ap.add_argument("--summary-json", help="write the structured review summary "
                     "(JSON contract for the MCP app front end) here")
+    ap.add_argument("--profile-out", help="write the data-resolved fact profile "
+                    "(before reviewer answers) here — base for the adaptive interview")
     ap.add_argument("--no-presence", action="store_true",
                     help="skip the (paid) presence pass — for question-round iteration")
     ap.add_argument("--judgment", action="store_true",
@@ -108,6 +110,10 @@ def main() -> None:
 
     profile, resolutions = build_fact_profile(needed, registry, fs, note_titles,
                                               args.edition, client)
+    if args.profile_out:
+        Path(args.profile_out).write_text(
+            json.dumps(profile, default=str, indent=2), encoding="utf-8")
+        print(f"data-resolved profile ({len(profile)} facts) -> {args.profile_out}")
     # Seed with reviewer answers from a prior question round (override the LLM).
     if args.answers:
         answers = json.loads(Path(args.answers).read_text(encoding="utf-8"))
