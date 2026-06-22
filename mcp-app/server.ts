@@ -25,7 +25,7 @@ const questionSchema = z.object({
   topic: z.string().optional(),
   question: z.string(),
   why: z.string().optional(),
-  citation: z.string(),
+  citation: z.string().optional(),
 });
 const summarySchema = z.object({
   entity: z.string(),
@@ -89,22 +89,78 @@ function finalizePresentation(s: Summary, registerPath: string): string {
   ].join("\n");
 }
 
+function runCapture(args: string[]): Promise<{ ok: boolean; stdout: string; stderr: string }> {
+  return new Promise((resolve) => {
+    const proc = spawn("uv", ["run", "python", ...args], {
+      cwd: APP_DIR, env: { ...process.env, PYTHONIOENCODING: "utf-8" },
+    });
+    let stdout = "";
+    let stderr = "";
+    proc.stdout.on("data", (d) => { stdout += d.toString(); });
+    proc.stderr.on("data", (d) => { stderr += d.toString(); });
+    proc.on("error", (e) => resolve({ ok: false, stdout, stderr: String(e) }));
+    proc.on("close", (code) => resolve({ ok: code === 0, stdout, stderr }));
+  });
+}
+
+// next_question prints one JSON line to stdout; take the last JSON-looking line.
+function lastJsonLine(s: string): any {
+  const lines = s.trim().split(/\r?\n/).filter((l) => l.trim().startsWith("{"));
+  return lines.length ? JSON.parse(lines[lines.length - 1]) : null;
+}
+
+function interviewOne(name: string, q: any, first: boolean): string {
+  return [
+    first ? `I've reviewed ${name}'s accounts. I need to confirm a few points I `
+      + `couldn't determine from the document before I can finalise.` : "",
+    "Put THIS one question to the reviewer, in plain professional English, then wait "
+      + "for their answer:",
+    `  Topic: ${q.topic || "—"}`,
+    `  Question: ${q.question}`,
+    q.why ? `  Why it matters: ${q.why}` : "",
+    "",
+    "After they answer, call next_question again with ALL answers gathered so far "
+      + `(each as ${q.fact_key}-style key -> true/false/value, including this one). `
+      + "Ask only this one question now — never list others, never ask for yes/no "
+      + "batches, never mention tools or fact keys. When next_question reports it is "
+      + "done, call finalize_review with the collected answers.",
+  ].filter(Boolean).join("\n");
+}
+
 export function createServer(): McpServer {
   const server = new McpServer({ name: "FRS 102 Disclosure Reviewer", version: "0.2.0" });
   const resourceUri = "ui://frs102-review/summary.html";
 
-  // STEP 1 — review the document and return the FULL scope question set. No panel:
-  // the assistant must put these questions to the reviewer first, so the final
-  // findings are complete and defensible (nothing silently assumed).
+  const profileFor = (stem: string) => path.join(SUMMARIES, `${stem}.profile.json`);
+  const poolFor = (stem: string) => path.join(SUMMARIES, `${stem}.qpool.json`);
+  const rulesFile = path.join(SUMMARIES, "rules.pre-PR2024.json");
+
+  async function askNext(stem: string, answers: Record<string, unknown> | undefined) {
+    const args = ["-m", "cli.next_question", "--base", profileFor(stem),
+      "--questions", poolFor(stem)];
+    if (existsSync(rulesFile)) args.push("--rules", rulesFile);
+    if (answers && Object.keys(answers).length) {
+      const ansPath = path.join(os.tmpdir(), `frs102-${Date.now()}.ans.json`);
+      await fs.writeFile(ansPath, JSON.stringify(answers), "utf-8");
+      args.push("--answers", ansPath);
+    }
+    const res = await runCapture(args);
+    return { data: lastJsonLine(res.stdout), stderr: res.stderr };
+  }
+
+  // STEP 1 — start the ADAPTIVE scope interview. Returns the FIRST question only;
+  // the assistant asks it, then loops next_question with the answers so far. Each
+  // answer prunes dependent questions, so only the gating facts that matter are
+  // ever put to the reviewer. No panel here (the panel is the finalise step).
   server.registerTool(
     "review_accounts",
     {
-      title: "Review FRS 102 accounts (step 1: scope interview)",
-      description: "Reads a UK FRS 102 set of accounts (PDF) and returns the scope " +
-        "questions that must be confirmed before the findings can be finalised. " +
-        "Then INTERVIEW the reviewer: ask ONE question at a time in plain English, " +
-        "explain why each matters, and wait for a full answer before the next. When " +
-        "every question is answered, call finalize_review with the answers.",
+      title: "Review FRS 102 accounts (step 1: start scope interview)",
+      description: "Reads a UK FRS 102 set of accounts (PDF) and starts an adaptive " +
+        "scope interview, returning the FIRST question to put to the reviewer. After " +
+        "each answer, call next_question with ALL answers gathered so far to get the " +
+        "next question; when it reports done, call finalize_review. Ask one question " +
+        "at a time, in plain English, and explain why it matters.",
       inputSchema: {
         pdf_path: z.string().describe("Absolute path to the accounts PDF"),
         entity: z.string().optional(),
@@ -112,51 +168,68 @@ export function createServer(): McpServer {
       },
       outputSchema: {
         entity: z.string(), period_end: z.string(),
-        questions: z.array(questionSchema),
+        done: z.boolean(), remaining: z.number(), question: questionSchema.optional(),
       },
     },
     async ({ pdf_path, entity, period_end }): Promise<CallToolResult> => {
       const stem = path.basename(pdf_path).replace(/\.[^.]+$/, "");
       const name = entity ?? stem;
       const periodEnd = period_end ?? "2024-12-31";
-      const cached = path.join(SUMMARIES, `${stem}.summary.json`);
-      let questions: Summary["questions"];
-      if (existsSync(cached)) {
-        questions = summarySchema.parse(JSON.parse(await fs.readFile(cached, "utf-8"))).questions;
-      } else {
-        const out = path.join(os.tmpdir(), `frs102-${Date.now()}.questions.json`);
-        const { ok, stderr } = await runPipeline([
-          "--pdf", pdf_path, "--entity", name, "--period-end", periodEnd,
-          "--edition", "pre-PR2024", "--no-presence", "--questions-out", out,
-        ]);
-        if (!ok || !existsSync(out)) {
-          return { content: [{ type: "text", text: `Review failed.\n${stderr.slice(-1200)}` }], isError: true };
-        }
-        const raw = JSON.parse(await fs.readFile(out, "utf-8")) as Array<{ fact_key: string; topic?: string; question: string; why?: string; affects?: string[] }>;
-        questions = raw.map((q) => ({ fact_key: q.fact_key, topic: q.topic ?? "", question: q.question, why: q.why ?? "", citation: (q.affects ?? []).join(", ") }));
+      if (!existsSync(profileFor(stem)) || !existsSync(poolFor(stem))) {
+        const layout = path.join(APP_DIR, "build", "layout", `${stem}.layout.json`);
+        const source = existsSync(layout) ? ["--layout-json", layout] : ["--pdf", pdf_path];
+        const gen = await runPipeline([...source, "--entity", name, "--period-end",
+          periodEnd, "--edition", "pre-PR2024", "--no-presence", "--no-persist",
+          "--profile-out", profileFor(stem), "--questions-out", poolFor(stem)]);
+        if (!gen.ok) return { content: [{ type: "text", text: `Review failed.\n${gen.stderr.slice(-1200)}` }], isError: true };
       }
-      const list = questions.map((q, i) =>
-        `${i + 1}. [${q.topic ?? ""}] ${q.question}\n   why: ${q.why ?? ""}` +
-        `\n   (record as ${q.fact_key})`).join("\n");
-      const instructions =
-        `I've reviewed ${name}'s accounts. Before I can finalise, I need to confirm ` +
-        `${questions.length} points about the company that I couldn't tell from the ` +
-        `document itself.\n\n` +
-        `Conduct this as an INTERVIEW with the reviewer, in plain professional ` +
-        `English:\n` +
-        `- Ask ONE question at a time, in order.\n` +
-        `- For each: state the topic, ask the question, and add a short "why this ` +
-        `matters" line.\n` +
-        `- Then STOP and wait for the reviewer's full answer before the next question.\n` +
-        `- Do NOT dump the whole list. Do NOT ask for yes/no batches. Do NOT mention ` +
-        `tools, servers, fact keys, JSON, or this message.\n` +
-        `- Keep a running note of each answer.\n` +
-        `- When all ${questions.length} are answered, call finalize_review with the ` +
-        `answers (map each answer to its fact key).\n\n` +
-        `Questions, in order:\n${list}`;
+      const { data, stderr } = await askNext(stem, undefined);
+      if (!data) return { content: [{ type: "text", text: `Review failed.\n${stderr.slice(-1200)}` }], isError: true };
+      const text = data.done
+        ? `I've reviewed ${name}'s accounts and could resolve everything from the `
+          + `document — no scope questions needed. Call finalize_review now.`
+        : interviewOne(name, data.question, true);
       return {
-        content: [{ type: "text", text: instructions }],
-        structuredContent: { entity: name, period_end: periodEnd, questions },
+        content: [{ type: "text", text }],
+        structuredContent: { entity: name, period_end: periodEnd, done: data.done,
+          remaining: data.remaining, question: data.question ?? undefined },
+      };
+    },
+  );
+
+  // STEP 1b — the adaptive loop: given answers so far, return the next question or
+  // signal the interview is complete.
+  server.registerTool(
+    "next_question",
+    {
+      title: "Next scope question (or finish the interview)",
+      description: "Given the answers gathered so far, returns the next scope " +
+        "question or signals the interview is complete. Call after each answer. Ask " +
+        "one question at a time; when done is true, call finalize_review.",
+      inputSchema: {
+        pdf_path: z.string(),
+        answers: z.record(z.string(), z.union([z.boolean(), z.string()]))
+          .describe("All answers gathered so far, fact_key -> true/false/value"),
+        entity: z.string().optional(),
+      },
+      outputSchema: { done: z.boolean(), remaining: z.number(),
+        question: questionSchema.optional() },
+    },
+    async ({ pdf_path, answers, entity }): Promise<CallToolResult> => {
+      const stem = path.basename(pdf_path).replace(/\.[^.]+$/, "");
+      const name = entity ?? stem;
+      if (!existsSync(profileFor(stem))) {
+        return { content: [{ type: "text", text: "Call review_accounts first." }], isError: true };
+      }
+      const { data, stderr } = await askNext(stem, answers);
+      if (!data) return { content: [{ type: "text", text: `Failed.\n${stderr.slice(-1000)}` }], isError: true };
+      const text = data.done
+        ? "All scope questions answered — call finalize_review now with the answers gathered."
+        : interviewOne(name, data.question, false);
+      return {
+        content: [{ type: "text", text }],
+        structuredContent: { done: data.done, remaining: data.remaining,
+          question: data.question ?? undefined },
       };
     },
   );

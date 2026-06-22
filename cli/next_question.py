@@ -56,9 +56,15 @@ def next_question(base: dict, answers: dict, pool: list[dict],
         return {"done": True, "remaining": 0, "question": None}
     by_key = {q["fact_key"]: q for q in pool}
     top = ranked[0]
-    q = by_key.get(top, {
-        "fact_key": top, "topic": "", "why": "",
-        "question": f"Please confirm: {top.replace('_', ' ')}?", "citation": ""})
+    src = by_key.get(top, {})
+    # Normalise: the pool may carry 'affects' (a list) or 'citation' (a string).
+    q = {
+        "fact_key": top,
+        "topic": src.get("topic", ""),
+        "question": src.get("question", f"Please confirm: {top.replace('_', ' ')}?"),
+        "why": src.get("why", ""),
+        "citation": src.get("citation") or ", ".join(src.get("affects", []) or []),
+    }
     return {"done": False, "remaining": len(ranked), "question": q}
 
 
