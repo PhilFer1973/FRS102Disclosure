@@ -172,7 +172,8 @@ def main() -> None:
             print(f"  [{q.fact_key}] {q.question_text}  ({q.provenance})")
         if args.questions_out:
             Path(args.questions_out).write_text(json.dumps(
-                [{"fact_key": q.fact_key, "question": q.question_text,
+                [{"fact_key": q.fact_key, "topic": q.topic,
+                  "question": q.question_text, "why": q.why,
                   "affects": list(q.affected_refs), "answer": None}
                  for q in questions], indent=2), encoding="utf-8")
             print(f"  ...written to {args.questions_out}")

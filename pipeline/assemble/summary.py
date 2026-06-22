@@ -79,6 +79,7 @@ def build_summary(entity: str, period_end: str, materiality: Materiality,
             "questions": len(questions),
         },
         "findings": findings,
-        "questions": [{"fact_key": q.fact_key, "question": q.question_text,
+        "questions": [{"fact_key": q.fact_key, "topic": getattr(q, "topic", ""),
+                       "question": q.question_text, "why": getattr(q, "why", ""),
                        "citation": ", ".join(q.affected_refs)} for q in questions],
     }

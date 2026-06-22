@@ -21,7 +21,11 @@ const APP_DIR = import.meta.dirname.includes(MARKER)
 const SUMMARIES = path.join(APP_DIR, "build", "summaries");
 
 const questionSchema = z.object({
-  fact_key: z.string(), question: z.string(), citation: z.string(),
+  fact_key: z.string(),
+  topic: z.string().optional(),
+  question: z.string(),
+  why: z.string().optional(),
+  citation: z.string(),
 });
 const summarySchema = z.object({
   entity: z.string(),
@@ -82,12 +86,12 @@ export function createServer(): McpServer {
   server.registerTool(
     "review_accounts",
     {
-      title: "Review FRS 102 accounts (step 1: scope questions)",
+      title: "Review FRS 102 accounts (step 1: scope interview)",
       description: "Reads a UK FRS 102 set of accounts (PDF) and returns the scope " +
-        "questions that must be answered before the findings are finalised. Ask the " +
-        "reviewer EVERY question (yes/no), collect the answers as a map of fact_key " +
-        "-> true/false, then call finalize_review with those answers. Do not finalise " +
-        "or show conclusions until all questions are answered.",
+        "questions that must be confirmed before the findings can be finalised. " +
+        "Then INTERVIEW the reviewer: ask ONE question at a time in plain English, " +
+        "explain why each matters, and wait for a full answer before the next. When " +
+        "every question is answered, call finalize_review with the answers.",
       inputSchema: {
         pdf_path: z.string().describe("Absolute path to the accounts PDF"),
         entity: z.string().optional(),
@@ -115,17 +119,30 @@ export function createServer(): McpServer {
         if (!ok || !existsSync(out)) {
           return { content: [{ type: "text", text: `Review failed.\n${stderr.slice(-1200)}` }], isError: true };
         }
-        const raw = JSON.parse(await fs.readFile(out, "utf-8")) as Array<{ fact_key: string; question: string; affects?: string[] }>;
-        questions = raw.map((q) => ({ fact_key: q.fact_key, question: q.question, citation: (q.affects ?? []).join(", ") }));
+        const raw = JSON.parse(await fs.readFile(out, "utf-8")) as Array<{ fact_key: string; topic?: string; question: string; why?: string; affects?: string[] }>;
+        questions = raw.map((q) => ({ fact_key: q.fact_key, topic: q.topic ?? "", question: q.question, why: q.why ?? "", citation: (q.affects ?? []).join(", ") }));
       }
-      const list = questions.map((q, i) => `${i + 1}. ${q.question}  [${q.fact_key}]`).join("\n");
+      const list = questions.map((q, i) =>
+        `${i + 1}. [${q.topic ?? ""}] ${q.question}\n   why: ${q.why ?? ""}` +
+        `\n   (record as ${q.fact_key})`).join("\n");
+      const instructions =
+        `I've reviewed ${name}'s accounts. Before I can finalise, I need to confirm ` +
+        `${questions.length} points about the company that I couldn't tell from the ` +
+        `document itself.\n\n` +
+        `Conduct this as an INTERVIEW with the reviewer, in plain professional ` +
+        `English:\n` +
+        `- Ask ONE question at a time, in order.\n` +
+        `- For each: state the topic, ask the question, and add a short "why this ` +
+        `matters" line.\n` +
+        `- Then STOP and wait for the reviewer's full answer before the next question.\n` +
+        `- Do NOT dump the whole list. Do NOT ask for yes/no batches. Do NOT mention ` +
+        `tools, servers, fact keys, JSON, or this message.\n` +
+        `- Keep a running note of each answer.\n` +
+        `- When all ${questions.length} are answered, call finalize_review with the ` +
+        `answers (map each answer to its fact key).\n\n` +
+        `Questions, in order:\n${list}`;
       return {
-        content: [{
-          type: "text",
-          text: `Reviewed ${name}. Before I finalise, please answer these ${questions.length} ` +
-            `scope questions (yes/no) so the findings are complete:\n\n${list}\n\n` +
-            `Once answered, I'll call finalize_review with your answers.`,
-        }],
+        content: [{ type: "text", text: instructions }],
         structuredContent: { entity: name, period_end: periodEnd, questions },
       };
     },

@@ -29,9 +29,11 @@ QGEN_SCHEMA = {
                 "type": "object",
                 "properties": {
                     "fact_key": {"type": "string"},
+                    "topic": {"type": "string"},
                     "question": {"type": "string"},
+                    "why": {"type": "string"},
                 },
-                "required": ["fact_key", "question"],
+                "required": ["fact_key", "topic", "question", "why"],
                 "additionalProperties": False,
             },
         }
@@ -41,12 +43,21 @@ QGEN_SCHEMA = {
 }
 
 QGEN_SYSTEM = """\
-You write questions for a UK chartered accountant reviewing a company's FRS 102
-financial statements. Each fact below could not be determined from the accounts
-and is needed to decide whether certain disclosures apply. For each fact key,
-write ONE clear, professional question the reviewer can answer about the entity
-or its accounts — phrased for a yes/no or short answer, specific to FRS 102.
-Do not invent facts; just turn the key into a good question.
+You prepare interview questions for a UK chartered accountant reviewing a
+company's FRS 102 financial statements. Each fact below could not be determined
+from the accounts and must be confirmed before the review is complete.
+
+For each fact, produce THREE things:
+- topic: a short plain-English heading for the area (2-4 words), e.g. "Group
+  structure", "Leasing", "Going concern", "Dividends".
+- question: ONE clear, conversational question a senior reviewer would put to the
+  preparer, in plain English. NO FRS 102 jargon, NO paragraph numbers, NO
+  fact-key names. The reviewer should be able to give a full answer in their own
+  words.
+- why: ONE short plain-English sentence explaining why it matters — what the
+  answer changes about which disclosures are required.
+
+Keep everything human and jargon-free. Do not invent facts.
 """
 
 
@@ -55,6 +66,8 @@ class Question:
     fact_key: str
     question_text: str
     affected_refs: tuple[str, ...]
+    topic: str = ""
+    why: str = ""
 
     @property
     def provenance(self) -> str:
@@ -86,7 +99,12 @@ def generate_questions(fact_provenance: dict[str, set[str]],
         f"(affects {len(refs)} requirements)" for key, refs in ranked)
     res = client.complete_json("facts", QGEN_SYSTEM,
                                f"Facts needing a question:\n{listing}",
-                               QGEN_SCHEMA, max_tokens=3000)
-    qmap = {q["fact_key"]: q["question"] for q in res["questions"]}
-    return [Question(key, qmap.get(key, f"Resolve fact: {key}?"),
-                     tuple(sorted(refs))) for key, refs in ranked]
+                               QGEN_SCHEMA, max_tokens=4000)
+    qmap = {q["fact_key"]: q for q in res["questions"]}
+    out = []
+    for key, refs in ranked:
+        q = qmap.get(key, {})
+        out.append(Question(key, q.get("question", f"Resolve fact: {key}?"),
+                            tuple(sorted(refs)), topic=q.get("topic", ""),
+                            why=q.get("why", "")))
+    return out

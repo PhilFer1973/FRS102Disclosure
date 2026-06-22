@@ -48,16 +48,17 @@ FRONT_HALF_REQUIREMENTS: list[tuple[str, str, str]] = [
 # >250-employee threshold, or whether a dividend was recommended), so reporting
 # them as "missing" over-flags (reviewer notes #5, #11, #12). They are surfaced
 # as reviewer QUESTIONS carrying their citation, not as hard findings.
-# (fact_key, citation, question text)
-FRONT_HALF_QUESTIONS: list[tuple[str, str, str]] = [
-    ("dividend_recommended", "CA06 s416(3)",
-     "Does the directors' report state the dividend the directors recommend "
-     "(or that none is recommended)? CA06 s416(3) requires this to be stated."),
-    ("average_employees_gt_250", "SI2008/410 Sch7 para10-11",
-     "Did the company employ on average more than 250 people in the year? If so, "
-     "the directors' report must include an employee-engagement statement (Sch 7 "
-     "para 11) and a statement of policy on the employment of disabled persons "
-     "(Sch 7 para 10). Both are not required below 250 employees."),
+# (fact_key, citation, topic, question, why)
+FRONT_HALF_QUESTIONS: list[tuple[str, str, str, str, str]] = [
+    ("dividend_recommended", "CA06 s416(3)", "Dividends",
+     "Did the directors recommend or pay a dividend for the year?",
+     "The directors' report must state the recommended dividend (or that none "
+     "is recommended), so I need to confirm whether that statement is required."),
+    ("average_employees_gt_250", "SI2008/410 Sch7 para10-11", "Employee numbers",
+     "Did the company employ on average more than 250 people during the year?",
+     "Above 250 employees the directors' report must include an employee-"
+     "engagement statement and a disabled-persons employment policy; below that "
+     "they are not required."),
 ]
 
 
@@ -118,5 +119,5 @@ def review_front_half(layout: dict, client: LLMClient) -> list[PresenceResult]:
 def front_half_questions() -> list[Question]:
     """Conditional front-half items, surfaced as reviewer questions (with their
     citation) rather than hard findings, so they don't over-flag."""
-    return [Question(fact_key, text, (citation,))
-            for fact_key, citation, text in FRONT_HALF_QUESTIONS]
+    return [Question(fact_key, question, (citation,), topic=topic, why=why)
+            for fact_key, citation, topic, question, why in FRONT_HALF_QUESTIONS]
