@@ -106,10 +106,12 @@ def main() -> None:
     registry = store.get_fact_registry()
     note_titles = [f"{h['number']}. {h['title']}" for h in headings]
     needed = required_facts(reqs, args.edition)
+    # Front-half facts the resolver can read from the notes (so they aren't asked).
+    needed |= {"dividend_recommended", "average_employees_gt_250"}
     print(f"active rules in scope: {len(reqs)}; facts to resolve: {len(needed)}")
 
     profile, resolutions = build_fact_profile(needed, registry, fs, note_titles,
-                                              args.edition, client)
+                                              args.edition, client, narrative=narrative)
     if args.profile_out:
         Path(args.profile_out).write_text(
             json.dumps(profile, default=str, indent=2), encoding="utf-8")

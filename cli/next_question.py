@@ -20,6 +20,7 @@ import json
 from pathlib import Path
 
 from pipeline.engine.checklist import Requirement, run_checklist
+from pipeline.fronthalf.review import front_half_questions
 
 MATERIAL = {"statutory", "standard-material"}
 FRONT_HALF = ("dividend_recommended", "average_employees_gt_250")
@@ -54,7 +55,13 @@ def next_question(base: dict, answers: dict, pool: list[dict],
     ranked += [f for f in FRONT_HALF if f not in known and f not in ranked]
     if not ranked:
         return {"done": True, "remaining": 0, "question": None}
-    by_key = {q["fact_key"]: q for q in pool}
+    # Pool lookup, augmented with the front-half question wording (those aren't in
+    # the checklist question pool but can still be asked).
+    by_key = {q.fact_key: {"fact_key": q.fact_key, "topic": q.topic,
+                           "question": q.question_text, "why": q.why,
+                           "citation": q.affected_refs[0] if q.affected_refs else ""}
+              for q in front_half_questions()}
+    by_key.update({q["fact_key"]: q for q in pool})
     top = ranked[0]
     src = by_key.get(top, {})
     # Normalise: the pool may carry 'affects' (a list) or 'citation' (a string).
