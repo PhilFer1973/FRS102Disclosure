@@ -13,7 +13,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-from pipeline.llm_client import LLMClient
+from pipeline.llm_client import LLMClient, LLMTruncationError
 from pipeline.validate.fs_model import FinancialStatements
 
 FACT_SCHEMA = {
@@ -249,21 +249,34 @@ def compute_size_facts(fs: FinancialStatements) -> dict[str, bool]:
 
 def build_fact_profile(facts_needed: set[str], registry: dict[str, dict],
                        fs: FinancialStatements, note_titles: list[str],
-                       edition: str, client: LLMClient, batch: int = 30,
+                       edition: str, client: LLMClient, batch: int = 15,
                        narrative: str = ""
                        ) -> tuple[dict[str, object], list[FactResolution]]:
     context = accounts_context(fs, note_titles, edition, narrative)
     profile: dict[str, object] = {}
     resolutions: list[FactResolution] = []
-    keys = sorted(facts_needed)
-    for start in range(0, len(keys), batch):
-        chunk = keys[start:start + batch]
+
+    def resolve(chunk: list[str]) -> list[dict]:
+        """Resolve a chunk of facts; if the model's JSON overflows the output
+        ceiling, split the chunk and retry, so a large filing self-heals instead
+        of dying on a truncated parse. A single fact that still overflows is a
+        genuine error and propagates."""
         listing = "\n".join(
             f"- {k}: {registry.get(k, {}).get('description', k)}" for k in chunk)
         user = f"ACCOUNTS:\n{context}\n\nFACTS TO RESOLVE:\n{listing}"
-        res = client.complete_json("facts", FACT_SYSTEM, user, FACT_SCHEMA,
-                                   max_tokens=8000)
-        for r in res["resolutions"]:
+        try:
+            return client.complete_json("facts", FACT_SYSTEM, user, FACT_SCHEMA,
+                                        max_tokens=8000)["resolutions"]
+        except LLMTruncationError:
+            if len(chunk) <= 1:
+                raise
+            mid = len(chunk) // 2
+            return resolve(chunk[:mid]) + resolve(chunk[mid:])
+
+    keys = sorted(facts_needed)
+    for start in range(0, len(keys), batch):
+        chunk = keys[start:start + batch]
+        for r in resolve(chunk):
             resolutions.append(FactResolution(r["key"], r["value"],
                                               r["confidence"], r["reasoning"]))
             v = r["value"].strip().lower()

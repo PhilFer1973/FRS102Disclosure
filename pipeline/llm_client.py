@@ -33,6 +33,14 @@ PRICES_USD_PER_MTOK = {
 }
 
 
+class LLMTruncationError(Exception):
+    """The model hit its output ceiling (stop_reason == 'max_tokens') before it
+    finished the JSON, so the response is a half-written object. Raised BEFORE
+    json.loads so the failure is legible ('facts output exceeded budget') instead
+    of an opaque JSONDecodeError three frames deep — and so callers can react
+    (split the batch, retry with a bigger ceiling)."""
+
+
 @dataclass
 class CallRecord:
     role: str
@@ -66,6 +74,11 @@ class LLMClient:
         )
         self._record(role, model, response)
         text = "".join(b.text for b in response.content if b.type == "text")
+        if response.stop_reason == "max_tokens":
+            raise LLMTruncationError(
+                f"{role} output exceeded the {max_tokens}-token ceiling "
+                f"({response.usage.output_tokens} tokens, JSON truncated at "
+                f"{len(text)} chars). Reduce the request size or raise max_tokens.")
         return json.loads(text)
 
     def complete_json_batch(self, role: str, system: str, items: list[tuple[str, str]],

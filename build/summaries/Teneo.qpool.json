@@ -1,0 +1,85 @@
+[
+  {
+    "fact_key": "presentation_currency_differs_from_functional_currency",
+    "topic": "Presentation currency",
+    "question": "Does the company report its financial statements in a different currency from the one in which it actually operates and keeps its books?",
+    "why": "If so, you must disclose the functional currency, the exchange rates used, and any gains or losses from translating between them.",
+    "affects": [
+      "FRS102 30.17",
+      "FRS102 30.18",
+      "FRS102 30.26"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "not_going_concern",
+    "topic": "Going concern",
+    "question": "Are there any circumstances that suggest the company may not be able to continue operating as a going concern over the next 12 months?",
+    "why": "If there are doubts about going concern, you must disclose them prominently and may need to restate the basis of measurement for the financial statements.",
+    "affects": [
+      "FRS102 3.9",
+      "FRS102 32.7B"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "capitalises_borrowing_costs",
+    "topic": "Borrowing costs",
+    "question": "Does the company add the cost of borrowing money directly into the cost of constructing or developing a qualifying asset, rather than charging it to profit and loss immediately?",
+    "why": "If so, you must disclose the amount capitalised and the capitalisation rate used.",
+    "affects": [
+      "FRS102 25.3A"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "financial_instrument_information_is_material",
+    "topic": "Financial instruments",
+    "question": "Are the company's holdings of financial instruments, such as loans, deposits, investments or derivatives, significant enough that they could affect how users understand the company's financial position or performance?",
+    "why": "If financial instruments are material, specific disclosures about their nature, risk exposure and accounting treatment are required.",
+    "affects": [
+      "FRS102 11.42"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_going_concern_material_uncertainties",
+    "topic": "Going concern uncertainty",
+    "question": "Are there significant uncertainties or risks that could affect whether the company can continue as a going concern, even if management currently believes it will?",
+    "why": "If material uncertainties exist, you must disclose them clearly so users understand the risks to the company's continuity.",
+    "affects": [
+      "FRS102 3.9"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_key_estimation_uncertainties",
+    "topic": "Estimation uncertainty",
+    "question": "Are there areas where management's judgement or estimates have a particularly high degree of uncertainty, and getting them wrong could significantly change the financial statements?",
+    "why": "Key sources of estimation uncertainty must be disclosed so users understand where the numbers are most dependent on management's assumptions.",
+    "affects": [
+      "FRS102 8.7"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_material_prior_period_error",
+    "topic": "Prior period error",
+    "question": "Has the company discovered a material mistake in the financial statements of a prior year that it needs to correct?",
+    "why": "Material prior-period errors must be corrected by restatement and disclosed in a note explaining the nature and effect of the correction.",
+    "affects": [
+      "FRS102 10.21"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "rebuts_above_20pct_significant_influence_presumption",
+    "topic": "Significant influence",
+    "question": "Does the company hold 20% or more of another entity but claim it does not have significant influence over its financial and operating decisions?",
+    "why": "If so, you must disclose the reasons why the standard presumption of significant influence at 20% ownership has been rebutted in this case.",
+    "affects": [
+      "FRS102 14.12"
+    ],
+    "answer": null
+  }
+]
