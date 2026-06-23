@@ -72,14 +72,34 @@ def _digit_close(a: Decimal, b: Decimal) -> bool:
     return abs(a - b) * 100 < abs(a)   # < 1% relative change
 
 
+def _all_figures(fs: FinancialStatements) -> set[Decimal]:
+    """Every figure extracted anywhere in the accounts (both columns, all
+    statements and notes) — the corpus the OCR second-loop cross-checks against."""
+    vals: set[Decimal] = set()
+    containers = list(fs.statements.values()) + list(fs.notes.values())
+    for c in containers:
+        for it in c.items:
+            for col in COLUMNS:
+                v = getattr(it, col)
+                if v is not None:
+                    vals.add(v)
+    return vals
+
+
 def _ocr_hint(line: LineItem, index: dict[str, LineItem], column: str,
-              stated: Decimal, computed: Decimal) -> str:
+              stated: Decimal, computed: Decimal,
+              figures: set[Decimal] = frozenset()) -> tuple[str, bool]:
     """If a single component (or the total) being a digit-misread would resolve
     the cast, point at the likely culprit and the casting-implied value. The
-    statements over-determine the figures, so this localises OCR errors."""
+    statements over-determine the figures, so this localises OCR errors.
+
+    Second loop: when the casting-implied (corrected) value ALSO appears elsewhere
+    in the document, that corroborates the misread — returns corroborated=True so
+    the caller can downgrade the finding from a casting error to a verify."""
     delta = computed - stated
     # (confidence, text) per suspect; lower OCR confidence = more likely culprit
     suspects: list[tuple[float, str]] = []
+    corroborated = False
     for comp_id, sign in line.derivation or ():
         comp = index.get(comp_id)
         v = None if comp is None else getattr(comp, column)
@@ -90,22 +110,29 @@ def _ocr_hint(line: LineItem, index: dict[str, LineItem], column: str,
             cf = comp.confidence_for(column)
             conf = cf if cf is not None else 1.0
             ctxt = f" [OCR confidence {cf:.3f}]" if cf is not None else ""
+            seen = implied in figures and implied != v
+            corroborated = corroborated or seen
+            mark = " — corroborated elsewhere in the document" if seen else ""
             suspects.append((conf, f"{comp.label!r} read {v:,} but casting implies "
-                                   f"{implied:,}{ctxt}"))
+                                   f"{implied:,}{ctxt}{mark}"))
     if _digit_close(stated, computed):
+        seen = computed in figures and computed != stated
+        corroborated = corroborated or seen
+        mark = " — corroborated elsewhere in the document" if seen else ""
         suspects.append((1.0, f"the total {line.label!r} read {stated:,} but "
-                              f"components imply {computed:,}"))
+                              f"components imply {computed:,}{mark}"))
     if not suspects:
-        return ""
+        return "", False
     suspects.sort(key=lambda s: s[0])        # lowest-confidence first
     lead = " (most likely the first)" if suspects[0][0] < 0.99 else ""
     return (" PROBABLE OCR MISREAD (single digit), candidates by ascending OCR "
             f"confidence{lead}: " + "; ".join(t for _, t in suspects)
-            + " — re-read/verify before treating as a finding.")
+            + " — re-read/verify before treating as a finding.", corroborated)
 
 
 def _check_container(name: str, items: list[LineItem], index: dict[str, LineItem],
-                     fs: FinancialStatements) -> list[Finding]:
+                     fs: FinancialStatements,
+                     figures: set[Decimal] = frozenset()) -> list[Finding]:
     findings: list[Finding] = []
     for line in items:
         if line.derivation is None:
@@ -131,23 +158,39 @@ def _check_container(name: str, items: list[LineItem], index: dict[str, LineItem
                     "standard-material", is_error=True))
                 continue
             if abs(stated - computed) > tol:
-                hint = _ocr_hint(line, index, column, stated, computed)
-                findings.append(Finding(
-                    "cast", f"{name}:{line.id}",
-                    f"'{line.label}' ({column}) does not cast: components sum to "
-                    f"{computed}, statement shows {stated} (tolerance {tol})." + hint,
-                    "standard-material",
-                    expected=str(computed), actual=str(stated)))
+                hint, corroborated = _ocr_hint(line, index, column, stated,
+                                               computed, figures)
+                if corroborated:
+                    # Second loop confirmed it: the casting-implied value appears
+                    # elsewhere in the document, so the stated figure is almost
+                    # certainly an OCR misread — surface as a verify, not as an
+                    # accusation that the accounts do not cast.
+                    findings.append(Finding(
+                        "cast", f"{name}:{line.id}",
+                        f"'{line.label}' ({column}) suspected OCR misread: components "
+                        f"sum to {computed} but the statement shows {stated}; the "
+                        f"corrected value is corroborated elsewhere in the document — "
+                        f"verify the figure.{hint}",
+                        "standard-immaterial-candidate", is_error=False,
+                        expected=str(computed), actual=str(stated)))
+                else:
+                    findings.append(Finding(
+                        "cast", f"{name}:{line.id}",
+                        f"'{line.label}' ({column}) does not cast: components sum to "
+                        f"{computed}, statement shows {stated} (tolerance {tol})." + hint,
+                        "standard-material",
+                        expected=str(computed), actual=str(stated)))
     return findings
 
 
 def check_casting(fs: FinancialStatements) -> list[Finding]:
     findings: list[Finding] = []
+    figures = _all_figures(fs)            # corpus for the OCR second-loop
     for stmt in fs.statements.values():
-        findings += _check_container(stmt.name, stmt.items, stmt.by_id(), fs)
+        findings += _check_container(stmt.name, stmt.items, stmt.by_id(), fs, figures)
     for note in fs.notes.values():
         findings += _check_container(f"note {note.number}", note.items,
-                                     note.by_id(), fs)
+                                     note.by_id(), fs, figures)
     return findings
 
 

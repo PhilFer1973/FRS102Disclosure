@@ -258,6 +258,30 @@ def test_ocr_misread_localised_in_cast_finding():
     assert "7,888,831" in findings[0].description  # the casting-implied correction
 
 
+def test_ocr_second_loop_corroborates_correction_from_elsewhere():
+    """Second loop: when the casting-implied correction also appears elsewhere in
+    the document (here, the debtors note carries the true 7,888,831), the cast is
+    downgraded from a hard error to a corroborated verify rather than accusing the
+    accounts of not casting."""
+    bs = Statement("balance_sheet", [
+        line("stocks", "Stocks", 349054, 349054),
+        line("debtors", "Debtors", 7888837, 7888837, note="5"),   # misread of 831
+        line("cash", "Cash", 2130087, 2130087),
+        line("total_ca", "Current assets", 10367972, 10367972,
+             deriv=(("stocks", 1), ("debtors", 1), ("cash", 1))),
+    ])
+    note = Note("5", "Debtors", [
+        line("trade", "Trade debtors", 7888831, 7888831),   # the correct figure
+    ])
+    fs = FinancialStatements("T", "2025-12-31", rounding_unit=D(1),
+                             statements={"balance_sheet": bs}, notes={"5": note})
+    f = next(x for x in check_casting(fs)
+             if x.check_type == "cast" and "total_ca" in x.location)
+    assert f.is_error is False
+    assert "suspected OCR misread" in f.description
+    assert "corroborated" in f.description
+
+
 def test_real_cast_error_not_misflagged_as_ocr():
     """A large, non-digit-close discrepancy is a genuine finding, not 'OCR'."""
     bs = Statement("balance_sheet", [

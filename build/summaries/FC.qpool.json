@@ -1,20 +1,9 @@
 [
   {
-    "fact_key": "has_material_prior_period_error",
-    "topic": "Prior period errors",
-    "question": "Have you identified any material errors in the prior year figures that need to be corrected, either by restating the comparatives or adjusting opening balances?",
-    "why": "Material prior period errors trigger specific disclosure requirements about the nature, amount and impact of the correction.",
-    "affects": [
-      "FRS102 10.21",
-      "FRS102 6.2"
-    ],
-    "answer": null
-  },
-  {
     "fact_key": "not_going_concern",
-    "topic": "Going concern status",
-    "question": "Is there any indication that the company will not be able to continue operating and paying its debts as they fall due over the next 12 months?",
-    "why": "If the company is not a going concern, the basis of preparation must be disclosed and the financial statements presented on an alternative basis.",
+    "topic": "Going concern",
+    "question": "Are you satisfied that the company will continue operating and meeting its obligations over the next twelve months, or do you have serious doubts about its ability to do so?",
+    "why": "If the company is not a going concern, the financial statements must be prepared on a different basis and specific disclosures about the break-up are required.",
     "affects": [
       "FRS102 3.9",
       "FRS102 32.7B"
@@ -23,9 +12,9 @@
   },
   {
     "fact_key": "has_going_concern_material_uncertainties",
-    "topic": "Going concern uncertainties",
-    "question": "Are there any significant doubts or uncertainties about whether the company can continue as a going concern, even though you currently expect it to?",
-    "why": "Material uncertainties about going concern must be disclosed in the notes to explain the risks and mitigating factors.",
+    "topic": "Going concern risks",
+    "question": "Even if you believe the company will continue operating, are there material uncertainties about its ability to do so that you're aware of\u2014such as pending litigation, refinancing needs, or covenant breaches?",
+    "why": "Material uncertainties about going concern must be disclosed in the notes even when the company is expected to continue.",
     "affects": [
       "FRS102 3.9"
     ],
@@ -33,21 +22,21 @@
   },
   {
     "fact_key": "has_key_estimation_uncertainties",
-    "topic": "Estimation uncertainties",
-    "question": "Are there any amounts in the financial statements that depend heavily on judgement or estimates, where a different reasonable assumption could significantly change the results?",
-    "why": "Key sources of estimation uncertainty must be disclosed to help readers understand the inherent variability in those figures.",
+    "topic": "Estimation uncertainty",
+    "question": "In preparing these accounts, were there any key judgements or estimates where a different reasonable assumption would significantly change the reported figures\u2014for example around valuations, provisions, or useful lives?",
+    "why": "Key sources of estimation uncertainty must be disclosed to help users understand where reported amounts are most sensitive to change.",
     "affects": [
       "FRS102 8.7"
     ],
     "answer": null
   },
   {
-    "fact_key": "rebuts_above_20pct_significant_influence_presumption",
-    "topic": "Significant influence - shareholding",
-    "question": "Do you own or control 20% or more of the voting shares in any investee, but believe you do not have significant influence over its financial and operating decisions?",
-    "why": "If you rebut the presumption of significant influence at 20% ownership, you must disclose the reasons why you do not consolidate or equity account for that investment.",
+    "fact_key": "has_material_prior_period_error",
+    "topic": "Prior period error",
+    "question": "Have you identified any material errors in the prior year financial statements that need to be corrected retrospectively in these accounts?",
+    "why": "Material prior period errors must be corrected by restatement and the nature and amount of the correction must be disclosed.",
     "affects": [
-      "FRS102 14.12"
+      "FRS102 10.21"
     ],
     "answer": null
   }

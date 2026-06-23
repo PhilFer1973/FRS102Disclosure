@@ -170,6 +170,43 @@ def compute_cashflow_presence(narrative: str) -> dict[str, bool]:
     return {"presents_cash_flow_statement": bool(_CF_STATEMENT_RE.search(narrative or ""))}
 
 
+def compute_statement_presence(fs: FinancialStatements, narrative: str) -> dict[str, bool]:
+    """Which primary statements are actually present, from the extraction and the
+    headings — so statement-presence rules (complete set, SOCE content) aren't
+    flagged 'missing' when the statement is plainly there. General, not entity-
+    specific. Cash flow statement is handled separately (exemption-aware)."""
+    low = (narrative or "").lower()
+    return {
+        "presents_income_statement": "income" in fs.statements
+            or "profit and loss account" in low or "income statement" in low
+            or "statement of comprehensive income" in low,
+        "presents_balance_sheet": "balance_sheet" in fs.statements
+            or "balance sheet" in low or "statement of financial position" in low,
+        "presents_statement_of_changes_in_equity":
+            "statement of changes in equity" in low,
+        "presents_notes": bool(getattr(fs, "notes", {}) or {})
+            or "notes to the financial statements" in low
+            or "notes to the accounts" in low,
+    }
+
+
+_DEPARTURE_RE = re.compile(
+    r"depart(?:ed|ure|ing)\s+from|true and fair override|override of (?:a|the) requirement",
+    re.IGNORECASE)
+
+
+def compute_departure_facts(narrative: str) -> dict[str, bool]:
+    """A FRS 102 / company-law departure (true-and-fair override) is rare and is
+    ALWAYS explicitly worded. Without that wording there is no departure — so don't
+    let the resolver read an ordinary prior-period RESTATEMENT (10.21, correcting an
+    error) as a departure (3.6). No departure language -> both departure facts
+    false. General; if the wording IS present, leave it to the resolver."""
+    if _DEPARTURE_RE.search(narrative or ""):
+        return {}
+    return {"has_prior_period_departure_affecting_current_amounts": False,
+            "has_departure_from_company_law_accounting_principles": False}
+
+
 _EMPLOYEES_RE = re.compile(
     r"average\s+(?:monthly\s+)?number\s+of\s+(?:persons\s+employed|employees|staff|persons)",
     re.IGNORECASE)
@@ -240,7 +277,9 @@ def build_fact_profile(facts_needed: set[str], registry: dict[str, dict],
                 profile[r["key"]] = r["value"]   # enum value
     # Deterministic reads/computations override the model where they're clear-cut.
     computed = {**compute_size_facts(fs), **compute_employees_fact(narrative),
-                **compute_cashflow_presence(narrative)}
+                **compute_cashflow_presence(narrative),
+                **compute_statement_presence(fs, narrative),
+                **compute_departure_facts(narrative)}
     for k, val in computed.items():
         profile[k] = val
         resolutions.append(FactResolution(k, str(val).lower(), 1.0,
