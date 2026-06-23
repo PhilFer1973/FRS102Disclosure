@@ -231,20 +231,29 @@ def compute_employees_fact(narrative: str) -> dict[str, bool]:
 
 
 def compute_size_facts(fs: FinancialStatements) -> dict[str, bool]:
-    """Settle small-entity status deterministically where the figures clearly
-    exceed the CA06 size thresholds (turnover > £10.2m and total assets > £5.1m
-    means it fails at least 2 of the 3 tests, so it is NOT small). Returns
-    {} when not clear-cut (genuinely small or borderline) — those still read
-    the accounts / ask. A non-small entity also cannot apply Section 1A."""
+    """Settle entity-size / framework facts deterministically where the figures
+    clearly exceed the CA06 thresholds — failing two of the three tests means the
+    entity is NOT in that size band, so the band's regime cannot apply. Returns {}
+    for anything borderline (those still read the accounts). The accounting
+    framework is also always disclosed, so this only needs to settle the clear
+    'too big to be micro / small' cases.
+
+    Thresholds (gross = balance-sheet total): micro £632k / £316k; small £10.2m /
+    £5.1m. Use AND on turnover and gross so the entity has clearly failed two of
+    the three tests before we rule the band out."""
     from decimal import Decimal
 
     from pipeline.engine.materiality import extract_benchmarks
     b = extract_benchmarks(fs)
     turnover, gross = b.get("turnover"), b.get("gross_assets")
-    if (turnover is not None and abs(turnover) > Decimal("10200000")
-            and gross is not None and gross > Decimal("5100000")):
-        return {"is_small_entity": False, "applies_section_1A": False}
-    return {}
+    if turnover is None or gross is None:
+        return {}
+    out: dict[str, bool] = {}
+    if abs(turnover) > Decimal("632000") and gross > Decimal("316000"):
+        out.update(is_micro_entity=False, applies_FRS105=False)
+    if abs(turnover) > Decimal("10200000") and gross > Decimal("5100000"):
+        out.update(is_small_entity=False, applies_section_1A=False)
+    return out
 
 
 def build_fact_profile(facts_needed: set[str], registry: dict[str, dict],

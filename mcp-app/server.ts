@@ -111,19 +111,26 @@ function lastJsonLine(s: string): any {
 
 function interviewOne(name: string, q: any, first: boolean): string {
   return [
-    first ? `I've reviewed ${name}'s accounts. I need to confirm a few points I `
-      + `couldn't determine from the document before I can finalise.` : "",
-    "Put THIS one question to the reviewer, in plain professional English, then wait "
-      + "for their answer:",
+    first ? `I've reviewed ${name}'s accounts. I need to confirm a few points of `
+      + `judgement before I can finalise.` : "",
+    "Put THIS one question to the reviewer, WORD FOR WORD, in plain professional "
+      + "English, then wait for their answer:",
     `  Topic: ${q.topic || "—"}`,
     `  Question: ${q.question}`,
     q.why ? `  Why it matters: ${q.why}` : "",
     "",
+    "CRITICAL: ask ONLY the exact question above. Do NOT invent, add, substitute or "
+      + "reword a question of your own. In particular do NOT ask about the accounting "
+      + "framework (FRS 105 vs FRS 102), micro/small-entity status, Section 1A, "
+      + "exemptions, eligibility, or anything you could read in the accounts — the "
+      + "tool has ALREADY read or computed every such fact from the document, and "
+      + "anything it still needs is in these questions and these questions only. "
+      + "Never list multiple questions, never ask for yes/no batches, never mention "
+      + "tools or fact keys.",
     "After they answer, call next_question again with ALL answers gathered so far "
       + `(each as ${q.fact_key}-style key -> true/false/value, including this one). `
-      + "Ask only this one question now — never list others, never ask for yes/no "
-      + "batches, never mention tools or fact keys. When next_question reports it is "
-      + "done, call finalize_review with the collected answers.",
+      + "When next_question reports it is done, call finalize_review with the "
+      + "collected answers.",
   ].filter(Boolean).join("\n");
 }
 

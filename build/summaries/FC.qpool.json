@@ -2,8 +2,8 @@
   {
     "fact_key": "not_going_concern",
     "topic": "Going concern",
-    "question": "Are you satisfied that the company will continue operating and meeting its obligations over the next twelve months, or do you have serious doubts about its ability to do so?",
-    "why": "If the company is not a going concern, the financial statements must be prepared on a different basis and specific disclosures about the break-up are required.",
+    "question": "Is there any reason to believe the company won't be able to continue operating and meeting its obligations over the next 12 months?",
+    "why": "If the company is not a going concern, the financial statements must be prepared on a break-up basis and additional disclosures about the circumstances are required.",
     "affects": [
       "FRS102 3.9",
       "FRS102 32.7B"
@@ -12,9 +12,9 @@
   },
   {
     "fact_key": "has_going_concern_material_uncertainties",
-    "topic": "Going concern risks",
-    "question": "Even if you believe the company will continue operating, are there material uncertainties about its ability to do so that you're aware of\u2014such as pending litigation, refinancing needs, or covenant breaches?",
-    "why": "Material uncertainties about going concern must be disclosed in the notes even when the company is expected to continue.",
+    "topic": "Going concern uncertainties",
+    "question": "Are there any significant uncertainties or events that might cast doubt on whether the company can continue as a going concern, even if management believes it will?",
+    "why": "Material uncertainties about going concern must be disclosed in the notes to help users understand the risks to the business.",
     "affects": [
       "FRS102 3.9"
     ],
@@ -22,9 +22,9 @@
   },
   {
     "fact_key": "has_key_estimation_uncertainties",
-    "topic": "Estimation uncertainty",
-    "question": "In preparing these accounts, were there any key judgements or estimates where a different reasonable assumption would significantly change the reported figures\u2014for example around valuations, provisions, or useful lives?",
-    "why": "Key sources of estimation uncertainty must be disclosed to help users understand where reported amounts are most sensitive to change.",
+    "topic": "Estimation uncertainties",
+    "question": "Are there any areas of the financial statements where the outcome is particularly uncertain and depends heavily on judgement or assumptions about the future?",
+    "why": "Key sources of estimation uncertainty must be disclosed so users understand which figures carry the most risk of significant change.",
     "affects": [
       "FRS102 8.7"
     ],
@@ -33,10 +33,20 @@
   {
     "fact_key": "has_material_prior_period_error",
     "topic": "Prior period error",
-    "question": "Have you identified any material errors in the prior year financial statements that need to be corrected retrospectively in these accounts?",
-    "why": "Material prior period errors must be corrected by restatement and the nature and amount of the correction must be disclosed.",
+    "question": "Has the company discovered any material errors or mistakes in the figures reported in earlier years' financial statements?",
+    "why": "Material prior period errors must be corrected through restatement of comparative figures and disclosed to explain the adjustment.",
     "affects": [
       "FRS102 10.21"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "rebuts_above_20pct_significant_influence_presumption",
+    "topic": "Significant influence",
+    "question": "The company holds more than 20% of another entity\u2014does it actually have the ability to influence that entity's financial and operating decisions, or are there circumstances that prevent it from doing so?",
+    "why": "If the company can rebut the presumption of significant influence, it may account for the investment as a financial asset rather than an associate, which changes both the balance sheet presentation and required disclosures.",
+    "affects": [
+      "FRS102 14.12"
     ],
     "answer": null
   }

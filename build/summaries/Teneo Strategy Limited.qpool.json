@@ -1,0 +1,133 @@
+[
+  {
+    "fact_key": "applies_section_1A",
+    "topic": "Section 1A eligibility",
+    "question": "Does the company qualify as a micro-entity under the eligibility criteria, and has it chosen to apply the micro-entity rules rather than the full standard?",
+    "why": "Micro-entities use a much shorter set of disclosures, so we need to confirm which framework applies.",
+    "affects": [
+      "FRS102 1A.10",
+      "FRS102 1A.16",
+      "FRS102 1A.18",
+      "FRS102 1A.6A",
+      "FRS102 1A.8",
+      "FRS102 1AA.6",
+      "FRS102 1AC.12",
+      "FRS102 1AC.19",
+      "FRS102 1AC.27",
+      "FRS102 1AC.28",
+      "FRS102 1AC.29",
+      "FRS102 1AC.3",
+      "FRS102 1AC.32",
+      "FRS102 1AC.33",
+      "FRS102 1AC.34",
+      "FRS102 1AC.35",
+      "FRS102 1AC.36",
+      "FRS102 1AC.37"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "presentation_currency_differs_from_functional_currency",
+    "topic": "Presentation currency",
+    "question": "Is the currency in which these accounts are presented different from the currency of the country where the company actually operates and conducts its business?",
+    "why": "When presentation and functional currencies differ, specific disclosures about exchange rates and currency translation are required.",
+    "affects": [
+      "FRS102 30.17",
+      "FRS102 30.18",
+      "FRS102 30.26"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "capitalises_borrowing_costs",
+    "topic": "Borrowing costs",
+    "question": "Has the company capitalised any borrowing costs as part of the cost of an asset under construction or development, rather than expensing them all?",
+    "why": "Capitalising borrowing costs requires specific accounting policy disclosure and changes how we assess whether costs have been treated correctly.",
+    "affects": [
+      "FRS102 1AC.19",
+      "FRS102 25.3A"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "not_going_concern",
+    "topic": "Going concern status",
+    "question": "Are there any facts or circumstances that would indicate the company may not be able to continue operating and paying its debts over the next twelve months?",
+    "why": "If the company is not a going concern, the entire basis of measurement in the accounts changes and different disclosures become necessary.",
+    "affects": [
+      "FRS102 3.9",
+      "FRS102 32.7B"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "financial_instrument_information_is_material",
+    "topic": "Financial instruments",
+    "question": "Are the company's financial assets and liabilities significant enough in amount or importance that detailed disclosures about them would be useful to users of the accounts?",
+    "why": "Financial instrument disclosures are only required if the information is material to the accounts.",
+    "affects": [
+      "FRS102 11.42"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_going_concern_material_uncertainties",
+    "topic": "Going concern uncertainties",
+    "question": "While the company is expected to continue, are there significant doubts or material uncertainties about whether it can stay in operation?",
+    "why": "Material uncertainties about going concern must be disclosed in the notes even when the company is ultimately expected to survive.",
+    "affects": [
+      "FRS102 3.9"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_key_estimation_uncertainties",
+    "topic": "Estimation uncertainty",
+    "question": "Are there material items in the accounts whose amounts depend heavily on management's judgment or assumptions, where small changes could significantly alter the result?",
+    "why": "Key estimation uncertainties must be described in the notes to help users understand the main judgments in the numbers.",
+    "affects": [
+      "FRS102 8.7"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "has_material_prior_period_error",
+    "topic": "Prior period errors",
+    "question": "Has the company discovered that a material error was made in last year's or earlier years' accounts, either in a number or a disclosure?",
+    "why": "Material prior period errors must be corrected and disclosed, and the accounts must show the comparative position as if the error had never happened.",
+    "affects": [
+      "FRS102 10.21"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "income_statement_line_items_or_descriptions_amended",
+    "topic": "Income statement presentation",
+    "question": "Has the company changed the line items or labels it uses in the profit and loss statement compared to the previous year or the standard format?",
+    "why": "Any changes to income statement presentation or terminology need to be disclosed so users can still compare year on year.",
+    "affects": [
+      "FRS102 5.5C"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "is_lessee",
+    "topic": "Leasing",
+    "question": "Does the company rent or lease any assets such as property, vehicles, or equipment under lease agreements?",
+    "why": "Lessees must disclose details of their lease obligations and commitments in the notes.",
+    "affects": [
+      "FRS102 16.11"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "rebuts_above_20pct_significant_influence_presumption",
+    "topic": "Significant influence",
+    "question": "Does the company hold 20% or more of the voting power in another company but argue that it does not have significant influence over that company's decisions?",
+    "why": "If a company holds 20% or more but claims no significant influence, that rebuttal of the presumption must be explained and justified in the notes.",
+    "affects": [
+      "FRS102 14.12"
+    ],
+    "answer": null
+  }
+]

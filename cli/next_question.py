@@ -17,13 +17,24 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from pipeline.engine.checklist import Requirement, run_checklist
+from pipeline.facts.builder import ALWAYS_ASK
 from pipeline.fronthalf.review import front_half_questions
 
 MATERIAL = {"statutory", "standard-material"}
 FRONT_HALF = ("dividend_recommended", "average_employees_gt_250")
+
+# The ONLY facts the interview may put to the reviewer: genuine judgements or
+# external knowledge that cannot be read from the accounts. Everything else MUST
+# be resolved from the accounts (computed, read, or defaulted) — never asked
+# (Phil's standing rule). Inverting the default this way is what stops the
+# "why are you asking me something that's in the accounts?" loop: a fact we
+# haven't taught the resolver yet shows up as a logged GAP for us to fix, it does
+# not get dumped on the reviewer.
+ASKABLE = frozenset(ALWAYS_ASK | set(FRONT_HALF))
 
 
 def _load_rules(rules_path: str | None, edition: str) -> list[Requirement]:
@@ -53,8 +64,14 @@ def next_question(base: dict, answers: dict, pool: list[dict],
                     key=lambda f: (-leverage[f], f))
     # front-half statutory items: ask if still unanswered, after the checklist facts
     ranked += [f for f in FRONT_HALF if f not in known and f not in ranked]
-    if not ranked:
-        return {"done": True, "remaining": 0, "question": None}
+    # Only genuine reviewer-judgement facts may be asked. Anything else still
+    # undetermined is a RESOLVER GAP — a fact that should have been read/computed
+    # from the accounts — and is reported as a diagnostic, never as a question.
+    askable = [f for f in ranked if f in ASKABLE]
+    gaps = [f for f in ranked if f not in ASKABLE]
+    if not askable:
+        return {"done": True, "remaining": 0, "question": None, "resolver_gaps": gaps}
+    ranked = askable
     # Pool lookup, augmented with the front-half question wording (those aren't in
     # the checklist question pool but can still be asked).
     by_key = {q.fact_key: {"fact_key": q.fact_key, "topic": q.topic,
@@ -72,7 +89,8 @@ def next_question(base: dict, answers: dict, pool: list[dict],
         "why": src.get("why", ""),
         "citation": src.get("citation") or ", ".join(src.get("affects", []) or []),
     }
-    return {"done": False, "remaining": len(ranked), "question": q}
+    return {"done": False, "remaining": len(ranked), "question": q,
+            "resolver_gaps": gaps}
 
 
 def main() -> None:
@@ -91,7 +109,15 @@ def main() -> None:
     answers = (json.loads(Path(args.answers).read_text(encoding="utf-8"))
                if args.answers else {})
     reqs = _load_rules(args.rules, args.edition)
-    print(json.dumps(next_question(base, answers, pool, reqs, args.edition)))
+    result = next_question(base, answers, pool, reqs, args.edition)
+    # Resolver gaps are a developer diagnostic (facts we should teach the resolver
+    # to read/compute), NOT part of the reviewer-facing contract — log to stderr,
+    # keep stdout's JSON line to {done, remaining, question}.
+    gaps = result.pop("resolver_gaps", [])
+    if gaps:
+        print(f"[resolver gaps — undetermined material facts NOT asked (should be "
+              f"read/computed from the accounts): {', '.join(gaps)}]", file=sys.stderr)
+    print(json.dumps(result))
 
 
 if __name__ == "__main__":
