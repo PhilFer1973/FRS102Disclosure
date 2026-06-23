@@ -60,6 +60,10 @@ def build_summary(entity: str, period_end: str, materiality: Materiality,
         if p.status == "present":
             continue
         req = p.requirement.requirement
+        # Skip rules whose source paragraph is incomplete in the corpus — the
+        # requirement can't be stated, so the finding is unintelligible.
+        if "cannot be determined from the verbatim text" in req.requirement_text.lower():
+            continue
         lead = "Missing: " if p.status == "absent" else "Verify: "
         add({"category": "disclosure", "citation": f"{req.source} {req.reference}",
              "severity": req.severity, "status": p.status,

@@ -38,9 +38,8 @@ FRONT_HALF_REQUIREMENTS: list[tuple[str, str, str]] = [
     ("FRC", "directors_responsibilities",
      "The accounts should include a statement of directors' responsibilities "
      "in respect of the financial statements."),
-    ("FRS102/CA06", "going_concern_fronthalf",
-     "The directors' report or strategic report should address the going "
-     "concern basis of preparation."),
+    # Going concern is handled as a reviewer confirm in the scope interview, not a
+    # front-half "verify" finding (the reviewer judges it; the tool reads the basis).
 ]
 
 # Conditional / judgement front-half items. These do NOT always apply (they

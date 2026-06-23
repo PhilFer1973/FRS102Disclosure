@@ -10,6 +10,7 @@ the question queue. Each resolution records value, confidence and reasoning
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 from pipeline.llm_client import LLMClient
@@ -157,6 +158,41 @@ ALWAYS_ASK = frozenset({
 })
 
 
+_CF_STATEMENT_RE = re.compile(
+    r"cash (?:flows? from|generated from|used in)\s+(?:operating|investing|financing)"
+    r"|net cash (?:from|used)|(?:investing|financing) activities", re.IGNORECASE)
+
+
+def compute_cashflow_presence(narrative: str) -> dict[str, bool]:
+    """Detect a real statement of cash flows from its line items, rather than
+    trusting the model — which confuses 'exempt from preparing a statement of cash
+    flows' with actually presenting one. No such line items -> not presented."""
+    return {"presents_cash_flow_statement": bool(_CF_STATEMENT_RE.search(narrative or ""))}
+
+
+_EMPLOYEES_RE = re.compile(
+    r"average\s+(?:monthly\s+)?number\s+of\s+(?:persons\s+employed|employees|staff|persons)",
+    re.IGNORECASE)
+
+
+def compute_employees_fact(narrative: str) -> dict[str, bool]:
+    """Read the CA06 s411 average-number-of-employees disclosure and settle the
+    >250 threshold, so it isn't asked. Take the largest non-year number in the
+    text right after the phrase (the total headcount)."""
+    m = _EMPLOYEES_RE.search(narrative or "")
+    if not m:
+        return {}
+    tail = narrative[m.end(): m.end() + 300]
+    # Only read the headcount block — stop at the next note heading / page marker /
+    # Docusign id, so following figures (interest, envelope ids) don't contaminate.
+    cut = re.search(r"\n\s*\d+\.\s|\bPage\b|Docusign", tail)
+    if cut:
+        tail = tail[:cut.start()]
+    nums = [int(t.replace(",", "")) for t in re.findall(r"\d[\d,]*", tail)]
+    nums = [n for n in nums if not (2000 <= n <= 2100) and n < 100000]  # drop years/£
+    return {"average_employees_gt_250": max(nums) > 250} if nums else {}
+
+
 def compute_size_facts(fs: FinancialStatements) -> dict[str, bool]:
     """Settle small-entity status deterministically where the figures clearly
     exceed the CA06 size thresholds (turnover > £10.2m and total assets > £5.1m
@@ -202,12 +238,13 @@ def build_fact_profile(facts_needed: set[str], registry: dict[str, dict],
                 continue                      # leave unresolved
             else:
                 profile[r["key"]] = r["value"]   # enum value
-    # Deterministic size test overrides the model where it's clear-cut.
-    size = compute_size_facts(fs)
-    for k, val in size.items():
+    # Deterministic reads/computations override the model where they're clear-cut.
+    computed = {**compute_size_facts(fs), **compute_employees_fact(narrative),
+                **compute_cashflow_presence(narrative)}
+    for k, val in computed.items():
         profile[k] = val
         resolutions.append(FactResolution(k, str(val).lower(), 1.0,
-                                          "computed from CA06 size thresholds",
+                                          "read/computed from the accounts",
                                           method="computed"))
     # Backstop (Phil's rule): a presence fact ('has_...') or a vague '..._relevant'
     # fact the model left unresolved means the accounts show no sign of it — treat

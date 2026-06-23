@@ -2,8 +2,8 @@
   {
     "fact_key": "has_material_prior_period_error",
     "topic": "Prior period errors",
-    "question": "Have you identified any material errors in the prior year's financial statements that need to be corrected or restated in these accounts?",
-    "why": "If there's a material prior period error, you must disclose how it was corrected and show the impact on the prior year comparatives.",
+    "question": "Have you identified any material errors in the prior year figures that need to be corrected, either by restating the comparatives or adjusting opening balances?",
+    "why": "Material prior period errors trigger specific disclosure requirements about the nature, amount and impact of the correction.",
     "affects": [
       "FRS102 10.21",
       "FRS102 6.2"
@@ -12,9 +12,9 @@
   },
   {
     "fact_key": "not_going_concern",
-    "topic": "Going concern basis",
-    "question": "Is there any reason to believe the company will not be able to continue operating normally over the next 12 months?",
-    "why": "If the company is not a going concern, you must change the basis of preparation and make specific disclosures about how the accounts have been prepared instead.",
+    "topic": "Going concern status",
+    "question": "Is there any indication that the company will not be able to continue operating and paying its debts as they fall due over the next 12 months?",
+    "why": "If the company is not a going concern, the basis of preparation must be disclosed and the financial statements presented on an alternative basis.",
     "affects": [
       "FRS102 3.9",
       "FRS102 32.7B"
@@ -24,8 +24,8 @@
   {
     "fact_key": "has_going_concern_material_uncertainties",
     "topic": "Going concern uncertainties",
-    "question": "Are there any significant events or conditions that could call into doubt whether the company will be able to continue as a going concern, even though you believe it will?",
-    "why": "If there are material uncertainties about going concern, you must disclose them in detail so users understand the risks.",
+    "question": "Are there any significant doubts or uncertainties about whether the company can continue as a going concern, even though you currently expect it to?",
+    "why": "Material uncertainties about going concern must be disclosed in the notes to explain the risks and mitigating factors.",
     "affects": [
       "FRS102 3.9"
     ],
@@ -34,10 +34,20 @@
   {
     "fact_key": "has_key_estimation_uncertainties",
     "topic": "Estimation uncertainties",
-    "question": "Are there any figures in the accounts \u2014 such as valuations, provisions, or useful lives \u2014 where the outcome is particularly uncertain or depends heavily on future events?",
-    "why": "If there are key sources of estimation uncertainty, you must disclose what they are and why they matter to the financial statements.",
+    "question": "Are there any amounts in the financial statements that depend heavily on judgement or estimates, where a different reasonable assumption could significantly change the results?",
+    "why": "Key sources of estimation uncertainty must be disclosed to help readers understand the inherent variability in those figures.",
     "affects": [
       "FRS102 8.7"
+    ],
+    "answer": null
+  },
+  {
+    "fact_key": "rebuts_above_20pct_significant_influence_presumption",
+    "topic": "Significant influence - shareholding",
+    "question": "Do you own or control 20% or more of the voting shares in any investee, but believe you do not have significant influence over its financial and operating decisions?",
+    "why": "If you rebut the presumption of significant influence at 20% ownership, you must disclose the reasons why you do not consolidate or equity account for that investment.",
+    "affects": [
+      "FRS102 14.12"
     ],
     "answer": null
   }
