@@ -7,14 +7,14 @@
     "display": "\u00a3193k"
   },
   "counts": {
-    "total_findings": 17,
+    "total_findings": 12,
     "by_category": {
-      "judgement": 3,
-      "disclosure": 10,
+      "judgement": 2,
+      "disclosure": 6,
       "numerical": 4,
       "formatting": 0
     },
-    "need_judgement": 3,
+    "need_judgement": 2,
     "questions": 6
   },
   "findings": [
@@ -22,7 +22,7 @@
       "category": "numerical",
       "citation": "balance_sheet:total_current_assets",
       "severity": "standard-immaterial-candidate",
-      "text": "'(line 8)' (prior) does not cast: components sum to 10367978, statement shows 10367972 (tolerance 2). PROBABLE OCR MISREAD (single digit), candidates by ascending OCR confidence (most likely the first): 'Debtors' read 7,888,837 but casting implies 7,888,831 [OCR confidence 0.962]; 'Cash at bank and in hand' read 2,130,087 but casting implies 2,130,081 [OCR confidence 0.993]; 'Stocks' read 349,054 but casting implies 349,048 [OCR confidence 0.996]; the total '(line 8)' read 10,367,972 but components imply 10,367,978 \u2014 re-read/verify before treating as a finding."
+      "text": "'(line 8)' (prior) suspected OCR misread: components sum to 10367978 but the statement shows 10367972; the corrected value is corroborated elsewhere in the document \u2014 verify the figure. PROBABLE OCR MISREAD (single digit), candidates by ascending OCR confidence (most likely the first): 'Debtors' read 7,888,837 but casting implies 7,888,831 [OCR confidence 0.962] \u2014 corroborated elsewhere in the document; 'Cash at bank and in hand' read 2,130,087 but casting implies 2,130,081 [OCR confidence 0.993]; 'Stocks' read 349,054 but casting implies 349,048 [OCR confidence 0.996]; the total '(line 8)' read 10,367,972 but components imply 10,367,978 \u2014 re-read/verify before treating as a finding."
     },
     {
       "category": "numerical",
@@ -44,70 +44,43 @@
     },
     {
       "category": "judgement",
-      "citation": "FRS102 1AC.3",
-      "severity": "standard-material",
-      "text": "Policy 2.16 (Share capital) states that 'incremental costs directly attributable to the issue of new ordinary shares or options are shown in equity as a deduction, net of tax, from the proceeds.' The statement of changes in equity and share capital note show that the share capital and share premium account were unchanged in both 2024 and 2023 (no new shares were issued in either year), and there is no indication of any share issue costs in either period. The policy relating to costs of issuing new shares is therefore irrelevant boilerplate in both years and does not reflect any actual transaction of this entity. Including inapplicable policies without entity-specific tailoring reduces the clarity and understandability of the financial statements for users, contrary to FRS 102's requirement that policies disclosed should be those actually adopted by the entity in determining the amounts shown. (confidence 0.72)"
-    },
-    {
-      "category": "judgement",
       "citation": "FRS102 10.21",
       "severity": "standard-material",
-      "text": "The 2023 comparatives in the statement of financial position and notes 14 and 17 are labelled 'As restated' due to the netting of intercompany balances under the Group's Multilateral Netting Deed. Note 14 explains the nature of the reclassification but does not disclose the amount of the correction for each financial statement line affected by the restatement (e.g. the gross amounts removed from creditors and the net effect on the statement of financial position line totals), nor does it confirm whether this is treated as a prior period error under FRS 102 Section 10 or merely a reclassification. The accounts contain no note identifying the nature of the error (omission of netting), the period(s) affected, or the amount of the correction for each line item restated, as required by FRS 102. (confidence 0.78)"
+      "text": "The 2023 comparative figures in the statement of financial position and notes 14 and 17 are labelled 'As restated', reflecting the netting of intercompany balances under the Group's Multilateral Netting Deed (offsetting \u00a326.5m owed to group undertakings against \u00a328.8m owed by group undertakings). Although note 14 briefly describes the mechanical restatement, the accounts do not disclose the nature of the prior period error (i.e. whether this is a correction of a misstatement or a change in accounting policy), do not quantify the correction on each individual line of the statement of financial position affected (e.g. the gross reduction to both debtors and creditors is stated only in note 14 but not for the statement of financial position line totals or net assets), and provide no explanation in a dedicated prior period adjustment note as required. FRS 102 paragraph 10.21 requires an entity correcting a material prior period error to disclose the nature of the error and the amount of the correction for each financial statement line item affected. (confidence 0.78)"
     },
     {
       "category": "judgement",
       "citation": "FRS102 29.6",
       "severity": "standard-material",
-      "text": "The accounts recognise a deferred tax asset of \u00a341,970 at 31 December 2024, of which \u00a341,306 relates to tax losses carried forward. The company reported an operating loss of \u00a3291,475 and an EBITDA loss of \u00a3270,276 in 2024, following a significant decline in turnover and gross profit. While the directors express optimism about future recovery, the accounts contain no explicit assessment or disclosure of whether it is probable that sufficient future taxable profits will be available to recover the losses element of the deferred tax asset. Under FRS 102, recognition of a deferred tax asset on tax losses is limited to the extent it is probable they will be recovered against future taxable profits; given the loss-making position and the scale of restructuring, the absence of any recoverability assessment or disclosure creates a risk that the asset is overstated. (confidence 0.72)"
+      "text": "The company recognises a deferred tax asset of \u00a341,970 at 31 December 2024, of which \u00a341,306 relates to tax losses carried forward. The company reported an operating loss for 2024 and has experienced declining revenues and profitability over multiple years. While the directors express optimism about future trading, no explicit evidence or disclosure is provided in the notes demonstrating that it is probable these tax losses will be recovered against future taxable profits. FRS 102 requires that recognition of deferred tax assets on tax losses is limited to the extent recovery is probable, yet the accounts contain no assessment of the sufficiency or timing of anticipated future taxable profits to support recoverability of the loss-related deferred tax asset. (confidence 0.72)"
     },
     {
       "category": "disclosure",
-      "citation": "FRS102 3.6",
-      "severity": "standard-material",
-      "status": "absent",
-      "text": "Missing: Where an entity departed from a requirement of FRS 102 or applicable legislation in a prior period and that departure affects amounts recognised in the current period, disclose the information required by paragraph 3.5(c)."
-    },
-    {
-      "category": "disclosure",
-      "citation": "FRS102 3.17",
+      "citation": "FRS102 5.7C",
       "severity": "standard-material",
       "status": "unclear",
-      "text": "Verify: A complete set of financial statements shall include all of the required components as listed in paragraph 3.17 (e.g. a statement of financial position, a statement of comprehensive income or equivalent, a cash flow statement, a statement of changes in equity, and notes)."
+      "text": "Verify: The statement of comprehensive income shall begin with profit or loss as its first line and shall display, as a minimum, line items presenting the amounts described in paragraphs 5.5A and 5.6(b) for the period."
     },
     {
       "category": "disclosure",
-      "citation": "FRS102 3.21",
+      "citation": "FRS102 5.9B",
       "severity": "standard-material",
       "status": "unclear",
-      "text": "Verify: Present each financial statement within a complete set of financial statements with equal prominence."
+      "text": "Verify: If operating profit is disclosed, profits or losses on the disposal of a discontinued operation shall be excluded from operating profit."
     },
     {
       "category": "disclosure",
-      "citation": "FRS102 6.2",
-      "severity": "standard-material",
-      "status": "absent",
-      "text": "Missing: Present in the statement of changes in equity: the effects of changes in accounting policies and corrections of material errors recognised in the period (this row covers one sub-element of paragraph 6.2; companion rows should address profit or loss, OCI, and investments/dividends/distributions)"
-    },
-    {
-      "category": "disclosure",
-      "citation": "FRS102 6.2",
+      "citation": "FRS102 21.14",
       "severity": "standard-material",
       "status": "unclear",
-      "text": "Verify: Present in the statement of changes in equity: (1) profit or loss for the reporting period; (2) other comprehensive income for the period; (3) effects of changes in accounting policies and corrections of material errors recognised in the period; and (4) amounts of investments by, and dividends and other distributions to, equity investors during the period"
+      "text": "Verify: For each class of provision, disclose the following (the paragraph head; sub-items are listed in the full 21.14 text and include: the carrying amount at the beginning and end of the period; additional provisions made in the period, including increases to existing provisions; amounts used during the period; unused amounts reversed during the period; and the unwinding of any discount or change in the discount rate)."
     },
     {
       "category": "disclosure",
-      "citation": "FRS102 6.2",
+      "citation": "FRS102 29.20",
       "severity": "standard-material",
-      "status": "absent",
-      "text": "Missing: Present in the statement of changes in equity: the effects of changes in accounting policies and corrections of material errors recognised in the period"
-    },
-    {
-      "category": "disclosure",
-      "citation": "FRS102 6.2",
-      "severity": "standard-material",
-      "status": "absent",
-      "text": "Missing: Present in the statement of changes in equity: amounts of investments by, and dividends and other distributions to, equity investors during the period"
+      "status": "unclear",
+      "text": "Verify: Expenses shown in profit or loss shall exclude recoverable VAT and other similar recoverable sales taxes."
     },
     {
       "category": "disclosure",
@@ -115,13 +88,6 @@
       "severity": "standard-material",
       "status": "absent",
       "text": "Missing: Disclose the information required by paragraph 33.9 separately for each of the following categories of related party: (a) entities with control, joint control or significant influence over the entity; (b) subsidiaries; (c) associates; (d) joint ventures in which the entity is a venturer; (e) key management personnel; (f) other related parties."
-    },
-    {
-      "category": "disclosure",
-      "citation": "FRS102 9.8",
-      "severity": "statutory",
-      "status": "absent",
-      "text": "Missing: Do not exclude a subsidiary from consolidation solely because its business activities are dissimilar to those of other entities within the group."
     },
     {
       "category": "disclosure",
@@ -135,29 +101,29 @@
     {
       "fact_key": "not_going_concern",
       "topic": "Going concern",
-      "question": "Is there any doubt about the company's ability to continue operating as a going concern over the next 12 months, or have you identified circumstances that suggest it may not be able to pay its debts as they fall due?",
-      "why": "If the company is not a going concern, we must disclose this fact prominently and may need to revalue assets on a break-up basis rather than a going concern basis.",
+      "question": "Is the company expected to continue operating as a going concern over the next twelve months, or are there circumstances that mean it might not?",
+      "why": "If the company is not a going concern, the financial statements must be prepared on a different basis and additional disclosures are required about the circumstances.",
       "citation": "FRS102 3.9, FRS102 32.7B"
     },
     {
       "fact_key": "has_going_concern_material_uncertainties",
-      "topic": "Going concern uncertainties",
-      "question": "Are there any significant events or conditions that create material uncertainty about whether the company will remain a going concern, even though you currently believe it will?",
-      "why": "Material uncertainties about going concern must be disclosed in the notes to help users understand the risks to the business's continuity.",
+      "topic": "Going concern",
+      "question": "Are there any significant uncertainties about whether the company will be able to continue as a going concern that management has identified?",
+      "why": "Material uncertainties about going concern must be disclosed in the notes even if the company is still expected to continue operating.",
       "citation": "FRS102 3.9"
     },
     {
       "fact_key": "has_key_estimation_uncertainties",
       "topic": "Estimation uncertainties",
-      "question": "Are there any areas of the financial statements where you've had to make judgements or estimates that are particularly sensitive to changes in assumptions, or where outcomes could significantly differ from what you've recorded?",
-      "why": "Key sources of estimation uncertainty must be disclosed so users understand which figures in the accounts carry the greatest risk of material change.",
+      "question": "Are there any areas in the financial statements where the outcome is particularly uncertain and depends heavily on management's judgement or assumptions?",
+      "why": "Key sources of estimation uncertainty must be disclosed separately in the notes so readers understand which figures involve the most subjective judgement.",
       "citation": "FRS102 8.7"
     },
     {
       "fact_key": "has_material_prior_period_error",
-      "topic": "Prior period error",
-      "question": "Have you discovered any errors in amounts reported in the previous year's financial statements that were material enough to require correction, rather than just being caught this year and dealt with prospectively?",
-      "why": "Material prior period errors require restatement of comparative figures and specific disclosure of the nature and amount of the correction.",
+      "topic": "Prior period errors",
+      "question": "Have you identified any errors in the prior year financial statements that were material enough to require correction or disclosure?",
+      "why": "Material prior period errors require restatement of comparative figures and must be explained in the notes to help readers understand the changes.",
       "citation": "FRS102 10.21"
     },
     {
